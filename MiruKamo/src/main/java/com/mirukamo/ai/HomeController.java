@@ -34,8 +34,9 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		Tokenizer tokenizer = Tokenizer.builder().build();
-        List<Token> tokens = tokenizer.tokenize("もう眠い");
-
+        
+		List<Token> tokens = tokenizer.tokenize("もう眠い");
+        
         for (Token token : tokens) {
             System.out.println("====================");
             // allFeatures tokenの全ての要素を出力
@@ -60,6 +61,8 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 //kk	
 		//umumum
+		 
+		 
 		return "home";
 	}
 	

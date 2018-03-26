@@ -32,13 +32,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-<<<<<<< HEAD
-		//엄정환 주석
-		 //주우우우우석
-		  
-=======
-		   
->>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
+//kk
 		return "home";
 	}
 	

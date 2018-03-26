@@ -53,7 +53,7 @@ public class HomeController {
             System.out.println("isUnKnown: " + token.isUnknown());
             // isUser ユーザーで定義した言葉かどうか
             System.out.println("User: " + token.isUser());
-}
+        }
 		model.addAttribute("serverTime", formattedDate );
 //kk	
 		return "home";

@@ -25,14 +25,20 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+		//ㅈ석
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+<<<<<<< HEAD
+		//엄정환 주석
+		 //주우우우우석
 		  
+=======
+		   
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 		return "home";
 	}
 	

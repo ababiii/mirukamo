@@ -68,8 +68,9 @@ body {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
-  <a href="login/logout">로그아웃</a>
+  <a href="login/logout">로그아웃11111</a>
   <a href="myPage/myPage">마이페이지</a>
+   <a href="myPage/myPage">수정</a>
 </div>
 
 <!-- Use any element to open the sidenav -->

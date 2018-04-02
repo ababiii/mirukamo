@@ -3,6 +3,8 @@ package dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import vo.Users;
+
 
 @Repository
 public class UsersDAO {

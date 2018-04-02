@@ -68,8 +68,14 @@ body {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
+<<<<<<< HEAD
   <a href="login/logout">로그아웃11</a>
   <a href="myPage/myPage">마이페이지11</a>
+=======
+  <a href="login/logout">로그아웃2222</a>
+  <a href="myPage/myPage">마이페이지</a>
+   <a href="myPage/myPage">수정</a>
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </div>
 
 <!-- Use any element to open the sidenav -->

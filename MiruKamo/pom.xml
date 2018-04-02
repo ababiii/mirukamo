@@ -16,7 +16,7 @@
 	</properties>
 	
 	
-	<!-- ojdbc6.jar 레퍼런스 주소 --> 
+	<!-- ojdbc6.jar 레퍼런스 주소1 --> 
  	<repositories> 
  	<repository>
     <id>Atilika Open Source repository</id>

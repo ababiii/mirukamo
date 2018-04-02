@@ -69,7 +69,7 @@ body {
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
   <a href="login/logout">로그아웃</a>
-  <a href="myPage/myPage">마이페이지</a>
+  <a href="myPage/myPage">마이페이지11</a>
 </div>
 
 <!-- Use any element to open the sidenav -->

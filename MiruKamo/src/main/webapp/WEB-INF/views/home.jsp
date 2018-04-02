@@ -68,7 +68,7 @@ body {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
-  <a href="login/logout">로그아웃</a>
+  <a href="login/logout">로그아웃11</a>
   <a href="myPage/myPage">마이페이지11</a>
 </div>
 

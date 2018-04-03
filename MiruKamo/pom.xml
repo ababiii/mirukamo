@@ -15,6 +15,7 @@
 		<org.slf4j-version>1.7.22</org.slf4j-version>
 	</properties>
 	
+	<!-- 오오 -->
 	
 	<!-- ojdbc6.jar 레퍼런스 주소11 --> 
  	<repositories> 

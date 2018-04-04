@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AppointmentController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AppointmentController.class);
-	
+	//
 	@RequestMapping(value="appointment",method=RequestMethod.GET)
 	public String appointment(){	
 		return "users/joinAppointment";

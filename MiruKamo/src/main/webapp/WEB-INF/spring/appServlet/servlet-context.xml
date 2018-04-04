@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.mirukamo.ai.controller" />
+	<context:component-scan base-package="com.mirukamo.ai" />
 	
 <!-- 		로그인 인터셉터 정의
 	<beans:bean id="loginInterceptor" class="com.mirukamo.ai.interceptor.LoginInterceptor"></beans:bean>

@@ -1,4 +1,4 @@
-package com.mirukamo.ai;
+package com.mirukamo.ai.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

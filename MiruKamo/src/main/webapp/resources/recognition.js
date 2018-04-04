@@ -1,7 +1,7 @@
 var result  = new Array(); 
 var recognition = new webkitSpeechRecognition();
 //recognition.continuous=true;
-
+var video;
 recognition.onresult = function(event) {
 	var txt = document.getElementById('txt');
 	//txt.value=event.results[0][0].transcript;
@@ -11,7 +11,9 @@ recognition.onresult = function(event) {
   
   
   if(result.length>3){
+	  checking();
 	  result.shift();
+	 
   }
   if(true){
 	  
@@ -21,9 +23,7 @@ recognition.onresult = function(event) {
 		}
 	 
   }
-  
-  
-  
+
 }
 recognition.lang = 'ja-JP';
 recognition.onend = function() {
@@ -38,16 +38,14 @@ recognition.maxAlternatives = 1;
 
 function recstart(){
 	recognition.start();
+	//video=document.getElementsByTagName('video')[1];
+}
+function recstop(){
+	recognition.stop();
 }
 
-// List cameras and microphones.
-/*
-navigator.mediaDevices.enumerateDevices()
-.then(function(devices) {
-  devices.forEach(function(device) {
-    console.log(device.kind + ": " + device.label +
-                " id = " + device.deviceId);
-   
-  });
-});
-*/
+function checking(){
+	video=document.getElementsByTagName('video')[1];
+	if(result[0].indexOf("こんにちは")>-1)
+		video.pause();
+}

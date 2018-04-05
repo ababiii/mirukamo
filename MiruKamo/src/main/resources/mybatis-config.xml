@@ -7,7 +7,8 @@
 
 	<!-- Java Class에 대한 alias 지정 -->
 	<typeAliases>
-		<typeAlias type="mirukamoVo.mirukamo_question" alias="mirukamo_question" />
+		<typeAlias type="mirukamoVo.mirukamo_question" alias="question" />
+		
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->

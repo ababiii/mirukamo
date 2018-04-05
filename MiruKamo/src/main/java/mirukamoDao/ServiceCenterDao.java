@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import mirukamoMapper.ServiceCenterMapper;
 import mirukamoVo.mirukamo_question;
 
-
+@Repository
 public class ServiceCenterDao {
 
 	@Autowired
@@ -26,7 +27,6 @@ public class ServiceCenterDao {
 		System.out.println("잘 가져온건가 확인하는"+boardinfo.toString());
 		
 		return boardinfo;
+		
 	}
-	
-	
 }

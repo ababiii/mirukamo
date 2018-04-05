@@ -8,11 +8,7 @@
 <mapper namespace="mirukamoMapper.ServiceCenterMapper">
 
 <!-- 공지사항 전체 출력 -->
-<select id="getboardinfo" resultType="mirukamo_question">
+<select id="getboardinfo" resultType="question">
 select * from mirukamo_question
 </select>
-	
-	
-	
-	
 </mapper>

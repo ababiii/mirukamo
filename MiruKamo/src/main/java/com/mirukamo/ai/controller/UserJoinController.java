@@ -32,14 +32,9 @@ public class UserJoinController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(Users users) {
-		try{
-		usersDAO.insertUser(users);
 		
-		return "users/joinSuccessPage";
-		}catch(Exception e){
-			e.printStackTrace();
-			
-		}
+		logger.debug(users.toString());
+		usersDAO.insertUser(users);
 		return "users/joinSuccessPage";
 	}
 	

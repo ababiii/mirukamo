@@ -395,7 +395,7 @@ function audioend(){
 =======
   <a href="login/logout">로그아웃2222</a>
   <a href="myPage/myPage">마이페이지</a>
-   <a href="myPage/myPage">수정</a>
+    <a href="servicecenter">고객센터</a>
 >>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </div>
 

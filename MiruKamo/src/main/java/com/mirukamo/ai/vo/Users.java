@@ -2,85 +2,84 @@ package com.mirukamo.ai.vo;
 
 public class Users {
 	
-	private String id;
-	private String password;
-	private String name;
-	private String email;
-	private String email2;
-	private String birthday;
-	private String phone;
-	private String admin;
+	private String userId;
+	private String userPassword;
+	private String userName;
+	private String userEmail;
+	private String userEmail2;
+	private String userBirthday;
+	private String userPhone;
+	private String userAdmin;
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Users(String id, String password, String name, String email, String email2, String birthday, String phone,
-			String admin) {
+	public Users(String userId, String userPassword, String userName, String userEmail, String userEmail2,
+			String userBirthday, String userPhone, String userAdmin) {
 		super();
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-		this.email2 = email2;
-		this.birthday = birthday;
-		this.phone = phone;
-		this.admin = admin;
+		this.userId = userId;
+		this.userPassword = userPassword;
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.userEmail2 = userEmail2;
+		this.userBirthday = userBirthday;
+		this.userPhone = userPhone;
+		this.userAdmin = userAdmin;
 	}
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getPassword() {
-		return password;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	public String getEmail2() {
-		return email2;
+	public String getUserEmail2() {
+		return userEmail2;
 	}
-	public void setEmail2(String email2) {
-		this.email2 = email2;
+	public void setUserEmail2(String userEmail2) {
+		this.userEmail2 = userEmail2;
 	}
-	public String getBirthday() {
-		return birthday;
+	public String getUserBirthday() {
+		return userBirthday;
 	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setUserBirthday(String userBirthday) {
+		this.userBirthday = userBirthday;
 	}
-	public String getPhone() {
-		return phone;
+	public String getUserPhone() {
+		return userPhone;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
 	}
-	public String getAdmin() {
-		return admin;
+	public String getUserAdmin() {
+		return userAdmin;
 	}
-	public void setAdmin(String admin) {
-		this.admin = admin;
+	public void setUserAdmin(String userAdmin) {
+		this.userAdmin = userAdmin;
 	}
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", email2="
-				+ email2 + ", birthday=" + birthday + ", phone=" + phone + ", admin=" + admin + "]";
+		return "Users [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName + ", userEmail="
+				+ userEmail + ", userEmail2=" + userEmail2 + ", userBirthday=" + userBirthday + ", userPhone="
+				+ userPhone + ", userAdmin=" + userAdmin + "]";
 	}
-	
-	
 	
 	
 

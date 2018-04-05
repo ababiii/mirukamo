@@ -12,13 +12,13 @@
 	<insert id="insertUsers" parameterType="Users">
 		insert into 
 			mirukamo_users (
-			id,
-			password,
-			email,
-			email2,
-			name,
-			phone,
-			birth
+			userId,
+			userPassword,
+			userEmail,
+			userEmail2,
+			userName,
+			userPhone,
+			userBirthday
 			) 
 		values (
 			#{userId},
@@ -40,7 +40,7 @@
 		from
 			mirukamo_users
 		where
-			id=#{userId}
+			userId=#{userId}
 	</select>
 
 

@@ -36,7 +36,7 @@ public class UserLoginController {
 			String msg = "아이디 입력";
 			model.addAttribute("errorMsg",msg);
 			return "users/login";
-		}else if(!userId.equals(users.getId())){
+		}else if(!userId.equals(users.getUserId())){
 			String msg="아이디 없음";
 			model.addAttribute("errorMsg",msg);
 			return "users/login";
@@ -44,14 +44,14 @@ public class UserLoginController {
 			String msg="비밀번호 입력";
 			model.addAttribute("errorMsg",msg);
 			return "users/login";
-		}else if(!userPassword.equals(users.getPassword())){
+		}else if(!userPassword.equals(users.getUserPassword())){
 			String msg="비밀번호 다름";
 			model.addAttribute("errorMsg",msg);
 			return "users/login";
-		}else if(userId.equals(users.getId())&&userPassword.equals(users.getPassword())){
+		}else if(userId.equals(users.getUserId())&&userPassword.equals(users.getUserPassword())){
 		
-		session.setAttribute("userId",users.getId());
-		session.setAttribute("userName",users.getName());
+		session.setAttribute("userId",users.getUserId());
+		session.setAttribute("userName",users.getUserName());
 		}
 		return "redirect:/";
 	}

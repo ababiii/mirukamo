@@ -181,7 +181,7 @@ document.join.userBirthday.value = userBirthday;
          <div class="form-group">
           <label class="control-label col-sm-3">아이디<span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
-            <input type="text" class="form-control" name="id" id="userId" placeholder="아이디를 입력하세요" onclick="idCheckOpen()">
+            <input type="text" class="form-control" name="userId" id="userId" placeholder="아이디를 입력하세요" onclick="idCheckOpen()">
           </div>
         </div>
         
@@ -191,7 +191,7 @@ document.join.userBirthday.value = userBirthday;
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input type="password" class="form-control" name="password" id="userPassword" placeholder="비밀번호를 입력하세요." value="">
+              <input type="password" class="form-control" name="userPassword" id="userPassword" placeholder="비밀번호를 입력하세요." value="">
            </div>   
           </div>
         </div>
@@ -200,7 +200,7 @@ document.join.userBirthday.value = userBirthday;
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input type="password" class="form-control" name="password2" id="userPassword2" placeholder="비밀번호를 확인해 주세요." value="">
+              <input type="password" class="form-control" name="userPassword2" id="userPassword2" placeholder="비밀번호를 확인해 주세요." value="">
             </div>  
           </div>
         </div>
@@ -209,7 +209,8 @@ document.join.userBirthday.value = userBirthday;
           <div class="col-md-8 col-sm-9">
               <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-              <input type="email" class="form-control" name="email" id="userEmail" placeholder="이메일을 입력하세요." value="">
+              <input type="email" class="form-control" name="userEmail" id="userEmail" placeholder="이메일을 입력하세요." value="">
+              <input type="email" class="form-control" name="userEmail2" id="userEmail2" placeholder="이메일을 입력하세요." value="">
             </div>
             <small> 귀하의 이메일은 계정 승인 및 복구 보안을 위해 사용됩니다. </small> </div>
         </div>
@@ -218,7 +219,7 @@ document.join.userBirthday.value = userBirthday;
         <div class="form-group">
           <label class="control-label col-sm-3">이름 <span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
-            <input type="text" class="form-control" name="name" id="userName" placeholder="이름을 입력하세요.">
+            <input type="text" class="form-control" name="userName" id="userName" placeholder="이름을 입력하세요.">
           </div>
         </div>
         
@@ -228,17 +229,17 @@ document.join.userBirthday.value = userBirthday;
           <div class="col-md-5 col-sm-8">
           	<div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-            <input type="text" class="form-control"  name="phone" id="userPhone" placeholder="휴대폰 번호를 입력하세요." value="">
+            <input type="text" class="form-control"  name="userPhone" id="userPhone" placeholder="휴대폰 번호를 입력하세요." value="">
             </div>
           </div>
         </div>
         
-        <div class="form-group">
+       <!--  <div class="form-group">
           <label class="control-label col-sm-3">생년월일 <span class="text-danger">*</span></label>
           <div class="col-xs-8">
             <div class="form-inline">
 	             <div class="form-group" >
-                <select name="yyyy" class="form-control" id="yyyy">
+                <select name="yyyy" class="form-control" id="yyyy" >
                   <option value="0">년</option>
                   <option value="1955" >1955 </option><option value="1956" >1956 </option><option value="1957" >1957 </option><option value="1958" >1958 </option><option value="1959" >1959 </option><option value="1960" >1960 </option><option value="1961" >1961 </option><option value="1962" >1962 </option><option value="1963" >1963 </option><option value="1964" >1964 </option><option value="1965" >1965 </option><option value="1966" >1966 </option><option value="1967" >1967 </option><option value="1968" >1968 </option><option value="1969" >1969 </option><option value="1970" >1970 </option><option value="1971" >1971 </option><option value="1972" >1972 </option><option value="1973" >1973 </option><option value="1974" >1974 </option><option value="1975" >1975 </option><option value="1976" >1976 </option><option value="1977" >1977 </option><option value="1978" >1978 </option><option value="1979" >1979 </option><option value="1980" >1980 </option><option value="1981" >1981 </option><option value="1982" >1982 </option><option value="1983" >1983 </option><option value="1984" >1984 </option><option value="1985" >1985 </option><option value="1986" >1986 </option><option value="1987" >1987 </option><option value="1988" >1988 </option><option value="1989" >1989 </option><option value="1990" >1990 </option><option value="1991" >1991 </option><option value="1992" >1992 </option><option value="1993" >1993 </option><option value="1994" >1994 </option><option value="1995" >1995 </option><option value="1996" >1996 </option><option value="1997" >1997 </option><option value="1998" >1998 </option><option value="1999" >1999 </option><option value="2000" >2000 </option><option value="2001" >2001 </option><option value="2002" >2002 </option><option value="2003" >2003 </option><option value="2004" >2004 </option><option value="2005" >2005 </option><option value="2006" >2006 </option>                </select>
               </div>
@@ -269,9 +270,14 @@ document.join.userBirthday.value = userBirthday;
               </div>
             </div>
           </div>
+        </div> -->
+       
+        <div class="form-group">
+          <label class="control-label col-sm-3">생년월일 <span class="text-danger">*</span></label>
+          <div class="col-md-8 col-sm-9">
+            <input type="text" class="form-control" name="userBirthday" id="userBirthday" placeholder="생년월일을 입력하세요.">
+          </div>
         </div>
-      
-        
         <div class="form-group">
           <div class="col-xs-offset-3 col-md-8 col-sm-9"><span class="text-muted"><span class="label label-danger">Note:-</span> By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Policy</a>, including our <a href="#">Cookie Use</a>.</span> </div>
         </div>
@@ -280,7 +286,7 @@ document.join.userBirthday.value = userBirthday;
             <input name="Submit" type="submit" value="회원가입" class="btn btn-primary" onclick="formCheck()">
           </div>
         </div>
-        <input type="hidden" name="birth" value="">
+        <input type="hidden" name="userBirthday" value="">
       </form>
     </div>
 </div>

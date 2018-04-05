@@ -1,6 +1,7 @@
-package com.mirukamo.ai;
+package com.mirukamo.ai.controller;
 
 import java.text.DateFormat;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -59,8 +60,6 @@ public class HomeController {
             System.out.println("User: " + token.isUser());
         }
 		model.addAttribute("serverTime", formattedDate );
-//kk	
-		//umumum
 		 
 		 
 		return "home";

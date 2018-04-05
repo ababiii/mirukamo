@@ -15,6 +15,6 @@
 회원가입 하신 계정으로 로그인 해주세요. 
 </div>
 
-<button>로그인 페이지</button>
+<a href="../login/login">로그인 페이지로 가기</a>
 </body>
 </html>

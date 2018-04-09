@@ -1,4 +1,4 @@
-package mirukamoVo;
+package com.mirukamo.ai.vo;
 
 public class mirukamo_question {
 

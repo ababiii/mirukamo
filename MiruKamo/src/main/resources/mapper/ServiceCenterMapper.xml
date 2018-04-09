@@ -5,10 +5,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 검색 처리 SQL -->
-<mapper namespace="mirukamoMapper.ServiceCenterMapper">
+<mapper namespace="com.mirukamo.ai.dao.ServiceCenterMapper">
 
 <!-- 공지사항 전체 출력 -->
 <select id="getboardinfo" resultType="question">
 select * from mirukamo_question
 </select>
+
+<!-- 공지사항 게시 글 출력 -->
+<select id="adminNotice" resultType="question" parameterType="int">
+select * from mirukamo_question
+where num =#{num}
+</select>
+
 </mapper>

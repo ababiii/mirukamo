@@ -10,24 +10,24 @@
 	
 	
 	<insert id="insertUsers" parameterType="Users">
-		insert into mirukamo_users
-			(id
-,password
-,email
-,email2
-,name
-,phone
-,birth
-			) 
-		values (
-			#{id},
-			#{password},
-			#{email},
-			#{email2},
-			#{name},
-			#{phone},
-			#{birth}
-			) 
+	insert into mirukamo_users
+	(id
+	,password
+	,email
+	,email2
+	,name
+	,phone
+	,birth
+	)
+	values (
+	#{id},
+	#{password},
+	#{email},
+	#{email2},
+	#{name},
+	#{phone},
+	#{birth}
+	) 
 	</insert>
 	
 	
@@ -40,6 +40,13 @@
 			mirukamo_users
 		where
 			id=#{id}
+	</select>
+	
+	<select id="selectAllUsers" resultType="Users">
+		select
+			*
+		from 
+			mirukamo_users
 	</select>
 
 

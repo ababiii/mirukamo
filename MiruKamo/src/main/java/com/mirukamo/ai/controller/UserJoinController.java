@@ -67,4 +67,22 @@ public class UserJoinController {
 		
 	}
 	
+	/*회원가입 이메일 중복확인*/
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
+	public String emailCheck(){
+		return "users/emailCheck";
+	}
+	
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.POST)
+	public String emailCheck(Users users,String searchEmail,Model model){
+		users=null;
+		if(searchEmail!=null){
+			users = usersDAO.selectUser(searchEmail);
+			model.addAttribute("searchEmail",searchEmail);
+			model.addAttribute("Email",users);
+		}
+		return "users/emailCheck";
+		
+	}
+	
 }

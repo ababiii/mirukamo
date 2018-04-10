@@ -10,27 +10,30 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="writereviews" method="post" >
 	<table border="3">
 		<tr>
-			<td colspan="2">자주 묻는 질문</td>
+			<td colspan="2">수강후기 글 작성</td>
 		</tr>
-		<c:forEach items="${qna}" var="a">
-			<tr>
-				<td>제목</td>
-				<td>${a.title}</td>
-			</tr>
-			<tr>
-				<td>작성날짜</td>
-				<td>${a.question_date}</td>
-			</tr>
-			<tr>
-				<td colspan="2">${a.content}</td>
-			</tr>
-		</c:forEach>
+		<tr>
+			<th>아이디</th>
+			<th><input type="text" name="customer_id" id="customer_id"
+				readonly="readonly" value="${userId}"></th>
+		</tr>
+
+		<tr>
+			<th>제목</th>
+			<th><input type="text" name="title" id="title"></th>
+		</tr>
+		<tr>
+			<th colspan="2">
+			<input type="text" name="content" id="content">
+			</th>
+		</tr>
 	</table>
 	<a href="servicecenter">뒤로가기</a>
-	<c:if test="${admin} != null">
-		<a href="writenotice">자주 묻는 글 작성</a>
-	</c:if>
+	<input type="submit" value="작성">
+	<input type="reset" value="다시쓰기">
+</form>
 </body>
 </html>

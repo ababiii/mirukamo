@@ -7,24 +7,21 @@ public class Users {
 	private String name;
 	private String email;
 	private String email2;
-	private String birthday;
+	private String birth;
 	private String phone;
 	private String admin;
 	public Users() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public Users(String id, String password, String name, String email, String email2, String birthday, String phone,
-			String admin) {
+	public Users(String id, String password, String name, String email, String email2, String birth, String phone) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.email2 = email2;
-		this.birthday = birthday;
+		this.birth = birth;
 		this.phone = phone;
-		this.admin = admin;
 	}
 	public String getId() {
 		return id;
@@ -56,11 +53,11 @@ public class Users {
 	public void setEmail2(String email2) {
 		this.email2 = email2;
 	}
-	public String getBirthday() {
-		return birthday;
+	public String getBirth() {
+		return birth;
 	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getPhone() {
 		return phone;
@@ -77,9 +74,8 @@ public class Users {
 	@Override
 	public String toString() {
 		return "Users [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", email2="
-				+ email2 + ", birthday=" + birthday + ", phone=" + phone + ", admin=" + admin + "]";
+				+ email2 + ", birth=" + birth + ", phone=" + phone + ", admin=" + admin + "]";
 	}
-	
 	
 	
 	

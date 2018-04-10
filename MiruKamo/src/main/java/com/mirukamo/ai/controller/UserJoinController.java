@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mirukamo.ai.dao.UsersDAO;
+import com.mirukamo.ai.util.UsersValidator;
 import com.mirukamo.ai.vo.Users;
 
 
@@ -31,9 +32,15 @@ public class UserJoinController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(Users users) {
+	public String join(Users users, Model model) {
 		
-		logger.debug(users.toString());
+		UsersValidator uv = new UsersValidator(); 
+		String msg = uv.validate(users);
+		if(msg!=null){
+			model.addAttribute("errorMsg",msg);
+			logger.debug(msg);
+			return "users/join";
+		}
 		usersDAO.insertUser(users);
 		return "users/joinSuccessPage";
 	}

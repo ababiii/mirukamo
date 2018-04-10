@@ -12,25 +12,28 @@
 <body>
 	<table border="3">
 		<tr>
-			<td colspan="2">공지 사항</td>
+			<td colspan="3">수강후기</td>
 		</tr>
-		<c:forEach items="${adminNotice}" var="a">
+		<c:forEach items="${reviews}" var="re">
 			<tr>
+				<td>제목</td>
+				<td colspan="2">${re.title}</td>
+			</tr>
 			<td>아이디</td>
-			<td>${a.member_id}</td>
+			<td>${re.customer_id}</td>
+			<td>${re.hits}</td>
+			<tr>
+				<td>작성날짜</td>
+				<td colspan="2">${re.review_date }</td>
 			</tr>
 			<tr>
-			<td>제목</td>
-			<td>${a.title}</td>
-			</tr>
-			<tr>
-			<td colspan="2">${a.content}</td>
+				<td colspan="3">${re.content}</td>
 			</tr>
 		</c:forEach>
 	</table>
-	<a href ="servicecenter">뒤로가기</a>
-	<c:if test="${admin} != null">
-		<a href ="writenotice">공지 사항 작성</a>
+	<a href="servicecenter">뒤로가기</a>
+	<c:if test="${userId != null}">
+		<a href="writereviews">수강후기 작성</a>
 	</c:if>
-	</body>
+</body>
 </html>

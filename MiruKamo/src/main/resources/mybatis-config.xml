@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.mirukamo.ai.vo.Users" alias="Users" />
 		<typeAlias type="com.mirukamo.ai.vo.mirukamo_question" alias="question" />
+		<typeAlias type="com.mirukamo.ai.vo.mirukamo_reviews" alias="reviews" />
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->
@@ -26,4 +27,3 @@
 		<mapper resource="mapper/ServiceCenterMapper.xml" />
 	</mappers>
 </configuration>
-

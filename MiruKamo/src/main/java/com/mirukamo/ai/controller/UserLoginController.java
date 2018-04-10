@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.mirukamo.ai.dao.UsersDAO;
@@ -64,4 +65,33 @@ public class UserLoginController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/find_pw", method = RequestMethod.GET)
+	public String find_pw() {
+		
+		return "users/find_pw";
+	}
+	
+	
+	
+	@RequestMapping(value = "/reset_pw_form", method = RequestMethod.POST)
+	public String find_pw2(Model model, Users user,HttpSession session) {
+		Users result = usersDAO.find_pw(user);
+		if(result == null){
+			return  "redirect:/";
+		}else{
+			session.setAttribute("based", result);
+			return  "users/reset_pw_form";
+		}
+	}
+	
+	@RequestMapping(value = "/reset_pw", method = RequestMethod.POST)
+	public String reset_pw(Users users,String userId, String userPassword, HttpSession session, Model model) {
+		Users result = (Users)session.getAttribute("based");
+		result.setPassword(users.getPassword());
+		usersDAO.reset_pw(result);
+		return "users/reset_pw_form" ;
+	}
+	
+	
+
 }

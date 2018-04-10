@@ -39,8 +39,26 @@
 		from
 			mirukamo_users
 		where
-			id=#{id}
+			id=#{id} 
 	</select>
+	
+	<select id="find_pw" parameterType="Users" resultType="Users">
+		select 
+			*
+		from
+			mirukamo_users
+		where
+			id=#{id} and email = #{email} and name = #{name}
+	</select>
+	
+<update id = "reset_pw" parameterType = "Users">
+update 
+	users
+	set
+	password = #{password}
 
+where
+    id = #{id} and email = #{email} and name = #{name}
+</update>
 
 </mapper>

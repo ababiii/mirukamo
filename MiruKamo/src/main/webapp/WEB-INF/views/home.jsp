@@ -87,12 +87,13 @@ recstart();
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
 
-  <a href="login/logout">로그아웃11</a>
-  <a href="myPage/myPage">마이페이지11112</a>
+  <a href="login/logout">로그아웃</a>
+  <a href="mypage/mypage">마이페이지</a>
 
-  <a href="login/logout">로그아웃2222</a>
-  <a href="myPage/myPage">마이페이지</a>
-   <a href="myPage/myPage">수정</a>
+  <a href="login/logout">로그아웃</a>
+  <a href="mypage/mypage">마이페이지</a>
+   <a href="myPage/mypage">수정</a>
+   <a href="login/find_pw">비밀번호 찾기</a>
 </div>
 
 <!-- Use any element to open the sidenav -->

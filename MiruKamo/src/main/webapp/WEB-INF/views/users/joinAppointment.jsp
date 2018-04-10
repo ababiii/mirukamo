@@ -8,6 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입 약관</title>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var error='${error}';
+
+	if(error!=''){
+	alert('필수 약관에 모두 동의하셔야 다음으로 넘어갈 수 있습니다.');
+	}
+});
+</script>
 <style>
 .appointmentBox{
 	border-style: solid;
@@ -26,7 +36,6 @@
 </style>
 </head>
 <body>
-
 <a href="./"><img src="./resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <h1 align="center">이용약관 동의</h1>
 

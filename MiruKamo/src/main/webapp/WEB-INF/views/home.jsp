@@ -89,7 +89,7 @@ recstart();
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a><h1>비로그인 사용자</h1></a>
-  <a href="join/join">회원가입</a>
+  <a href="appointment">회원가입</a>
   <a href="login/login">로그인</a>
 
   <a href="login/logout">로그아웃11</a>

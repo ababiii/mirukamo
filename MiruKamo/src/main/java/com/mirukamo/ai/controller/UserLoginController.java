@@ -1,6 +1,7 @@
 package com.mirukamo.ai.controller;
 
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.vo.Users;
 
@@ -52,6 +55,7 @@ public class UserLoginController {
 		
 		session.setAttribute("userId",users.getId());
 		session.setAttribute("userName",users.getName());
+		session.setAttribute("adminCheck",users.getAdmin());
 		}
 		return "redirect:/";
 	}
@@ -62,6 +66,14 @@ public class UserLoginController {
 		session.invalidate();
 		
 		return "redirect:/";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/userRegisterCheck", method = RequestMethod.POST)
+	public int userRegisterCheck(String userID, Users user,HttpSession session) {
+		user = usersDAO.selectUser(userID);
+		session.setAttribute("toID", user.getId());
+		return 0;
 	}
 	
 }

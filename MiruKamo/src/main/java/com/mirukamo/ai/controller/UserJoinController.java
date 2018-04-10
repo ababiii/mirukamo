@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mirukamo.ai.dao.UsersDAO;
+import com.mirukamo.ai.util.UsersValidator;
 import com.mirukamo.ai.vo.Users;
 
 
@@ -24,16 +25,27 @@ public class UserJoinController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserJoinController.class);
 	
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String join() {
-		
+	@RequestMapping(value = "/joinForm", method = RequestMethod.POST)
+	public String join(Model model,boolean ok1,boolean ok2,boolean fromAppointment) {
+		logger.debug(ok1+","+ok2+","+fromAppointment);
+		if(ok1==false||ok2==false||fromAppointment==false){
+			model.addAttribute("error", true);
+			return "redirect:../appointment";
+		}
 		return "users/join";
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(Users users) {
+	public String join(Users users, Model model) {
 		
-		logger.debug(users.toString());
+		
+		UsersValidator uv = new UsersValidator(); 
+		String msg = uv.validate(users);
+		if(msg!=null){
+			model.addAttribute("errorMsg",msg);
+			logger.debug(msg);
+			return "users/join";
+		}
 		usersDAO.insertUser(users);
 		return "users/joinSuccessPage";
 	}

@@ -59,7 +59,7 @@ body {
     .sidenav a {font-size: 18px;}
 }
 </style>
-	<title>Home</title>
+	<title>홈 페이지</title>
 </head>
 <body>
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
@@ -162,8 +162,30 @@ $( function() {
  <input type="button" value="on" onclick="audiostart()">
     <input type="button" value="off" onclick="audioend()">
 
+<!-- 비 로그인 사용자에게 보이는 메뉴 -->
+
+
+<c:if test="${sessionScope.adminCheck==null }">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a><h1>비로그인 사용자</h1></a>
+  <a href="appointment">회원가입</a>
+  <a href="login/login">로그인</a>
+
+  <a href="login/logout">로그아웃11</a>
+  <a href="myPage/myPage">마이페이지11112</a>
+
+  <a href="login/logout">로그아웃2222</a>
+  <a href="myPage/myPage">마이페이지</a>
+   <a href="myPage/myPage">수정</a>
+</div>
+</c:if>
+<!-- admin이 0인 이용자 아이디로 로그인 하면 보이는 메뉴 -->
+<c:if test="${sessionScope.adminCheck==0 }">
+<div id="mySidenav" class="sidenav">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a><h1>${sessionScope.userId } </h1></a>
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
 
@@ -174,6 +196,22 @@ $( function() {
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
 </div>
+</c:if>
+
+<!-- admin이 1인 운영자 계정으로 로그인 하면 보이는 메뉴 -->
+<c:if test="${sessionScope.adminCheck==1 }">
+			운영자 계정으로 로그인
+	<div id="mySidenav" class="sidenav">
+	
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a><h1>운영자</h1></a>
+			<a href="login/logout">로그아웃</a> 
+			<a href="#">수강영상 업로드</a> 
+			<a href="#">1:1 문의 리스트</a> 
+			<a href="servicecenter">고객 센터</a>
+		</div>
+
+	</c:if>
 
 <!-- Use any element to open the sidenav -->
 <span onclick="openNav()">open</span>
@@ -184,7 +222,7 @@ $( function() {
 
 ${sessionScope.userId}
 ${sessionScope.userName}
-
+${sessionScope.adminCheck}
 </div>
 </div>
 <script>

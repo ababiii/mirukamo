@@ -28,5 +28,12 @@ public class UsersDAO {
 		return users;
 	}
 	
+	public Users selectAllUsers(){
+		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+		Users users = null;
+		users = mapper.selectAllUsers();
+		return users;
+	}
+	
 	
 }

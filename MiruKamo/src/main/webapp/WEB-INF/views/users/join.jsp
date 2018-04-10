@@ -39,135 +39,180 @@ h1, h2, h3 {
 <link rel="stylesheet" href="../resources/css/bootstrap-theme.css" >
 <script src="../resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    function tocheckpw() {
-        var pw = document.getElementById("userPassword").value;
-        var pwck = document.getElementById("userPassword2").value;
- 
-        if (pw != pwck) {
-            alert('비밀번호가 틀렸습니다. 다시 입력해 주세요');
-            return false;
-        }
-    }
-</script>
-<script type="text/javascript">
 
 var msg = '${errorMsg}';//가입실패라는 문자가 들어가 있음//서버에서 내용을 안보낸다면 null
 if(msg.length>0){
 alert(msg);//가입 서버에 갔다 왔는지 아닌지를 구분해 줄 수 있다. 
 }
 
-//가입폼 환인
-function formCheck() {
-	
-	//전화번호와 주소는 입력을 안할 수 도 있기 때문에 체크 해 줄 필요가 없다 
-	var custid = document.getElementById('userId');
-	var password = document.getElementById('userPassword');
-	var password2 = document.getElementById('userPassword2');
-	var name = document.getElementById('userName');
-	var phone = document.getElementById('userPhone');
-	var email = document.getElementById('userEmail');
-	
-	
-	if(custid.value ==''){
-		alert("아이디를 입력하세요.");
-		id.focus();
-		return false;
-	}
-	if(custid.value.length<3||custid.value.length>10){
-		alert("아이디 3~10글자 사이로 입력해 주세요.");
-		custid.value='';
-		custid.focuse();
-		return false;
-	}
-	if(password.value ==''){
-		alert("비밀번호를 입력해 주세요");
-		password.focus();
-		return;
-	}
-	if(password.value.length<3||password.value.length>10){
-		alert("비밀번호는 3~10글자 사이로 입력해 주세요..");
-		password.value='';
-		pw.focus();
-		return false;
-	}
-	if(password2.value !=password.value){
-		alert("동일한 비밀번호를 입력해 주세요");
-		password2.value='';
-		password2.focus();
-		return false;
-	}
-	if(name.value ==''){
-		alert("이름을 입력해 주세요");
-		name.focus();
-		return false;
-	}
-	
-	return true;
-	}
+
 	
 function idCheckOpen() {
 	window.open("idCheck","idCheckWin","top=200, left=400, width=400, height=250"); 
 }
 
+function emailCheckOpen() {
+	window.open("emailCheck","emailCheckWin","top=200, left=400, width=400, height=250"); 
+}
+
 </script>
 
-<script>
-$(function(){
- 
-    $("#userPhone").on('keydown', function(e){
-       // 숫자만 입력받기
-        var trans_num = $(this).val().replace(/-/gi,'');
-	var k = e.keyCode;
-				
-	if(trans_num.length >= 11 && ((k >= 48 && k <=126) || (k >= 12592 && k <= 12687) || k==32 || k==229 || (k>=45032 && k<=55203)) )
-	{
-  	    e.preventDefault();
-	}
-    }).on('blur', function(){ // 포커스를 잃었을때 실행합니다.
-        if($(this).val() == '') return;
- 
-        // 기존 번호에서 - 를 삭제합니다.
-        var trans_num = $(this).val().replace(/-/gi,'');
-      
-        // 입력값이 있을때만 실행합니다.
-        if(trans_num != null && trans_num != '')
-        {
-            // 총 핸드폰 자리수는 11글자이거나, 10자여야 합니다.
-            if(trans_num.length==11 || trans_num.length==10) 
-            {   
-                // 유효성 체크
-                var regExp_ctn = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
-                if(regExp_ctn.test(trans_num))
-                {
-                    // 유효성 체크에 성공하면 하이픈을 넣고 값을 바꿔줍니다.
-                    trans_num = trans_num.replace(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/, "$1-$2-$3");                  
-                    $(this).val(trans_num);
-                }
-                else
-                {
-                    alert("유효하지 않은 전화번호 입니다.");
-                    $(this).val("");
-                    $(this).focus();
-                }
-            }
-            else 
-            {
-                alert("유효하지 않은 전화번호 입니다.");
-                $(this).val("");
-                $(this).focus();
-            }
-      }
-  });  
-});
-</script>
+
 
 <script type="text/javascript">
+function formValidation()
+{
+var userId = document.getElementById('userId');
+var userPassword = document.getElementById('userPassword');
+var userPassword2 = document.getElementById('userPassword2');
+var userEmail = document.getElementById('userEmail');
+var userEmail2 = document.getElementById('userEmail2');
+var yyyy = document.getElementById('yyyy');
 var yyyy = document.getElementById('yyyy');
 var mm = document.getElementById('mm');
 var dd = document.getElementById('dd');
 var userBirthday = yyyy.concat(" ", mm," ", dd, " ");
 document.join.userBirthday.value = userBirthday;
+if(userid_validation(userId,5,12))
+{
+if(passid_validation(passid,7,12))
+{
+if(allLetter(uname))
+{
+if(alphanumeric(uadd))
+{ 
+if(countryselect(ucountry))
+{
+if(allnumeric(uzip))
+{
+if(ValidateEmail(uemail))
+{
+if(validsex(umsex,ufsex))
+{
+}
+} 
+}
+} 
+}
+}
+}
+}
+return false;
 
+} function userid_validation(userId,mx,my)
+{
+var uid_len = userId.value.length;
+if (uid_len == 0 || uid_len >= my || uid_len < mx)
+{
+alert("User Id should not be empty / length be between "+mx+" to "+my);
+uid.focus();
+return false;
+}
+return true;
+}
+function passid_validation(passid,mx,my)
+{
+var passid_len = passid.value.length;
+if (passid_len == 0 ||passid_len >= my || passid_len < mx)
+{
+alert("Password should not be empty / length be between "+mx+" to "+my);
+passid.focus();
+return false;
+}
+return true;
+}
+function allLetter(uname)
+{ 
+var letters = /^[A-Za-z]+$/;
+if(uname.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('Username must have alphabet characters only');
+uname.focus();
+return false;
+}
+}
+function alphanumeric(uadd)
+{ 
+var letters = /^[0-9a-zA-Z]+$/;
+if(uadd.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('User address must have alphanumeric characters only');
+uadd.focus();
+return false;
+}
+}
+function countryselect(ucountry)
+{
+if(ucountry.value == "Default")
+{
+alert('Select your country from the list');
+ucountry.focus();
+return false;
+}
+else
+{
+return true;
+}
+}
+function allnumeric(uzip)
+{ 
+var numbers = /^[0-9]+$/;
+if(uzip.value.match(numbers))
+{
+return true;
+}
+else
+{
+alert('ZIP code must have numeric characters only');
+uzip.focus();
+return false;
+}
+}
+function ValidateEmail(uemail)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(uemail.value.match(mailformat))
+{
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+uemail.focus();
+return false;
+}
+} function validsex(umsex,ufsex)
+{
+x=0;
+
+if(umsex.checked) 
+{
+x++;
+} if(ufsex.checked)
+{
+x++; 
+}
+if(x==0)
+{
+alert('Select Male/Female');
+umsex.focus();
+return false;
+}
+else
+{
+alert('Form Succesfully Submitted');
+window.location.reload()
+return true;
+}
+}
 </script>
 	<title>join</title>
 </head>
@@ -175,9 +220,10 @@ document.join.userBirthday.value = userBirthday;
 <div class="container">
 	<div class="row">
     <div class="col-md-8">
+    	<a href="../">홈으로</a>
         <h1 class="entry-title"><span>회원가입</span> </h1>
         <hr>
-            <form action="join" class="form-horizontal" method="post" onsubmit="return tocheckpw()" data-ajax="false" name="join" id="signup" enctype="multipart/form-data" >        
+            <form action="join" class="form-horizontal" method="post" onSubmit="return formValidation();" data-ajax="false" name="join" id="signup" enctype="multipart/form-data" >        
          <div class="form-group">
           <label class="control-label col-sm-3">아이디<span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
@@ -209,8 +255,8 @@ document.join.userBirthday.value = userBirthday;
           <div class="col-md-8 col-sm-9">
               <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-              <input type="email" class="form-control" name="email" id="userEmail" placeholder="이메일을 입력하세요." value="">
-              <input type="email" class="form-control" name="email2" id="userEmail2" placeholder="이메일을 입력하세요." value="">
+              <input type="text" class="form-control" name="email" id="userEmail" placeholder="이메일을 입력하세요." value="" onclick="emailCheckOpen()">
+              <input type="text" class="form-control" name="email2" id="userEmail2" placeholder="이메일을 입력하세요." value="" onclick="emailCheckOpen()">
             </div>
             <small> 귀하의 이메일은 계정 승인 및 복구 보안을 위해 사용됩니다. </small> </div>
         </div>

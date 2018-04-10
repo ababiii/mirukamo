@@ -44,5 +44,10 @@ public class AppointmentController {
 		return list.get(0).getId();
 		
 	}
+	
+	@RequestMapping(value="myPage",method=RequestMethod.GET)
+	public String myPage(){
+		return "users/myPage";
+	}
 
 }

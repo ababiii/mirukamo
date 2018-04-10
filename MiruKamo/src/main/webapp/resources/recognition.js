@@ -3,7 +3,7 @@ var search  = new Array("こんにちは","山田");
 
 
 var recognition = new webkitSpeechRecognition();
-//recognition.lang = 'ja-JP';
+recognition.lang = 'ja-JP';
 
 
 
@@ -20,23 +20,27 @@ var grammar = '#JSGF V1.0; grammar colors; public <color> = 배상벽 ;'
 
 //recognition.continuous=true;
 var video=new Array();
+var playing;
+var txt;
 recognition.onresult = function(event) {
-	var txt = document.getElementById('txt');
+	txt = document.getElementById('result');
 	//txt.value=event.results[0][0].transcript;
   console.log(event) 
  // alert(event.results[0][0].transcript);
   result.push(event.results[0][0].transcript);
   
-  
-  
-  
+
+  txt.value=event.results[0][0].transcript;
+  $( "#dialog-form" ).dialog( "close" );
+   $( "#result" ).trigger( "change");
+   
   if(result.length>3){
 	  
 	  result.shift();
 	 
   } 
   checking();
- 
+ /*
   if(true){
 	  
 	  txt.value="";
@@ -45,7 +49,7 @@ recognition.onresult = function(event) {
 		}
 	 
   }
-
+*/
 }
 recognition.onend = function() {
 	recognition.start();
@@ -72,12 +76,15 @@ function checking(){
 	//	console.log(result[i]);
 		for(var j in search){
 			if(result[i].indexOf(search[j])>-1){
-				videostop()
+				videostop();
+				$( "#create-user" ).button().trigger("click");
+				
 				}	
 		}	
+		
 	}
 	
-	
+	result.pop();
 	
 }
 function videostop(){
@@ -86,9 +93,19 @@ function videostop(){
 	for(var i in video){
 		  
 		  if(i!=0&&i<video.length){
-			  video[i].pause();
+			  var isPaused = video[i].paused;
+			  if(!isPaused){
+				  video[i].pause();
+				  playing=video[i];
+		  		}
 		  }
 	}
 	
 }
 
+function videostart(){
+if(playing != null)
+	playing.play();
+
+	
+}

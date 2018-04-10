@@ -62,49 +62,94 @@ body {
 	<title>Home</title>
 </head>
 <body>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+<script src="resources/jQuery/jquery-ui.js"></script>
+
 <script src="resources/recognition.js"></script>
 
 <script type="text/javascript">
 recstart();
 </script>
 <script src="resources/audio.js"></script>
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    .innerPopup {
+  	 z-index: 222222;
+	}
+  </style>
+<div id="dialog-form" title="따라해 봅시다" style="z-index: 22222">
+ 
+  <form>
+    <fieldset>
+      <label for="content">내용</label>
+      <input type="text" name="content" id="content" value="こんにちは" readonly="readonly" class="text ui-widget-content ui-corner-all">
+      <label for="result">결과</label>
+      <input type="text" name="result" id="result" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
 
- $(document).ready(function() { // 로그아웃
 
-  $("#modal_button").hide();
-
-  $("#modal_button").trigger('click');
-
+    </fieldset>
+  </form>
+</div>
+ 
  
 
-  
+<button id="create-user">시작</button>
+ 
+<script>
+$( function() {
+    var dialog, form,
+ 
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      content = $( "#content" ),
+      result = $( "#result" ),
+      allFields = $( [] ).add( content ).add( result );
+ 
+   
+ 
+ 
+ 
 
- });
 
+ 
+    dialog = $( "#dialog-form" ).dialog({
+      dialogClass: "innerPopup" , 
+      autoOpen: false,
+      height: 330,
+      width: 350,
+      modal: true,
+      buttons: {
+    	  "넘어가기": function() {
+              $( this ).dialog( "close" );
+            }
+      },
+      close: function() {
+    	  audioend();
+    	  videostart();
+      }
+    });
+ 
+   
+    $( "#create-user" ).button().on( "click", function() {
+    audiostart();
+    $( "#result" ).val("");
+      dialog.dialog( "open" );
+    });
+    $( "#result" ).on("change", function() {
+    	$( "#dialog-form" ).dialog( "close" );
+      });
+  } );
 </script>
+
   <form action="http://www.example.com/search">
     <textarea id="txt" style="width: auto; height: auto;">
     </textarea>

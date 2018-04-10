@@ -43,6 +43,7 @@
 	<input type="text" placeholder="id" name="userId">
 	<input type="password" placeholder="password" name="userPassword">
 	<input type="submit">
+	<a href="../findMyID">아이디 찾기</a>
 </form>
 </body>
 </html>

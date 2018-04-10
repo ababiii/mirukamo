@@ -51,6 +51,10 @@ function idCheckOpen() {
 	window.open("idCheck","idCheckWin","top=200, left=400, width=400, height=250"); 
 }
 
+function emailCheckOpen() {
+	window.open("emailCheck","emailCheckWin","top=200, left=400, width=400, height=250"); 
+}
+
 </script>
 
 
@@ -251,8 +255,8 @@ return true;
           <div class="col-md-8 col-sm-9">
               <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-              <input type="text" class="form-control" name="email" id="userEmail" placeholder="이메일을 입력하세요." value="">
-              <input type="text" class="form-control" name="email2" id="userEmail2" placeholder="이메일을 입력하세요." value="">
+              <input type="text" class="form-control" name="email" id="userEmail" placeholder="이메일을 입력하세요." value="" onclick="emailCheckOpen()">
+              <input type="text" class="form-control" name="email2" id="userEmail2" placeholder="이메일을 입력하세요." value="" onclick="emailCheckOpen()">
             </div>
             <small> 귀하의 이메일은 계정 승인 및 복구 보안을 위해 사용됩니다. </small> </div>
         </div>

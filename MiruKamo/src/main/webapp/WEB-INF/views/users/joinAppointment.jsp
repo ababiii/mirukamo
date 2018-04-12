@@ -8,6 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입 약관</title>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var error='${error}';
+
+	if(error!=''){
+	alert('필수 약관에 모두 동의하셔야 다음으로 넘어갈 수 있습니다.');
+	}
+});
+</script>
 <style>
 .appointmentBox{
 	border-style: solid;
@@ -26,7 +36,6 @@
 </style>
 </head>
 <body>
-
 <a href="./"><img src="./resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <h1 align="center">이용약관 동의</h1>
 
@@ -47,6 +56,8 @@
 위 동의 안내에 거부할 권리가 있습니다.
 그러나 동의 거부할 경우 실명 확인이 되지 않음에 따라 가입 신청 및 수강 신청을 하실 수 없습니다.
 <p>
+<form action="./join/joinForm" method="post" >
+<input type="hidden" value="true" name="fromAppointment">
 <div>개인정보 수집/이용 동의(필수)<input type="checkbox" name="ok1"></div>
 </p>
 </div>
@@ -70,12 +81,12 @@
 위 동의 안내에 거부할 권리가 있습니다.
 그러나 동의 거부할 경우 실명 확인이 되지 않음에 따라 가입 신청 및 수강 신청을 하실 수 없습니다.
 <p>
-<div>개인정보의 제3자 제공 동의(필수)<input type="checkbox" name="ok1"></div>
+<div>개인정보의 제3자 제공 동의(필수)<input type="checkbox" name="ok2"></div>
 </p>
 </div>
 <br><br><br>
 
-<input type="button" value="다음">
-
+<input type="submit" value="다음">
+</form>
 </body>
 </html>

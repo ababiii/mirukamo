@@ -138,7 +138,7 @@ body {
 	<c:if test="${admin} != null">
 		<a href="writenotice">공지 사항 글 작성</a>
 	</c:if>
-	<input type="button" value="1대1 문의 접수">
+	<input type="button" value="1대1 문의 접수" onclick="location.href ='<c:url value="writeboard/advice"/>'">
 	<input type="button" value="나의 문의 내역">
 	<br>
 	<br>

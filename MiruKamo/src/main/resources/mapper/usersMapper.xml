@@ -10,7 +10,7 @@
 	
 	
 	<insert id="insertUsers" parameterType="Users">
-	insert into mirukamo_users
+	insert into mirukamo_member
 	(id
 	,password
 	,email

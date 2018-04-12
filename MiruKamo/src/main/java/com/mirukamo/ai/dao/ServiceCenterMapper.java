@@ -25,6 +25,4 @@ public interface ServiceCenterMapper {
 	
 	//수강후기 조회수 증가
 	public void reviewshits(int num);
-
-
 }

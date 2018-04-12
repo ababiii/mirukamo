@@ -25,9 +25,13 @@ public class UserJoinController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserJoinController.class);
 	
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String join() {
-		
+	@RequestMapping(value = "/joinForm", method = RequestMethod.POST)
+	public String join(Model model,boolean ok1,boolean ok2,boolean fromAppointment) {
+		logger.debug(ok1+","+ok2+","+fromAppointment);
+		if(ok1==false||ok2==false||fromAppointment==false){
+			model.addAttribute("error", true);
+			return "redirect:../appointment";
+		}
 		return "users/join";
 	}
 	

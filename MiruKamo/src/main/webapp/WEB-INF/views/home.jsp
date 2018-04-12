@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
 body {
-    background-color: coral;
+    background-color: coral; 
 }
 /* The side navigation menu */
 .sidenav {
@@ -173,7 +173,7 @@ $( function() {
   <a href="login/login">로그인</a>
 
   <a href="login/logout">로그아웃11</a>
-  <a href="myPage/myPage">마이페이지11112</a>
+  <a href="myPage">마이페이지11112</a>
 
   <a href="login/logout">로그아웃2222</a>
   <a href="myPage/myPage">마이페이지</a>

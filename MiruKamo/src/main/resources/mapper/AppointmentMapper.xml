@@ -11,4 +11,17 @@ select * from mirukamo_member
 where name=#{name} and email=#{email} and email2=#{email2}
 </select>
 
+<select id="getMyCourse" parameterType="string" resultType="MyCourse">
+select m.num,
+	 member_id,
+	course_num,
+	start_day, 
+	end_day,
+	status,
+	title,
+	teacher,
+	languages from mirukamo_mycourse m,mirukamo_course
+where member_id=#{id} 
+</select>
+
 </mapper>

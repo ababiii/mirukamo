@@ -170,14 +170,18 @@ $( function() {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a><h1>비로그인 사용자</h1></a>
   <a href="appointment">회원가입</a>
+  <c:if test="${userId==null }">
   <a href="login/login">로그인</a>
-
-  <a href="login/logout">로그아웃11</a>
+	</c:if>
+	<c:if test="${userId!=null }">
+  <a href="login/logout">로그아웃</a>
+  
   <a href="myPage">마이페이지11112</a>
 
-  <a href="login/logout">로그아웃2222</a>
+  
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+   </c:if>
 </div>
 </c:if>
 <!-- admin이 0인 이용자 아이디로 로그인 하면 보이는 메뉴 -->

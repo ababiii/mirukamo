@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
 body {
-    background-color: coral;
+    background-color: coral; 
 }
 /* The side navigation menu */
 .sidenav {
@@ -62,6 +62,9 @@ body {
 	<title>홈 페이지</title>
 </head>
 <body>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+<script src="resources/jQuery/jquery-ui.js"></script>
+
 <script src="resources/recognition.js"></script>
 
 <script type="text/javascript">
@@ -69,6 +72,83 @@ recstart();
 </script>
 <script src="resources/audio.js"></script>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    .innerPopup {
+  	 z-index: 222222;
+	}
+  </style>
+<div id="dialog-form" title="따라해 봅시다" style="z-index: 22222">
+ 
+  <form>
+    <fieldset>
+      <label for="content">내용</label>
+      <input type="text" name="content" id="content" value="こんにちは" readonly="readonly" class="text ui-widget-content ui-corner-all">
+      <label for="result">결과</label>
+      <input type="text" name="result" id="result" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
+
+
+    </fieldset>
+  </form>
+</div>
+ 
+ 
+
+<button id="create-user">시작</button>
+ 
+<script>
+$( function() {
+    var dialog, form,
+ 
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      content = $( "#content" ),
+      result = $( "#result" ),
+      allFields = $( [] ).add( content ).add( result );
+ 
+   
+ 
+ 
+ 
+
+
+ 
+    dialog = $( "#dialog-form" ).dialog({
+      dialogClass: "innerPopup" , 
+      autoOpen: false,
+      height: 330,
+      width: 350,
+      modal: true,
+      buttons: {
+    	  "넘어가기": function() {
+              $( this ).dialog( "close" );
+            }
+      },
+      close: function() {
+    	  audioend();
+    	  videostart();
+      }
+    });
+ 
+   
+    $( "#create-user" ).button().on( "click", function() {
+    audiostart();
+    $( "#result" ).val("");
+      dialog.dialog( "open" );
+    });
+    $( "#result" ).on("change", function() {
+    	$( "#dialog-form" ).dialog( "close" );
+      });
+  } );
+</script>
 
   <form action="http://www.example.com/search">
     <textarea id="txt" style="width: auto; height: auto;">
@@ -90,14 +170,18 @@ recstart();
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a><h1>비로그인 사용자</h1></a>
   <a href="appointment">회원가입</a>
+  <c:if test="${userId==null }">
   <a href="login/login">로그인</a>
+	</c:if>
+	<c:if test="${userId!=null }">
+  <a href="login/logout">로그아웃</a>
+  
+  <a href="myPage">마이페이지11112</a>
 
-  <a href="login/logout">로그아웃11</a>
-  <a href="myPage/myPage">마이페이지11112</a>
-
-  <a href="login/logout">로그아웃2222</a>
+  
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+   </c:if>
 </div>
 </c:if>
 <!-- admin이 0인 이용자 아이디로 로그인 하면 보이는 메뉴 -->

@@ -23,7 +23,7 @@ public class LoginInterceptor
 		String loginId=(String)session.getAttribute("userId");
 		//없으면 로그인 페이지로 리다이렉트
 		if(loginId==null){
-			response.sendRedirect(request.getContextPath()+"/join");
+			response.sendRedirect(request.getContextPath()+"/login/login");
 			return false;
 		}
 		return super.preHandle(request, response, handler);

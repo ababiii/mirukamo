@@ -23,5 +23,4 @@ select m.num,
 	languages from mirukamo_mycourse m,mirukamo_course
 where member_id=#{id} 
 </select>
-
 </mapper>

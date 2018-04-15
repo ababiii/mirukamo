@@ -29,14 +29,14 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		//ㅈ석
+	/*	//ㅈ석
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
 		Tokenizer tokenizer = Tokenizer.builder().build();
         
-		List<Token> tokens = tokenizer.tokenize("もう眠い");
+		List<Token> tokens = tokenizer.tokenize("私はあなたがすきです。");
         
         for (Token token : tokens) {
             System.out.println("====================");
@@ -61,7 +61,10 @@ public class HomeController {
         }
 		model.addAttribute("serverTime", formattedDate );
 		 
-		 
+		*/
+		
+		
+		
 		return "home";
 	}
 	

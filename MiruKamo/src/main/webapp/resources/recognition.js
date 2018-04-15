@@ -107,5 +107,4 @@ function videostart(){
 if(playing != null)
 	playing.play();
 
-	
 }

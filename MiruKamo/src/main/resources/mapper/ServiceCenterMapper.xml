@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 검색 처리 SQL -->
+<mapper namespace="com.mirukamo.ai.dao.ServiceCenterMapper">
+
+<!-- 공지사항 전체 출력 -->
+<select id="getboardinfo" resultType="question">
+select * from mirukamo_question
+</select>
+
+<!-- 공지사항 게시 글 출력 -->
+<select id="adminNotice" resultType="question" parameterType="int">
+select * from mirukamo_question
+where num =#{num}
+</select>
+
+<!-- 수강후기 출력 -->
+<select id="reviews" resultType="reviews">
+select * from mirukamo_reviews
+</select>
+
+<!-- 수강후기 글 가져오기 -->
+<select id="getreviews" resultType="reviews" parameterType="int">
+select * from mirukamo_reviews
+where num =#{num}
+</select>
+
+<!-- 수강후기 조회수 증가 -->
+<update id="reviewshits" parameterType="int">
+	update mirukamo_reviews
+		set hits = hits +1
+		where num =#{num}
+</update>
+
+<!-- 수강 후기 글 작성 -->
+<insert id="writereviews" parameterType="reviews">
+insert into mirukamo_reviews(
+	num
+	,customer_id
+	,title
+	,content
+)
+values (
+		mirukamo_reviews_seq.nextval,
+		#{customer_id},
+		#{title},
+		#{content}
+	)
+</insert>
+
+</mapper>

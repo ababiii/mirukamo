@@ -1,5 +1,7 @@
 package com.mirukamo.ai.dao;
 
+import java.util.logging.Logger;
+
 import org.apache.ibatis.session.SqlSession;
 
 
@@ -32,6 +34,14 @@ public class UsersDAO {
 		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
 		Users users = null;
 		users = mapper.selectAllUsers();
+		return users;
+	}
+	
+	public Users selectEmail(String userEmail,String userEmail2){
+		System.out.println(userEmail+"@"+userEmail2+"dao");
+		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+		Users users = null;
+		users = mapper.selectEmail(userEmail, userEmail);
 		return users;
 	}
 	

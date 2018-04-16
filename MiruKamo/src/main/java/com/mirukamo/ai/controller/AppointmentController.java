@@ -2,16 +2,20 @@ package com.mirukamo.ai.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mirukamo.ai.dao.AppointmentDAO;
+import com.mirukamo.ai.vo.MyCourse;
 import com.mirukamo.ai.vo.Users;
 
 @Controller
@@ -23,7 +27,12 @@ public class AppointmentController {
 	AppointmentDAO appointmentDAO;
 	
 	@RequestMapping(value="appointment",method=RequestMethod.GET)
-	public String appointment(){	
+	public String appointment(Model model,boolean error){
+		logger.debug(error+"");
+		if(error==true){
+			model.addAttribute("error", true);
+		}
+		
 		return "users/joinAppointment";
 	}
 	
@@ -46,8 +55,19 @@ public class AppointmentController {
 	}
 	
 	@RequestMapping(value="myPage",method=RequestMethod.GET)
-	public String myPage(){
+	public String myPage(HttpSession session,Model model){
+		String id=(String)session.getAttribute("userId");
+		ArrayList<MyCourse> list=appointmentDAO.getMyCourse(id);
+		
+		model.addAttribute("list", list);
+		
 		return "users/myPage";
 	}
-
+	
+	/*@ResponseBody
+	@RequestMapping(value="getTumori",method=RequestMethod.POST)
+	public void getTumori(String userId){
+		logger.debug(userId);
+	}
+*/
 }

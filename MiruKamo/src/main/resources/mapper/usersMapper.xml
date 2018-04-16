@@ -7,8 +7,6 @@
 <mapper namespace="com.mirukamo.ai.dao.usersMapper">
 
 	<!-- 회원 정보 저장 -->
-	
-	
 	<insert id="insertUsers" parameterType="Users">
 	insert into mirukamo_member
 	(id
@@ -66,5 +64,15 @@ update
 where
     id = #{id} and email = #{email} and name = #{name}
 </update>
+	
+	<!-- 이메일 중복환인 -->
+	<select id="selectEmail" parameterType="map" resultType="Users">
+	select 
+		* 
+	from 
+		mirukamo_member 
+	where 
+		email=#{a} and email2=#{b}
+	</select>
 
 </mapper>

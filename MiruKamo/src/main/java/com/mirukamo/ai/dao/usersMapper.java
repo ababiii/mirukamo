@@ -1,6 +1,7 @@
 package com.mirukamo.ai.dao;
 
 import java.util.ArrayList;
+import org.apache.ibatis.annotations.Param;
 
 import com.mirukamo.ai.vo.Users;
 
@@ -18,4 +19,7 @@ public interface usersMapper {
 
 	
 	public Users selectAllUsers();
+	
+	public Users selectEmail(@Param("a")String userEmail,@Param("b")String userEmail2);
+	
 }

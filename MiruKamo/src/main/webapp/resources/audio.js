@@ -10,7 +10,7 @@
 
 var video= '<video id="video" autoplay></video>';
 document.body.innerHTML=document.body.innerHTML+video;
-var videoElement = document.querySelector('video');
+var videoElement = document.querySelector('#video');
 videoElement.width=0;
 videoElement.volume=0.15;
 console.log(videoElement);

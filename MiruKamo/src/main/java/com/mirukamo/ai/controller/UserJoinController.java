@@ -26,17 +26,17 @@ public class UserJoinController {
 	private static final Logger logger = LoggerFactory.getLogger(UserJoinController.class);
 	
 	@RequestMapping(value = "/joinForm", method = RequestMethod.POST)
-	public String join(boolean ok1,boolean ok2,boolean fromAppointment) {
+	public String join(Model model,boolean ok1,boolean ok2,boolean fromAppointment) {
 		logger.debug(ok1+","+ok2+","+fromAppointment);
-		if(ok1==false||ok2==false){
-			return "user/joinAppointment";
+		if(ok1==false||ok2==false||fromAppointment==false){
+			model.addAttribute("error", true);
+			return "redirect:../appointment";
 		}
 		return "users/join";
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(Users users, Model model) {
-		
 		
 		UsersValidator uv = new UsersValidator(); 
 		String msg = uv.validate(users);
@@ -66,5 +66,31 @@ public class UserJoinController {
 		return "users/idCheck";
 		
 	}
+	
+	/*이메일 중복확인*/
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
+	public String emailCheck(){
+		return "users/emailCheck";
+	}
+	
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.POST)
+	public String emailCheck(Users users,String searchEmail,String searchEmail2,Model model){
+		users=null;
+		if(searchEmail!=null&&searchEmail2!=null){
+			logger.debug(searchEmail+"@"+searchEmail2);
+			users = usersDAO.selectEmail(searchEmail,searchEmail2);
+			logger.debug("brought");
+			logger.debug(users.toString()+"brought");
+			logger.debug(users.getEmail());
+			logger.debug(users.getEmail2());
+			model.addAttribute("searchEmail",searchEmail);
+			model.addAttribute("searchEmail2",searchEmail2);
+			model.addAttribute("Email",users.getEmail());
+			model.addAttribute("Email",users.getEmail2());
+		}
+		return "users/emailCheck";
+		
+	}
+	
 	
 }

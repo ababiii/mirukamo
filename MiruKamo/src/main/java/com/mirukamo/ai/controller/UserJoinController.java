@@ -1,5 +1,8 @@
 package com.mirukamo.ai.controller;
 
+import javax.servlet.http.HttpSession;
+
+
 import org.slf4j.Logger;
 
 
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.util.UsersValidator;
@@ -48,8 +52,8 @@ public class UserJoinController {
 		usersDAO.insertUser(users);
 		return "users/joinSuccessPage";
 	}
-	
-	/*아이디 중복확인*/
+/*	
+	아이디 중복확인
 	@RequestMapping(value = "/idCheck", method = RequestMethod.GET)
 	public String idCheck(){
 		return "users/idCheck";
@@ -65,9 +69,9 @@ public class UserJoinController {
 		}
 		return "users/idCheck";
 		
-	}
+	}*/
 	
-	/*이메일 중복확인*/
+/*	이메일 중복확인
 	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
 	public String emailCheck(){
 		return "users/emailCheck";
@@ -90,6 +94,38 @@ public class UserJoinController {
 		}
 		return "users/emailCheck";
 		
+	}*/
+	
+	@ResponseBody
+	@RequestMapping(value = "/userRegisterCheck", method = RequestMethod.POST)
+	public int userRegisterCheck(String userId, Users user,HttpSession session) {
+		System.out.println("회원가입 체크");
+		user = usersDAO.selectUser(userId);
+		if(user!=null){
+			session.setAttribute("toID", user.getId());
+			//사용할 수 없는 아이디일 경우 0을 return 하고 
+			return 0;
+		}
+		//사용할 수 있는 아이디일 경우 1을 return
+		return 1;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/userRegisterEmailCheck", method = RequestMethod.POST)
+	public int userRegisterEmailCheck(String userEmail, String userEmail2, Users user, Users user2,HttpSession session) {
+		System.out.println("회원가입 이메일 체크");
+		logger.debug(userEmail+"@"+userEmail2);
+		user=usersDAO.selectEmail(userEmail);
+		
+		if(user.getEmail().equals(userEmail)&&user.getEmail2().equals(userEmail2)){
+			session.setAttribute("Email", user.getEmail());
+			session.setAttribute("Email2", user.getEmail2());
+			logger.debug(user.getEmail()+"@"+user.getEmail2()+"객체");
+			//사용할 수 없는 이메일일 경우 0을 return 하고 
+			return 0;
+		}
+		//사용할 수 있는 이메일일 경우 1을 return
+		return 1;
 	}
 	
 	

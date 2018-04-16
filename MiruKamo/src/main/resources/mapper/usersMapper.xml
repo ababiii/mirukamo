@@ -48,13 +48,13 @@
 	</select>
 	
 	<!-- 이메일 중복환인 -->
-	<select id="selectEmail" parameterType="map" resultType="Users">
+	<select id="selectEmail" parameterType="String" resultType="Users">
 	select 
 		* 
 	from 
-		mirukamo_member 
-	where 
-		email=#{a} and email2=#{b}
+		mirukamo_member
+	where
+			email=#{userEmail}
 	</select>
 
 </mapper>

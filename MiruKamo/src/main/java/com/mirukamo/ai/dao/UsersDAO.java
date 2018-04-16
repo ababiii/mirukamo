@@ -1,5 +1,6 @@
 package com.mirukamo.ai.dao;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.apache.ibatis.session.SqlSession;
@@ -30,6 +31,24 @@ public class UsersDAO {
 		return users;
 	}
 	
+public Users reset_pw(Users u) {
+	
+	Users users = null;
+	
+	usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+	mapper.reset_pw(u);
+	
+	return users;
+}
+
+public Users find_pw(Users user) {
+	usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+	Users users = null;
+	users = mapper.find_pw(user);
+	//System.out.println(users);
+	return users;
+}
+
 	public Users selectAllUsers(){
 		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
 		Users users = null;

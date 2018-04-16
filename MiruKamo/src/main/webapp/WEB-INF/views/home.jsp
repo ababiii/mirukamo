@@ -181,6 +181,8 @@ $( function() {
   
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+   <a href="login/find_pw">비밀번호 찾기</a>
+   
    </c:if>
 </div>
 </c:if>
@@ -193,9 +195,13 @@ $( function() {
   <a href="join/join">회원가입</a>
   <a href="login/login">로그인</a>
 
-  <a href="login/logout">로그아웃11</a>
-  <a href="myPage/myPage">마이페이지11112</a>
+  <a href="login/logout">로그아웃</a>
+  <a href="mypage/mypage">마이페이지</a>
 
+  <a href="login/logout">로그아웃</a>
+  <a href="mypage/mypage">마이페이지</a>
+   <a href="myPage/mypage">수정</a>
+   <a href="login/find_pw">비밀번호 찾기</a>
   <a href="login/logout">로그아웃2222</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
@@ -203,7 +209,6 @@ $( function() {
       <a href="servicecenter"> 고객 센터 </a>
       <a href="drill"> 형태소 변환 </a>
    		
-   
 </div>
 </c:if>
 

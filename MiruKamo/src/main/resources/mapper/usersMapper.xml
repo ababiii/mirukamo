@@ -37,15 +37,33 @@
 		from
 			mirukamo_member
 		where
-			id=#{id}
+			id=#{id} 
 	</select>
 	
+	<select id="find_pw" parameterType="Users" resultType="Users">
+		select 
+			*
+		from
+			mirukamo_users
+		where
+			id=#{id} and email = #{email} and name = #{name}
+	</select>
 	<select id="selectAllUsers" resultType="Users">
 		select
 			*
 		from 
 			mirukamo_member
 	</select>
+<update id = "reset_pw" parameterType = "Users">
+update 
+	users
+	set
+	password = #{password}
+	
+
+where
+    id = #{id} and email = #{email} and name = #{name}
+</update>
 	
 	<!-- 이메일 중복환인 -->
 	<select id="selectEmail" parameterType="String" resultType="Users">

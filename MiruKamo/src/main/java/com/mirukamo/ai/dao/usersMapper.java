@@ -16,4 +16,6 @@ public interface usersMapper {
 	public Users find_pw(Users user);
 
 
+	
+	public Users selectAllUsers();
 }

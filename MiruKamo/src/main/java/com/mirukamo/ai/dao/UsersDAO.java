@@ -30,7 +30,6 @@ public class UsersDAO {
 		return users;
 	}
 	
-
 public Users reset_pw(Users u) {
 	
 	Users users = null;
@@ -49,5 +48,12 @@ public Users find_pw(Users user) {
 	return users;
 }
 
+	public Users selectAllUsers(){
+		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+		Users users = null;
+		users = mapper.selectAllUsers();
+		return users;
+	}
+	
 	
 }

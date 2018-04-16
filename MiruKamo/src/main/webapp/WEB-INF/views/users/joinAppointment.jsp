@@ -47,6 +47,8 @@
 위 동의 안내에 거부할 권리가 있습니다.
 그러나 동의 거부할 경우 실명 확인이 되지 않음에 따라 가입 신청 및 수강 신청을 하실 수 없습니다.
 <p>
+<form action="./join/joinForm" method="post" >
+<input type="hidden" value="true" name="fromAppointment">
 <div>개인정보 수집/이용 동의(필수)<input type="checkbox" name="ok1"></div>
 </p>
 </div>
@@ -70,12 +72,12 @@
 위 동의 안내에 거부할 권리가 있습니다.
 그러나 동의 거부할 경우 실명 확인이 되지 않음에 따라 가입 신청 및 수강 신청을 하실 수 없습니다.
 <p>
-<div>개인정보의 제3자 제공 동의(필수)<input type="checkbox" name="ok1"></div>
+<div>개인정보의 제3자 제공 동의(필수)<input type="checkbox" name="ok2"></div>
 </p>
 </div>
 <br><br><br>
 
-<input type="button" value="다음">
-
+<input type="submit" value="다음">
+</form>
 </body>
 </html>

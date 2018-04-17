@@ -117,6 +117,18 @@ public class UserLoginController {
 		return "face2";
 	}
 	
+	@RequestMapping(value = "/face3", method = RequestMethod.GET)
+	public String face3() {
+		
+		return "face3";
+	}
+	
+	@RequestMapping(value = "/face4", method = RequestMethod.GET)
+	public String face4() {
+		
+		return "face4";
+	}
+	
 	
 	
 

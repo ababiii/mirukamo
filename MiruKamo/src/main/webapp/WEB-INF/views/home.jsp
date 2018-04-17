@@ -233,6 +233,8 @@ $( function() {
 	
 <a href="login/face">얼굴</a>
 <a href="login/face2">얼굴2</a>
+<a href="login/face3">얼굴3</a>
+<a href="login/face4">얼굴4</a>
 <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 <input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 

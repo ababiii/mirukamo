@@ -11,6 +11,8 @@
 		<link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 		<script src="../resources/jQuery/jquery-ui.js"></script>
+		
+		<script>logger.debug("자바 디버그 확인")</script>
 		<style>
 			@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 			
@@ -139,8 +141,10 @@
 		<script src="../resources/js/model_pca_20_svm_emotionDetection.js"></script>
 		<script src="../resources/js/Stats.js"></script>
 		<script src="../resources/js/d3.min.js"></script>
-		<!-- <script src="../resources/js/emotion_classifier.js"></script>
-		<script src="../resources/js/emotionmodel.js"></script> -->
+		<script src="../resources/js/emotion_classifier.js"></script>
+		<script src="../resources/js/emotionmodel.js"></script>
+		<script src="../resources/js/logger.js"></script>
+		<script src="https://cdn.rawgit.com/jonnyreeves/js-logger/master/src/logger.min.js"></script>
 		<div id="content">
 			<h2>얼굴일까?</h2>
 			 <div id="container">
@@ -166,7 +170,7 @@
 				var vid = document.getElementById('videoel');
 				var overlay = document.getElementById('overlay');
 				var overlayCC = overlay.getContext('2d');
-				
+				console.log(overlay+"오버레이 값 들어감");
 				/********** check and set up video/webcam **********/
 
 				function enablestart() {
@@ -231,10 +235,18 @@
 					vid.play();
 					// start tracking
 					ctrack.start(vid);
-					
+					console.log(vid+"값이 들어감");
 					// start loop to draw face
 					drawLoop();
+					console.log(drawLoop()+"값이 들어감");
 				}
+				
+				//얼굴이 없는 경우 확인해서 alert를 보여준다.
+				document.addEventListener("clmtrackrLost", function() {
+						alert("no face");
+				});
+				
+			
 				
 				function stopVideo() {
 					// start video
@@ -243,8 +255,8 @@
 					//ctrack.start(vid);
 					// start loop to draw face
 					//drawLoop();
-					var audio = new Audio('resource/thankyou.wav');
-					audio.play();
+					//var audio = new Audio('resource/thankyou.wav');
+					//audio.play();
 				}
 				
 				function drawLoop() {
@@ -253,6 +265,7 @@
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					if (ctrack.getCurrentPosition()) {
 						ctrack.draw(overlay);
+						
 
 					}
 					var cp = ctrack.getCurrentParameters();
@@ -264,6 +277,7 @@
 							if (er[i].value > 0.4) {
 								document.getElementById('icon'+(i+1)).style.visibility = 'visible';
 							} else {
+								
 								document.getElementById('icon'+(i+1)).style.visibility = 'hidden';
 							}
 						}

@@ -62,6 +62,7 @@ body {
 	<title>홈 페이지</title>
 </head>
 <body>
+<!-- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="resources/jQuery/jquery-ui.js"></script>
 
@@ -229,6 +230,13 @@ $( function() {
 
 <!-- Use any element to open the sidenav -->
 <span onclick="openNav()">open</span>
+	
+<a href="login/face">얼굴</a>
+<a href="login/face2">얼굴2</a>
+<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
+
+
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">

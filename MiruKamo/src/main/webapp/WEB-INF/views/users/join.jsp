@@ -169,7 +169,7 @@ h1, h2, h3 {
         </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-10">
-          <button name="Submit" type="submit" value="회원가입" class="btn btn-primary" onclick="formCheck()"></button>
+          <button name="Submit" type="submit" value="회원가입" class="btn btn-primary" onclick="formCheck()">회원가입</button>
           </div>
         </div>
       </form>

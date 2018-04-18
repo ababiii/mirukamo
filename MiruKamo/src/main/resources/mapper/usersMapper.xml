@@ -44,7 +44,7 @@
 		select 
 			*
 		from
-			mirukamo_users
+			mirukamo_member
 		where
 			id=#{id} and email = #{email} and name = #{name}
 	</select>
@@ -56,7 +56,7 @@
 	</select>
 <update id = "reset_pw" parameterType = "Users">
 update 
-	users
+	mirukamo_member
 	set
 	password = #{password}
 	

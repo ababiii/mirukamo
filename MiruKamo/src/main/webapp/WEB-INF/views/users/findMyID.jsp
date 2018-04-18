@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 	
 	$('#pwPage_Bt').on('click',function(){
-		location.href='./findpw';
+		location.href='./login/find_pw';
 	});
 	
 	

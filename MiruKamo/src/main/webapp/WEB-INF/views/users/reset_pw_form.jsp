@@ -14,7 +14,7 @@ function formCheck(){
 	var pw2 = document.getElementById('pasword2');
 	
 	if(pw.value.length < 3 || pw.value.length > 10){
-		alert('비밀번호는 3자 이상 입력하세요');
+		alert('비밀번호는 5자 이상 입력하세요');
 		pw.focus();
 		pw.select();
 		return false;

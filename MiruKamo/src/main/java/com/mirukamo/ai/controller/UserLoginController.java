@@ -79,6 +79,11 @@ public class UserLoginController {
 	
 	@RequestMapping(value = "/reset_pw_form", method = RequestMethod.POST)
 	public String find_pw2(Model model, Users user,HttpSession session) {
+		String email[] = user.getEmail().split("@");
+		user.setEmail(email[0]);
+		if(email.length > 1)
+		user.setEmail2(email[1]);
+		
 		Users result = usersDAO.find_pw(user);
 		if(result == null){
 			return  "redirect:/";
@@ -93,7 +98,8 @@ public class UserLoginController {
 		Users result = (Users)session.getAttribute("based");
 		result.setPassword(users.getPassword());
 		usersDAO.reset_pw(result);
-		return "users/reset_pw_form" ;
+		session.invalidate();
+		return "users/complete_pw" ;
 	}
 	
 	

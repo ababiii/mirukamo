@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
 body {
-    background-color: coral; 
+   /*  background-color: coral; */ 
 }
 /* The side navigation menu */
 .sidenav {
@@ -62,6 +62,8 @@ body {
 	<title>홈 페이지</title>
 </head>
 <body>
+<span onclick="openNav()"><img src="resources/images/menu.png" height="50px" width="50px"></span>
+<a href="./"><img src="resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <!-- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="resources/jQuery/jquery-ui.js"></script>
@@ -169,7 +171,7 @@ $( function() {
 <c:if test="${sessionScope.adminCheck==null }">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a><h1>비로그인 사용자</h1></a>
+  <a><h1>Mirukamo</h1></a>
   <a href="appointment">회원가입</a>
   <c:if test="${userId==null }">
   <a href="login/login">로그인</a>
@@ -193,20 +195,13 @@ $( function() {
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a><h1>${sessionScope.userId } </h1></a>
-  <a href="join/join">회원가입</a>
-  <a href="login/login">로그인</a>
-
+  
   <a href="login/logout">로그아웃</a>
-  <a href="mypage/mypage">마이페이지</a>
-
-  <a href="login/logout">로그아웃</a>
-  <a href="mypage/mypage">마이페이지</a>
+  <a href="myPage">마이페이지</a>
    <a href="myPage/mypage">수정</a>
    <a href="login/find_pw">비밀번호 찾기</a>
-  <a href="login/logout">로그아웃2222</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
-   
       <a href="servicecenter"> 고객 센터 </a>
       <a href="drill"> 형태소 변환 </a>
    		
@@ -229,7 +224,7 @@ $( function() {
 	</c:if>
 
 <!-- Use any element to open the sidenav -->
-<span onclick="openNav()">open</span>
+
 	
 <a href="login/face">얼굴</a>
 <a href="login/face2">얼굴2</a>

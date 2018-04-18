@@ -10,13 +10,13 @@
 	<style>
 	div{
 	text-align : center;
-	margin-top : 20%;
+	margin-top : 10%;
 	margin-bottom : 20%
 	}
 	</style>
 </head>
 <body>
-
+<a href="../"><img src="../resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <div>
 <h1>회원 가입 완료</h1>
 환영합니다 ${id}님.<br>

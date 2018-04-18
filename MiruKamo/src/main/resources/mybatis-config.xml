@@ -9,7 +9,7 @@
 			alias="question" />
 		<typeAlias type="com.mirukamo.ai.vo.mirukamo_reviews" alias="reviews" />
 		<typeAlias type="com.mirukamo.ai.vo.mirukamo_drill" alias="drill" />
-
+		<typeAlias type="com.mirukamo.ai.vo.MyCourse" alias="MyCourse"/>
 	</typeAliases>
 
 	<!-- DB접속 정보 셋팅 -->
@@ -29,6 +29,7 @@
 		<mapper resource="mapper/usersMapper.xml" />
 		<mapper resource="mapper/ServiceCenterMapper.xml" />
 		<mapper resource="mapper/DrillMapper.xml" />
+		<mapper resource="mapper/appointmentMapper.xml" />
 	</mappers>
 </configuration>
 

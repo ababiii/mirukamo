@@ -101,10 +101,11 @@ h1, h2, h3 {
 	<title>회원가입</title>
 </head>
 <body id="joinBody">
+<a href="../"><img src="../resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <div class="container">
 	<div class="row">
     <div class="col-md-8">
-    	<a href="../">홈으로</a>
+    	
         <h1 class="entry-title"><span>회원가입</span> </h1>
         <hr>
             <form action="join" class="form-horizontal" method="post" onSubmit="return formValidation();" data-ajax="false" name="join" id="signup" enctype="multipart/form-data" >        

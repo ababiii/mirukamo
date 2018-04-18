@@ -19,12 +19,12 @@ public class UsersDAO {
 	SqlSession sqlSession;
 	
 	public void insertUser(Users users){
-		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+		UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 		mapper.insertUsers(users);
 	}
 	
 	public Users selectUser(String userId){
-		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+		UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 		Users users = null;
 		users = mapper.selectUser(userId);
 		System.out.println(users);
@@ -35,14 +35,14 @@ public Users reset_pw(Users u) {
 	
 	Users users = null;
 	
-	usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+	UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 	mapper.reset_pw(u);
 	
 	return users;
 }
 
 public Users find_pw(Users user) {
-	usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+	UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 	Users users = null;
 	users = mapper.find_pw(user);
 	//System.out.println(users);
@@ -50,16 +50,16 @@ public Users find_pw(Users user) {
 }
 
 	public Users selectAllUsers(){
-		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+		UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 		Users users = null;
 		users = mapper.selectAllUsers();
 		return users;
 	}
 	
-	public Users selectEmail(String userEmail){
-		usersMapper mapper = sqlSession.getMapper(usersMapper.class);
+	public Users selectEmail(Users user){
+		UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 		Users users = null;
-		users = mapper.selectEmail(userEmail);
+		users = mapper.selectEmail(user);
 		return users;
 	}
 	

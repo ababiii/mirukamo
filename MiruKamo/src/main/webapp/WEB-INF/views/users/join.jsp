@@ -28,19 +28,23 @@
  	 function registerEmailCheckFunction() {
  		var userEmail = $('#userEmail').val();
  		var userEmail2 = $('#userEmail2').val();
- 		alert('이메일 중복확인');
+ 		alert(userEmail+userEmail2);
  		$.ajax({
  			type:'POST',
  			url:'./userRegisterEmailCheck',
- 			data: {userEmail:userEmail,userEmail2:userEmail2},
+ 			data: {email:userEmail,email2:userEmail2},
+ 			dataType : 'text',
  			success: function(result){
  				if(result==1){
  					$('#checkEmailMessage').html('사용할 수 있는 이메일입니다.');
  				}else{
  					$('#checkEmailMessage').html('사용할 수 없는 이메일입니다.');
  				}
+ 			},
+ 			error : function(e){
+ 				alert('에러가 발생했습니다. 다시 시도해 주세요.');
  			}
- 		})
+ 		});
  	} 
  	
  	function passwordCheckFunction() {
@@ -153,7 +157,7 @@ h1, h2, h3 {
         
      
         <div class="form-group">
-          <label class="control-label col-sm-3">휴대폰 번호 <span class="text-danger">*</span></label>
+          <label class="control-label col-sm-3">휴대폰 번호 <span class="text-danger"></span></label>
           <div class="col-md-5 col-sm-8">
           	<div class="input-group">
             <input type="text" class="form-control"  name="phone" id="userPhone" placeholder="휴대폰 번호를 입력하세요." value="">
@@ -162,7 +166,7 @@ h1, h2, h3 {
         </div>
        
         <div class="form-group">
-          <label class="control-label col-sm-3">생년월일 <span class="text-danger">*</span></label>
+          <label class="control-label col-sm-3">생년월일 <span class="text-danger"></span></label>
           <div class="col-md-8 col-sm-9">
             <input type="text" class="form-control" name="birth" id="userBirthday" placeholder="생년월일을 입력하세요.">
           </div>

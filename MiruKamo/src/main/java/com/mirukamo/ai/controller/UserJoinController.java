@@ -42,14 +42,15 @@ public class UserJoinController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(Users users, Model model) {
 		
-		UsersValidator uv = new UsersValidator(); 
+		/*UsersValidator uv = new UsersValidator(); 
 		String msg = uv.validate(users);
 		if(msg!=null){
 			model.addAttribute("errorMsg",msg);
 			logger.debug(msg);
 			return "users/join";
-		}
+		}*/
 		usersDAO.insertUser(users);
+		model.addAttribute("id", users.getId());
 		return "users/joinSuccessPage";
 	}
 /*	
@@ -112,20 +113,21 @@ public class UserJoinController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/userRegisterEmailCheck", method = RequestMethod.POST)
-	public int userRegisterEmailCheck(String userEmail, String userEmail2, Users user, Users user2,HttpSession session) {
-		System.out.println("회원가입 이메일 체크");
-		logger.debug(userEmail+"@"+userEmail2);
-		user=usersDAO.selectEmail(userEmail);
+	public int userRegisterEmailCheck(Users user) {
 		
-		if(user.getEmail().equals(userEmail)&&user.getEmail2().equals(userEmail2)){
-			session.setAttribute("Email", user.getEmail());
-			session.setAttribute("Email2", user.getEmail2());
-			logger.debug(user.getEmail()+"@"+user.getEmail2()+"객체");
-			//사용할 수 없는 이메일일 경우 0을 return 하고 
+		Users result=usersDAO.selectEmail(user);
+		
+		if(result!=null){
+			 
 			return 0;
 		}
 		//사용할 수 있는 이메일일 경우 1을 return
 		return 1;
+	}
+	
+	@RequestMapping(value="test",method=RequestMethod.GET)
+	public String test(){
+		return "users/joinSuccessPage";
 	}
 	
 	

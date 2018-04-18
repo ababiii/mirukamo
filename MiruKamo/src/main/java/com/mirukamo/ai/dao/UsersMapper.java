@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 import com.mirukamo.ai.vo.Users;
 
-public interface usersMapper {
+public interface UsersMapper {
 
 	
 	public int insertUsers(Users users);
@@ -20,7 +20,7 @@ public interface usersMapper {
 	
 	public Users selectAllUsers();
 	
-	public Users selectEmail(String userEmail);
+	public Users selectEmail(Users user);
 	
 	
 	

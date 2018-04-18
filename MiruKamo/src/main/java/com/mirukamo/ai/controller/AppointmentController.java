@@ -70,4 +70,15 @@ public class AppointmentController {
 		logger.debug(userId);
 	}
 */
+	
+	//인강 시청 페이지로 이동
+	@RequestMapping(value="watching",method=RequestMethod.GET)
+	public String watching(){
+		return "board/watching";
+	}
+	
+	@RequestMapping(value="test",method=RequestMethod.GET)
+	public String test(){
+		return "miru/grab-frame-take-photo";
+	}
 }

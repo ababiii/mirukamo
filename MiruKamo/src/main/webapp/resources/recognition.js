@@ -1,6 +1,7 @@
+
 var result  = new Array(); 
 var search  = new Array("こんにちは","山田"); 
-
+var resultsize=3;
 
 var recognition = new webkitSpeechRecognition();
 recognition.lang = 'ja-JP';
@@ -27,20 +28,24 @@ recognition.onresult = function(event) {
 	//txt.value=event.results[0][0].transcript;
   console.log(event) 
  // alert(event.results[0][0].transcript);
-  result.push(event.results[0][0].transcript);
-  
+  checking(event.results[0][0].transcript);
+  if(event.results[0].isFinal){
+	  result.push(event.results[0][0].transcript);
+	  txt.value=event.results[0][0].transcript;
+	 
+  }
 
-  txt.value=event.results[0][0].transcript;
-  $( "#dialog-form" ).dialog( "close" );
-   $( "#result" ).trigger( "change");
-   
-  if(result.length>3){
+  
+ // $( "#dialog-form" ).dialog( "close" );
+ //  $( "#result" ).trigger( "change");
+
+  if(result.length>resultsize){
 	  
 	  result.shift();
 	 
   } 
-  checking();
- /*
+  
+ 
   if(true){
 	  
 	  txt.value="";
@@ -49,17 +54,19 @@ recognition.onresult = function(event) {
 		}
 	 
   }
-*/
+
 }
 recognition.onend = function() {
 	recognition.start();
 	}
-//recognition.interimResults = true;
+recognition.interimResults = true;
 recognition.onnomatch = function() {
 	 alert("노");
 	//txt.value=txt.value+"노매치";
 	 }
 recognition.maxAlternatives = 1;
+
+
 
 function recstart(){
 	recognition.start();
@@ -69,24 +76,49 @@ function recstop(){
 	recognition.stop();
 }
 
-function checking(){
+function checking(str){
+	 
+	if(repeat(str)){
+		return true;
+	}
+	else if(false){
 	
-	
-	for(var i in result){
-	//	console.log(result[i]);
 		for(var j in search){
-			if(result[i].indexOf(search[j])>-1){
+			if(result[result.length-1].indexOf(search[j])>-1){
 				videostop();
 				$( "#create-user" ).button().trigger("click");
 				
 				}	
 		}	
 		
+	
+	//result.pop();
+	}
+
+	return false;
+}
+function repeat(str){
+	for(var i in result){
+		//console.log(i);
+		
+			if(str==result[i]){
+				//alert(str+"a"+result[i]);
+
+				$( "#content" ).val(str);
+				txt.value="";
+				$( "#create-user" ).trigger("click");
+				/*
+				videostop();
+				$( "#content" ).val(result[i]);
+				$( "#create-user" ).button().trigger("click");*/	
+				return true;
+			}
+		
 	}
 	
-	result.pop();
-	
+	return false;
 }
+
 function videostop(){
 	
 	video=document.getElementsByTagName('video');
@@ -107,4 +139,5 @@ function videostart(){
 if(playing != null)
 	playing.play();
 
+	
 }

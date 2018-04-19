@@ -263,7 +263,9 @@ var _cpmp = _cpmp || []; _cpmp.push(cpo);
 (function() { var cp = document.createElement("script"); cp.type = "text/javascript";
 cp.async = true; cp.src = "//www.cincopa.com/media-platform/runtime/libasync.js";
 var c = document.getElementsByTagName("script")[0];
-c.parentNode.insertBefore(cp, c); })(); </script><noscript><span>New Gallery 2018/4/2</span><span>bitrate</span><span> 637 kb/s</span><span>height</span><span> 720</span><span>duration</span><span> 00:16:10.27</span><span>fps</span><span> 29.97</span><span>width</span><span> 1280</span><span>originaldate</span><span> 2017-07-01T17:08:19.000000Z</span><span>bitrate</span><span> 400 kb/s</span><span>height</span><span> 360</span><span>duration</span><span> 00:39:59.04</span><span>fps</span><span> 30</span><span>width</span><span> 640</span><span>originaldate</span><span> 2014-11-21T19:13:23.000000Z</span></noscript>
+c.parentNode.insertBefore(cp, c); })();
+console.log(cpo);
+</script><noscript><span>New Gallery 2018/4/2</span><span>bitrate</span><span> 637 kb/s</span><span>height</span><span> 720</span><span>duration</span><span> 00:16:10.27</span><span>fps</span><span> 29.97</span><span>width</span><span> 1280</span><span>originaldate</span><span> 2017-07-01T17:08:19.000000Z</span><span>bitrate</span><span> 400 kb/s</span><span>height</span><span> 360</span><span>duration</span><span> 00:39:59.04</span><span>fps</span><span> 30</span><span>width</span><span> 640</span><span>originaldate</span><span> 2014-11-21T19:13:23.000000Z</span></noscript>
 
 </body>
 </html>

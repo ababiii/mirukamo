@@ -16,7 +16,7 @@ $(document).ready(function(){
 	if(error!=''){
 	alert('필수 약관에 모두 동의하셔야 다음으로 넘어갈 수 있습니다.');
 	}
-});
+}); 
 </script>
 <style>
 .appointmentBox{

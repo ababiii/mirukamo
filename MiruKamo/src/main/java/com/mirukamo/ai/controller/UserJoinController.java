@@ -1,5 +1,8 @@
 package com.mirukamo.ai.controller;
 
+import javax.servlet.http.HttpSession;
+
+
 import org.slf4j.Logger;
 
 
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.util.UsersValidator;
@@ -38,19 +42,19 @@ public class UserJoinController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(Users users, Model model) {
 		
-		
-		UsersValidator uv = new UsersValidator(); 
+		/*UsersValidator uv = new UsersValidator(); 
 		String msg = uv.validate(users);
 		if(msg!=null){
 			model.addAttribute("errorMsg",msg);
 			logger.debug(msg);
 			return "users/join";
-		}
+		}*/
 		usersDAO.insertUser(users);
+		model.addAttribute("id", users.getId());
 		return "users/joinSuccessPage";
 	}
-	
-	/*아이디 중복확인*/
+/*	
+	아이디 중복확인
 	@RequestMapping(value = "/idCheck", method = RequestMethod.GET)
 	public String idCheck(){
 		return "users/idCheck";
@@ -66,6 +70,65 @@ public class UserJoinController {
 		}
 		return "users/idCheck";
 		
+	}*/
+	
+/*	이메일 중복확인
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
+	public String emailCheck(){
+		return "users/emailCheck";
 	}
+	
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.POST)
+	public String emailCheck(Users users,String searchEmail,String searchEmail2,Model model){
+		users=null;
+		if(searchEmail!=null&&searchEmail2!=null){
+			logger.debug(searchEmail+"@"+searchEmail2);
+			users = usersDAO.selectEmail(searchEmail,searchEmail2);
+			logger.debug("brought");
+			logger.debug(users.toString()+"brought");
+			logger.debug(users.getEmail());
+			logger.debug(users.getEmail2());
+			model.addAttribute("searchEmail",searchEmail);
+			model.addAttribute("searchEmail2",searchEmail2);
+			model.addAttribute("Email",users.getEmail());
+			model.addAttribute("Email",users.getEmail2());
+		}
+		return "users/emailCheck";
+		
+	}*/
+	
+	@ResponseBody
+	@RequestMapping(value = "/userRegisterCheck", method = RequestMethod.POST)
+	public int userRegisterCheck(String userId, Users user,HttpSession session) {
+		System.out.println("회원가입 체크");
+		user = usersDAO.selectUser(userId);
+		if(user!=null){
+			session.setAttribute("toID", user.getId());
+			//사용할 수 없는 아이디일 경우 0을 return 하고 
+			return 0;
+		}
+		//사용할 수 있는 아이디일 경우 1을 return
+		return 1;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/userRegisterEmailCheck", method = RequestMethod.POST)
+	public int userRegisterEmailCheck(Users user) {
+		
+		Users result=usersDAO.selectEmail(user);
+		
+		if(result!=null){
+			 
+			return 0;
+		}
+		//사용할 수 있는 이메일일 경우 1을 return
+		return 1;
+	}
+	
+	@RequestMapping(value="test",method=RequestMethod.GET)
+	public String test(){
+		return "users/joinSuccessPage";
+	}
+	
 	
 }

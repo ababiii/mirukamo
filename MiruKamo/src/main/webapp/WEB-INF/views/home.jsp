@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
 body {
-    background-color: coral;
+   /*  background-color: coral; */ 
 }
 /* The side navigation menu */
 .sidenav {
@@ -62,6 +62,9 @@ body {
 	<title>홈 페이지</title>
 </head>
 <body>
+<span onclick="openNav()"><img src="resources/images/menu.png" height="50px" width="50px"></span>
+<a href="./"><img src="resources/images/loverdug.jpg" height="100px" width="100px"></a>
+<!-- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="resources/jQuery/jquery-ui.js"></script>
 
@@ -168,16 +171,22 @@ $( function() {
 <c:if test="${sessionScope.adminCheck==null }">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a><h1>비로그인 사용자</h1></a>
+  <a><h1>Mirukamo</h1></a>
   <a href="appointment">회원가입</a>
+  <c:if test="${userId==null }">
   <a href="login/login">로그인</a>
+	</c:if>
+	<c:if test="${userId!=null }">
+  <a href="login/logout">로그아웃</a>
+  
+  <a href="myPage">마이페이지11112</a>
 
-  <a href="login/logout">로그아웃11</a>
-  <a href="myPage/myPage">마이페이지11112</a>
-
-  <a href="login/logout">로그아웃2222</a>
+  
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+   <a href="login/find_pw">비밀번호 찾기</a>
+   
+   </c:if>
 </div>
 </c:if>
 <!-- admin이 0인 이용자 아이디로 로그인 하면 보이는 메뉴 -->
@@ -186,15 +195,16 @@ $( function() {
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a><h1>${sessionScope.userId } </h1></a>
-  <a href="join/join">회원가입</a>
-  <a href="login/login">로그인</a>
-
-  <a href="login/logout">로그아웃11</a>
-  <a href="myPage/myPage">마이페이지11112</a>
-
-  <a href="login/logout">로그아웃2222</a>
+  
+  <a href="login/logout">로그아웃</a>
+  <a href="myPage">마이페이지</a>
+   <a href="myPage/mypage">수정</a>
+   <a href="login/find_pw">비밀번호 찾기</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+      <a href="servicecenter"> 고객 센터 </a>
+      <a href="drill"> 형태소 변환 </a>
+   		
 </div>
 </c:if>
 
@@ -214,7 +224,17 @@ $( function() {
 	</c:if>
 
 <!-- Use any element to open the sidenav -->
-<span onclick="openNav()">open</span>
+
+	
+<a href="login/face">얼굴</a>
+<a href="login/face2">얼굴2</a>
+<a href="login/face3">얼굴3</a>
+<a href="login/face4">얼굴4</a>
+<a href="login/video">비디오</a>
+<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
+
+
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">

@@ -1,3 +1,4 @@
+
 var result  = new Array(); 
 var search  = new Array("こんにちは","山田"); 
 var resultsize=3;

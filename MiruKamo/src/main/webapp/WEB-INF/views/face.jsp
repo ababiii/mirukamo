@@ -12,7 +12,9 @@
 		<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 		<script src="../resources/jQuery/jquery-ui.js"></script>
 		
-		<script>logger.debug("자바 디버그 확인")</script>
+		
+		
+		
 		<style>
 			@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 			
@@ -136,6 +138,7 @@
 		</script>
 	</head>
 	<body>
+		<script src="../resources/js/no_face.js"></script>
 		<script src="../resources/js/utils.js"></script>
 		<script src="../resources/js/clmtrackr1.js"></script>
 		<script src="../resources/js/model_pca_20_svm_emotionDetection.js"></script>
@@ -143,8 +146,10 @@
 		<script src="../resources/js/d3.min.js"></script>
 		<script src="../resources/js/emotion_classifier.js"></script>
 		<script src="../resources/js/emotionmodel.js"></script>
-		<script src="../resources/js/logger.js"></script>
-		<script src="https://cdn.rawgit.com/jonnyreeves/js-logger/master/src/logger.min.js"></script>
+		
+		
+		
+		
 		<div id="content">
 			<h2>얼굴일까?</h2>
 			 <div id="container">
@@ -153,6 +158,10 @@
 				<canvas id="overlay" width="400" height="300"></canvas>
 			</div> 
 			<canvas id="sketch" width="400" height="300"></canvas>
+			
+			
+        
+  
 			<div id="emotion_container">
 				<div id="emotion_icons">
 					<img class="emotion_icon" id="icon1" src="../resources/media/icon_angry.png">
@@ -242,9 +251,9 @@
 				}
 				
 				//얼굴이 없는 경우 확인해서 alert를 보여준다.
-				document.addEventListener("clmtrackrLost", function() {
+				/* document.addEventListener("clmtrackrLost", function() {
 						alert("no face");
-				});
+				}); */
 				
 			
 				
@@ -264,9 +273,9 @@
 					overlayCC.clearRect(0, 0, 400, 300);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					if (ctrack.getCurrentPosition()) {
-						ctrack.draw(overlay);
 						
-
+				        ctrack.draw(overlay);
+						
 					}
 					var cp = ctrack.getCurrentParameters();
 					

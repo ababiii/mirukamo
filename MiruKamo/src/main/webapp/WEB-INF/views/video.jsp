@@ -11,19 +11,10 @@
 		<link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 		<script src="../resources/jQuery/jquery-ui.js"></script>
-		
-		
-		
-		
+			
 		<style>
 			@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 			
-			body {
-				font-family: 'Lato';
-				background-color: #f0f0f0;
-				margin: 0px auto;
-				max-width: 1150px;
-			}
 			
 			#overlay {
 				position: absolute;
@@ -36,8 +27,10 @@
 				filter : fliph; /*IE*/
 				/* width : 0px;
 				height : 0px; */
-				 width : 600px;
-				height : 450px; 
+				 /* width : 600px;
+				height : 450px; */
+				width : 300px;
+				height : 225px;  
 			}
 
 			#videoel {
@@ -48,8 +41,10 @@
 				filter : fliph; /*IE*/
 				/* width : 0px;
 				height : 0px; */
-				width : 600px;
-				height : 450px; 
+				/* width : 600px;
+				height : 450px; */
+				width : 300px;
+				height : 225px;  
 			}
 			
 			#container {
@@ -115,14 +110,6 @@
 			}
 
 		</style>
-		<script>
-			// getUserMedia only works over https in Chrome 47+, so we redirect to https. Also notify user if running from file.
-			if (window.location.protocol == "file:") {
-				alert("You seem to be running this example directly from a file. Note that these examples only work when served from a server or localhost due to canvas cross-domain restrictions.");
-			} else if (window.location.hostname !== "localhost" && window.location.protocol !== "https:"){
-				window.location.protocol = "https";
-			}
-		</script>
 		<script type="text/javascript">
 
 			var _gaq = _gaq || [];
@@ -136,6 +123,7 @@
 			})();
 
 		</script>
+		
 	</head>
 	<body>
 		<script src="../resources/js/no_face.js"></script>
@@ -146,13 +134,10 @@
 		<script src="../resources/js/d3.min.js"></script>
 		<script src="../resources/js/emotion_classifier.js"></script>
 		<script src="../resources/js/emotionmodel.js"></script>
-		<script src="../resources/js/eye_blink_check.js"></script>
+	
 		
-		
-		
-		
-		
-		<div id="content">
+	
+	<div id="content">
 			<h2>얼굴일까?</h2>
 			 <div id="container">
 				<video id="videoel" width="400" height="300" preload="auto" loop>
@@ -160,28 +145,7 @@
 				<canvas id="overlay" width="400" height="300"></canvas>
 			</div> 
 			<canvas id="sketch" width="400" height="300"></canvas>
-			<div class="holder" data-title="Correlation">
-    
-    <div id="content">
-        <canvas id="originalCanvas" width=320 height=240></canvas>
-        <canvas id="trackerCanvas" width=320 height=240></canvas>
-        <br />
-        <canvas id="eyeCanvas" width=80 height=60></canvas>
-        <canvas id="bwCanvas" width=80 height=60></canvas>
-        <canvas id="thCanvas" width=80 height=60></canvas>
-        <br />
-        <canvas id="oldCanvas" width=80 height=60></canvas>
-        <canvas id="curCanvas" width=80 height=60></canvas>
-        <canvas id="cCanvas" width=80 height=60></canvas>
-        <br />
-        <p id="correlationPercentage">
-            0%
-        </p>
-        <p id="blinksDetected">
-            0
-        </p>
-    </div>
-</div>
+			
 			
         
   
@@ -198,6 +162,14 @@
 				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 			</div>
+			
+			<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" >
+    <source src="./preview?name=test.mp4" type="video/mp4" />
+     
+		</video>
+	<button onclick="playVid()" type="button">Play Video</button>
+	<button onclick="pauseVid()" type="button">Pause Video</button><br>
+			
 			<script>
 				var vid = document.getElementById('videoel');
 				var overlay = document.getElementById('overlay');
@@ -282,7 +254,10 @@
 				
 				function stopVideo() {
 					// start video
-					vid.pause();
+					
+					//일단 없에도 되는 명령문이라 주석 처리 해줌
+					//vid.pause();
+					
 					// start tracking
 					//ctrack.start(vid);
 					// start loop to draw face
@@ -408,6 +383,21 @@
 				}, false);
 				
 			</script>
+			
+			<script> 
+var myvid = document.getElementById("myVideo"); 
+
+function playVid() { 
+    vid.play(); 
+}
+
+function pauseVid() { 
+    myvid.pause(); 
+} 
+</script> 
 		</div>
+	
+	
+
 	</body>
 </html>

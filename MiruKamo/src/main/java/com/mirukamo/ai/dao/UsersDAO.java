@@ -1,6 +1,7 @@
 package com.mirukamo.ai.dao;
 
 import java.util.ArrayList;
+
 import java.util.logging.Logger;
 
 import org.apache.ibatis.session.SqlSession;

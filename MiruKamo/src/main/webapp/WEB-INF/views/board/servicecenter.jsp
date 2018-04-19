@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>고객센터 게시판</title>
 </head>
-<body>
+<body> 
 고객센터 게시판
 </body>
 </html>

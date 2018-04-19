@@ -19,10 +19,7 @@
 	
 	<!-- ojdbc6.jar 레퍼런스 주소11 --> 
  	<repositories> 
- 	<repository>
-    <id>Atilika Open Source repository</id>
-    <url>http://www.atilika.org/nexus/content/repositories/atilika</url>
-</repository>
+
   		<repository> 
        		<id>codelds</id> 
        		<url>https://code.lds.org/nexus/content/groups/main-repo</url> 
@@ -196,18 +193,15 @@
     <type>jar</type>
     <scope>compile</scope>
 </dependency> 
-<<<<<<< HEAD
-	
+
 		
-	
-=======
+
 	<!-- JSON -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.8.6</version>
 		</dependency>    
->>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 	</dependencies>
     <build>
         <plugins>

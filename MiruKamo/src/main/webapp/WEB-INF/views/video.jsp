@@ -139,6 +139,7 @@
 	
 	<div id="content">
 			<h2>얼굴일까?</h2>
+			<!-- 사용자의 얼굴을 인식해 주는 부분 -->
 			 <div id="container">
 				<video id="videoel" width="400" height="300" preload="auto" loop>
 				</video>
@@ -148,7 +149,7 @@
 			
 			
         
-  
+  			<!-- 감정 다이어그램 -->
 			<div id="emotion_container">
 				<div id="emotion_icons">
 					<img class="emotion_icon" id="icon1" src="../resources/media/icon_angry.png">
@@ -158,19 +159,27 @@
 				</div>
 				<div id='emotion_chart'></div>
 			</div>
+			
+			<!-- 사용자 얼굴 인식 플레이 일시정지 버튼 -->
 			<div id="controls">
 				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 			</div>
 			
-			<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" >
+			<!-- 일본어 강의가 플레이 되는 부분,,사용자가 페이지에 입장하면 저절로 플레이 됨 -->
+			<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" controls autoplay>
     <source src="./preview?name=test.mp4" type="video/mp4" />
-     
 		</video>
+	
+		<!-- 인터넷 강의의 플레이 일시정지 버튼,,딱히 사용할 필요없음 -->
 	<button onclick="playVid()" type="button">Play Video</button>
 	<button onclick="pauseVid()" type="button">Pause Video</button><br>
 			
 			<script>
+			
+			
+			
+			
 				var vid = document.getElementById('videoel');
 				var overlay = document.getElementById('overlay');
 				var overlayCC = overlay.getContext('2d');
@@ -233,7 +242,8 @@
 
 				var ctrack = new clm.tracker({useWebGL : true});
 				ctrack.init(pModel);
-
+				
+				
 				function startVideo() {
 					// start video
 					vid.play();

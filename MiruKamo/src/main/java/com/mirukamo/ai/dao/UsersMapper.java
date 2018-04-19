@@ -1,11 +1,11 @@
 package com.mirukamo.ai.dao;
 
+
 import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
-
 import com.mirukamo.ai.vo.Users;
 
-public interface usersMapper {
+public interface UsersMapper {
 
 	
 	public int insertUsers(Users users);
@@ -17,9 +17,11 @@ public interface usersMapper {
 	public Users find_pw(Users user);
 
 
-	
+	//11233asf
 	public Users selectAllUsers();
 	
-	public Users selectEmail(@Param("a")String userEmail,@Param("b")String userEmail2);
+	public Users selectEmail(Users user);
+	
+	
 	
 }

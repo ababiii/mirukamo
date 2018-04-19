@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 회원정보 처리 SQL -->
-<mapper namespace="com.mirukamo.ai.dao.usersMapper">
+<mapper namespace="com.mirukamo.ai.dao.UsersMapper">
 
 	<!-- 회원 정보 저장 -->
 	<insert id="insertUsers" parameterType="Users">
@@ -66,13 +66,13 @@ where
 </update>
 	
 	<!-- 이메일 중복환인 -->
-	<select id="selectEmail" parameterType="map" resultType="Users">
+	<select id="selectEmail" parameterType="Users" resultType="Users">
 	select 
 		* 
 	from 
-		mirukamo_member 
-	where 
-		email=#{a} and email2=#{b}
+		mirukamo_member
+	where
+			email=#{email} and email2=#{email2}
 	</select>
 
 </mapper>

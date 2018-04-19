@@ -38,6 +38,7 @@
 	<title>로그인</title>
 </head>
 <body>
+<a href="../"><img src="../resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <div><span style="font: red;">${erorrMsg }</span></div>
 <form action="login" method="post">
 	<input type="text" placeholder="id" name="userId">

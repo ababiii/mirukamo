@@ -7,6 +7,63 @@
 <html>
 
 <head>
+<script src="../resources/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+ 	 function registerCheckFunction() {
+		var userId = $('#userId').val();
+		alert('아이디 중복확인');
+		$.ajax({
+			type:'POST',
+			url:'./userRegisterCheck',
+			data: {userId:userId},
+			success: function(result){
+				if(result==1){
+					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
+				}else{
+					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
+				}
+			}
+		})
+	}
+ 	 function registerEmailCheckFunction() {
+ 		var userEmail = $('#userEmail').val();
+ 		var userEmail2 = $('#userEmail2').val();
+ 		alert(userEmail+userEmail2);
+ 		$.ajax({
+ 			type:'POST',
+ 			url:'./userRegisterEmailCheck',
+ 			data: {email:userEmail,email2:userEmail2},
+ 			dataType : 'text',
+ 			success: function(result){
+ 				if(result==1){
+ 					$('#checkEmailMessage').html('사용할 수 있는 이메일입니다.');
+ 				}else{
+ 					$('#checkEmailMessage').html('사용할 수 없는 이메일입니다.');
+ 				}
+ 			},
+ 			error : function(e){
+ 				alert('에러가 발생했습니다. 다시 시도해 주세요.');
+ 			}
+ 		});
+ 	} 
+ 	
+ 	function passwordCheckFunction() {
+		var userPassword = $('#userPassword').val();
+		var userPassword2 = $('#userPassword2').val();
+		var end = userPassword2.length;
+		if(userPassword2!=0){
+		if(userPassword!=userPassword2){
+			$('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
+			
+		}else{
+			$('#passwordCheckMessage').html('');
+		}
+		}
+	}
+ 	
+ 
+ </script>
+
 <style type="text/css">
 
 body {
@@ -39,34 +96,25 @@ h1, h2, h3 {
 <link rel="stylesheet" href="../resources/css/bootstrap-theme.css" >
 <script src="../resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
-var msg = '${errorMsg}';//가입실패라는 문자가 들어가 있음//서버에서 내용을 안보낸다면 null
-if(msg.length>0){
-alert(msg);//가입 서버에 갔다 왔는지 아닌지를 구분해 줄 수 있다. 
-}
-
-function idCheckOpen() {
-	window.open("idCheck","idCheckWin","top=200, left=400, width=400, height=250"); 
-}
-
-function emailCheckOpen() {
-	window.open("emailCheck","emailCheckWin","top=200, left=400, width=400, height=250"); 
-}
 </script>
+
 	<title>회원가입</title>
 </head>
 <body id="joinBody">
+<a href="../"><img src="../resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <div class="container">
 	<div class="row">
     <div class="col-md-8">
-    	<a href="../">홈으로</a>
+    	
         <h1 class="entry-title"><span>회원가입</span> </h1>
         <hr>
             <form action="join" class="form-horizontal" method="post" onSubmit="return formValidation();" data-ajax="false" name="join" id="signup" enctype="multipart/form-data" >        
          <div class="form-group">
           <label class="control-label col-sm-3">아이디<span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
-            <input type="text" class="form-control" name="id" id="userId" placeholder="아이디를 입력하세요" onclick="idCheckOpen()">
+            <input type="text" class="form-control" name="id" id="userId" placeholder="아이디를 입력하세요">
+            <div id="checkMessage"></div>
+            <button class="btn btn-primary" onclick="registerCheckFunction();" type="button">중복체크</button>
           </div>
         </div>
         
@@ -75,7 +123,8 @@ function emailCheckOpen() {
           <label class="control-label col-sm-3">비밀번호 <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
-              <input type="password" class="form-control" name="password" id="userPassword" placeholder="비밀번호를 입력하세요." value="">
+              <input type="password" class="form-control" name="password" id="userPassword" onkeyup="passwordCheckFunction();" placeholder="비밀번호를 입력하세요." value="">
+           	  <h5 style="color: red; " id="passwordCheckMessage"></h5>
            </div>   
           </div>
         </div>
@@ -83,7 +132,8 @@ function emailCheckOpen() {
           <label class="control-label col-sm-3">비밀번호 확인 <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
-              <input type="password" class="form-control" name="password2" id="userPassword2" placeholder="비밀번호를 확인해 주세요." value="">
+              <input type="password" class="form-control" name="password2" id="userPassword2" onkeyup="passwordCheckFunction();" placeholder="비밀번호를 확인해 주세요." value="">
+              <h5 style="color: red; " id="passwordCheckMessage"></h5>
             </div>  
           </div>
         </div>
@@ -91,7 +141,9 @@ function emailCheckOpen() {
           <label class="control-label col-sm-3">이메일 <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
               <div class="input-group">
-              <input type="text" class="form-control" name="email" id="userEmail"  value="" onclick="emailCheckOpen()" >@<input type="text" class="form-control" name="email2" id="userEmail2"  value="" >
+              <input type="text" class="form-control" name="email" id="userEmail">@<input type="text" class="form-control" name="email2" id="userEmail2"  value="" >
+             <div id="checkEmailMessage"></div>
+             <button class="btn btn-primary" onclick="registerEmailCheckFunction();" type="button">중복체크</button>
             </div>
             <small> 귀하의 이메일은 계정 승인 및 복구 보안을 위해 사용됩니다. </small> </div>
         </div>
@@ -106,7 +158,7 @@ function emailCheckOpen() {
         
      
         <div class="form-group">
-          <label class="control-label col-sm-3">휴대폰 번호 <span class="text-danger">*</span></label>
+          <label class="control-label col-sm-3">휴대폰 번호 <span class="text-danger"></span></label>
           <div class="col-md-5 col-sm-8">
           	<div class="input-group">
             <input type="text" class="form-control"  name="phone" id="userPhone" placeholder="휴대폰 번호를 입력하세요." value="">
@@ -115,21 +167,19 @@ function emailCheckOpen() {
         </div>
        
         <div class="form-group">
-          <label class="control-label col-sm-3">생년월일 <span class="text-danger">*</span></label>
+          <label class="control-label col-sm-3">생년월일 <span class="text-danger"></span></label>
           <div class="col-md-8 col-sm-9">
             <input type="text" class="form-control" name="birth" id="userBirthday" placeholder="생년월일을 입력하세요.">
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-10">
-            <input name="Submit" type="submit" value="회원가입" class="btn btn-primary" onclick="formCheck()">
+          <button name="Submit" type="submit" value="회원가입" class="btn btn-primary" onclick="formCheck()">회원가입</button>
           </div>
         </div>
       </form>
     </div>
 </div>
 </div>
-
-
 </body>
 </html>

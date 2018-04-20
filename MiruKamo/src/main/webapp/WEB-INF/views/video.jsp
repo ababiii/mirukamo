@@ -163,8 +163,8 @@
 				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 			</div>
 			
-			<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" >
-    <source src="./preview?name=test.mp4" type="video/mp4" />
+			<video controls preload="none" poster="poster.jpg" id="myVideo" width="320" height="176">
+    <source src="./preview?name=${filename}" type="video/mp4"/>
      
 		</video>
 	<button onclick="playVid()" type="button">Play Video</button>

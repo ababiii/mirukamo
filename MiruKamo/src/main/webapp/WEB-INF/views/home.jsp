@@ -204,6 +204,7 @@ $( function() {
    <a href="myPage/myPage">수정</a>
       <a href="servicecenter"> 고객 센터 </a>
       <a href="drill"> 형태소 변환 </a>
+      <a href="login/videolist"> 영상리스트 </a>
    		
 </div>
 </c:if>

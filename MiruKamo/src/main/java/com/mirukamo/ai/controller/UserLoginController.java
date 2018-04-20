@@ -55,10 +55,12 @@ public class UserLoginController {
 			return "users/login";
 		} else if (result == null) {
 			String msg = "존재하지 않는 아이디입니다.";
+			model.addAttribute("setId", users.getId());
 			model.addAttribute("errorMsg", msg);
 			return "users/login";
 		} else if (!result.getPassword().equals(users.getPassword())) {
 			String msg = "비밀번호가 다릅니다.";
+			model.addAttribute("setId", users.getId());
 			model.addAttribute("errorMsg", msg);
 			return "users/login";
 		}

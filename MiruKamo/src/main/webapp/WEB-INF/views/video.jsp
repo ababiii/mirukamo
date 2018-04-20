@@ -166,9 +166,9 @@
 				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 			</div>
 			
-			<!-- 일본어 강의가 플레이 되는 부분,,사용자가 페이지에 입장하면 저절로 플레이 됨 -->
-			<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" controls autoplay>
-    <source src="./preview?name=test.mp4" type="video/mp4" />
+
+			<video controls preload="none" poster="poster.jpg" id="myVideo" width="320" height="176">
+    <source src="./preview?name=${filename}" type="video/mp4"/>
 		</video>
 	
 		<!-- 인터넷 강의의 플레이 일시정지 버튼,,딱히 사용할 필요없음 -->

@@ -144,17 +144,49 @@ public class UserLoginController {
 		return "video";
 	}
 
-	@RequestMapping(value = "preview", method = RequestMethod.GET)
-	public void getPreview3(@RequestParam(value = "name") String name, HttpServletResponse response,
-			HttpServletRequest request) {
-		name = "2.mp4";
-		String path = "D://video/" + name;
-		try {
-			MultipartFileSender.fromFile(new File(path)).with(request).with(response).serveResource();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
-		}
-	}
 
+
+	
+	 @RequestMapping(value = "preview", method = RequestMethod.GET)
+	    public void getPreview3(@RequestParam(value="name") String name, HttpServletResponse response,HttpServletRequest request,HttpSession session) {
+	    // String s = (String)session.getAttribute("title");   
+		// name = name + ".mp4";
+		 logger.debug(name);
+		 
+		 //response.reset();
+		 
+	   // name="1.mp4";
+		 	String path = "D:\\video\\"+name;
+	        try {
+	            MultipartFileSender.fromFile(new File(path))
+	            .with(request)
+	            .with(response)
+	            .serveResource();
+	            
+	            
+	            //return "video" ;	           
+	            		
+	        } catch (Exception e) {
+	            // TODO Auto-generated catch block
+	            //e.printStackTrace();
+	        }
+	        //return "video" ;
+	    }
+
+
+	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
+		public String videolist1() {
+			
+			return "videolist";
+		}
+	 
+	 @RequestMapping(value = "/videolist", method = RequestMethod.POST)
+		public String videolist(String name, HttpSession session, Model model) {
+			//session.setAttribute("title", title1);
+			model.addAttribute("filename",name);
+		
+			
+			return "video";
+		}
+	 
 }

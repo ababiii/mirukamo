@@ -57,7 +57,7 @@ public class DrillController {
 
 		ArrayList<mirukamo_drill> word = new ArrayList<mirukamo_drill>();
 		word = drilldao.word();
-
+		System.out.println(";;;;;;;;"+word.toString());
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
@@ -90,7 +90,7 @@ public class DrillController {
 				}
 				
 				
-				
+				/*
 				// allFeatures tokenの全ての要素を出力
 				System.out.println("allFeatures: " + token.getAllFeatures());
 
@@ -120,7 +120,7 @@ public class DrillController {
 				System.out.println("isUnKnown: " + token.isUnknown());
 				// isUser ユーザーで定義した言葉かどうか
 				System.out.println("User: " + token.isUser());
-			}
+*/			}
 			nounnum++;
 		}
 

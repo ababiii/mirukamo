@@ -32,8 +32,10 @@ public class UserLoginController {
 	private static final Logger logger = LoggerFactory.getLogger(UserLoginController.class);
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		
+	public String login(Model model,boolean fromDrill) {
+		if(fromDrill==true){
+			model.addAttribute("fromDrill", true);
+		}
 		return "users/login";
 	}
 	

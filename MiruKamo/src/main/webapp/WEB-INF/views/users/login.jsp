@@ -6,7 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
+<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var check=${fromDrill};
+
+	if(check){
+		alert('로그인 후 이용해 주세요.');
+	}
+});
  	 function registerCheckFunction() {
 		var userId = $('#userId').val();
 		$.ajax({

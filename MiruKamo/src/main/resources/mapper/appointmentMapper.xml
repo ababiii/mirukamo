@@ -23,4 +23,15 @@ select m.num,
 	languages from mirukamo_mycourse m,mirukamo_course
 where member_id=#{id}  
 </select>
+
+<select id="getMyInfo" parameterType="string" resultType="Users">
+select * from mirukamo_member
+where id=#{id}
+</select>
+
+<update id="setMyInfo" parameterType="Users">
+update mirukamo_member set
+password=#{password},phone=#{phone},birth=#{birth}
+where id=#{id}
+</update>
 </mapper>

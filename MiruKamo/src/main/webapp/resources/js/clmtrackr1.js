@@ -4489,7 +4489,7 @@ if(!raf || !caf) {
   var last = 0
     , id = 0
     , queue = []
-    , frameDuration = 1000 / 60;
+    , frameDuration = 1000 /60;//60인데 버벅 거려서 좀 낮춤
 
   raf = function(callback) {
     if(queue.length === 0) {

@@ -141,16 +141,39 @@ public class UserLoginController {
 		return "face4";
 	}
 	
+	@RequestMapping(value = "/face5", method = RequestMethod.GET)
+	public String face5() {
+		
+		return "face5";
+	}
+	
+	@RequestMapping(value = "/face6", method = RequestMethod.GET)
+	public String face6() {
+		
+		return "face6";
+	}
+	
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
 		
 		return "video";
 	}
 	
+	@RequestMapping(value = "/eye_blink_detect", method = RequestMethod.GET)
+	public String eye() {
+		
+		return "eye_blink_detect";
+	}
+	
+	
+	
+	
+	
 	 @RequestMapping(value = "preview", method = RequestMethod.GET)
-	    public void getPreview3(@RequestParam(value="name") String name, HttpServletResponse response,HttpServletRequest request) {
-	        name="2.mp4";
+	    public void getPreview3(@RequestParam(value="name") String name, HttpServletResponse response,HttpServletRequest request, HttpSession session) {
+		 	name="1.mp4";
 		 	String path = "D://video/"+name;
+		 	logger.debug(name+"영상이름");
 	        try {
 	            MultipartFileSender.fromFile(new File(path))
 	            .with(request)

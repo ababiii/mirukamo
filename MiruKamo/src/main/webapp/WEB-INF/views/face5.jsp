@@ -5,112 +5,82 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!doctype html>
 <html lang="en">
+
+
 	<head>
+	
+	
+	
 		<title>Face tracker</title>
 		<meta charset="utf-8">
 		<link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 		<script src="../resources/jQuery/jquery-ui.js"></script>
-			
-		<style>
-			@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
-			
-			
-			#overlay {
-				position: absolute;
-				top: 0px;
-				left: 0px;
-				-o-transform : scaleX(-1);
-				-webkit-transform : scaleX(-1);
-				transform : scaleX(-1);
-				-ms-filter : fliph; /*IE*/
-				filter : fliph; /*IE*/
-				/* width : 0px;
-				height : 0px; */
-				 /* width : 600px;
-				height : 450px; */
-				width : 300px;
-				height : 225px;  
-			}
+		
+	<style>	
+	html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
 
-			#videoel {
-				-o-transform : scaleX(-1);
-				-webkit-transform : scaleX(-1);
-				transform : scaleX(-1);
-				-ms-filter : fliph; /*IE*/
-				filter : fliph; /*IE*/
-				/* width : 0px;
-				height : 0px; */
-				/* width : 600px;
-				height : 450px; */
-				width : 300px;
-				height : 225px;  
-			}
-			
-			#container {
-				position : relative;
-				width : 370px;
-				/*margin : 0px auto;*/
-			}
-			
-			#content {
-				margin-top : 50px;
-				margin-left : auto;
-				margin-right : auto;
-				max-width: 600px;
-			}
-			
-			#sketch, #filter {
-				display: none;
-			}
-			
-			h2 {
-				font-weight : 400;
-			}
-			
-			.btn {
-				font-family: 'Lato';
-				font-size: 16px;
-			}
+p {
+    margin: 0;
+    font-size: 12px;
+}
 
-			#controls {
-				text-align : center;
-			}
+canvas {
+    border: 1px solid black;
+}
 
-			#emotion_container {
-				width: 600px;
-			}
+.holder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+}
 
-			#emotion_icons {
-				height: 50px;
-				padding-left: 40px;
-			}
+.holder:before {
+    content: attr(data-title);
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    visibility: visible;
+}
 
-			.emotion_icon {
-				width : 40px;
-				height : 40px;
-				margin-top: 5px;
-				/*margin-left : 13px;*/
-				margin-left : 35px;
-			}
+.holder:after {
+    content: 'click to activate';
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 100%;
+    visibility: visible;
+}
 
-			#emotion_chart, #emotion_icons {
-				margin: 0 auto;
-				width : 400px;
-			}
+#content {
+    text-align: center;
+    visibility: hidden;
+}
 
-			#icon1, #icon2, #icon3, #icon4, #icon5, #icon6 {
-				visibility : hidden;
-			}
+body.active .holder:before,
+body.active .holder:after {
+    visibility: hidden;
+}
 
-			/* d3 */
-			.bar {
-				fill : steelblue;
-				fill-opacity : .9;
-			}
-
-		</style>
-		<script type="text/javascript">
+body.active #content {
+    visibility: visible;
+}
+</style>	
+		
+	<script type="text/javascript">
 
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-32642923-1']);
@@ -122,10 +92,10 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 
-		</script>
-		
+		</script>	
 	</head>
 	<body>
+		
 		<script src="../resources/js/no_face.js"></script>
 		<script src="../resources/js/utils.js"></script>
 		<script src="../resources/js/clmtrackr1.js"></script>
@@ -134,12 +104,17 @@
 		<script src="../resources/js/d3.min.js"></script>
 		<script src="../resources/js/emotion_classifier.js"></script>
 		<script src="../resources/js/emotionmodel.js"></script>
-	
+		<script src="../resources/js/eye_blink_check.js"></script>
 		
-	
-	<div id="content">
+		
+		 <div id="controls">
+				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
+			</div>
+				<!-- <input class="btn" type="button" onclick="start()" id="startbutton"></input>
+				<input class="btn" type="button" value="Stop" onclick="stop()" id="startbutton"></input> -->
+		<div id="content">
 			<h2>얼굴일까?</h2>
-			<!-- 사용자의 얼굴을 인식해 주는 부분 -->
 			 <div id="container">
 				<video id="videoel" width="400" height="300" preload="auto" loop>
 				</video>
@@ -148,42 +123,32 @@
 			<canvas id="sketch" width="400" height="300"></canvas>
 			
 			
+			<div class="holder" data-title="Correlation">
+    <div id="content">
+        <canvas id="overlay" width=320 height=240></canvas>
+        <canvas id="sketch" width=320 height=240></canvas>
+        <br />
+        <canvas id="eyeCanvas" width=80 height=60></canvas>
+        <canvas id="bwCanvas" width=80 height=60></canvas>
+        <canvas id="thCanvas" width=80 height=60></canvas>
+        <br />
+        <canvas id="oldCanvas" width=80 height=60></canvas>
+        <canvas id="curCanvas" width=80 height=60></canvas>
+        <canvas id="cCanvas" width=80 height=60></canvas>
+        <br />
+        <p id="correlationPercentage">
+            0%
+        </p>
+        <p id="blinksDetected">
+            0
+        </p>
+    </div>
+</div>
         
-  			<!-- 감정 다이어그램 -->
-			<div id="emotion_container">
-				<div id="emotion_icons">
-					<img class="emotion_icon" id="icon1" src="../resources/media/icon_angry.png">
-					<img class="emotion_icon" id="icon2" src="../resources/media/icon_sad.png">
-					<img class="emotion_icon" id="icon3" src="../resources/media/icon_surprised.png">
-					<img class="emotion_icon" id="icon4" src="../resources/media/icon_happy.png">
-				</div>
-				<div id='emotion_chart'></div>
-			</div>
-			
-			<!-- 사용자 얼굴 인식 플레이 일시정지 버튼 -->
-			<div id="controls">
-				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
-				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
-			</div>
-			
-			<!-- 일본어 강의가 플레이 되는 부분,,사용자가 페이지에 입장하면 저절로 플레이 됨 -->
-			<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176">
-    <source src="./preview?name=test.mp4" type="video/mp4" />
-		</video>
-	
-		<!-- 인터넷 강의의 플레이 일시정지 버튼,,딱히 사용할 필요없음 -->
-	<button onclick="playVid()" type="button">Play Video</button>
-	<button onclick="pauseVid()" type="button">Pause Video</button><br>
-			
 			<script>
-			
-			
-			
-			
 				var vid = document.getElementById('videoel');
 				var overlay = document.getElementById('overlay');
 				var overlayCC = overlay.getContext('2d');
-				console.log(overlay+"오버레이 값 들어감");
 				/********** check and set up video/webcam **********/
 
 				function enablestart() {
@@ -192,19 +157,6 @@
 					startbutton.disabled = null;
 				}
 				
-				/*var insertAltVideo = function(video) {
-					if (supports_video()) {
-						if (supports_ogg_theora_video()) {
-							video.src = "../media/cap12_edit.ogv";
-						} else if (supports_h264_baseline_video()) {
-							video.src = "../media/cap12_edit.mp4";
-						} else {
-							return false;
-						}
-						//video.play();
-						return true;
-					} else return false;
-				}*/
 				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 				window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
 
@@ -242,17 +194,15 @@
 
 				var ctrack = new clm.tracker({useWebGL : true});
 				ctrack.init(pModel);
-				
-				
+
 				function startVideo() {
 					// start video
 					vid.play();
 					// start tracking
 					ctrack.start(vid);
-					console.log(vid+"값이 들어감");
+					
 					// start loop to draw face
 					drawLoop();
-					console.log(drawLoop()+"값이 들어감");
 				}
 				
 				//얼굴이 없는 경우 확인해서 alert를 보여준다.
@@ -264,10 +214,7 @@
 				
 				function stopVideo() {
 					// start video
-					
-					//일단 없에도 되는 명령문이라 주석 처리 해줌
-					//vid.pause();
-					
+					vid.pause();
 					// start tracking
 					//ctrack.start(vid);
 					// start loop to draw face
@@ -393,21 +340,6 @@
 				}, false);
 				
 			</script>
-			
-			<script> 
-var myvid = document.getElementById("myVideo"); 
-
-function playVid() { 
-    vid.play(); 
-}
-
-function pauseVid() { 
-    myvid.pause(); 
-} 
-</script> 
 		</div>
-	
-	
-
 	</body>
 </html>

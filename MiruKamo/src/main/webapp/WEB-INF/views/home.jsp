@@ -199,7 +199,6 @@ $( function() {
   <a href="login/logout">로그아웃</a>
   <a href="myPage">마이페이지</a>
    <a href="myPage/mypage">수정</a>
-   <a href="login/find_pw">비밀번호 찾기</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
       <a href="servicecenter"> 고객 센터 </a>
@@ -257,16 +256,6 @@ function closeNav() {
 </script>
 
 
-
-<div id="cp_widget_29a33252-b29d-45e1-87a8-dbe932ba97d8">...</div><script type="text/javascript">
-var cpo = []; cpo["_object"] ="cp_widget_29a33252-b29d-45e1-87a8-dbe932ba97d8"; cpo["_fid"] = "AsDAtN-uutay";
-var _cpmp = _cpmp || []; _cpmp.push(cpo);
-(function() { var cp = document.createElement("script"); cp.type = "text/javascript";
-cp.async = true; cp.src = "//www.cincopa.com/media-platform/runtime/libasync.js";
-var c = document.getElementsByTagName("script")[0];
-c.parentNode.insertBefore(cp, c); })();
-console.log(cpo);
-</script><noscript><span>New Gallery 2018/4/2</span><span>bitrate</span><span> 637 kb/s</span><span>height</span><span> 720</span><span>duration</span><span> 00:16:10.27</span><span>fps</span><span> 29.97</span><span>width</span><span> 1280</span><span>originaldate</span><span> 2017-07-01T17:08:19.000000Z</span><span>bitrate</span><span> 400 kb/s</span><span>height</span><span> 360</span><span>duration</span><span> 00:39:59.04</span><span>fps</span><span> 30</span><span>width</span><span> 640</span><span>originaldate</span><span> 2014-11-21T19:13:23.000000Z</span></noscript>
 
 </body>
 </html>

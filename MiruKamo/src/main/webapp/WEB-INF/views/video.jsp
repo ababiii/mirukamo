@@ -168,7 +168,7 @@
 			
 
 			<video controls preload="none" poster="poster.jpg" id="myVideo" width="320" height="176">
-    <source src="./preview?name=${filename}" type="video/mp4"/>
+    <source src="./preview?name=${file_name}" type="video/mp4"/>
 		</video>
 	
 		<!-- 인터넷 강의의 플레이 일시정지 버튼,,딱히 사용할 필요없음 -->

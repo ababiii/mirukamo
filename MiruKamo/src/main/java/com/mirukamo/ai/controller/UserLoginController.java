@@ -1,6 +1,7 @@
 package com.mirukamo.ai.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mirukamo.ai.dao.CourseDAO;
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.util.MultipartFileSender;
+import com.mirukamo.ai.vo.Mirukamo_course;
 import com.mirukamo.ai.vo.Users;
 
 
@@ -28,6 +31,8 @@ public class UserLoginController {
 	
 	@Autowired
 	UsersDAO usersDAO;
+	@Autowired
+	CourseDAO courseDAO;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserLoginController.class);
 	
@@ -176,15 +181,19 @@ public class UserLoginController {
 	    }
 
 	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
-		public String videolist1() {
-			
+		public String videolist1( Model model) {
+		 ArrayList<Mirukamo_course> list=new ArrayList<>();
+		 list=courseDAO.selectCourse();
+		 System.out.println(list);
+			model.addAttribute("list",list);
 			return "videolist";
 		}
 	 
 	 @RequestMapping(value = "/videolist", method = RequestMethod.POST)
 		public String videolist(String name, HttpSession session, Model model) {
 			//session.setAttribute("title", title1);
-			model.addAttribute("filename",name);
+		
+			model.addAttribute("file_name",name);
 		
 			
 			return "video";

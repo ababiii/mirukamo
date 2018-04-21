@@ -71,6 +71,7 @@ public class UserLoginController {
 		}
 		
 		session.setAttribute("userId", result.getId());
+		session.setAttribute("adminCheck",0);
 		return "redirect:/";
 	}
 
@@ -197,7 +198,7 @@ public class UserLoginController {
 	            
 	            //return "video" ;	           
 	            		
-	        } catch (Exception e) {
+	        } catch (Exception e) { 
 	            // TODO Auto-generated catch block
 	            //e.printStackTrace();
 	        }

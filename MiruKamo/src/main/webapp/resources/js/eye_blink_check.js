@@ -79,8 +79,7 @@ function init() {
 function start(e) {
     e.preventDefault();
     document.body.className = 'active';
-
-    webcam.start()
+    webcam.start();
     tracker.start(webcam.domElement);
 
     raf = requestAnimationFrame(update);

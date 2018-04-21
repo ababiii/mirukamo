@@ -14,8 +14,9 @@ $(document).ready(function(){
 	if(check){
 		alert('로그인 후 이용해 주세요.');
 	}
+	
 });
- 	 function registerCheckFunction() {
+ 	/*  function registerCheckFunction() {
 		var userId = $('#userId').val();
 		$.ajax({
 			type:'POST',
@@ -43,7 +44,7 @@ $(document).ready(function(){
 		}else{
 			$('#passwordCheckMessage').html('');
 		}
-	} 
+	}  */
  </script>
 
 	<title>로그인</title>
@@ -52,8 +53,9 @@ $(document).ready(function(){
 <a href="../"><img src="../resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <div><span style="font: red;">${erorrMsg }</span></div>
 <form action="login" method="post">
-	<input type="text" placeholder="id" name="userId">
-	<input type="password" placeholder="password" name="userPassword">
+	<input type="text" placeholder="id" name="id" id="id" value="${setId }"><br>
+	<input type="password" placeholder="password" name="password" id="password"><br>
+	${errorMsg}<br>
 	<input type="submit">
 	<a href="../findMyID">아이디 찾기</a>
 </form>

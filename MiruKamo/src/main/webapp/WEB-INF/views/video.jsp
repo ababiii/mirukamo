@@ -166,7 +166,8 @@
 				<input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 			</div>
 			
-
+			<!-- 일본어 강의가 플레이 되는 부분,,사용자가 페이지에 입장하면 저절로 플레이 됨 -->
+			
 			<video controls preload="none" poster="poster.jpg" id="myVideo" width="320" height="176">
     <source src="./preview?name=${file_name}" type="video/mp4"/>
 		</video>

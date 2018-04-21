@@ -28,7 +28,7 @@ public class UsersDAO {
 		UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 		Users users = null;
 		users = mapper.selectUser(userId);
-		System.out.println(users);
+		
 		return users;
 	}
 	

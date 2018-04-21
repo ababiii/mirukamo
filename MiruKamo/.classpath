@@ -34,5 +34,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/workspace_spring/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/MiruKamo/resources/icu4j-54_1_1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

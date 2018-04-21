@@ -1,8 +1,9 @@
 package com.mirukamo.ai.util;
 
-import org.apache.commons.lang3.StringUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -211,6 +212,7 @@ public class MultipartFileSender {
         // Send requested file (part(s)) to client ------------------------------------------------
 
         // Prepare streams.
+        
         try (InputStream input = new BufferedInputStream(Files.newInputStream(filepath));
              OutputStream output = response.getOutputStream()) {
 

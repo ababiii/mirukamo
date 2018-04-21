@@ -1,10 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>     
+<!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
- 	 function registerCheckFunction() {
+<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var check=${fromDrill};
+
+	if(check){
+		alert('로그인 후 이용해 주세요.');
+	}
+	
+});
+ 	/*  function registerCheckFunction() {
 		var userId = $('#userId').val();
 		$.ajax({
 			type:'POST',
@@ -32,7 +44,7 @@
 		}else{
 			$('#passwordCheckMessage').html('');
 		}
-	} 
+	}  */
  </script>
 
 	<title>로그인</title>
@@ -41,8 +53,9 @@
 <a href="../"><img src="../resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <div><span style="font: red;">${erorrMsg }</span></div>
 <form action="login" method="post">
-	<input type="text" placeholder="id" name="userId">
-	<input type="password" placeholder="password" name="userPassword">
+	<input type="text" placeholder="id" name="id" id="id" value="${setId }"><br>
+	<input type="password" placeholder="password" name="password" id="password"><br>
+	${errorMsg}<br>
 	<input type="submit">
 	<a href="../findMyID">아이디 찾기</a>
 </form>

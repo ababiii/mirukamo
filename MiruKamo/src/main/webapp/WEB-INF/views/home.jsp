@@ -197,11 +197,9 @@ $( function() {
   <a><h1>${sessionScope.userId } </h1></a>
   
   <a href="login/logout">로그아웃</a>
-  <a href="myPage">마이페이지</a>
-   <a href="myPage/mypage">수정</a>
-   <a href="login/find_pw">비밀번호 찾기</a>
-  <a href="myPage/myPage">마이페이지</a>
-   <a href="myPage/myPage">수정</a>
+  <a href="myUpdate">회원정보 수정</a>
+  <a href="myPage">내 강의</a>
+   
       <a href="servicecenter"> 고객 센터 </a>
       <a href="drill"> 형태소 변환 </a>
       <a href="login/videolist"> 영상리스트 </a>
@@ -227,6 +225,7 @@ $( function() {
 <!-- Use any element to open the sidenav -->
 
 	
+<<<<<<< HEAD
 <a href="course/face">얼굴</a>
 <a href="course/face2">얼굴2</a>
 <a href="course/face3">얼굴3</a>
@@ -236,6 +235,13 @@ $( function() {
 <a href="course/video">비디오</a>
 <a href="course/eye_blink_detect">눈</a>
 <a href="home2">홈페이지 디자인</a>
+=======
+<a href="login/face">얼굴</a>
+<a href="login/face2">얼굴2</a>
+<a href="login/face3">얼굴3</a>
+<a href="login/face4">얼굴4</a>
+<a href="login/video">비디오</a>
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 <input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 

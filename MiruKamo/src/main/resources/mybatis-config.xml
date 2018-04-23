@@ -10,6 +10,7 @@
 		<typeAlias type="com.mirukamo.ai.vo.mirukamo_reviews" alias="reviews" />
 		<typeAlias type="com.mirukamo.ai.vo.mirukamo_drill" alias="drill" />
 		<typeAlias type="com.mirukamo.ai.vo.MyCourse" alias="MyCourse"/>
+		<typeAlias type="com.mirukamo.ai.vo.Mirukamo_course" alias="Course"/>
 	</typeAliases>
 
 	<!-- DB접속 정보 셋팅 -->
@@ -30,6 +31,7 @@
 		<mapper resource="mapper/ServiceCenterMapper.xml" />
 		<mapper resource="mapper/DrillMapper.xml" />
 		<mapper resource="mapper/appointmentMapper.xml" />
+		<mapper resource="mapper/courseMapper.xml" />
 	</mappers>
 </configuration>
 

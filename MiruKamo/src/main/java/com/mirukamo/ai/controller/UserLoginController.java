@@ -1,6 +1,7 @@
 package com.mirukamo.ai.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mirukamo.ai.dao.CourseDAO;
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.util.MultipartFileSender;
+import com.mirukamo.ai.vo.Mirukamo_course;
 import com.mirukamo.ai.vo.Users;
 
 @RequestMapping("login")
@@ -27,7 +30,9 @@ public class UserLoginController {
 
 	@Autowired
 	UsersDAO usersDAO;
-
+	@Autowired
+	CourseDAO courseDAO;
+	
 	private static final Logger logger = LoggerFactory.getLogger(UserLoginController.class);
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -66,6 +71,7 @@ public class UserLoginController {
 		}
 		
 		session.setAttribute("userId", result.getId());
+		session.setAttribute("adminCheck",0);
 		return "redirect:/";
 	}
 
@@ -192,7 +198,7 @@ public class UserLoginController {
 	            
 	            //return "video" ;	           
 	            		
-	        } catch (Exception e) {
+	        } catch (Exception e) { 
 	            // TODO Auto-generated catch block
 	            //e.printStackTrace();
 	        }
@@ -201,15 +207,19 @@ public class UserLoginController {
 
 
 	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
-		public String videolist1() {
-			
+		public String videolist1( Model model) {
+		 ArrayList<Mirukamo_course> list=new ArrayList<>();
+		 list=courseDAO.selectCourse();
+		 System.out.println(list);
+			model.addAttribute("list",list);
 			return "videolist";
 		}
 	 
 	 @RequestMapping(value = "/videolist", method = RequestMethod.POST)
 		public String videolist(String name, HttpSession session, Model model) {
 			//session.setAttribute("title", title1);
-			model.addAttribute("filename",name);
+		
+			model.addAttribute("file_name",name);
 		
 			
 			return "video";

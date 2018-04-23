@@ -57,8 +57,7 @@ $(document).ready(function(){
 	<input type="password" placeholder="password" name="password" id="password"><br>
 	${errorMsg}<br>
 	<input type="submit">
-	<a href="../findMyID">아이디 찾기</a><br>
-	<a href="./find_pw">비밀번호 찾기</a>
+	<a href="../findMyID">아이디 찾기</a>
 </form>
 </body>
 </html>

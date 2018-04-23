@@ -8,4 +8,6 @@ public interface CourseMapper {
 
 	public ArrayList<Mirukamo_course> selectCourse();
 
+	public int insertCourse(Mirukamo_course vo);
+
 }

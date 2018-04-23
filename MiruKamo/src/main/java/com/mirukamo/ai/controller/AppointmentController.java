@@ -81,32 +81,4 @@ public class AppointmentController {
 	public String test(){
 		return "miru/grab-frame-take-photo";
 	}
-	
-	//개인정보 수정 페이지로 이동
-	@RequestMapping(value="myUpdate",method=RequestMethod.GET)
-	public String myUpdate(HttpSession session, Model model){
-		Users result=appointmentDAO.getMyInfo((String)session.getAttribute("userId"));
-		model.addAttribute("info", result);
-		return "users/myUpdate";
-	}
-	
-	//개인정보 수정
-	@RequestMapping(value="myUpdate",method=RequestMethod.POST)
-	public String myUpdate(HttpSession session,Model model,Users user){
-		Users moto=appointmentDAO.getMyInfo((String)session.getAttribute("userId"));
-		if(user.getBirth().isEmpty()){
-			user.setBirth(moto.getBirth());
-		}
-		if(user.getPassword().isEmpty()){
-			user.setPassword(moto.getPassword());
-		}
-		if(user.getPhone().isEmpty()){
-			user.setPhone(moto.getPhone());
-		}
-		appointmentDAO.setMyInfo(user);
-		Users result=appointmentDAO.getMyInfo((String)session.getAttribute("userId"));
-		model.addAttribute("info", result);
-		model.addAttribute("result", true);
-		return "users/myUpdate";
-	}
 }

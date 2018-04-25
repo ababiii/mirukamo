@@ -1,7 +1,11 @@
 package com.mirukamo.ai.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -69,5 +73,47 @@ public class ServiceCenterDao {
 		mapper.reviewshits(num);
 
 	}
+
+	// qna 게시물 총 갯수
+	public int howboardqna() {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		int howboardqna = mapper.howboardqna();
+
+		return howboardqna;
+	}
+
+	// 수강후기 게시물 총 갯수
+	public int howboardreview() {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		int howboardreview = mapper.howboardreview();
+
+		return howboardreview;
+	}
+
+	// 공지사항 게시물 총 갯수
+	public int howboardadmin() {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		int howboardadmin = mapper.howboardadmin();
+
+		return howboardadmin;
+	}
+	//리뷰 페이징
+	public ArrayList<mirukamo_reviews> listreviewsBoard(String searchText, int startRecord, int countPerPage) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+
+		ArrayList<mirukamo_reviews> mirukamo_reviews = mapper.listreviewBoard(searchText, rb);
+		return mirukamo_reviews;
+	}
+	//공지 사항 페이징
+	public ArrayList<mirukamo_question> adminlistreviewsBoard(String searchText, int startRecord, int countPerPage) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		ArrayList<mirukamo_question> mirukamo_question = mapper.adminlistreviewsBoard(searchText, rb);
+		
+		return mirukamo_question;
+	}
+
 
 };

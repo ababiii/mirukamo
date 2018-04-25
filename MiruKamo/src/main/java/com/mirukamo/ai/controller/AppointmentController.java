@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mirukamo.ai.dao.AppointmentDAO;
+import com.mirukamo.ai.dao.DrillDao;
 import com.mirukamo.ai.vo.MyCourse;
 import com.mirukamo.ai.vo.Users;
+import com.mirukamo.ai.vo.mirukamo_drill;
 
 @Controller
 public class AppointmentController {
@@ -25,6 +27,8 @@ public class AppointmentController {
 	
 	@Autowired
 	AppointmentDAO appointmentDAO;
+	@Autowired
+	DrillDao drilldao;
 	
 	@RequestMapping(value="appointment",method=RequestMethod.GET)
 	public String appointment(Model model,boolean error){
@@ -60,6 +64,15 @@ public class AppointmentController {
 		ArrayList<MyCourse> list=appointmentDAO.getMyCourse(id);
 		
 		model.addAttribute("list", list);
+		
+		
+		//---------------------------------송수근----
+		
+		ArrayList<mirukamo_drill>rank = new ArrayList<mirukamo_drill>();
+		
+		rank = drilldao.getrank();
+		
+		model.addAttribute("rank", rank);
 		
 		return "users/myPage";
 	}

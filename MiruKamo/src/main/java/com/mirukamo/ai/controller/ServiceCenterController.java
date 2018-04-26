@@ -56,52 +56,50 @@ public class ServiceCenterController {
 		System.out.println("수강 후기" + howboardreview);
 		model.addAttribute("howboardreview", howboardreview);
 
-		// 리뷰  페이징------------------------------------------------------------------
+		// 리뷰
+		// 페이징------------------------------------------------------------------
 		int total = howboardreview; // 전체 글 개수
 		// 페이지 계산을 위한 객체 생성
-		PageNavigator navi0 = new PageNavigator(countPerPage, pagePerGroup,page, total);
-		//페이지당 글 수를 전달하여 목록 읽기
-		ArrayList<mirukamo_reviews> reviewsboardlist = servicecenterdao.listreviewsBoard(searchText, navi0.getStartRecord(), navi0.getCountPerPage());	
+		PageNavigator navi0 = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		// 페이지당 글 수를 전달하여 목록 읽기
+		ArrayList<mirukamo_reviews> reviewsboardlist = servicecenterdao.listreviewsBoard(searchText,
+				navi0.getStartRecord(), navi0.getCountPerPage());
 		// 페이지 정보 객체와 글 목록, 검색어를 모델에 저장
 		model.addAttribute("reviewpaging", reviewsboardlist);
 		model.addAttribute("navi0", navi0);
-		//------------------------------------------------------------------
+		// ------------------------------------------------------------------
 		// 공지사항 페이징---------------------------------------------------
 		int howboardadmin = 0;
 		howboardadmin = servicecenterdao.howboardadmin();
+		model.addAttribute("attributeValues", howboardadmin);
 		int totaladmin = howboardadmin; // 전체 글 개수
-
-		
 		// 페이지 계산을 위한 객체 생성
 		PageNavigator navi1 = new PageNavigator(countPerPage, pagePerGroup, adminpage, totaladmin);
-		ArrayList<mirukamo_question> adminboardlist = servicecenterdao.adminlistreviewsBoard(searchText, navi1.getStartRecord(), navi1.getCountPerPage());	
-		
-		for (int i = 0; i < adminboardlist.size(); i++) {
-			System.out.println(i+"번쨰   //  "+adminboardlist.get(i).getCategory());
-		}
+		ArrayList<mirukamo_question> adminboardlist = servicecenterdao.adminlistreviewsBoard(searchText,
+				navi1.getStartRecord(), navi1.getCountPerPage());
 		// 페이지 정보 객체와 글 목록, 검색어를 모델에 저장
 		model.addAttribute("navi1", navi1);
 		model.addAttribute("adminboardlist", adminboardlist);
-		//------------------------------------------------------------------
-		
-		// qna 게시물 수 가져오기
+		// ------------------------------------------------------------------
 		int howboardqna = 0;
 		howboardqna = servicecenterdao.howboardqna();
 		System.out.println("큐엔에이" + howboardqna);
 		int totalqna = howboardqna;
+		// qna 게시물 수 가져오기
 		model.addAttribute("howboardqna", howboardqna);
-		
+
 		// 페이지 계산을 위한 객체 생성
 		PageNavigator navi2 = new PageNavigator(countPerPage, pagePerGroup, qnapage, totalqna);
 		// 페이지 정보 객체와 글 목록, 검색어를 모델에 저장
 		model.addAttribute("navi2", navi2);
-
+		ArrayList<mirukamo_question> mirukamo_qna = servicecenterdao.qnalistreviewsBoard(searchText,
+				navi2.getStartRecord(), navi2.getCountPerPage());
+		model.addAttribute("qnaboardlist", mirukamo_qna);
 		
-		model.addAttribute("howboardadmin", howboardadmin);
+		for (int i = 0; i < mirukamo_qna.size(); i++) {
+			System.out.println("시스아웃 겟 타이토르"+mirukamo_qna.get(i).getTitle());
+		}
 		
-		
-
-
 		return "board/servicecenter";
 	}
 

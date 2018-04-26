@@ -42,6 +42,8 @@ public interface ServiceCenterMapper {
 	
 	//공지사항 게시물 페이징 가져오기
 	public ArrayList<mirukamo_question> adminlistreviewsBoard(String searchText, RowBounds rb);
+	//qna 페이징
+	public ArrayList<mirukamo_question> qnalistreviewsBoard(String searchText, RowBounds rb);
 
 	
 }

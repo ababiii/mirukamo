@@ -137,6 +137,24 @@
 		, answer
 		from
 		mirukamo_question
+		where category = 0
+		order by num desc
+	</select>
+	
+	<!-- 공지사항 페이징 -->
+	<select id="qnalistreviewsBoard" parameterType="string"
+		resultType="question">
+		select
+		member_id
+		,title
+		, num
+		, content
+		,category
+		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		, answer
+		from
+		mirukamo_question
+		where category = 9 
 		order by num desc
 	</select>
 	

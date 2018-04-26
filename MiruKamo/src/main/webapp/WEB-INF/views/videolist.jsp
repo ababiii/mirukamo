@@ -13,8 +13,9 @@
 </head>
 <body>
 
-
-
+<!-- 수강 신청 버튼
+ -->
+<input type ="button" onclick = "javascript:signclass" >
 		<table>
 			<tr>
 				<td>번호</td>

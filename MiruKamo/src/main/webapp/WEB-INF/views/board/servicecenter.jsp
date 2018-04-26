@@ -27,7 +27,7 @@
 		page.value = currentPage;
 		form.submit();
 	}
-
+	
 	function pagingFormSubmitqna(currentPage) {
 		var form = document.getElementById('qnapagingForm');
 		var page = document.getElementById('pageqna');
@@ -108,12 +108,11 @@
 			<td>제목</td>
 			<td>작성 날자</td>
 		</tr>
-
-		<c:forEach items="${question}" var="q">
-			<c:if test="${q.category == 9}">
+		<c:forEach items="${qnaboardlist}" var="qna">
+			<c:if test="${qna.category == 9}">
 				<tr>
-					<td><a href="qna?num=${q.num}">${q.title}</a></td>
-					<td>${q.question_date}</td>
+					<td><a href="qna?num=${qna.num}">${qna.title}</a></td>
+					<td>${qna.question_date}</td>
 				</tr>
 			</c:if>
 		</c:forEach>
@@ -121,25 +120,25 @@
 
 	<div id="navigator">
 		<a
-			href="javascript:pagingFormSubmitreview(${qnapaging.currentPage - qnapaging.pagePerGroup})">◁◁
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage - navi2.pagePerGroup})">◁◁
 		</a> &nbsp;&nbsp; <a
-			href="javascript:pagingFormSubmitreview(${qnapaging.currentPage - 1})">◀</a>
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage - 1})">◀</a>
 		&nbsp;&nbsp;
 
-		<c:forEach var="counter" begin="${qnapaging.startPageGroup}"
-			end="${qnapaging.endPageGroup}">
-			<c:if test="${counter == qnapaging.currentPage}">
+		<c:forEach var="counter" begin="${navi2.startPageGroup}"
+			end="${navi2.endPageGroup}">
+			<c:if test="${counter == navi2.currentPage}">
 				<b>
 			</c:if>
-			<a href="javascript:pagingFormSubmitreview(${counter})">${counter}</a>&nbsp;
-		<c:if test="${counter == qnapaging.currentPage}">
+			<a href="javascript:pagingFormSubmitqna(${counter})">${counter}</a>&nbsp;
+		<c:if test="${counter == navi2.currentPage}">
 				</b>
 			</c:if>
 		</c:forEach>
 		&nbsp;&nbsp; <a
-			href="javascript:pagingFormSubmitreview(${qnapaging.currentPage + 1})">▶</a>
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage + 1})">▶</a>
 		&nbsp;&nbsp; <a
-			href="javascript:pagingFormSubmitreview(${qnapaging.currentPage + qnapaging.pagePerGroup})">▷▷</a>
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage + navi2.pagePerGroup})">▷▷</a>
 
 		<!-- /페이지 이동 끝 -->
 		<br><br>

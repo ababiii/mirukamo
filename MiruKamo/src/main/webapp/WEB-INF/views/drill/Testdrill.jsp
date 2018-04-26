@@ -9,12 +9,134 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+<script src="resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
+//로그인 안할시 문제풀이 접근 방지
 $(document).ready(function(){	
 	if (${userId == null}) {
 		$('#fromDrill').submit();	
 	}
 });
+//제약 사항
+function checkq(){
+	var q1 = document.getElementsByName("q1");
+	var q2 = document.getElementsByName("q2");
+	var q3 = document.getElementsByName("q3");
+	var q4 = document.getElementsByName("q4");
+	var q5 = document.getElementsByName("q5");
+	
+	var array = new Array();
+	
+	var j = 0;
+	for (var i= 0; i < q1.length; i++){
+		if(q1[i].checked == false){
+			j=j+1;
+			}
+		else{
+			array[0] = q1[i].value;
+		}
+		}
+	if (j==5) {
+		alert("1번 문제를 풀어주세요")
+		return;
+	}
+	var j = 0;
+	for (var i= 0; i < q2.length; i++){
+		if(q2[i].checked == false){
+			j=j+1;
+			}	
+		else{
+				array[1] = q2[i].value;
+			}
+		}
+	if (j==5) {
+		alert("2번 문제를 풀어주세요")
+		return;
+	}
+	var j = 0;
+	for (var i= 0; i < q3.length; i++){
+		if(q3[i].checked == false){
+			j=j+1;
+			}
+		else{
+				array[2] = q3[i].value;
+			}
+		}
+	if (j==5) {
+		alert("3번 문제를 풀어주세요")
+		return;
+	}
+	var j = 0;
+	for (var i= 0; i < q4.length; i++){
+		if(q4[i].checked == false){
+			j=j+1;
+			}
+		else{
+			array[3] = q4[i].value;
+		}
+		}
+	if (j==5) {
+		alert("4번 문제를 풀어주세요")
+		return;
+	}
+	var j = 0;
+	for (var i= 0; i < q5.length; i++){
+		if(q5[i].checked == false){
+			j=j+1;
+			}
+		else{
+			array[4] = q5[i].value;
+		}
+		}
+	if (j==5) {
+		alert("5번 문제를 풀어주세요")
+		return;
+	}
+	jQuery.ajaxSettings.traditional = true;
+	var cnt=0;
+ 	$.ajax({
+		url: 'lastcheck',
+		method:'POST',
+		dataType:"JSON",
+		data: {'array':array},
+		success : function(asd){	
+			console.log(asd);
+			for (var i = 0; i < 5; i++) {
+				if (asd[i]!="") {	//asd배열안에 값이 있으면 트루 -> 실행되는 if문
+					for (var h = 1; h < 6; h++) {
+						if ($(":input:radio[name=q"+h+"]:checked").val() == asd[i]) {
+						$("#noun"+h).text("O");
+						cnt++;
+						}
+					}
+				}
+			}
+
+		var div = document.getElementById('yourscore');
+		div.innerText = "다섯문제 중 " + cnt + "문제 정답입니다.";
+		
+		if (cnt >= 4) {
+			div.innerText += "대단합니다."	
+				div.innerHTML += "<hr>";
+			div.innerHTML += '<input type="button" value ="다시 풀기" onclick="retry()">';
+		}
+		if (cnt <= 2) {
+			div.innerText += "분발하세요."	
+			div.innerHTML += "<hr>";
+			div.innerHTML += '<input type="button" value ="다시 풀기" onclick="retry()">';
+		}
+
+		},
+		error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});	
+}
+
+function retry(){
+	location.reload();
+}
+
 </script>
 </head>
 <body>
@@ -28,59 +150,82 @@ $(document).ready(function(){
 	<br>
 	<table border="1">
 		<tr>
-			<td colspan="5">1. ${noun0}</td>
+			<td colspan="5"><div>1. ${noun[0]}</div><div id = noun1></div>
 		</tr>
 		<tr>
-			<td>1) ${qqq0}<input type="checkbox" name="q10" id="q10"></td>
-			<td>2) ${qqq1}<input type="checkbox" name="q11" id="q11"></td>
-			<td>3) ${qqq2}<input type="checkbox" name="q12" id="q12"></td>
-			<td>4) ${qqq3}<input type="checkbox" name="q13" id="q13"></td>
-			<td>5) ${qqq4}<input type="checkbox" name="q14" id="q14"></td>
+			<td>1) ${questions[0][0]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][0]}"></td>
+			<td>2) ${questions[0][1]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][1]}"></td>
+			<td>3) ${questions[0][2]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][2]}"></td>
+			<td>4) ${questions[0][3]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][3]}"></td>
+			<td>5) ${questions[0][4]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][4]}"></td>
+		</tr>
+		<tr>
+			<td colspan="5"><div>2. ${noun[1]}</div><div id = noun2></div></td>
+		</tr>
+		<tr>
+			<td>1) ${questions[1][0]}<input type="radio" name="q2" id="q2"
+				value="${questions[1][0]}"></td>
+			<td>2) ${questions[1][1]}<input type="radio" name="q2" id="q2"
+				value="${questions[1][1]}"></td>
+			<td>3) ${questions[1][2]}<input type="radio" name="q2" id="q2"
+				value="${questions[1][2]}"></td>
+			<td>4) ${questions[1][3]}<input type="radio" name="q2" id="q2"
+				value="${questions[1][3]}"></td>
+			<td>5) ${questions[1][4]}<input type="radio" name="q2" id="q2"
+				value="${questions[1][4]}"></td>
 		</tr>
 
 		<tr>
-			<td colspan="5">2. ${noun1}</td>
+			<td colspan="5"><div>3. ${noun[2]}</div><div id = noun3></div></td>
 		</tr>
 		<tr>
-		<tr>
-			<td>1) ${qqq1}<input type="checkbox" name="q21" id="q21"></td>
-			<td>2)${qqq2}<input type="checkbox" name="q22" id="q22"></td>
-			<td>3) ${qqq3}<input type="checkbox" name="q23" id="q23"></td>
-			<td>4) ${qqq4}<input type="checkbox" name="q24" id="q24"></td>
-			<td>5) ${qqq0}<input type="checkbox" name="q20" id="q20"></td>
-		</tr>
-
-		<tr>
-			<td colspan="5">3. ${noun2}</td>
-		</tr>
-		<tr>
-			<td>1) ${qqq0}<input type="checkbox" name="q30" id="q30"></td>
-			<td>2) ${qqq3}<input type="checkbox" name="q33" id="q33"></td>
-			<td>3) ${qqq2}<input type="checkbox" name="q32" id="q32"></td>
-			<td>4) ${qqq1}<input type="checkbox" name="q31" id="q31"></td>
-			<td>5) ${qqq4}<input type="checkbox" name="q34" id="q34"></td>
+			<td>1) ${questions[2][0]}<input type="radio" name="q3" id="q3"
+				value="${questions[2][0]}"></td>
+			<td>2) ${questions[2][1]}<input type="radio" name="q3" id="q3"
+				value="${questions[2][1]}"></td>
+			<td>3) ${questions[2][2]}<input type="radio" name="q3" id="q3"
+				value="${questions[2][2]}"></td>
+			<td>4) ${questions[2][3]}<input type="radio" name="q3" id="q3"
+				value="${questions[2][3]}"></td>
+			<td>5) ${questions[2][4]}<input type="radio" name="q3" id="q3"
+				value="${questions[2][4]}"></td>
 		</tr>
 		<tr>
-			<td colspan="5">4. ${noun3}</td>
+			<td colspan="5"><div>4. ${noun[3]}</div><div id = noun4></div></td>
 		</tr>
 		<tr>
-			<td>1) ${qqq4}<input type="checkbox" name="q44" id="q44"></td>
-			<td>2) ${qqq3}<input type="checkbox" name="q43" id="q43"></td>
-			<td>3) ${qqq2}<input type="checkbox" name="q42" id="q42"></td>
-			<td>4) ${qqq0}<input type="checkbox" name="q40" id="q40"></td>
-			<td>5) ${qqq1}<input type="checkbox" name="q41" id="q41"></td>
+			<td>1) ${questions[3][0]}<input type="radio" name="q4" id="q4"
+				value="${questions[3][0]}"></td>
+			<td>2) ${questions[3][1]}<input type="radio" name="q4" id="q4"
+				value="${questions[3][1]}"></td>
+			<td>3) ${questions[3][2]}<input type="radio" name="q4" id="q4"
+				value="${questions[3][2]}"></td>
+			<td>4) ${questions[3][3]}<input type="radio" name="q4" id="q4"
+				value="${questions[3][3]}"></td>
+			<td>5) ${questions[3][4]}<input type="radio" name="q4" id="q4"
+				value="${questions[3][4]}"></td>
 		</tr>
 		<tr>
-			<td colspan="5">5. ${noun4}</td>
+			<td colspan="5"><div>5. ${noun[4]}</div><div id = noun5></div></td>
 		</tr>
 		<tr>
-			<td>1) ${qqq3}<input type="checkbox" name="q53" id="q53"></td>
-			<td>2) ${qqq2}<input type="checkbox" name="q52" id="q52"></td>
-			<td>3) ${qqq1}<input type="checkbox" name="q51" id="q51"></td>
-			<td>4) ${qqq4}<input type="checkbox" name="q53" id="q53"></td>
-			<td>5) ${qqq0}<input type="checkbox" name="q50" id="q50"></td>
+			<td>1) ${questions[4][0]}<input type="radio" name="q5" id="q5"
+				value="${questions[4][0]}"></td>
+			<td>2) ${questions[4][1]}<input type="radio" name="q5" id="q5"
+				value="${questions[4][1]}"></td>
+			<td>3) ${questions[4][2]}<input type="radio" name="q5" id="q5"
+				value="${questions[4][2]}"></td>
+			<td>4) ${questions[4][3]}<input type="radio" name="q5" id="q5"
+				value="${questions[4][3]}"></td>
+			<td>5) ${questions[4][4]}<input type="radio" name="q5" id="q5"
+				value="${questions[4][4]}"></td>
 		</tr>
 	</table>
+	<br>
+	<br>
+		<div id="yourscore"></div>
+	<br>
+	<br>
 	<input type="button" value="답 확인" onclick="checkq()">
 </body>
 </html>

@@ -110,9 +110,16 @@ public class ServiceCenterDao {
 	public ArrayList<mirukamo_question> adminlistreviewsBoard(String searchText, int startRecord, int countPerPage) {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
 		RowBounds rb = new RowBounds(startRecord, countPerPage);
-		ArrayList<mirukamo_question> mirukamo_question = mapper.adminlistreviewsBoard(searchText, rb);
+		ArrayList<mirukamo_question> mirukamo_qna = mapper.adminlistreviewsBoard(searchText, rb);
 		
-		return mirukamo_question;
+		return mirukamo_qna;
+	}
+	//qna 페이징
+	public ArrayList<mirukamo_question> qnalistreviewsBoard(String searchText, int startRecord, int countPerPage) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		ArrayList<mirukamo_question> mirukamo_qna = mapper.qnalistreviewsBoard(searchText, rb);
+		return mirukamo_qna;
 	}
 
 

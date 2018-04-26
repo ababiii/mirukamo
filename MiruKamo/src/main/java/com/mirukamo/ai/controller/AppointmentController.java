@@ -68,7 +68,7 @@ public class AppointmentController {
 		
 		//---------------------------------송수근----
 		
-		ArrayList<mirukamo_drill>rank = new ArrayList<mirukamo_drill>();
+ArrayList<mirukamo_drill>rank = new ArrayList<mirukamo_drill>();
 		
 		rank = drilldao.getrank();
 		

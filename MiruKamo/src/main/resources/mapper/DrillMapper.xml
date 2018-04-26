@@ -13,7 +13,6 @@
 		where
 	member_id=#{userid}
 	ORDER BY DBMS_RANDOM.RANDOM
-	
 	</select>
 	
 	<!-- 모든 단어 가져오기 -->

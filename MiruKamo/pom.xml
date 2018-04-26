@@ -197,7 +197,7 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- GSON -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

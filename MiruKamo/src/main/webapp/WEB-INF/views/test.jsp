@@ -52,26 +52,26 @@
 			<a href="http://www.rankey.com/rank/cert/cert_pop.php?mark_no=20180402-B001" target="_blank"><!-- <img src="http://data.siwonschool.com/banner/img/japan/2018/04/05/bimg_src_1522901610.png" alt="2017년 9월 기준 랭키닷컴" /> --></a>		</div>
 		<div class="util_box">
 			<ul class="util1">
-									<li><a href="javascript:;" onclick="loginChk();">로그인</a></li>
-					<li><a href="https://member.siwonschool.com/?s=join">회원가입</a></li>					
-								<li><a href="/?s=customer">고객센터</a></li>
+									<li><a href="javascript:;" onclick="loginChk();">ログイン</a></li>
+					<li><a href="https://member.siwonschool.com/?s=join">会員加入</a></li>					
+								<li><a href="/?s=customer">お問い合わせ</a></li>
 			</ul>
 			<ul class="util2">
-									<li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li>
+									<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li> -->
 					<li><a href="javascript:;"><span class="my">마이페이지</span></a></li>
-					<li><a href="javascript:;" onClick="loginChk();"><span class="coupon">쿠폰</span></a></li>
-					<li><a href="javascript:;" onClick="loginChk();"><span class="cart">장바구니</span></a></li>
+					<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="coupon">쿠폰</span></a></li>
+					<li><a href="javascript:;" onClick="loginChk();"><span class="cart">장바구니</span></a></li> -->
 							</ul>
 			
 						<!-- 마이페이지 레이어 -->
 			<div class="mypage_layer">
 				<ul>
-											<li><a href="javascript:;" onClick="loginChk();">마이페이지</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">수강신청내역</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">SJ멤버십</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">내 정보 관리</a></li>
+											<li><a href="javascript:;" onClick="loginChk();">マイページ</a></li>
+						<li><a href="javascript:;" onClick="loginChk();">受講内訳</a></li>
+						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
+						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->
+						<!-- <li><a href="javascript:;" onClick="loginChk();">SJ멤버십</a></li>
+						<li><a href="javascript:;" onClick="loginChk();">내 정보 관리</a></li> -->
 									</ul>
 			</div>
 			<!-- //마이페이지 레이어 -->
@@ -87,8 +87,8 @@
 					<a href="javascript:void(0)" class="tit ir2"><span>전체메뉴</span></a>
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=info&info_1" class="tit"><span>시원스쿨 일본어</span></a>
-					<div class="wrap_snb wr1">
+					<!-- <a href="/?s=info&info_1" class="tit"><span>시원스쿨 일본어</span></a> -->
+					<!-- <div class="wrap_snb wr1">
 						<dl>
 							<dd><a href="/?s=info&info_1">시원스쿨 일본어</a></dd>
 							<dd><a href="/?s=info&p=info_2">일본어 연구소</a></dd>
@@ -107,11 +107,11 @@
 							</div>
 						</div>
 						<span class="decoline" style="width:94px;left:26px;"></span>
-					</div>
+					</div> -->
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=teacher" class="tit"><span>선생님소개</span></a>
-					<div class="wrap_snb wr2">
+					<a href="/?s=teacher" class="tit"><!-- <span>선생님소개</span> --></a>
+				<!-- 	<div class="wrap_snb wr2">
 						<dl>
 							<dd><strong>왕초보</strong></dd>
 							<dd><strong>문법 | 어휘</strong></dd>
@@ -142,11 +142,11 @@
 							<div class="t_hsa"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_hsa.png" alt="황선아 선생님 - 이야기일본어 NO.1" /></div>
 						</div>
 						<span class="decoline" style="width:70px;left:26px;"></span>
-					</div>
+					</div> -->
 				</li>
 				<li class="gnb_item add_ico">
-					<a href="/?s=products" class="tit"><i class="ico_event" name="products">이벤트 진행중!</i><span>수강신청</span></a>
-					<div class="wrap_snb wr3">
+					<a href="/?s=products" class="tit"><!-- <i class="ico_event" name="products">日本語の能力向上</i> --><span>受講申請</span></a>
+				<!-- 	<div class="wrap_snb wr3">
 						<dl>
 							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>
 							<dd><a href="/?s=products#tpl_free_title">프리패스</a></dd>
@@ -162,14 +162,14 @@
 							 </div>
 						</div>
 						<span class="decoline" style="width:55px;left:26px;"></span>
-					</div>
+					</div> -->
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=community&b=review" class="tit"><span>수강후기</span></a>
+					<a href="/?s=community&b=review" class="tit"><span>講座評価</span></a>
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=free" class="tit grey bgnone"><span>무료학습</span></a>
-					<div class="wrap_snb wr5">
+					<a href="/?s=free" class="tit grey bgnone"><span>今日の問題</span></a>
+					<!-- <div class="wrap_snb wr5">
 						<dl>
 							<dd><a href="/?s=free&p=freemovie">무료강의</a></dd>
 							<dd><a href="/?s=free&p=leveltest">레벨테스트</a></dd>
@@ -185,27 +185,27 @@
 							</dl>
 						</div>
 						<span class="decoline" style="width:55px;left:26px;"></span>
-					</div>
+					</div> -->
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=community" class="tit grey"><span>커뮤니티</span></a>
+					<a href="/?s=community" class="tit grey"><span>公知事項</span></a>
 					<div class="wrap_snb wr6">
 						<dl>
-							<dd><a href="/?s=community&b=news">일본어 소식통</a></dd>
-							<dd><a href="/?s=community&b=teacher_diary">선생님 다이어리</a></dd>
-							<dd><a href="/?s=community&b=today_ready">오늘의 각오</a></dd>
+							<dd><a href="/?s=community&b=news">公知事項</a></dd>
+							<dd><a href="/?s=community&b=teacher_diary">よく聞く質問</a></dd>
+							<!-- <dd><a href="/?s=community&b=today_ready">오늘의 각오</a></dd>
 							<dd><a href="/?s=community&b=study_qna">공부 질문하기</a></dd>
 							<dd><a href="/?s=community&b=study_file">공부 자료실</a></dd>
-							<dd><a href="/?s=community&b=free">자유게시판</a></dd>
+							<dd><a href="/?s=community&b=free">자유게시판</a></dd> -->
 						</dl>
 						<span class="decoline" style="width:55px;left:26px;"></span>
 					</div>
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=community&b=event" class="tit grey"><span>이벤트</span> <i class="evt_cnt evt_num">0</i></a>
+					<a href="/?s=community&b=event" class="tit grey"><!-- <span>이벤트</span> --> <!-- <i class="evt_cnt evt_num">0</i> --></a>
 				</li>		
 			</ul><!--// #wrap_gnb -->
-						<a href="javascript:;" onClick="loginChk();" class="bt_myclass"><img src="//img.siwonschool.com/japan/comm/bt_myclass.png" alt="내 강의실"></a>
+						<a href="javascript:;" onClick="loginChk();" class="bt_myclass"><img src="resources/images/mycourse.png" alt="내 강의실"></a>
 					</div><!--// wrap_gnb -->
 	</div><!--// wrap_fixarea -->
 	
@@ -287,13 +287,13 @@
 		</div>
 
 		<!-- 베스트 top5 추천강좌 & 메인 우측 퀵배너 -->
-		<div class="wrap_best">			
+		<!-- <div class="wrap_best">			
 			<div class="box_top5">
 				<h3><em>실시간!</em> 가장 인기 많은 추천강좌</h3>
 				<ul class="list">
 					<li><a href="/?s=event&p=pkg_allkill" onClick="FnUpdateRightBanner('4186');" target="_blank"><dl class="on"><dt><em class="num">1</em><div class="label_comm"><span class="sky">BEST</span><span class="purple">추천</span><span class="red2">인기</span></div>일본어 올킬 패키지</dt><dd>전 강좌+신규강좌+교재25권+학습자료5종+455일 무제한</dd></dl></a></li><li><a href="/?s=event&p=pkg_share2" onClick="FnUpdateRightBanner('4024');" target="_blank"><dl class=""><dt><em class="num">2</em><div class="label_comm"><span class="sky">BEST</span></div>일본어 365패키지</dt><dd>기초~고급 전강좌(37강좌)+신규강좌+395일 무제한</dd></dl></a></li><li><a href="/?s=event&p=pkg_teacher" onClick="FnUpdateRightBanner('4025');" target="_blank"><dl class=""><dt><em class="num">3</em><div class="label_comm"><span class="purple">추천</span></div>선생님 마니아패스</dt><dd>빈틈없는 일본어 공부를 위한 필승전략!</dd></dl></a></li><li><a href="/?s=event&p=tab" onClick="FnUpdateRightBanner('4026');" target="_blank"><dl class=""><dt><em class="num">4</em><div class="label_comm"><span class="purple">추천</span><span class="red2">인기</span></div>2018 일본어 탭</dt><dd>G pad Ⅱ8.0+핵심17강좌내장+사은품4종</dd></dl></a></li><li><a href="/?s=event&p=151230_3" onClick="FnUpdateRightBanner('4027');" target="_blank"><dl class=""><dt><em class="num">5</em><div class="label_comm"><span class="red2">인기</span></div>JPT 초급완성</dt><dd>속성문법+JPT 550독해/청해+90일무제한</dd></dl></a></li>				</ul>				
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<!-- <div class="wrap_quick">
 		<ul class="quick q1">
@@ -343,15 +343,15 @@
 	</div> -->
 	<!-- // 베스트 top5 추천강좌 & 메인 우측 퀵배너 -->
 
-	<div class="wrap_ban inner_container">
+	<!-- <div class="wrap_ban inner_container">
 		<span class="random_show">
-						<a href="/?s=community&b=event&m=view&page=1&sno=30" target="_self" onClick="FnUpdateRightBanner('514');"><!-- <img src="http://data.siwonschool.com/banner/img/japan/2018/01/18/bimg_src_1516251192.jpg" alt="채널W 신규가입시 5000캐쉬 즉시 지급"/> --></a>
-				<a href="http://www.uhak.com/move.asp?go=s&siwon=ok" target="_blank"><!-- <img src="//img.siwonschool.com/japan/banner/1000_80a_02.jpg" alt="유학닷컴 간편상담 신청시 유학상품권 5만원 증정"/> --></a> 
-			<a href="/?s=event&p=160302" target="_blank"><!-- <img src="//img.siwonschool.com/japan/banner/1000_80b_03.jpg" alt="시크릿 북패키지"/> --></a>
+						<a href="/?s=community&b=event&m=view&page=1&sno=30" target="_self" onClick="FnUpdateRightBanner('514');"><img src="http://data.siwonschool.com/banner/img/japan/2018/01/18/bimg_src_1516251192.jpg" alt="채널W 신규가입시 5000캐쉬 즉시 지급"/></a>
+				<a href="http://www.uhak.com/move.asp?go=s&siwon=ok" target="_blank"><img src="//img.siwonschool.com/japan/banner/1000_80a_02.jpg" alt="유학닷컴 간편상담 신청시 유학상품권 5만원 증정"/></a> 
+			<a href="/?s=event&p=160302" target="_blank"><img src="//img.siwonschool.com/japan/banner/1000_80b_03.jpg" alt="시크릿 북패키지"/></a>
 		</span>
-				<a href="http://www.yes24.com/24/goods/58081082" target="_blank" onClick="FnUpdateRightBanner('3561');"> <!-- <img src="http://data.siwonschool.com/banner/img/japan/2018/01/26/bimg_src_1516945667.jpg" alt="시즈일본어문법노트"/> --> </a>
+				<a href="http://www.yes24.com/24/goods/58081082" target="_blank" onClick="FnUpdateRightBanner('3561');"> <img src="http://data.siwonschool.com/banner/img/japan/2018/01/26/bimg_src_1516945667.jpg" alt="시즈일본어문법노트"/> </a>
 		
-	</div>
+	</div> -->
 	<!-- <div class="wrap_cont1 inner_container">
 		<h3 class="tit_sub_st"><span>No.1 일본어 선생님 라인업</span></h3>
 		<ul class="img_teacher">
@@ -1609,7 +1609,7 @@ function stop_float_video(){
 						</ul>
 					</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th>선생님</th>
 					<td>
 						<ul class="list_type2"><li><strong>왕초보</strong></li><li><a href="/?s=teacher&p=cyr">최유리</a></li></ul>
@@ -1621,7 +1621,7 @@ function stop_float_video(){
 						<ul class="list_type2"><li><strong>JPL</strong></li><li><a href="/?s=teacher&p=skw">서경원</a></li></ul>
 						<ul class="list_type2"><li><strong>JLPT</strong></li><li><a href="/?s=teacher&p=narumi">나루미</a></li></ul>
 					</td>
-				</tr>
+				</tr> -->
 				<tr>
 					<th>수강신청</th>
 					<td>
@@ -1660,7 +1660,7 @@ function stop_float_video(){
 						</ul>
 					</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th>커뮤니티</th>
 					<td>
 						<ul class="list_type">
@@ -1671,8 +1671,8 @@ function stop_float_video(){
 							<li><a href="/?s=community&b=free">자유게시판</a></li>
 						</ul>
 					</td>
-				</tr>
-				<tr>
+				</tr> -->
+				<!-- <tr>
 					<th>이벤트</th>
 					<td>
 						<ul class="list_type evt_list">
@@ -1680,7 +1680,7 @@ function stop_float_video(){
 							<li><a href="#"><strong>진행중인 이벤트명</strong></a></li>
 						</ul>
 					</td>
-				</tr>
+				</tr> -->
 				<tr>
 					<th>고객센터</th>
 					<td>
@@ -1695,7 +1695,7 @@ function stop_float_video(){
 				</tr>
 			</tbody>
 		</table>
-	</div>
+	</div></div>
 	<!-- <div class="sec_btm">
 		<p>시원스쿨 일본어의 <span>다양한 소식</span>을 빠르게 만날 수 있어요!</p>
 		<div class="sns_links">

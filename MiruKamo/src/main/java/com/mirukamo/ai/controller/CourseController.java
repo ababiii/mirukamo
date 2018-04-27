@@ -41,8 +41,7 @@ public class CourseController {
 	UsersDAO usersDAO;
 	@Autowired
 	CourseDAO courseDAO;
-	@Autowired
-	;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";

@@ -126,4 +126,9 @@ public class AppointmentController {
 	public String loginTest(){
 		return "test/loginTest";
 	}
+	
+	@RequestMapping(value="courseTest",method=RequestMethod.GET)
+	public String courseTest(){
+		return "test/courseTest";
+	}
 }

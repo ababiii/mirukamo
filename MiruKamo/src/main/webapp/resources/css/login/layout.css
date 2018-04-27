@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+/* layout CSS */
+#siwon_header{width:100%;height:100px;background:#fff}
+#siwon_header .inner_header{position:relative;width:980px;height:100px;margin:0 auto;overflow:hidden}
+#siwon_header h1.logo{position:relative;top:27px;left:0}
+#siwon_header .inner_header .login_info{position:absolute;top:33px;right:0;height:32px;line-height:33px}
+#siwon_header .inner_header .login_info li{float:left;margin-left:10px;color:#000;font-size:12px}
+#siwon_header .inner_header .login_info li.fst{padding-left:54px;background:url(//img.siwonschool.com/member/comm/ico_login1.png) no-repeat left top}
+#siwon_header .inner_header .login_info li a{color:#000}
+#siwon_header .inner_header .login_info li .bar{padding-left:10px;background:url(//img.siwonschool.com/member/comm/login_bar.png) no-repeat left 2px}
+#siwon_container{width:100%;padding:0}
+#siwon_container.main_section{height:634px;background:#dbedf5}
+#siwon_container.sub_section{background:#eee}
+#siwon_container .inner_container{position:relative;width:980px;margin:0 auto}
+#siwon_container.main_section .main_img{display:none}
+#siwon_container .contents{margin:0 auto}
+#siwon_container .contents.main{position:relative;width:980px;overflow:hidden}
+#siwon_container .contents.sub{padding-bottom:80px;overflow:hidden}
+#siwon_container .sub_con{padding:0 40px 30px;background:#fff}
+#siwon_container .sub_con.dormant{margin-top:40px}
+#siwon_footer{width:100%;clear:both;font-family:"돋움",Dotum;overflow:hidden}
+#siwon_footer{line-height:1.5}
+#siwon_footer .bg_footer_link{position:relative;height:53px;background-color:#535353;z-index:2}
+#siwon_footer .footer_link{width:980px;padding-top:16px;margin:0 auto;position:relative}
+#siwon_footer .footer_link ul{*zoom:1;float:left}
+#siwon_footer .footer_link ul li{float:left;padding:0 10px;font:12px/24px "돋움",Dotum}
+#siwon_footer .footer_link ul li.fst{padding-left:0}
+#siwon_footer .footer_link ul li a{color:#fff}
+#siwon_footer .footer_link ul li a:hover{color:#fff}
+#siwon_footer .footer_link ul li span{color:#fff;cursor:pointer}
+#siwon_footer .footer_link .help{float:right;position:relative;z-index:2}
+#siwon_footer .footer_link .help .more{display:block;position:relative;top:-3px;width:290px;height:28px;background:url(//img.siwonschool.com/member/comm/footer_ct_view.gif) no-repeat}
+#siwon_footer .footer_link .help .more.close{background-position:0 -28px}
+#siwon_footer .footer_link .help .more.on{background-position:0 0}
+#siwon_footer #help_layer{display:none;position:absolute;top:25px;right:0;z-index:2}
+#siwon_footer .copyright{width:980px;margin:37px auto 68px;position:relative}
+#siwon_footer .copyright .footer_logo{position:absolute;left:0;top:3px}
+#siwon_footer .copyright .address{font:11px/16px "돋움",Dotum;padding-left:178px;letter-spacing:-1px;color:#999}
+#siwon_footer .copyright .address p{font:11px/16px "돋움",Dotum}
+#siwon_footer .copyright .letc{letter-spacing:0}
+#siwon_footer .copyright .address .red_bold{font-weight:bold;color:#a73439}
+#siwon_footer .copyright .address .blue_bold{font-weight:bold;color:#567fbd;font-size:12px}
+#siwon_footer .copyright .address .blue{color:#567fbd}
+#siwon_footer .copyright .address .bold{font-weight:bold}
+#siwon_footer .copyright .emblem{position:absolute;right:0;top:2px}
+#siwon_footer .copyright .brand{position:absolute;right:0;top:58px}
+#siwon_footer .bg_menu_all{width:100%;position:relative}
+#siwon_footer .menu_all{width:1000px;margin:0 auto;display:none;position:relative;padding-top:28px;padding-bottom:0;overflow:hidden}
+#siwon_footer .menu_all li.category{float:left;padding-left:14px;width:186px;text-align:left}
+#siwon_footer .menu_all li.category span.new{margin-left:4px;padding:0;background-color:#ff0000;color:#fff;font-size:11px;letter-spacing:0;font-weight:bold}
+#siwon_footer .menu_all li.category .tit{margin-bottom:15px;margin-left:-2px}
+#siwon_footer .menu_all li.category .tit a{font-weight:bold;color:#535353;font-family:"돋움",Dotum}
+#siwon_footer .menu_all li.category .tit a:hover{color:#535353}
+#siwon_footer .menu_all li.category .tit_sub{font-weight:bold;color:#d8d8d8;font-size:11px}
+#siwon_footer .menu_all li.category .tit_sub a{color:#d8d8d8}
+#siwon_footer .menu_all li.category .all_sub li{margin-bottom:1px}
+#siwon_footer .menu_all li.category .all_sub li a{color:#535353;font-family:"돋움",Dotum}
+#siwon_footer .menu_all li.category .all_sub li a:hover{color:#535353}
+#siwon_footer .menu_all li.category.lec{overflow:hidden}
+#siwon_footer .menu_all li.category.lec .tit{margin-left:54px}
+#siwon_footer .menu_all li.category.lec .eng{float:left}
+#siwon_footer .menu_all li.category.lec .toeic{float:left;margin-left:32px}
+#siwon_footer .menu_all li.category.lec .toeic .tit_sub2{width:69px;line-height:14px;background-color:#4d4d4d;color:#aaa;margin-top:20px}
+#siwon_footer .menu_all li.category.lec .toeic .tit_sub2.fst{margin-top:0}
+#siwon_footer .menu_all .close{position:absolute;right:0;top:15px;opacity:0.59;filter:alpha(opacity=59);cursor:pointer}
+#siwon_footer .family_site{position:relative;top:-3px;float:right;width:148px;z-index:3;margin-left:10px}
+#siwon_footer .family_site .select{display:inline-block;width:100px;height:29px;padding:0 28px 0 20px;background:#3c3b3b url(//img.siwonschool.com/member/comm/select_down.gif) no-repeat right top;color:#aaa;font:bold 12px/28px "Nanum Gothic","나눔 고딕"}
+#siwon_footer .family_site .select:hover{text-decoration:none}
+#siwon_footer .family_site .close{background:#222 url(//img.siwonschool.com/member/comm/select_down.gif) no-repeat right -28px;font-family:"Nanum Gothic","나눔 고딕"}
+#siwon_footer .family_site #site_list{display:none;overflow:auto;position:absolute;left:0;top:28px;width:128px;height:160px;padding:10px;border-bottom:2px solid #dc3126;background:#000}
+#siwon_footer .family_site #site_list li{float:none;padding:0;line-height:18px;height:20px}
+#siwon_footer .family_site #site_list li a{color:#aaa;font:12px/18px "Nanum Gothic","나눔 고딕"}
+#siwon_footer .family_site #site_list li a:hover{color:#5e99d7;font-weight:bold;text-decoration:none}
+#siwon_footer .pc_foot{display:block}
+#siwon_footer .mobile_foot{display:none}

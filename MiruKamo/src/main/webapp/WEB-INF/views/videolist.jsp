@@ -17,18 +17,25 @@
 	 }
 	 }); */
 
-
-	function signclass() {
-		var sign = '${list.get(0).teacher}';
-		alert(sign);
-		/* alert(signid); */
+	function signclass(msg) {
+		 alert(msg);
+		 
+		 //json 파싱
+		 //contentType: "application/json", 
 		$.ajax({
 			url : 'signclass',
 			type : 'POST',
-			data : {sign : sign},
-			dataType : 'text',
-			success : function() {
-				alert("수강신청 성공 :");
+			contentType: "application/json",
+			data : {
+				msg : msg
+			},
+			success : function(e) {
+				alert("수강신청 성공 :" + e);
+		
+				//	$("#signid").val("수강 완료");
+				/* var singid = document.getElementById("signid");
+				singid.value = "수강중 "; */
+
 			},
 			error : function(e) {
 				alert("신청 실패");
@@ -39,17 +46,20 @@
 </head>
 <body>
 	<!-- 비 정상적인 접속시 로그인페이지로 이동 -->
-	<form action="login/login" method="get" id="videolistlogin">
-		<input type="hidden" name="fromvideolist" value="true">
-	</form>
-
-	<!-- 수강 신청 버튼-->
-	<c:if test="${userId != null}">
-		<input type="button" onclick="signclass()" value="수강 신청">
-		<input type="hidden" name="signid" id="signid" value="${list}">
-	</c:if>
+	<div>
+		<form action="login/login" method="get" id="videolistlogin">
+			<input type="hidden" name="fromvideolist" value="true">
+		</form>
+	</div>
 	<c:if test="${userId == null}">
 		로그인 후 수강 신청을 해주세요.
+	</c:if>
+
+	<!-- 수강 신청 버튼-->
+	${yoshisushi.get(0).teacher} 선생님과 함께 기초 실력을 다지세요!
+	<c:if test="${userId != null}">
+		<input type="button" onclick="signclass()" value="수강 신청" id="signid">
+		<input type="hidden" name="signid" id="signid" value="${yoshisushi}">
 	</c:if>
 	<table border="1">
 		<tr>
@@ -59,38 +69,78 @@
 			<td>언어</td>
 			<td>파일명</td>
 			<td>썸네일</td>
+			<td></td>
 		</tr>
-		<c:if test="${list == null || list == '' }">
+		<c:if test="${yoshisushi == null || yoshisushi == '' }">
 			<tr>
 				<td colspan="5">nothing</td>
 			</tr>
 		</c:if>
-		
-	<c:if test="${list != null || list != '' }">
-			<c:forEach items="${list}" var="a">
-				<form action="videolist" method="POST">
-					<input type="hidden" name="name" value="${a.file_name}">
+		<c:if test="${yoshisushi != null || yoshisushi != '' }">
+			<form action="videolist" method="POST">
+				<c:forEach items="${yoshisushi}" var="a" varStatus="ppap">
 					<tr>
-						<td>${a.num}</td>
+						<td>${ppap.count}</td>
 						<td>${a.title}</td>
 						<td>${a.teacher}</td>
 						<td>${a.languages}</td>
 						<td>${a.file_name}</td>
 						<td>${a.thumnail}</td>
-					</tr>
-					<tr>
 						<td><input type="submit" value="선택"></td>
 					</tr>
-				</form>
-			</c:forEach>
+				</c:forEach>
+			</form>
 		</c:if>
 	</table>
 
 
+	<BR>
+	<bR>
+	<BR>
+	<br>
+	<br>
 
-
-
-
+	<!-- 수강 신청 버튼-->
+	<c:if test="${userId != null}">
+	중급 회화는 나에게!, ${tokyocold.get(0).teacher}선생님과 현지에서 쓰이는 일본 회화를!
+		<input type="button" onclick="signclass('${tokyocold}')" value="수강 신청"
+			id="signid">
+		<input type="hidden" name="signid" id="signid" value="${tokyocold}">
+	</c:if>
+	<c:if test="${userId != null}">
+		<table border="1">
+			<tr>
+				<td>번호</td>
+				<td>제목</td>
+				<td>선생님</td>
+				<td>언어</td>
+				<td>파일명</td>
+				<td>썸네일</td>
+				<td></td>
+			</tr>
+			<c:if test="${tokyocold == null || tokyocold == '' }">
+				<tr>
+					<td colspan="5">nothing</td>
+				</tr>
+			</c:if>
+			<c:if test="${tokyocold != null || tokyocold != '' }">
+				<form action="videolist" method="POST">
+					<c:forEach items="${tokyocold}" var="b" varStatus="PPAP">
+						<input type="hidden" name="name" value="${a.file_name}">
+						<tr>
+							<td>${PPAP.count}</td>
+							<td>${b.title}</td>
+							<td>${b.teacher}</td>
+							<td>${b.languages}</td>
+							<td>${b.file_name}</td>
+							<td>${b.thumnail}</td>
+							<td><input type="submit" value="선택"></td>
+						</tr>
+					</c:forEach>
+				</form>
+			</c:if>
+		</table>
+	</c:if>
 </body>
 
 </html>

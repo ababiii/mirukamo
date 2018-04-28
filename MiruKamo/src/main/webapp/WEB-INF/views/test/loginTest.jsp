@@ -27,7 +27,12 @@
 
 
 <script type="text/javascript" src="resources/jQuery/wcslog.js"> </script> 
-<script type="text/javascript"> 
+<script type="text/javascript">
+$(document).ready(function(){
+	/* $('#bt_login').on('click',function(){
+		//$('#loginform').submit();
+	}); */
+});
 // AccoutId 적용
 if (!wcs_add) var wcs_add={};
 wcs_add["wa"] = "s_15f4ba48667f";
@@ -78,8 +83,8 @@ var LLscriptPlugIn = new function () { this.load = function(eSRC,fnc) { var scri
 			<h1 class="logo"><a href="/"><img src="resources/images/mirukamo3.jpg" alt="대한민국 왕초보탈출 시원스쿨" width="200px"/></a></h1>
 			<ul class="login_info">
 								<!-- 로그인 전 -->
-				<li class="ico1 fst"><a href="/?s=login">ログイン</a></li>
-				<li class="ico2"><a href="/?s=join" class="bar">会員加入</a></li>
+				<li class="ico1 fst"><a href="login">ログイン</a></li>
+				<li class="ico2"><a href="appointment" class="bar">会員加入</a></li>
 				<!--// 로그인 전 -->
 							</ul>
 		</div><!--// inner_header -->
@@ -116,18 +121,18 @@ function lab_tracking(depth){
 					</div>
 					<div class="login_area_1st">
 						<div class="login_fl">
-							<form action="/?s=loginproc" method="POST" id="loginform" onsubmit="login_secure(); return false;"><fieldset>
-								<input type="hidden" id="returl" name="returl" value="https://member.siwonschool.com" />
+							<form action="login/login" method="POST" id="loginform" onsubmit="return login_secure();"><fieldset>
+								<!-- <input type="hidden" id="returl" name="returl" value="https://member.siwonschool.com" />
 								<input type="hidden" id="ref" name="ref" value="" />
 								<input type="hidden" id="model" name="model" value="" />
-								<input type="hidden" id="ver" name="ver" value="" />
+								<input type="hidden" id="ver" name="ver" value="" /> -->
 																<div class="login_box">
 																
 								<div class="inner">
 									<legend>로그인</legend>
 																		<div class="wrap_input"><ul>
-										<li class="input_id"><input type="text" id="input_id" name="input_id" class="holder" value=""/><label for="input_id" class="holder_label">아이디</label></li>
-										<li class="input_pw"><input type="password" id="input_pw" name="input_pw" class="holder" onkeypress="javascript: if(event.keyCode =='13') $('#loginform').submit();" /><label for="input_pw" class="holder_label">비밀번호</label></li>
+										<li class="input_id"><input type="text" id="input_id" name="id" class="holder" value="${setId}"/><label for="input_id" class="holder_label">ID</label></li>
+										<li class="input_pw"><input type="password" id="input_pw" name="password" class="holder" onkeypress="javascript: if(event.keyCode =='13') $('#loginform').submit();" /><label for="input_pw" class="holder_label">비밀번호</label></li>
 									</ul></div>
 									<p class="ck_save">
 										<input type="checkbox" id="save_id" name="save_id" class="input_check_comm" />
@@ -154,7 +159,7 @@ function lab_tracking(depth){
 									
 										<a href="/?s=find" class="bt_find">アイディー/パスワードを探す</a>
 										<a href="/?s=join" class="bt_st1 bt_join"><span class="txt_pc">会員加入</span><span class="txt_mobile">회원가입</span></a>
-									<br><br><br><br><br>
+									<br><br>${errorMsg}<br><br><br>
 									</div>
 								</div></div><!--/ login_box -->
 							

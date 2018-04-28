@@ -28,4 +28,5 @@ mirukamo_course_seq.nextval
 ,#{thumnail}
 )
 </insert>
+
 </mapper>

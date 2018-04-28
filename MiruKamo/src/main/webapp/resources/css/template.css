@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+
+.event_section{overflow:hidden;width:100%;min-width:1000px}
+.event_section .wrap{width:100%;min-width:1000px;margin:0 auto}
+.event_section .full{overflow:hidden;position:relative;width:100%}
+.event_section .cont{overflow:hidden;width:100%}
+img.mauto{display:block}
+.w1000{position:relative;width:1000px;margin:0 auto}
+.w1100{position:relative;width:1100px;margin:0 auto}
+.w1200{position:relative;left:50%;margin-left:-600px;width:1200px}
+.w1300{position:relative;left:50%;width:1300px;margin-left:-650px}
+.w1400{position:relative;left:50%;margin-left:-700px;width:1400px}
+.w1500{position:relative;left:50%;margin-left:-750px;width:1500px}
+.w1600{position:relative;left:50%;margin-left:-800px;width:1600px}
+.w1680{position:relative;left:50%;margin-left:-840px;width:1680px}
+.w2000{position:relative;left:50%;margin-left:-1000px;width:2000px}
+
+/* �좎쓽�ы빆 */
+.sec_info{background:#333;padding:80px 0 80px 0}
+.sec_info h3{color:#fff;font-size:24px;line-height:30px;font-weight:bold}
+.sec_info table{width:100%;margin-top:15px;border-top:2px solid #555;border-bottom:2px solid #555}
+.sec_info th{padding:0 20px;border-right:1px solid #555;border-bottom:1px solid #555;color:#d7d7d7;font-size:16px;line-height:22px}
+.sec_info td{border-right:1px solid #555;border-bottom:1px solid #555;color:#d7d7d7;font-size:13px;line-height:1.5;padding:15px 20px}
+.sec_info td:last-child{border-right:0 !important}
+.sec_info td.br_no{border-right:0}
+.sec_info td.br_no[rowspan]{border-right:1px solid #555}
+.sec_info .round{width:65px;height:30px;background:#555;border-radius:15px;line-height:30px;color:#d7d7d7;font-weight:bold;color:#d7d7d7;font-size:15px;text-align:center;margin:0 auto}
+.sec_info .mt10{margin-top:10px !important}
+.sec_info .mt15{margin-top:15px !important}
+.sec_info .tit{color:#d7d7d7;font-size:14px;line-height:30px;font-weight:bold}
+.sec_info .txt{color:#d7d7d7;font-size:14px;line-height:24px}
+.sec_info .txt_bold{color:#ffadad}
+.sec_info .docu_view{display:inline-block;width:134px;height:25px;line-height:25px;color:#333;background:#cccdd1;border-radius:3px;text-align:center;text-decoration:none;margin-top:5px}
+.sec_info .docu_view em.down{padding-right:16px;background:url(//img.siwonschool.com/japan/event/pkg_share/ico_down.png) no-repeat right center}
+.sec_info .list li{padding:0 0 0 14px;color:#d7d7d7;font-size:13px;line-height:24px;background:url(//img.siwonschool.com/japan/event/160225/dot_4x4.png) no-repeat left 9px }
+
+/* �쒕뵫 �좎쓽�ы빆 怨듯넻 */
+.sec_info_comm{padding:60px 0 80px;background:#333}/* �곹뭹 �뺣낫 */
+.sec_info_comm .info_tit{overflow:hidden;width:176px;height:20px;background:url(//img.siwonschool.com/japan/event/comm/info_tit.png) no-repeat;font-size:0;text-indent:100%}
+.sec_info_comm dl{position:relative;margin-bottom:10px;padding:3px 0 0 110px}
+.sec_info_comm .info_tit + dl{margin-top:30px}
+.sec_info_comm dt{position:absolute;top:0;left:0;width:90px;padding:5px 0;background:#666;color:#ccc;text-align:center}
+.sec_info_comm dd{margin-top:;color:#999;line-height:1.7}
+
+.sec_info_comm2{padding:30px 0 65px;background:#333}/* �대깽�� �좎쓽�ы빆 */
+.sec_info_comm2 dl{padding-bottom:13px}
+.sec_info_comm2 dt{padding:30px 0 16px;font-size:20px;font-weight:bold;color:#fff}
+.sec_info_comm2 dd{padding-bottom:4px;padding-left:10px;text-indent:-10px;line-height:1.5;font-size:14px;color:#999}
+.sec_info_comm2 dd.depth1{padding-left:25px}
+.sec_info_comm2 a{color:#888;text-decoration:underline}

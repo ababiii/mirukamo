@@ -130,6 +130,8 @@ recstart();
    <a href="login/find_pw">비밀번호 찾기</a>
    
       <a href="drill"> 형태소 변환 </a>
+
+       <a href="servicecenter">고객 센터 </a>	
       <a href="course/videolist"> 영상리스트 </a>
       <a href="course/upload"> 업로드 </a>
    </c:if>
@@ -147,7 +149,8 @@ recstart();
    <a href="myPage/mypage">수정</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
-      <a href="servicecenter"> 고객 센터 </a>
+
+    <a href="servicecenter">고객 센터 </a>	
    		
       <a href="drill"> 형태소 변환 </a>
       <a href="course/videolist"> 영상리스트 </a>
@@ -181,8 +184,12 @@ recstart();
 <a href="course/face4">얼굴4</a>
 <a href="course/face5">얼굴5</a>
 <a href="course/face6">얼굴6</a>
+<a href="course/face7">얼굴7</a>
 <a href="course/video">비디오</a>
+<a href="course/video_sidelist">비디오리스트</a>
 <a href="course/eye_blink_detect">눈</a>
+
+
 <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 <input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>
 

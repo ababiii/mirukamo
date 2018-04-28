@@ -8,6 +8,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mirukamo MyPage</title>
+<style type="text/css">
+.vGraph {
+	padding: 20px 0;
+}
+
+.vGraph ul {
+	margin: 0;
+	padding: 0;
+	height: 200px;
+	border: 1px solid #ddd;
+	border-top: 0;
+	border-right: 0;
+	font-size: 11px;
+	font-family: Tahoma, Geneva, sans-serif;
+	list-style: none;
+}
+
+.vGraph ul:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.vGraph li {
+	/* float: left; */
+	display: inline;
+	width: 8%;
+	height: 100%;
+	margin: 0 3%;
+	position: relative;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.vGraph .gTerm {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 -100% -20px 0;
+	padding: 200px 0 0 0;
+	vertical-align: bottom;
+	color: #767676;
+	font-weight: bold;
+}
+
+.vGraph .gBar {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin: -1px 0 0 0;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	background: #e9e9e9;
+	vertical-align: bottom;
+}
+
+ .vGraph .gBar span {
+	position: absolute;
+	width: 100%;
+	top: -20px;
+	left: 0;
+	color: #767676;
+} 
+</style>
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -57,11 +123,12 @@ td {
 </style>
 </head>
 <body>
-	<a href="./"><img src="<c:url value="resources/images/loverdug.jpg" />"
-		height="100px" width="100px"></a>
+	<a href="./"><img
+		src="<c:url value="resources/images/loverdug.jpg" />" height="100px"
+		width="100px"></a>
 	<h1>MyPage</h1>
 
-<!-- 	<table>
+	<!-- 	<table>
 		<tr>
 			<th id="tumori">수강 예정 강의</th>
 			<th id="ing">수강 중 강의</th>
@@ -79,19 +146,56 @@ td {
 			<th>남은 일수</th> -->
 		</tr>
 		<tr>
-		<c:if test="${list.size()==0}">
-			<td colspan="3">수강 중인 강의가 없습니다.</td>
-		</c:if>
-		<c:if test="${list.size()!=0 }">
-		<c:forEach items="${list}" var="list">
-			<td>${list.title}</td>
-			<td>${list.teacher}</td>
-			<td>${list.languages}</td>
-		</c:forEach>
-		</c:if>
+			<c:if test="${list.size()==0}">
+				<td colspan="3">수강 중인 강의가 없습니다.</td>
+			</c:if>
+			<c:if test="${list.size()!=0 }">
+				<c:forEach items="${list}" var="list">
+					<td>${list.title}</td>
+					<td>${list.teacher}</td>
+					<td>${list.languages}</td>
+				</c:forEach>
+			</c:if>
 		</tr>
 
 	</table>
+
+
+	<table border="1">
+		<tr>
+			<td colspan="3">가장 많이 틀린 문장</td>
+		</tr>
+		<tr>
+			<td><div class="vGraph">
+					<ul>
+						<li><span class="gTerm"></span><span class="gBar"
+							style="height: 0%"><span>${rank[0].num}</span></span></li>
+					</ul>
+				</div></td>
+
+			<td><div class="vGraph">
+					<ul>
+						<li><span class="gTerm"></span><span class="gBar"
+							style="height: 0%"><span>${rank[1].num}</span></span></li>
+					</ul>
+				</div></td>
+			<td><div class="vGraph">
+					<ul>
+						<li><span class="gTerm"></span><span class="gBar"
+							style="height: 0%"><span>${rank[2].num}</span></span></li>
+					</ul>
+				</div></td>
+		</tr>
+		<tr>
+			<td>${rank[0].original_word}</td>
+
+			<td>${rank[1].original_word}</td>
+
+			<td>${rank[2].original_word}</td>
+		</tr>
+	</table>
+
+
 
 </body>
 </html>

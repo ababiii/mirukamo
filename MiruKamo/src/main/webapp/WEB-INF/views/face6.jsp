@@ -7,7 +7,11 @@
 <html lang="en">
 	<head>
 	<style type="text/css">
+<<<<<<< HEAD
 	html,
+=======
+ html,
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 body {
   width: 100%;
   height: 100%;
@@ -18,16 +22,20 @@ body {
   color: #000;
   text-align: center;
   -webkit-font-smoothing: subpixel-antialiased;
-}
- 
+}  
+
 p {
   margin: 0;
   font-size: 12px;
 }
 
-canvas {
+
+
+ canvas {
   border: 1px solid black;
+
 }
+
 
 .holder {
   position: relative;
@@ -54,7 +62,8 @@ canvas {
   visibility: visible;
 }
 
-#content {
+
+ #content {
   text-align: center;
   visibility: hidden;
 }
@@ -83,8 +92,10 @@ body.active #content {
 		<script src="../resources/js/eye_blink_check.js"></script>
 		<script src="../resources/js/webcam.js"></script>
 		<script src="../resources/js/canvasfilters.js"></script>
-	<div class="holder" data-title="Correlation">
-    <div id="content">
+
+	
+	 <div class="holder" data-title="Correlation"> 
+     <div id="content">
         <canvas id="originalCanvas" width=320 height=240></canvas>
         <canvas id="trackerCanvas" width=320 height=240></canvas>
         <br />
@@ -105,8 +116,13 @@ body.active #content {
         <p id="notBlinksDetected">
             0
         </p>
-    </div>
-</div>
+
+    </div> 
+ </div> 
+<%-- <video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" controls autoplay>
+    <source src="./preview?name=${filename}" type="video/mp4"/>
+		</video> --%>
+
 <script>
 //properties
 var content, webcam, tracker, raf, eyeRect, interval, oldData, curData, cData, currentCorrelation, blinks;
@@ -203,7 +219,8 @@ function start(e) {
   seconds=0;
 }
 
-function stop(e) {
+
+ function stop(e) {
   e.preventDefault();
   document.body.className = '';
 
@@ -214,7 +231,17 @@ function stop(e) {
   clearInterval(interval);
 
   blinks = 0;
+
+} 
+
+
+function emitEvent(eventName) {
+	var evt = new CustomEvent(eventName, {'bubbles': true, 'cancelable': true});
+	document.dispatchEvent(evt);
 }
+
+
+
 
 function update() {
   raf = requestAnimationFrame(update);
@@ -308,13 +335,31 @@ function correlation() {
   console.log(seconds+"들어감");
   if (oldBlinks==blinks) {
 	  	seconds++;
+
 	  	console.log(seconds+"들어감2");
 	  if(seconds==50){
 		  alert("자냐?,,개빠졌네??");
+
+	  if(seconds==100){
+		  //일정 시간 눈을 감고 있으면 잠을 자는 것으로 인식해서 비디오가 멈춤
+
 		  seconds=0;
 	  }  
 	  
 	}
+
+
+   //얼굴이 다시 확인되면 영상을 재생시킨다. 
+		document.addEventListener("clmtrackrConverged", function() {
+			 playVid();
+			 
+			 document.addEventListener("userIsSleeping", function() {
+				 alert("자냐 개빠졌네");
+				 seconds=0;				 
+				 pauseVid();
+				 this.close();
+			});
+		});
 
   
 if (currentCorrelation > settings.minCorrelation) {
@@ -331,3 +376,4 @@ init();
 </script>
 	</body>
 </html>
+

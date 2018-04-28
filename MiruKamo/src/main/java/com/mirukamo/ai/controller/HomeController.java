@@ -73,7 +73,7 @@ public class HomeController {
 			System.out.println(i);
 			}
 		
-		return "home";
+		return "test";
 	}
 	
 	public void hatuon(String qqq[]){

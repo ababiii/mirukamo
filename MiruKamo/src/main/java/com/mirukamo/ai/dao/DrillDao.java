@@ -21,10 +21,10 @@ public class DrillDao {
 	private static final Logger logger = LoggerFactory.getLogger(DrillDao.class);
 	
 
-	public ArrayList<mirukamo_drill> getword() {
+	public ArrayList<mirukamo_drill> getword(String userId) {
 		System.out.println("디스팅 시");
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
-		ArrayList<mirukamo_drill> getword = mapper.getword();
+		ArrayList<mirukamo_drill> getword = mapper.getword(userId);
 		System.out.println("디스팅 끝");
 		return getword;
 		
@@ -50,5 +50,12 @@ public class DrillDao {
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
 		ArrayList<mirukamo_drill> word = mapper.word();
 		return word;
+	}
+	//마이페이지에서 쓰일 많이 틀린 문장 랭크
+	public ArrayList<mirukamo_drill> getrank() {
+		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
+		RowBounds b=new RowBounds(0,3);
+		ArrayList<mirukamo_drill> rank = mapper.rank(b);
+		return rank;
 	}
 };

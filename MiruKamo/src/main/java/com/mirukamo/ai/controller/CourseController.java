@@ -31,53 +31,54 @@ import com.mirukamo.ai.util.MultipartFileSender;
 import com.mirukamo.ai.vo.Mirukamo_course;
 import com.mirukamo.ai.vo.Users;
 
-
 @RequestMapping("course")
 @Controller
 public class CourseController {
-	 @Resource(name="uploadPath")
-	    String uploadPath;
-	
+	@Resource(name = "uploadPath")
+	String uploadPath;
+
 	@Autowired
 	UsersDAO usersDAO;
 	@Autowired
 	CourseDAO courseDAO;
+	
+	
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";
-	
+
 	@RequestMapping(value = "/face", method = RequestMethod.GET)
 	public String face() {
-		
+
 		return "face";
 	}
-	
+
 	@RequestMapping(value = "/face2", method = RequestMethod.GET)
 	public String face2() {
-		
+
 		return "face2";
 	}
-	
+
 	@RequestMapping(value = "/face3", method = RequestMethod.GET)
 	public String face3() {
-		
+
 		return "face3";
 	}
-	
+
 	@RequestMapping(value = "/face4", method = RequestMethod.GET)
 	public String face4() {
-		
+
 		return "face4";
 	}
-	
+
 	@RequestMapping(value = "/face5", method = RequestMethod.GET)
 	public String face5() {
-		
+
 		return "face5";
 	}
-	
+
 	@RequestMapping(value = "/face6", method = RequestMethod.GET)
 	public String face6() {
-		
+
 		return "face6";
 	}
 	
@@ -87,15 +88,16 @@ public class CourseController {
 		return "face7";
 	}
 	
+
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
-		
+
 		return "video";
 	}
-	
+
 	@RequestMapping(value = "/eye_blink_detect", method = RequestMethod.GET)
 	public String eye() {
-		
+
 		return "eye_blink_detect";
 	}
 	
@@ -128,48 +130,50 @@ public class CourseController {
 		 System.out.println(list);
 			model.addAttribute("list",list);
 			return "videolist";
-		}
-	 
-	 @RequestMapping(value = "/videolist", method = RequestMethod.POST)
-		public String videolist(String name, HttpSession session, Model model) {
-			//session.setAttribute("title", title1);
-		 	System.out.println("★★★★★★"+name);
-			model.addAttribute("file_name",name);
-		
-			
+	 }
+
+	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
+	public String videolist(String name, HttpSession session, Model model) {
+		// session.setAttribute("title", title1);
+		System.out.println("★★★★★★" + name);
+		model.addAttribute("file_name", name);
+
 		return "video";
-		}
-	
-	 
-	 @RequestMapping(value = "/upload", method = RequestMethod.GET)
-		public String upload() {
-		  return "uploadForm";
-		}
-	
-	 @RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
-		public String upload1(Mirukamo_course course,MultipartFile upload) {
-		 System.out.println("들어오냐?");
-		 System.out.println(upload.getOriginalFilename());
-		 String savedfile = FileService.saveFile(upload, uploadPath);
-		 course.setFile_name(savedfile);
+	}
+
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	public String upload() {
+		return "uploadForm";
+	}
+
+	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
+	public String upload1(Mirukamo_course course, MultipartFile upload) {
+		System.out.println("들어오냐?");
+		System.out.println(upload.getOriginalFilename());
+		String savedfile = FileService.saveFile(upload, uploadPath);
+		course.setFile_name(savedfile);
+
+		courseDAO.insertCourse(course);
+		/*
+		 * String savedName = upload.getOriginalFilename();
+		 * 
+		 * File target = new File(uploadPath, savedName);
+		 * 
+		 * // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사 // FileCopyUtils.copy(바이트배열,
+		 * 파일객체) try { FileCopyUtils.copy(upload.getBytes(), target); } catch
+		 * (IOException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
+		return "redirect:videolist";
+	}
+
+	// 송수근
+	@RequestMapping(value = "signclass", method = RequestMethod.POST)
+	public String videolistlogin(Model model,HttpSession session, String sign) {
+		System.out.println("수강 선생님  : " + sign);
+		String teachername = 	sign;
+		String userid = (String) session.getAttribute("userId");
 		
-		 courseDAO.insertCourse(course);
-	      /*  String savedName = upload.getOriginalFilename();
-
-	        File target = new File(uploadPath, savedName);
-
-	        // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사
-	        // FileCopyUtils.copy(바이트배열, 파일객체)
-	        try {
-				FileCopyUtils.copy(upload.getBytes(), target);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-
-
-		 
-		 
-		  return "redirect:videolist";
-}
+		return "redirect:videolist";
+	}
 }

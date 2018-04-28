@@ -7,49 +7,155 @@
 <!-- 검색 처리 SQL -->
 <mapper namespace="com.mirukamo.ai.dao.ServiceCenterMapper">
 
-<!-- 공지사항 전체 출력 -->
-<select id="getboardinfo" resultType="question">
-select * from mirukamo_question
-</select>
+	<!-- 공지사항 전체 출력 -->
+	<select id="getboardinfo" resultType="question">
+		select
+		member_id
+		,num
+		,title
+		,category
+		,answer
+		,to_char(question_date, 'YYYY-MM-DD') question_date
+		from mirukamo_question
+	</select>
 
-<!-- 공지사항 게시 글 출력 -->
-<select id="adminNotice" resultType="question" parameterType="int">
-select * from mirukamo_question
-where num =#{num}
-</select>
+	<!-- 공지사항 게시 글 출력 -->
+	<select id="adminNotice" resultType="question" parameterType="int">
+		select
+		member_id
+		,num
+		,title
+		,category
+		,answer
+		,to_char(question_date,
+		'YYYY-MM-DD HH24:MI:SS') question_date
+		from mirukamo_question
+		where num
+		=#{num}
+	</select>
 
-<!-- 수강후기 출력 -->
-<select id="reviews" resultType="reviews">
-select * from mirukamo_reviews
-</select>
+	<!-- 수강후기 출력 -->
+	<select id="reviews" resultType="reviews">
+		select
+		customer_id
+		,num
+		,title
+		,content
+		,hits
+		,to_char(review_date, 'YYYY-MM-DD') review_date
+		from
+		mirukamo_reviews
+	</select>
 
-<!-- 수강후기 글 가져오기 -->
-<select id="getreviews" resultType="reviews" parameterType="int">
-select * from mirukamo_reviews
-where num =#{num}
-</select>
+	<!-- 수강후기 글 가져오기 -->
+	<select id="getreviews" resultType="reviews" parameterType="int">
+		select
+		customer_id
+		,title
+		,content
+		,hits
+		,to_char(review_date, 'YYYY-MM-DD
+		HH24:MI:SS') review_date
+		from mirukamo_reviews
+		where num =#{num}
+	</select>
 
-<!-- 수강후기 조회수 증가 -->
-<update id="reviewshits" parameterType="int">
-	update mirukamo_reviews
+
+	<!-- 수강후기 조회수 증가 -->
+	<update id="reviewshits" parameterType="int">
+		update mirukamo_reviews
 		set hits = hits +1
 		where num =#{num}
-</update>
+	</update>
 
-<!-- 수강 후기 글 작성 -->
-<insert id="writereviews" parameterType="reviews">
-insert into mirukamo_reviews(
-	num
-	,customer_id
-	,title
-	,content
-)
-values (
+	<!-- 수강 후기 글 작성 -->
+	<insert id="writereviews" parameterType="reviews">
+		insert into
+		mirukamo_reviews(
+		num
+		,customer_id
+		,title
+		,content
+		)
+		values (
 		mirukamo_reviews_seq.nextval,
 		#{customer_id},
 		#{title},
 		#{content}
-	)
-</insert>
+		)
+	</insert>
 
+	<!-- 공지사항 전체 글 개수 가져오기 -->
+	<select id="howboardadmin" resultType="int">
+		select count(*) as
+		totalCount from mirukamo_question
+		where category = 0
+	</select>
+
+
+	<!-- QNA 전체 글 개수 가져오기 -->
+	<select id="howboardqna" resultType="int">
+		select count(*) as
+		totalCount from mirukamo_question
+		where category = 9
+	</select>
+
+	<!-- 수강후기 전체 글 개수 가져오기 -->
+	<select id="howboardreview" resultType="int">
+		select count(*) as
+		totalCount from mirukamo_reviews
+	</select>
+
+	<!-- 리뷰 페이징 -->
+	<select id="listreviewBoard" parameterType="string" resultType="reviews">
+		select
+		num
+		, customer_id
+		, title
+		,content
+		, to_char(review_date, 'YYYY-MM-DD HH24:MI:SS') review_date
+		, hits
+		from
+		mirukamo_reviews
+		<if test="_parameter != null">
+			where
+			title like '%' || #{searchText} || '%'
+		</if>
+		order by num desc
+	</select>
+
+	<!-- 공지사항 페이징 -->
+	<select id="adminlistreviewsBoard" parameterType="string"
+		resultType="question">
+		select
+		member_id
+		,title
+		, num
+		, content
+		,category
+		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		, answer
+		from
+		mirukamo_question
+		where category = 0
+		order by num desc
+	</select>
+	
+	<!-- 공지사항 페이징 -->
+	<select id="qnalistreviewsBoard" parameterType="string"
+		resultType="question">
+		select
+		member_id
+		,title
+		, num
+		, content
+		,category
+		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		, answer
+		from
+		mirukamo_question
+		where category = 9 
+		order by num desc
+	</select>
+	
 </mapper>

@@ -187,6 +187,7 @@ $( function() {
    <a href="login/find_pw">비밀번호 찾기</a>
    
       <a href="drill"> 형태소 변환 </a>
+       <a href="servicecenter">고객 센터 </a>	
       <a href="course/videolist"> 영상리스트 </a>
       <a href="course/upload"> 업로드 </a>
    </c:if>
@@ -204,7 +205,7 @@ $( function() {
    <a href="myPage/mypage">수정</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
-      <a href="servicecenter"> 고객 센터 </a>
+    <a href="servicecenter">고객 센터 </a>	
    		
       <a href="drill"> 형태소 변환 </a>
       <a href="course/videolist"> 영상리스트 </a>

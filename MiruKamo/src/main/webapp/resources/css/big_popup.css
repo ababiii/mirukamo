@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+/* ±âº» ¼³Á¤ */
+#big_popup{width:100%;min-width:1000px;margin:0 auto}
+#big_popup .full{overflow:hidden;position:relative;width:100%}
+#big_popup .cont{width:100%;margin:0 auto}
+#big_popup .full .w2000{position:relative;left:50%;margin-left:-1000px;width:2000px}
+#big_popup .cont .w1000{width:1000px;margin:0 auto}
+
+/* 151230 ¿ÀÇÂ */
+.big_151230 .con02a{background:#f4f4f4}
+.big_151230 .con02c{background:#f4f4f4}
+.big_151230 .con04 .wrap_slide_why{position:relative}
+.big_151230 .con04 p{position:absolute;top:40px;left:50%;z-index:53;margin-left:-140px}
+.big_151230 .con04 .slide_why .why1{background:#fed9e9;text-align:center}
+.big_151230 .con04 .slide_why .why2{background:#fff9ae;text-align:center}
+.big_151230 .con04 .slide_why .why3{background:#fed9e9 url(//img.siwonschool.com/japan/big/open_cont04c_bg.gif) top center no-repeat;text-align:center}
+.big_151230 .con04 .slide_why .why4{background:#f4f4f4 url(//img.siwonschool.com/japan/big/open_cont04d_bg.gif) right top no-repeat;text-align:center}
+.big_151230 .con04 .wrap_slide_why .bx-controls-direction{position:absolute;top:260px;left:50%;margin-left:-500px;z-index:52;width:1000px}
+.big_151230 .con04 .wrap_slide_why .bx-controls-direction a{display:block;overflow:hidden;width:35px;height:35px;text-indent:-999px}
+.big_151230 .con04 .wrap_slide_why .bx-prev{float:left;background:url(//img.siwonschool.com/japan/comm/bt_prev4.gif) no-repeat}
+.big_151230 .con04 .wrap_slide_why .bx-next{float:right;background:url(//img.siwonschool.com/japan/comm/bt_next4.gif) no-repeat}
+.big_151230 .con04 .wrap_slide_why .bx-controls-auto{height:0}
+.big_151230 .sample{background:#f4f4f4}
+.big_151230 .wrap_samples{overflow:hidden;width:1000px;padding:40px 0;margin:0 auto}
+.big_151230 .wrap_samples p.tit{text-align:center}
+.big_151230 .wrap_samples .tit_sub_st{padding:30px 0;text-align:center;background:url(//img.siwonschool.com/japan/comm/bg_line_h3.png) repeat-x 0 39px}
+.big_151230 .wrap_samples .tit_sub_st span{padding:0 28px;font-size:20px;font-weight:bold;letter-spacing:-1px;color:#333;background:#f4f4f4}
+.big_151230 .wrap_samples .sec2{float:left;width:320px;margin-left:20px}
+.big_151230 .sample .sample_bottom{width:100%;min-width:1000px;height:111px;padding-top:40px;text-align:center;background:#ffe7c9 url(//img.siwonschool.com/japan/about/bg_chance.jpg) top center no-repeat}
+.big_151230 .sample .bt_gosample{display:inline-block;width:300px;height:70px;padding:0 3px 3px 0;font-size:20px;font-weight:900;line-height:73px;text-align:center;background:url(//img.siwonschool.com/japan/about/bt_lab.gif)}
+.big_151230 .sample .bt_gosample:hover{text-decoration:none}
+.big_151230 .con08{background:#ddd}
+.big_151230 .con09{padding-top:40px}
+.big_151230 .con10{padding-bottom:80px}

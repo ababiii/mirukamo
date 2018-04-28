@@ -2,6 +2,8 @@ package com.mirukamo.ai.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
+
 import com.mirukamo.ai.vo.mirukamo_question;
 import com.mirukamo.ai.vo.mirukamo_reviews;
 
@@ -25,4 +27,23 @@ public interface ServiceCenterMapper {
 	
 	//수강후기 조회수 증가
 	public void reviewshits(int num);
+	
+	//공지사항 가져오기
+	public int howboardadmin();
+
+	//qna 게시물 수 가져오기
+	public int howboardqna();
+	
+	//수강후기 게시물 수 가져오기
+	public int howboardreview();
+	
+	//수강후기 게시물 페이징 가져오기
+	public ArrayList<mirukamo_reviews> listreviewBoard(String searchText, RowBounds rb);
+	
+	//공지사항 게시물 페이징 가져오기
+	public ArrayList<mirukamo_question> adminlistreviewsBoard(String searchText, RowBounds rb);
+	//qna 페이징
+	public ArrayList<mirukamo_question> qnalistreviewsBoard(String searchText, RowBounds rb);
+
+	
 }

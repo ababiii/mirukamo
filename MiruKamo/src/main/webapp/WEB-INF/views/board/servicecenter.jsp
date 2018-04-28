@@ -8,118 +8,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-<style type="text/css">
-body {
-	background-color: coral;
-}
-
-.sidenav {
-	height: 100%; /* 100% Full-height */
-	width: 0; /* 0 width - change this with JavaScript */
-	position: fixed; /* Stay in place */
-	z-index: 100; /* Stay on top */
-	top: 0; /* Stay at the top */
-	left: 0;
-	background-color: #111; /* Black*/
-	overflow-x: hidden; /* Disable horizontal scroll */
-	padding-top: 60px; /* Place content 60px from the top */
-	transition: 0.5s;
-	/* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-	color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-	transition: margin-left .5s;
-	padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-	.sidenav {
-		padding-top: 15px;
+<title></title>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+<script src="resources/jQuery/jquery-ui.js"></script>
+<script type="text/javascript">
+<!-- 페이지 이동 스크립트  -->
+	function pagingFormSubmitreview(currentPage) {
+		var form = document.getElementById('pagingForm');
+		var page = document.getElementById('page');
+		alert(currentPage);
+		page.value = currentPage;
+		form.submit();
 	}
-	.sidenav a {
-		font-size: 18px;
+
+	function pagingFormSubmitadmin(currentPage) {
+		var form = document.getElementById('adminpagingForm');
+		var page = document.getElementById('pageadmin');
+		page.value = currentPage;
+		form.submit();
 	}
-}
-</style>
-<title>Home</title>
+	
+	function pagingFormSubmitqna(currentPage) {
+		var form = document.getElementById('qnapagingForm');
+		var page = document.getElementById('pageqna');
+		page.value = currentPage;
+		form.submit();
+	}
+</script>
 </head>
-</head>
-<<<<<<< HEAD
-<body> 
-고객센터 게시판
-=======
 <body>
-	<script src="resources/recognition.js"></script>
-
-	<script type="text/javascript">
-		recstart();
-	</script>
-	<script src="resources/audio.js"></script>
-
-
-	<form action="http://www.example.com/search">
-		<textarea id="txt" style="width: auto; height: auto;">
-    </textarea>
-		<input type="button" value="Click to Speak"
-			onclick="recognition.start()">
-	</form>
-
-	<input type="button" value="on" onclick="audiostart()">
-	<input type="button" value="off" onclick="audioend()">
-
-	<div id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="join/join">회원가입</a> <a href="login/login">로그인</a> <a
-			href="login/logout">로그아웃11</a> <a href="myPage/myPage">마이페이지11112</a>
-
-		<a href="login/logout">로그아웃2222</a> <a href="myPage/myPage">마이페이지</a>
-		<a href="myPage/myPage">수정</a> <a href="servicecenter">고객 센터</a>
-	</div>
-
-	<!-- Use any element to open the sidenav -->
-	<span onclick="openNav()">open</span>
-
-	<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-	<div id="main">
-		<div>${sessionScope.userId} ${sessionScope.userName}</div>
-	</div>
-	<script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "250px";
-		}
-
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-		}
-	</script>
-
-	고객센터
+	총 게시물 : ${howboardadmin}
 	<table border="1">
 		<tr>
 			<td colspan="3">공지 사항</td>
@@ -129,7 +47,7 @@ body {
 			<td>작성 날자</td>
 		</tr>
 
-		<c:forEach items="${question}" var="q">
+		<c:forEach items="${adminboardlist}" var="q">
 			<c:if test="${q.category == 0}">
 				<tr>
 					<!-- 공지사항 글 읽기 -->
@@ -139,14 +57,49 @@ body {
 			</c:if>
 		</c:forEach>
 	</table>
+
+	<div id="navigator1">
+		<!-- 페이지 이동 부분 -->
+		<a
+			href="javascript:pagingFormSubmitadmin(${navi1.currentPage - navi1.pagePerGroup})">◁◁
+		</a> &nbsp;&nbsp; <a
+			href="javascript:pagingFormSubmitadmin(${navi1.currentPage - 1})">◀</a>
+		&nbsp;&nbsp;
+
+		<c:forEach var="counter" begin="${navi1.startPageGroup}"
+			end="${navi1.endPageGroup}">
+			<c:if test="${counter == navi1.currentPage}">
+				<b>
+			</c:if>
+			<a href="javascript:pagingFormSubmitadmin(${counter})">${counter}</a>&nbsp;
+		<c:if test="${counter == navi1.currentPage}">
+				</b>
+			</c:if>
+		</c:forEach>
+		&nbsp;&nbsp; <a
+			href="javascript:pagingFormSubmitadmin(${navi1.currentPage + 1})">▶</a>
+		&nbsp;&nbsp; <a
+			href="javascript:pagingFormSubmitadmin(${navi1.currentPage + navi1.pagePerGroup})">▷▷</a>
+		
+		<!-- /페이지 이동 끝 -->
+
+		<form id="adminpagingForm" method="get" action="servicecenter">
+			<input type="hidden" name="adminpage" id="pageadmin" />
+		</form>
+	</div>
+
 	<c:if test="${admin} != null">
 		<a href="writenotice">공지 사항 글 작성</a>
 	</c:if>
-	<input type="button" value="1대1 문의 접수" onclick="location.href ='<c:url value="writeboard/advice"/>'">
+
+	<!--------------------------------------------------------------------------------------------------------------->
+
+	<input type="button" value="1대1 문의 접수"
+		onclick="location.href ='<c:url value="writeboard/advice"/>'">
 	<input type="button" value="나의 문의 내역">
 	<br>
 	<br>
-	<br>
+	<br>총 게시물 : ${howboardqna}
 	<table border="1">
 		<tr>
 			<td colspan="3">자주 묻는 질문</td>
@@ -155,41 +108,89 @@ body {
 			<td>제목</td>
 			<td>작성 날자</td>
 		</tr>
-		<c:forEach items="${question}" var="q">
-			<c:if test="${q.category == 9}">
+		<c:forEach items="${qnaboardlist}" var="qna">
+			<c:if test="${qna.category == 9}">
 				<tr>
-					<td><a href="qna?num=${q.num}">${q.title}</a></td>
-					<td>${q.question_date}</td>
+					<td><a href="qna?num=${qna.num}">${qna.title}</a></td>
+					<td>${qna.question_date}</td>
 				</tr>
 			</c:if>
 		</c:forEach>
 	</table>
 
-	<br>
+	<div id="navigator">
+		<a
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage - navi2.pagePerGroup})">◁◁
+		</a> &nbsp;&nbsp; <a
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage - 1})">◀</a>
+		&nbsp;&nbsp;
 
+		<c:forEach var="counter" begin="${navi2.startPageGroup}"
+			end="${navi2.endPageGroup}">
+			<c:if test="${counter == navi2.currentPage}">
+				<b>
+			</c:if>
+			<a href="javascript:pagingFormSubmitqna(${counter})">${counter}</a>&nbsp;
+		<c:if test="${counter == navi2.currentPage}">
+				</b>
+			</c:if>
+		</c:forEach>
+		&nbsp;&nbsp; <a
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage + 1})">▶</a>
+		&nbsp;&nbsp; <a
+			href="javascript:pagingFormSubmitqna(${navi2.currentPage + navi2.pagePerGroup})">▷▷</a>
+
+		<!-- /페이지 이동 끝 -->
+		<br><br>
+		<form id="qnapagingForm" method="get" action="servicecenter">
+			<input type="hidden" name="qnapage" id="pageqna" />
+		</form>
+	</div>
+
+	<!--------------------------------------------------------------------------------------------------------------->
+
+	<br> 총 게시물 : ${howboardreview}
 	<table border="1">
 		<tr>
 			<td colspan="3">수강 후기</td>
 		</tr>
-			<tr>
-				<td>번호</td>
-				<td>제목</td>
-				<td>작성 날자</td>
-			</tr>
-			<c:forEach items="${reviews}" var="re">
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성 날자</td>
+		</tr>
+		<c:forEach items="${reviewpaging}" var="re">
 			<tr>
 				<td>${re.num}</td>
 				<td><a href="reviews?num=${re.num}">${re.title}</a></td>
 				<td>${re.review_date}</td>
 			</tr>
 		</c:forEach>
-			<c:if test="${userId != null}">
-				<a href="writereviews">수강후기 작성</a>
-			</c:if>
-
 	</table>
+	<div id="navigator">
+	<!-- 페이지 이동 부분 -->                      
+	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage - navi0.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage - 1})">◀</a> &nbsp;&nbsp;
 
+	<c:forEach var="counter" begin="${navi0.startPageGroup}" end="${navi0.endPageGroup}"> 
+		<c:if test="${counter == navi0.currentPage}"><b></c:if>
+			<a href="javascript:pagingFormSubmitreview(${counter})">${counter}</a>&nbsp;
+		<c:if test="${counter == navi0.currentPage}"></b></c:if>
+	</c:forEach>
+	&nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage + 1})">▶</a> &nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage + navi.pagePerGroup})">▷▷</a>
 
->>>>>>> refs/remotes/origin/master
+<!-- /페이지 이동 끝 -->                      
+
+<br><br>
+		<form id="pagingForm" method="get" action="servicecenter">
+			<input type="hidden" name="page" id="page" />
+		</form>
+	</div>
+
+	<c:if test="${userId != null}">
+		<a href="writereviews">수강후기 작성</a>
+	</c:if> 
 </body>
 </html>

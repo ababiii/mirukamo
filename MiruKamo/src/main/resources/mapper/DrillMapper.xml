@@ -16,4 +16,18 @@
 	<select id="word" resultType="drill">
 	select * from mirukamo_drill
 	</select>
+	<insert id="insertDrill" parameterType="drill">
+	insert into mirukamo_drill
+	(num,
+	member_id,
+	original_word,
+	word
+	)
+	values (
+	mirukamo_drill_seq.nextval,
+	#{member_id},
+	#{original_word},
+	#{word}
+	) 
+	</insert>
 </mapper>

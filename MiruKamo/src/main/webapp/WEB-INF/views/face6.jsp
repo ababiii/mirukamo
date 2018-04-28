@@ -7,7 +7,7 @@
 <html lang="en">
 	<head>
 	<style type="text/css">
-	/* html,
+	html,
 body {
   width: 100%;
   height: 100%;
@@ -18,18 +18,18 @@ body {
   color: #000;
   text-align: center;
   -webkit-font-smoothing: subpixel-antialiased;
-} */
-
+}
+ 
 p {
   margin: 0;
   font-size: 12px;
 }
 
-/* canvas {
+canvas {
   border: 1px solid black;
-} */
+}
 
- .holder {
+.holder {
   position: relative;
   width: 100%;
   height: 100%;
@@ -52,23 +52,22 @@ p {
   left: 0;
   width: 100%;
   visibility: visible;
-} 
+}
 
-/* #content {
+#content {
   text-align: center;
   visibility: hidden;
-} */
+}
 
 body.active .holder:before,
 body.active .holder:after {
   visibility: hidden;
 }
 
- body.active #content {
-  visibility: hidden;
+body.active #content {
+  visibility: visible;
 }
- 
-
+	
 	</style>
 	
 		<title>Face tracker</title>
@@ -84,8 +83,8 @@ body.active .holder:after {
 		<script src="../resources/js/eye_blink_check.js"></script>
 		<script src="../resources/js/webcam.js"></script>
 		<script src="../resources/js/canvasfilters.js"></script>
-	 <div class="holder" data-title="Correlation"> 
-     <div id="content">
+	<div class="holder" data-title="Correlation">
+    <div id="content">
         <canvas id="originalCanvas" width=320 height=240></canvas>
         <canvas id="trackerCanvas" width=320 height=240></canvas>
         <br />
@@ -106,11 +105,8 @@ body.active .holder:after {
         <p id="notBlinksDetected">
             0
         </p>
-    </div> 
- </div> 
-<video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" controls autoplay>
-    <source src="./preview?name=${filename}" type="video/mp4"/>
-		</video>
+    </div>
+</div>
 <script>
 //properties
 var content, webcam, tracker, raf, eyeRect, interval, oldData, curData, cData, currentCorrelation, blinks;
@@ -205,11 +201,9 @@ function start(e) {
   blinks = 0;
   //얼마나 눈을 감고 있는지 알 수 있게끔 초를 카운트한다.
   seconds=0;
-  //0으로 초기화한 리턴 값을 반환한다. 
-  return seconds;
 }
 
-/* function stop(e) {
+function stop(e) {
   e.preventDefault();
   document.body.className = '';
 
@@ -220,7 +214,7 @@ function start(e) {
   clearInterval(interval);
 
   blinks = 0;
-} */
+}
 
 function update() {
   raf = requestAnimationFrame(update);
@@ -300,8 +294,6 @@ function correlation() {
         cData.data[i] = 255;
         count++;
         notBlinksDetected.innerHTML = count + ' not blinks detected';
-        //눈에 변화 값을 반환한다.
-        return count;
       }
     }
   }
@@ -310,44 +302,32 @@ function correlation() {
 
   correlationPercentage.innerHTML = parseFloat(currentCorrelation).toFixed(2) + '%';
 	
-
-     if (count<200) {
+  var oldBlinks;
+  console.log(oldBlinks+"올드블링크 들어감");
+  console.log(blinks+"블링크들어감");
+  console.log(seconds+"들어감");
+  if (oldBlinks==blinks) {
 	  	seconds++;
+	  	console.log(seconds+"들어감2");
 	  if(seconds==50){
-		  //일정 시간 눈을 감고 있으면 잠을 자는 것으로 인식해서 비디오가 멈춤
-		  
+		  alert("자냐?,,개빠졌네??");
 		  seconds=0;
-		  
-		  emitEvent('userIsSleeping');
 	  }  
 	  
-	}else{
-		seconds=0;
 	}
-
 
   
 if (currentCorrelation > settings.minCorrelation) {
     blinks++;
+    oldBlinks = blinks;
+    console.log(oldBlinks+"222들어감");
+    seconds=0;
 }
 
 blinksDetected.innerHTML = blinks + ' blinks detected';
 }
 
 init();
-
-//강의 부분 시작하고 멈추는 부분
-var myvid = document.getElementById("myVideo"); 
-function playVid() { 
-    myvid.play(); 
-}
-
-function pauseVid() { 
-    myvid.pause(); 
-}
-
-
-       
 </script>
 	</body>
 </html>

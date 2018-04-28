@@ -70,10 +70,10 @@ body {
 <title>Home</title>
 </head>
 </head>
-<<<<<<< HEAD
+
 <body> 
 고객센터 게시판
-=======
+
 <body>
 	<script src="resources/recognition.js"></script>
 
@@ -190,6 +190,6 @@ body {
 	</table>
 
 
->>>>>>> refs/remotes/origin/master
+
 </body>
 </html>

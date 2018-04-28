@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ibm.icu.text.Transliterator;
 import com.mirukamo.ai.dao.DrillDao;
-import com.mirukamo.ai.vo.mirukamo_drill;
+import com.mirukamo.ai.vo.Mirukamo_drill;
 
 @Controller
 public class DrillController {
@@ -44,7 +44,7 @@ public class DrillController {
 	public String drilljsp(Locale locale, Model model, HttpSession session, HttpServletResponse response) {
 		logger.debug("드릴 jsp 이동");
 		// 디비다녀와서 중복되는 값 없이 num,orijinal word 가져오기 -> getDrill
-		ArrayList<mirukamo_drill> getDrill = drilldao.getword();
+		ArrayList<Mirukamo_drill> getDrill = drilldao.getword();
 
 		// 섞기
 		Collections.shuffle(getDrill);
@@ -55,7 +55,7 @@ public class DrillController {
 			System.out.println("문제" + i + "번쨰  :  " + noun[i]);
 		}
 
-		ArrayList<mirukamo_drill> word = new ArrayList<mirukamo_drill>();
+		ArrayList<Mirukamo_drill> word = new ArrayList<Mirukamo_drill>();
 		word = drilldao.word();
 		System.out.println(";;;;;;;;"+word.toString());
 		Date date = new Date();

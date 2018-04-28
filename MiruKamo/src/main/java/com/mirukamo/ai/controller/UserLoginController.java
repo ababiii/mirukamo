@@ -71,7 +71,6 @@ public class UserLoginController {
 		}
 		
 		session.setAttribute("userId", result.getId());
-		session.setAttribute("adminCheck",0);
 		return "redirect:/";
 	}
 
@@ -198,7 +197,7 @@ public class UserLoginController {
 	            
 	            //return "video" ;	           
 	            		
-	        } catch (Exception e) { 
+	        } catch (Exception e) {
 	            // TODO Auto-generated catch block
 	            //e.printStackTrace();
 	        }
@@ -208,7 +207,7 @@ public class UserLoginController {
 
 	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
 		public String videolist1( Model model) {
-		 ArrayList<Mirukamo_course> list=new ArrayList<>();
+		 ArrayList<Mirukamo_course> list=new ArrayList<Mirukamo_course>();
 		 list=courseDAO.selectCourse();
 		 System.out.println(list);
 			model.addAttribute("list",list);

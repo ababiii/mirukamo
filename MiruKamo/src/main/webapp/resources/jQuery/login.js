@@ -38,10 +38,11 @@ function login_secure(){
 			$("#input_pw").focus();
 			return false;
 		}	
-
-		var param = $("#loginform").serialize();
-
-		$.ajax({
+		
+		/*var param = $("#loginform").serialize();*/
+		return true;
+		
+		/*$.ajax({
 			url:"/?s=loginproc",
 			type:"POST",
 			dataType: "json",
@@ -73,13 +74,13 @@ function login_secure(){
 					}
 				}
 			}
-		});
+		});*/
 }
 
 $(document).ready(function(){
 	
 	$("#bt_login").on("click",function(){
-		login_secure();
+		$("#loginform").submit();
 	});
 
 

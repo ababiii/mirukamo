@@ -52,7 +52,7 @@
 			<a href="http://www.rankey.com/rank/cert/cert_pop.php?mark_no=20180402-B001" target="_blank"><!-- <img src="http://data.siwonschool.com/banner/img/japan/2018/04/05/bimg_src_1522901610.png" alt="2017년 9월 기준 랭키닷컴" /> --></a>		</div>
 		<div class="util_box">
 			<ul class="util1">
-									<li><a href="javascript:;" onclick="loginChk();">ログイン</a></li>
+									<li><a href="login">ログイン</a></li>
 					<li><a href="https://member.siwonschool.com/?s=join">会員加入</a></li>					
 								<li><a href="/?s=customer">お問い合わせ</a></li>
 			</ul>

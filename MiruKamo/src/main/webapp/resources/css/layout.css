@@ -18,7 +18,7 @@
 #header_top .util_box{float:right;position:relative;}
 #header_top .util_box .util1{padding-top:20px;overflow:hidden;}
 #header_top .util_box .util1 li{float:left;padding:0 10px 0 12px;background:url(//img.siwonschool.com/japan/comm/bar_grey2x10.gif) no-repeat left 5px}
-#header_top .util_box .util1 li a{font-size:13px;color:#666;}
+#header_top .util_box .util1 li a{font-size:15px;color:#666;}
 #header_top .util_box .util1 li:first-child{background:none;}
 
 #header_top .util_box .ico_grade{display:inline-block;overflow:hidden;width:15px;height:15px;margin-top:-2px;background:url(//img.siwonschool.com/japan/mypage/icos_grade_h15.png) no-repeat;font-size:0;text-indent:100%;vertical-align:middle}
@@ -66,14 +66,14 @@
 #header_top .util_box .alarms .alarm_con>ul>li>p.time{color:#999;padding-top:8px;}
 #header_top .util_box .alarms .more_alarm{display:block;width:100%;height:38px;line-height:38px;text-align:center;}
 
-#header_top .util_box .mypage_layer{display:none;position:absolute;top:95px;right:67px;width:133px;border:1px solid #111;background:#fff;z-index:100;}
+#header_top .util_box .mypage_layer{display:none;position:absolute;top:95px;right:0px;width:133px;border:1px solid #111;background:#fff;z-index:100;}
 #header_top .util_box .mypage_layer>ul{width:95px;margin:0 auto;padding:10px 0;}
 #header_top .util_box .mypage_layer>ul>li>a{display:block;height:27px;line-height:27px;color:#666;}
 #header_top .util_box .mypage_layer>ul>li>a:hover{text-decoration:none;color:#e83428;}
 
 #wrap_gnb{position:relative;display:table;width:1100px;height:100%;box-sizing:border-box;margin:0 auto}
 #wrap_gnb .gnb_item{z-index:3;position:relative;float:left}
-#wrap_gnb .gnb_item a.tit{display:block;position:relative;height:48px;padding:0 35px;font-size:15px;line-height:48px;letter-spacing:-2px;text-align:center;color:#111}
+#wrap_gnb .gnb_item a.tit{display:block;position:relative;height:48px;padding:0 50px;font-size:17px;line-height:48px;letter-spacing:-2px;text-align:center;color:#111}
 #wrap_gnb .gnb_item a.tit:hover{text-decoration:none}
 #wrap_gnb .gnb_item a.tit.grey{color:#666;background:url(//img.siwonschool.com/japan/comm/bar_grey2x13.gif) no-repeat 4px 18px}
 #wrap_gnb .gnb_item .bgnone{background:none !important;}

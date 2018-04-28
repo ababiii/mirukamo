@@ -78,7 +78,6 @@
 		<c:if test="${yoshisushi != null || yoshisushi != '' }">
 			<form action="videolist" method="POST">
 				<c:forEach items="${yoshisushi}" var="a" varStatus="ppap">
-					<input type="hidden" name="name" value="${a.file_name}">
 					<tr>
 						<td>${ppap.count}</td>
 						<td>${a.title}</td>

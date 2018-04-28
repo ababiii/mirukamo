@@ -9,6 +9,7 @@
 <title>upload</title>
 <script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="../resources/jQuery/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 	function ch() {
 		/* 왜 작동 안할까 */
@@ -22,7 +23,7 @@
 			alert("tnp");
 			return false;
 		}
-	
+		
 		return true; */
 	}
 
@@ -94,11 +95,11 @@
 				<th>썸네일</th>
 				<td><input type="text" name="thumnail" size="30"></td>
 			</tr>
-
+			<tr>
+				<td colspan="2"><input type="submit" value="저장"></td>
+			</tr>
 		</table>
-		<tr>
-			<td colspan="2"><input type="submit" value="저장" ></td>
-		</tr>
 	</form>
 </body>
+
 </html>

@@ -238,7 +238,9 @@ $( function() {
 <a href="course/face4">얼굴4</a>
 <a href="course/face5">얼굴5</a>
 <a href="course/face6">얼굴6</a>
+<a href="course/face7">얼굴7</a>
 <a href="course/video">비디오</a>
+<a href="course/video_sidelist">비디오리스트</a>
 <a href="course/eye_blink_detect">눈</a>
 
 <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>

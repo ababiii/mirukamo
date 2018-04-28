@@ -42,9 +42,6 @@ public class CourseController {
 	UsersDAO usersDAO;
 	@Autowired
 	CourseDAO courseDAO;
-	/*
-	 * @Autowired ;
-	 */
 
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";
@@ -84,6 +81,13 @@ public class CourseController {
 
 		return "face6";
 	}
+	
+	@RequestMapping(value = "/face7", method = RequestMethod.GET)
+	public String face7() {
+		
+		return "face7";
+	}
+	
 
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
@@ -159,11 +163,48 @@ public class CourseController {
 		// System.out.println("요시코 베이비 컴온"+yosheko.get(0).toString());
 
 		//model.addAttribute("list", list);
-		
+			return "videolist";
+			
+	}
+	
+/*	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
+	public String video_sidelist() {
+
+	}
 			model.addAttribute("yoshisushi", yoshisushi);
 			model.addAttribute("tokyocold", tokyocold);
 		return "videolist";
+
+		return "video_sidelist";
+
 	}
+	*/
+	
+	/* @RequestMapping(value = "preview", method = RequestMethod.GET)
+	    public void getPreview3(@RequestParam(value="name") String name, 
+	    		HttpServletResponse response,HttpServletRequest request, 
+	    		HttpSession session) {
+		 	//name="1.mp4";
+		 	String path = "D://video/"+name;
+		 	logger.debug(name+"영상이름");
+	        try {
+	            MultipartFileSender.fromFile(new File(path))
+	            .with(request)
+	            .with(response)
+	            .serveResource();
+	        } catch (Exception e) {
+	            // TODO Auto-generated catch block
+	            //e.printStackTrace();
+	        }
+	    }*/
+/*	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
+		public String videolist1( Model model) {
+		 ArrayList<Mirukamo_course> list=new ArrayList<Mirukamo_course>();
+		 list=courseDAO.selectCourse();
+		 System.out.println(list);
+			model.addAttribute("list",list);
+			return "videolist";
+	 }*/
 
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
 	public String videolist(String name, HttpSession session, Model model) {
@@ -206,6 +247,7 @@ public class CourseController {
 		return "uploadForm";
 	}
 
+	//여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
 	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
 		System.out.println("들어오냐?");

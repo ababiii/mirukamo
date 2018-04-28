@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+*{-webkit-text-size-adjust:none}
+body,form,div,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,fieldset,th,td,input,textarea,button,select{margin:0;padding:0;font-family:"Nanum Gothic","나눔 고딕","돋움",Dotum,"굴림",Gulim,"Apple Gothic","Apple SD Gothic Neo",Sans-serif;font-weight:normal}
+li{list-style:none}
+a{text-decoration:none}
+address,caption,em,var{font-style:normal;font-weight:normal}
+input,textarea,select{letter-spacing:normal}
+input,select{vertical-align:middle}
+ol,ul,dl{list-style:none}
+fieldset,img{border:0}
+legend,caption{display:none}
+img{border:0;vertical-align:top}
+hr{display:none}
+table{border-collapse:collapse;border-spacing:0}
+br{letter-spacing:normal}
+p{letter-spacing:normal}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{-webkit-box-shadow: 0 0 0px 1000px #fff inset !important}
+input[type="password"]{-webkit-appearance:none;-webkit-border-radius:0}
+button{cursor:pointer}
+.hide{display:none}
+.ir{visibility:hidden;overflow:hidden;position:absolute;left:-99999px;width:1%;height:1%;margin:0;padding:0;font-size:1%;line-height:1%}
+.ir2 span{display:inline-block;position:relative;z-index:-1;height:11px;overflow:hidden;font-size:11px;left:-3000em}
+.pb10{padding-bottom:10px}
+.pb15{padding-bottom:15px !important}
+.pr15{padding-right:15px}
+.pl15{padding-left:15px}
+.pt0{padding-top:0 !important}
+.pt3{padding-top:3px}
+.pt15{padding-top:15px}
+.pt20{padding-top:20px}
+.ml10{margin-left:10px}
+.tc{text-align:center}
+.tr{text-align:right}
+.fl{float:left}
+.fr{float:right}
+.ls{letter-spacing:-1px}
+.vt{vertical-align:top}
+.vm{vertical-align:middle}
+.font_dotum{font-family:"돋움", Dotum}
+.bold{font-weight:bold}
+.mauto{margin:0 auto}
+.ti18{text-indent:18px !important}
+.black{color:#000}
+.fc_blue{color:#2f62cb !important}
+.fc_blue2{color:#278dea !important}
+.fc_999{color:#999}
+.clear{clear:both}
+.readonly{color:#666 !important;text-shadow:1px 1px 1px #fff;background:#f4f4f4 !important;cursor: not-allowed}
+.noti.ok{background:url(//img.siwonschool.com/member/comm/ico_noti3.png) no-repeat !important;color:#2170b8 !important}
+.top_area .bt_prev{display:none}
+
+/* font color */
+.fc_red,a.fc_red{color:#e83428 !important}
+.fc_blue{color:#6db3f2 !important}
+.fc_666{color:#666}
+.fc_999{color:#999}
+.fc_black{color:#000 !important}
+.fc_white{color:#fff !important}
+.fc_orange{color:#f96b0c !important}
+/* link */
+a {color:#7f7f7f;text-decoration:none}
+a:hover{color:#7f7f7f;text-decoration:underline}
+/* button */
+.bt_st1{display:inline-block;background:#6db3f2;border:0;border-bottom:1px solid #3884c8;text-align:center;color:#fff;font-size:16px;vertical-align:middle;white-space: nowrap;}
+.bt_st1:hover{color:#fff;text-decoration:none}
+.bt_st2{display:inline-block;height:50px;padding-left:26px;background:url(//img.siwonschool.com/member/comm/bt_left_blue.png) no-repeat left top;text-align:center;vertical-align:middle;white-space: nowrap;} /* blue */
+.bt_st2 span{display:inline-block;height:50px;padding-right:26px;background:url(//img.siwonschool.com/member/comm/bt_right_blue.png) no-repeat right top;color:#fff;font-size:16px;line-height:50px;cursor:pointer}
+.bt_st2:hover{color:#fff;text-decoration:none}
+.bt_st3{display:inline-block;height:50px;padding-left:26px;background:url(//img.siwonschool.com/member/comm/bt_left_gray.png) no-repeat left top;text-align:center;vertical-align:middle;white-space: nowrap;} /* gray */
+.bt_st3 span{display:inline-block;height:50px;padding-right:26px;background:url(//img.siwonschool.com/member/comm/bt_right_gray.png) no-repeat right top;color:#fff;font-size:16px;line-height:50px;cursor:pointer}
+.bt_st3:hover{color:#fff;text-decoration:none}
+.bt_st4{display:inline-block;height:35px;padding-left:20px;background:url(//img.siwonschool.com/member/comm/bt_left_sky.png) no-repeat left top;text-align:center;vertical-align:middle;white-space: nowrap;} /* sky */
+.bt_st4 span{display:inline-block;height:35px;padding-right:20px;background:url(//img.siwonschool.com/member/comm/bt_right_sky.png) no-repeat right top;color:#fff;font-size:14px;line-height:35px;cursor:pointer}
+.bt_st4:hover{color:#fff;text-decoration:none}
+.bt_st5{display:inline-block;background:#567fbd;border:0;border-bottom:1px solid #224882;text-align:center;color:#fff;font-size:16px;vertical-align:middle;white-space: nowrap}
+.bt_st5:hover{color:#fff;text-decoration:none}
+.bt_h40_blue{display:inline-block;height:27px;padding-top:12px;border-bottom:1px solid #3884c8;background:#6db3f2;font-size:14px;text-align:center;color:#fff}
+button.bt_h40_skyblue{height:40px;padding-top:0;padding-bottom:3px}
+.bt_h40_blue:hover{color:#fff;text-decoration:none}
+.bt_h40_skyblue{display:inline-block;height:27px;padding-top:12px;border-bottom:1px solid #3884c8;background:#719df8;font-size:14px;text-align:center;color:#fff}
+button.bt_h40_skyblue{height:40px;padding-top:0;padding-bottom:3px}
+.bt_h40_skyblue:hover{color:#fff;text-decoration:none}
+.bt_h40_green{display:inline-block;height:27px;padding-top:12px;border-bottom:1px solid #3884c8;background:#1dc800;font-size:14px;text-align:center;color:#fff}
+button.bt_h40_green{height:40px;padding-top:0;padding-bottom:3px}
+.bt_h40_green:hover{color:#fff;text-decoration:none}
+
+.bt_naver{display:inline-block;padding-left:41px;height:40px;background:url(//img.siwonschool.com/www/v2/comm/bt_naver.png) no-repeat left top}
+.bt_naver span{display:inline-block;padding:0 14px;font:12px/40px '나눔바른고딕',NanumBarunGothic;color:#fff;letter-spacing:-1px;background:url(//img.siwonschool.com/www/v2/comm/bt_naver.png) no-repeat right -40px}
+
+/* title */
+h2.tit_comm{padding:35px 0 38px 0;color:#333;font-size:30px;text-align:center}
+h2.tit_comm .bt_prev{display:none}
+
+/* 체크,라디오박스 v2 */
+input.id_check{position:absolute;left:-3000em}
+/* 체크,라디오박스 v1 */
+.input_check_comm,.input_radio_comm{position:absolute;left:-3000em}
+.input_check_label{display:inline-block;height:25px;padding-left:35px;line-height:25px;background:url(//img.siwonschool.com/member/comm/bg_checkbox2_off.png) no-repeat;background-size:25px auto}
+.input_check_label.on{background:url(//img.siwonschool.com/member/comm/bg_checkbox2_on.png) no-repeat;background-size:25px auto}
+.input_radio_label{display:inline-block;height:25px;padding-left:39px;background:url(//img.siwonschool.com/member/comm/bg_radio_off.png) no-repeat;line-height:25px}
+.input_radio_label.on{background:url(//img.siwonschool.com/member/comm/bg_radio_on.png) no-repeat}
+.input_radio_label.checked{background:url(//img.siwonschool.com/member/comm/bg_radio_ds.png) no-repeat;cursor:not-allowed}
+/* 레이어 팝업 공통 */
+.layer_popup_bg{position:fixed;top:0;left:0;width:100%;height:100%;background:url(//img.siwonschool.com/member/comm/bg_black_opacity.png);overflow:hidden;z-index:997}
+.wrap_layer_popup{display:none;position:fixed;left:50%;z-index:999;width:480px}
+.wrap_layer_popup .pop_tit{overflow:hidden;position:relative;height:80px;border-bottom:1px solid #eee;background:#fff;color:#fff;font-size:26px;line-height:80px;color:#333;text-align:center}
+.wrap_layer_popup .pop_close{position:absolute;right:20px;top:27px}
+.wrap_layer_popup .pop_close_notit{position:absolute;right:30px;top:30px}
+.wrap_layer_popup.pop_area{border-radius:6px;overflow:hidden}
+.wrap_layer_popup.pop_area .pop_cont{padding:30px 0;background:#fff;line-height:22px;font-size:16px;color:#666;text-align:center}
+.wrap_layer_popup.pop_area .pop_cont .em{color:#567fbd}
+.wrap_layer_popup.pop_area .bt_ok{float:left;display:inline-block;width:50%;height:36px;padding-top:14px;border-top:1px solid #4c97da;background:#6db3f2;text-align:center;font-size:22px}
+.wrap_layer_popup.pop_area .bt_cancel{float:right;display:inline-block;width:50%;height:36px;padding-top:14px;border-top:1px solid #979797;background:#b5b5b5;text-align:center;font-size:22px}
+.wrap_layer_popup.pop_area .bt_ok,.wrap_layer_popup.pop_area .bt_cancel{text-decoration:none;color:#fff}
+.wrap_layer_popup.pop_area.email_send .bt_ok,.wrap_layer_popup.pop_area.phone_send .bt_ok{width:100%}
+
+/* 탑버튼 */
+#body_top.top{display:none;position:fixed;bottom:30px;right:0;z-index:110}

@@ -393,6 +393,13 @@
 					stats.update();
 				}, false);
 				
+				//emitEvent를 통해서 다른 js파일에서도 영향을 줌
+				function emitEvent(eventName) {
+					var evt = new CustomEvent(eventName, {'bubbles': true, 'cancelable': true});
+					document.dispatchEvent(evt);
+				}
+				
+				
 			</script>
 			
 			<script> 

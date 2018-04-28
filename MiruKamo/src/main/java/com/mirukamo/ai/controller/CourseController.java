@@ -81,6 +81,12 @@ public class CourseController {
 		return "face6";
 	}
 	
+	@RequestMapping(value = "/face7", method = RequestMethod.GET)
+	public String face7() {
+		
+		return "face7";
+	}
+	
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
 		
@@ -91,6 +97,12 @@ public class CourseController {
 	public String eye() {
 		
 		return "eye_blink_detect";
+	}
+	
+	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
+	public String video_sidelist() {
+		
+		return "video_sidelist";
 	}
 	
 	

@@ -127,7 +127,6 @@ td {
 		src="<c:url value="resources/images/loverdug.jpg" />" height="100px"
 		width="100px"></a>
 	<h1>MyPage</h1>
-
 	<!-- 	<table>
 		<tr>
 			<th id="tumori">수강 예정 강의</th>
@@ -136,34 +135,30 @@ td {
 		</tr>
 	</table> -->
 
-	<table>
+	<table border="3">
 		<tr>
 			<th>강의명</th>
 			<th>선생님</th>
 			<th>언어</th>
-			<!-- <th>시작일</th>
-			<th>종료일</th>
-			<th>남은 일수</th> -->
 		</tr>
-		<tr>
-			<c:if test="${list.size()==0}">
+			<c:if test="${list == null}">
 				<td colspan="3">수강 중인 강의가 없습니다.</td>
 			</c:if>
-			<c:if test="${list.size()!=0 }">
+			<c:if test="${list.size() !=0 }">
 				<c:forEach items="${list}" var="list">
-					<td>${list.title}</td>
+		<tr>
+					<td>${list.packagename}</td>
 					<td>${list.teacher}</td>
 					<td>${list.languages}</td>
+		</tr>
 				</c:forEach>
 			</c:if>
-		</tr>
-
 	</table>
-
-
+<BR>
+<BR>
 	<table border="1">
 		<tr>
-			<td colspan="3">가장 많이 틀린 문장</td>
+			<td colspan="3">가장 많이 틀린 오답 문장</td>
 		</tr>
 		<tr>
 			<td><div class="vGraph">

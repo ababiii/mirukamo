@@ -232,7 +232,6 @@ $( function() {
 
 <!-- Use any element to open the sidenav -->
 
-	
 <a href="course/face">얼굴</a>
 <a href="course/face2">얼굴2</a>
 <a href="course/face3">얼굴3</a>

@@ -70,4 +70,11 @@ public class ServiceCenterDao {
 
 	}
 
-};
+	public int insertQustion(mirukamo_question qs) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		
+		
+		return mapper.insertQustion(qs);
+	}
+	
+}

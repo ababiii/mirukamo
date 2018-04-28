@@ -51,5 +51,21 @@ values (
 		#{content}
 	)
 </insert>
+<insert id="insertQuestion" parameterType="question">
+insert into mirukamo_question(
+	num 	
+,member_id 	
+,title	
+,content	
+,category
+)
+values (
+		mirukamo_question_seq.nextval 	
+,#{member_id} 	
+,#{title}
+,#{content}	
+,#{category}
+	)
+</insert>
 
 </mapper>

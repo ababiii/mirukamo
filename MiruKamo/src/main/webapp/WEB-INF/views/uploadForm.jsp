@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>upload</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 function ch() {
 	alert("들어가나");
@@ -46,6 +47,7 @@ function ch() {
 <tr>
 	<td colspan="2"><input type="submit" value="저장" ></td>
 	</tr>
-</form>
+	</form>
+
 </body>
 </html>

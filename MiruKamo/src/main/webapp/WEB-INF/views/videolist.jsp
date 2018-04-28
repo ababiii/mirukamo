@@ -64,8 +64,7 @@
 				<td colspan="5">nothing</td>
 			</tr>
 		</c:if>
-	<%-- 	
-	나중에 주석 풀기
+		
 	<c:if test="${list != null || list != '' }">
 			<c:forEach items="${list}" var="a">
 				<form action="videolist" method="POST">
@@ -83,7 +82,7 @@
 					</tr>
 				</form>
 			</c:forEach>
-		</c:if> --%>
+		</c:if>
 	</table>
 
 

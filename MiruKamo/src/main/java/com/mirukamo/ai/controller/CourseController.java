@@ -146,6 +146,7 @@ public class CourseController {
 		return "uploadForm";
 	}
 
+	//여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
 	public String upload1(Mirukamo_course course, MultipartFile upload) {
 		System.out.println("들어오냐?");
@@ -154,16 +155,7 @@ public class CourseController {
 		course.setFile_name(savedfile);
 
 		courseDAO.insertCourse(course);
-		/*
-		 * String savedName = upload.getOriginalFilename();
-		 * 
-		 * File target = new File(uploadPath, savedName);
-		 * 
-		 * // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사 // FileCopyUtils.copy(바이트배열,
-		 * 파일객체) try { FileCopyUtils.copy(upload.getBytes(), target); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
+		
 		return "redirect:videolist";
 	}
 

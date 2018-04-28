@@ -37,7 +37,7 @@ public class AppointmentController {
 			model.addAttribute("error", true);
 		}
 
-		return "users/joinAppointment";
+		return "test/joinTest";
 	}
 
 	@RequestMapping(value = "findMyID", method = RequestMethod.GET)
@@ -122,8 +122,9 @@ public class AppointmentController {
 		return "test";
 	}
 	
-	@RequestMapping(value="loginTest",method=RequestMethod.GET)
-	public String loginTest(){
+	@RequestMapping(value="login",method=RequestMethod.GET)
+	public String loginTest(String errorMsg,Model model){
+		model.addAttribute("errorMsg",errorMsg);
 		return "test/loginTest";
 	}
 	
@@ -131,4 +132,10 @@ public class AppointmentController {
 	public String courseTest(){
 		return "test/courseTest";
 	}
+	
+	@RequestMapping(value="joinTest",method=RequestMethod.GET)
+	public String joinTest(){
+		return "test/join2";
+	}
+	
 }

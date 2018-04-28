@@ -62,12 +62,12 @@ public class UserLoginController {
 			String msg = "존재하지 않는 아이디입니다.";
 			model.addAttribute("setId", users.getId());
 			model.addAttribute("errorMsg", msg);
-			return "users/login";
+			return "redirect:/login";
 		} else if (!result.getPassword().equals(users.getPassword())) {
 			String msg = "비밀번호가 다릅니다.";
 			model.addAttribute("setId", users.getId());
 			model.addAttribute("errorMsg", msg);
-			return "users/login";
+			return "redirect:/login";
 		}
 		
 		session.setAttribute("userId", result.getId());

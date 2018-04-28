@@ -20,7 +20,7 @@ var dialoghtml= '<div id="dialog-form" title="따라해 봅시다" style="z-inde
 	 +'</div>';
 document.body.innerHTML=document.body.innerHTML+dialoghtml;
  
-
+ 
 document.body.innerHTML=document.body.innerHTML+'<button id="create-user">시작</button>';
 var dialog;
 $( function() {

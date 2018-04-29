@@ -3,12 +3,65 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <!-- 검색 처리 SQL -->
-<mapper namespace="com.mirukamo.ai.dao.CourseMapper">
-<select id = "selectCourse" resultType = "Course">
+ <mapper namespace="com.mirukamo.ai.dao.CourseMapper">
+	<select id="selectCourse" resultType="Course">
+		select * from
+		mirukamo_course
+		order by num 
+	</select>
+
+	<insert id="insertCourse" parameterType="Course">
+		insert into
+		mirukamo_course (
+		num
+		,packagename
+		,title
+		,teacher
+		,languages
+		,file_name
+		,thumnail
+		)
+		values (
+		mirukamo_course_seq.nextval
+		,#{packagename}
+		,#{title}
+		,#{teacher}
+		,#{languages}
+		,#{file_name}
+		,#{thumnail}
+		)
+	</insert>
+
+	<select id="getcourse" resultType="Course">
+		select packagename from
+		mirukamo_course GROUP BY packagename HAVING COUNT
+		(packagename) >= 1
+	</select>
+
+	<!-- 수강 패키지 이름 중복 제거해서 가져오기 -->
+	<select id="picksensei" resultType="Course" parameterType="int">
+		select * from mirukamo_course
+		where
+		num =#{num}
+	</select>
+
+	<select id="sensei" resultType="Course" parameterType="String">
+		select teacher,num 
+			from (
+		select *
+		from mirukamo_course
+		where
+		teacher =#{teacher}
+	)
+	
+	</select>
+
+	<!-- 수강 목록 보여주기 -->
+	<select id="mirucourse" resultType="Course">
 	select * from mirukamo_course
 	</select>
+
 
 <insert id="insertCourse" parameterType="Course">
 insert into mirukamo_course (
@@ -28,4 +81,28 @@ mirukamo_course_seq.nextval
 ,#{thumnail}
 )
 </insert>
+
+
+	<insert id="mysensei" parameterType="MyCourse">
+		insert into mirukamo_mycourse
+		(num
+		,packagename
+		,member_id
+		,teacher)
+		values
+		(mirukamo_mycourse_seq.nextval
+		,
+		,#{member_id}
+		,#{teacher}
+		)
+	</insert>
+	
+	
+	<!-- 중복없이 가져온 패키티타이틀로 선생님, 랭귀지 , num가져오기 -->
+	<!-- 
+	<select id="mirucourse" parameterType="String" resultType="Course">
+	select * from mirukamo_course
+		where
+	packagename =#{packagename}
+	</select> -->
 </mapper>

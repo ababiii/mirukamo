@@ -38,7 +38,6 @@
             //   $("#signid").val("수강 완료");
             /* var singid = document.getElementById("signid");
             singid.value = "수강중 "; */
-
          },
          error : function(e) {
             alert("신청 실패");
@@ -46,10 +45,10 @@
       });
    }
     //엄정환 사용자가 인강을 선택해서 들을려 할때 인강의 정보를 넘겨주고 수강한 인강인지 아닌지 확인해 줄 수 있는 ajax
-    function sendPackageAndTitle() {
+    function sendPackagenameandTitle() {
     	var mForm = document.insert;
     	var obj = new Object();
-    	
+    	obj.packagename = mForm.$('#packagename').val();
     	obj.file_name = mForm.$('#file_name').val();
     	var json_data = JSON.stringify(obj);
     	$.ajax({
@@ -95,6 +94,7 @@
     	     }
     	    }
     	   });
+
 </script>
 </head>
 <body>
@@ -108,91 +108,49 @@
       로그인 후 수강 신청을 해주세요.
    </c:if>
 
-   <!-- 수강 신청 버튼-->
-   ${yoshisushi.get(0).teacher} 선생님과 함께 기초 실력을 다지세요!
-   <c:if test="${userId != null}">
-      <input type="button" onclick="signclass()" value="수강 신청" id="signid">
-      <input type="hidden" name="signid" id="signid" value="${yoshisushi}">
-   </c:if>
-   <table border="1">
-      <tr>
-         <td>번호</td>
-         <td>제목</td>
-         <td>선생님</td>
-         <td>언어</td>
-         <td>파일명</td>
-         <td>썸네일</td>
-         <td></td>
-      </tr>
-      <c:if test="${yoshisushi == null || yoshisushi == '' }">
-         <tr>
-            <td colspan="5">nothing</td>
-         </tr>
-      </c:if>
-      <c:if test="${yoshisushi != null || yoshisushi != '' }">
-         <form action="videolist" method="POST">
-            <c:forEach items="${yoshisushi}" var="a" varStatus="ppap">
-               <tr>
-                  <td>${ppap.count}</td>
-                  <td>${a.title}</td>
-                  <td>${a.teacher}</td>
-                  <td>${a.languages}</td>
-                  <td>${a.file_name}</td>
-                  <td>${a.thumnail}</td>
-                  <td><input type="submit" value="선택"></td>
-               </tr>
-            </c:forEach>
-         </form>
-      </c:if>
-   </table>
-
-   <BR>
-   <bR>
-   <BR>
-   <br>
-   <br>
-
-   <!-- 수강 신청 버튼-->
-   <c:if test="${userId != null}">
-   중급 회화는 나에게!, ${tokyocold.get(0).teacher}선생님과 현지에서 쓰이는 일본 회화를!
-      <input type="button" onclick="signclass('${tokyocold.get(0).num}')" value="수강 신청"
-         id="signid">
-      <input type="hidden" name="signid" id="signid" value="${tokyocold}">
-   </c:if>
-   <c:if test="${userId != null}">
-      <table border="1">
-         <tr>
-            <td>번호</td>
-            <td>제목</td>
-            <td>선생님</td>
-            <td>언어</td>
-            <td>파일명</td>
-            <td>썸네일</td>
-            <td></td>
-         </tr>
-         <c:if test="${tokyocold == null || tokyocold == '' }">
-            <tr>
-               <td colspan="5">nothing</td>
-            </tr>
-         </c:if>
-         <c:if test="${tokyocold != null || tokyocold != '' }">
-            <form action="videolist" method="POST">
-               <c:forEach items="${tokyocold}" var="b" varStatus="PPAP">
-                  <input type="hidden" name="name" id="file_name" value="${a.file_name}">
-                  <tr>
-                     <td>${PPAP.count}</td>
-                     <td>${b.title}</td>
-                     <td>${b.teacher}</td>
-                     <td>${b.languages}</td>
-                     <td>${b.file_name}</td>
-                     <td>${b.thumnail}</td>
-                     <td><input type="submit" value="선택"></td>
-                  </tr>
-               </c:forEach>
-            </form>
-         </c:if>
-      </table>
-   </c:if>
+	<!-- 수강 신청 버튼-->
+	<c:if test="${userId != null}">
+	중급 회화는 나에게!, ${tokyocold.get(0).teacher}선생님과 현지에서 쓰이는 일본 회화를!
+		<input type="button" onclick="signclass('${tokyocold}')" value="수강 신청"
+			id="signid">
+		<input type="hidden" name="signid" id="signid" value="${tokyocold}">
+	</c:if>
+	<c:if test="${userId != null}">
+		<table border="1">
+			<tr>
+				<td>번호</td>
+				<td>제목</td>
+				<td>선생님</td>
+				<td>언어</td>
+				<td>파일명</td>
+				<td>썸네일</td>
+				<td></td>
+			</tr>
+			<c:if test="${tokyocold == null || tokyocold == '' }">
+				<tr>
+					<td colspan="5">nothing</td>
+				</tr>
+			</c:if>
+			<c:if test="${tokyocold != null || tokyocold != '' }">
+				<form action="videolist" method="POST">
+					<c:forEach items="${tokyocold}" var="b" varStatus="PPAP">
+						<input type="hidden" name="name" id="name" value="${b.file_name}">
+						<input type="hidden" name="packagename" id="packagename" value="${b.packagename}">
+						<tr>
+							<td>${PPAP.count}</td>
+							<td>${b.title}</td>
+							<td>${b.teacher}</td>
+							<td>${b.languages}</td>
+							<td>${b.file_name}</td>
+							<td>${b.thumnail}</td>
+							<!-- <td><input type="submit" value="선택"></td> -->
+							<td><button onclick="sendPackagenameandTitle()" >선택</button></td>
+						</tr>
+					</c:forEach>
+				</form>
+			</c:if>
+		</table>
+	</c:if>
 </body>
 
 </html>

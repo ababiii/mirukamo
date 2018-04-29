@@ -7,19 +7,10 @@ public class Mirukamo_course {
 	private String languages;
 	private String file_name;
 	private String thumnail;
+	private String packagename;
 	
 	public Mirukamo_course() {
 		super();
-	}
-
-	public Mirukamo_course(int num, String title, String teacher, String languages, String file_name, String thumnail) {
-		super();
-		this.num = num;
-		this.title = title;
-		this.teacher = teacher;
-		this.languages = languages;
-		this.file_name = file_name;
-		this.thumnail = thumnail;
 	}
 
 	public int getNum() {
@@ -70,12 +61,20 @@ public class Mirukamo_course {
 		this.thumnail = thumnail;
 	}
 
+	public String getPackagename() {
+		return packagename;
+	}
+
+	public void setPackagename(String packagename) {
+		this.packagename = packagename;
+	}
+
 	@Override
 	public String toString() {
 		return "Mirukamo_course [num=" + num + ", title=" + title + ", teacher=" + teacher + ", languages=" + languages
-				+ ", file_name=" + file_name + ", thumnail=" + thumnail + "]";
+				+ ", file_name=" + file_name + ", thumnail=" + thumnail + ", packagename=" + packagename + "]";
 	}
-	
-	
+
+
 
 }

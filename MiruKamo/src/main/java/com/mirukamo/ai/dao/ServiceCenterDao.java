@@ -74,6 +74,15 @@ public class ServiceCenterDao {
 
 	}
 
+
+	public int insertQustion(mirukamo_question qs) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		
+		
+		return mapper.insertQustion(qs);
+	}
+	
+
 	// qna 게시물 총 갯수
 	public int howboardqna() {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
@@ -124,3 +133,4 @@ public class ServiceCenterDao {
 
 
 };
+

@@ -1,6 +1,6 @@
 package com.mirukamo.ai.vo;
 
-public class mirukamo_drill {
+public class Mirukamo_drill {
 
 	int num;
 	String member_id;
@@ -45,12 +45,12 @@ public class mirukamo_drill {
 				+ ", word=" + word + "]";
 	}
 
-	public mirukamo_drill() {
+	public Mirukamo_drill() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public mirukamo_drill(int num, String member_id, String original_word, String word) {
+	public Mirukamo_drill(int num, String member_id, String original_word, String word) {
 		super();
 		this.num = num;
 		this.member_id = member_id;

@@ -162,4 +162,18 @@ public class ServiceCenterController {
 
 		return "redirect:servicecenter";
 	}
+	//1:1문의 등록
+	@RequestMapping(value = "/writeadvice", method = RequestMethod.GET)
+	public String writeadvice() {
+			
+		return "writeboard/advicejsp";
+	}
+	@RequestMapping(value = "/writeadvice", method = RequestMethod.POST)
+	public String writeadvice(mirukamo_question qs) {
+		qs.setCategory(1);
+		int i=servicecenterdao.insertQustion(qs);
+		
+		return "writeboard/advicejsp";
+	}
+	////////////////////
 }

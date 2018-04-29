@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mirukamo.ai.controller.DrillController;
-import com.mirukamo.ai.vo.mirukamo_drill;
+import com.mirukamo.ai.vo.Mirukamo_drill;
 import com.mirukamo.ai.vo.mirukamo_question;
 
 @Repository
@@ -21,10 +21,13 @@ public class DrillDao {
 	private static final Logger logger = LoggerFactory.getLogger(DrillDao.class);
 	
 
-	public ArrayList<mirukamo_drill> getword(String userId) {
+
+	public ArrayList<Mirukamo_drill> getword(String userId) {
 		System.out.println("디스팅 시");
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
-		ArrayList<mirukamo_drill> getword = mapper.getword(userId);
+
+		ArrayList<Mirukamo_drill> getword = mapper.getword(userId);
+
 		System.out.println("디스팅 끝");
 		return getword;
 		
@@ -38,24 +41,31 @@ public class DrillDao {
 	}*/
 	
 	//중복없이 가져온 오리지널 넘버가 가진 워드 값 가져오기 -> ovo
-	public ArrayList<mirukamo_drill> word(ArrayList<mirukamo_drill> getDrill) {
+	public ArrayList<Mirukamo_drill> word(ArrayList<Mirukamo_drill> getDrill) {
 		System.out.println("ovo 시");
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
-		ArrayList<mirukamo_drill> ovo = mapper.ovo(getDrill);
+		ArrayList<Mirukamo_drill> ovo = mapper.ovo(getDrill);
 		System.out.println("ovo 끝");
 		return ovo;
 	}
 
-	public ArrayList<mirukamo_drill> word() {
+	public ArrayList<Mirukamo_drill> word() {
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
-		ArrayList<mirukamo_drill> word = mapper.word();
+		ArrayList<Mirukamo_drill> word = mapper.word();
 		return word;
 	}
+
+
+	public void insertDrill(Mirukamo_drill drill) {
+		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
+		mapper.insertDrill(drill);
+	}
+
 	//마이페이지에서 쓰일 많이 틀린 문장 랭크
-	public ArrayList<mirukamo_drill> getrank() {
+	public ArrayList<Mirukamo_drill> getrank() {
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
 		RowBounds b=new RowBounds(0,3);
-		ArrayList<mirukamo_drill> rank = mapper.rank(b);
+		ArrayList<Mirukamo_drill> rank = mapper.rank(b);
 		return rank;
 	}
 };

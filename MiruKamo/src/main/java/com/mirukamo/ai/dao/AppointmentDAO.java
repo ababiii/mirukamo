@@ -21,11 +21,12 @@ public class AppointmentDAO {
 		return list;
 	}
 	
-	public ArrayList<MyCourse> getMyCourse(String id){
+	public ArrayList<MyCourse> getMyCourse(String member_id){
 		AppointmentMapper mapper=sqlSession.getMapper(AppointmentMapper.class);
-		ArrayList<MyCourse> list=mapper.getMyCourse(id);
+		ArrayList<MyCourse> list=mapper.getMyCourse(member_id);
 		return list;
 	}
+
 	public Users getMyInfo(String id){
 		AppointmentMapper mapper=sqlSession.getMapper(AppointmentMapper.class);
 		Users result=mapper.getMyInfo(id);

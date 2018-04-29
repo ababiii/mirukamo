@@ -98,15 +98,16 @@
 </script>
 </head>
 <body>
-   <!-- 비 정상적인 접속시 로그인페이지로 이동 -->
-   <div>
-      <form action="login/login" method="get" id="videolistlogin">
-         <input type="hidden" name="fromvideolist" value="true">
-      </form>
-   </div>
-   <c:if test="${userId == null}">
-      로그인 후 수강 신청을 해주세요.
-   </c:if>
+	<!-- 비 정상적인 접속시 로그인페이지로 이동 -->
+	<div>
+		<form action="login/login" method="get" id="videolistlogin">
+			<input type="hidden" name="fromvideolist" value="true">
+		</form>
+	</div>
+	<c:if test="${userId == null}">
+		로그인 후 수강 신청을 해주세요.
+	</c:if>
+
 
 	<!-- 수강 신청 버튼-->
 	<c:if test="${userId != null}">
@@ -119,11 +120,11 @@
 		<table border="1">
 			<tr>
 				<td>번호</td>
+				<td>썸네일</td>
 				<td>제목</td>
 				<td>선생님</td>
 				<td>언어</td>
 				<td>파일명</td>
-				<td>썸네일</td>
 				<td></td>
 			</tr>
 			<c:if test="${tokyocold == null || tokyocold == '' }">
@@ -132,12 +133,14 @@
 				</tr>
 			</c:if>
 			<c:if test="${tokyocold != null || tokyocold != '' }">
-				<form action="videolist" method="POST">
 					<c:forEach items="${tokyocold}" var="b" varStatus="PPAP">
 						<input type="hidden" name="name" id="name" value="${b.file_name}">
 						<input type="hidden" name="packagename" id="packagename" value="${b.packagename}">
+				<form action="videolist" method="POST">
+						<input type="hidden" name="name" value="${a.file_name}">
 						<tr>
 							<td>${PPAP.count}</td>
+							<td>${b.thumnail}</td>
 							<td>${b.title}</td>
 							<td>${b.teacher}</td>
 							<td>${b.languages}</td>
@@ -145,9 +148,10 @@
 							<td>${b.thumnail}</td>
 							<!-- <td><input type="submit" value="선택"></td> -->
 							<td><button onclick="sendPackagenameandTitle()" >선택</button></td>
+							<td><input type="submit" value="선택"></td>
 						</tr>
-					</c:forEach>
 				</form>
+					</c:forEach>
 			</c:if>
 		</table>
 	</c:if>

@@ -151,12 +151,30 @@ public class CourseController {
 		ArrayList<Mirukamo_course> yoshisushi = new ArrayList<Mirukamo_course>();
 		ArrayList<Mirukamo_course> tokyocold = new ArrayList<Mirukamo_course>();
 		
+		//이미지 파일
+		for (int i = 0; i < list.size(); i++) {
+			String fileName = list.get(i).getFile_name();
+			
+			int lastIndex = fileName.lastIndexOf('.');
+			
+			if(lastIndex != -1){
+				String imgPath = fileName.substring(0, lastIndex);
+				logger.debug("확인용: " + imgPath);
+				list.get(i).setThumnail(imgPath+".png");
+			}
+		}
+		
+		
+		
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getTeacher().equals("요시코")) {
 				yoshisushi.add(list.get(i));
 			} else {
 				tokyocold.add(list.get(i));
 			}
+			
+			
+			
 		}
 			for (int j = 0; j < yoshisushi.size(); j++) {
 				System.out.println("요시코 센세 : " + j + "번쨰" + yoshisushi.get(j).toString());
@@ -292,10 +310,10 @@ public class CourseController {
 
 	//여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
-	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
+	public String upload1(Mirukamo_course course, MultipartFile upload, Model model, HttpServletRequest req) {
 		System.out.println("들어오냐?");
 		System.out.println(upload.getOriginalFilename());
-		String savedfile = FileService.saveFile(upload, uploadPath);
+		String savedfile = FileService.saveFile(upload, uploadPath, req);
 		course.setFile_name(savedfile);
 
 		System.out.println("ㅅㅅㄱ : " + course.toString());

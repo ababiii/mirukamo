@@ -107,11 +107,7 @@
 			<version>1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.ibm.icu</groupId>
-			<artifactId>icu4j</artifactId>
-			<version>55.1</version>
-		</dependency>
+
 
 		<!-- Servlet -->
 		<dependency>
@@ -197,7 +193,6 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-
 		<!-- GSON -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -205,6 +200,7 @@
 			<version>2.3</version>
 		</dependency>
 
+		<!-- 동상영 플레이어 관련 메이븐 -->
 		<!-- JSON -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -220,7 +216,18 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
 
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>55.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

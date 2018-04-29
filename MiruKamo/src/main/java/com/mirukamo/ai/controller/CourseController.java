@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.logging.Log;
@@ -15,25 +16,33 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mirukamo.ai.dao.CourseDAO;
+import com.mirukamo.ai.dao.DrillDao;
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.util.FileService;
 import com.mirukamo.ai.util.MultipartFileSender;
+
 import com.mirukamo.ai.vo.Mirukamo_course;
+import com.mirukamo.ai.vo.Mirukamo_drill;
+
 import com.mirukamo.ai.vo.MyCourse;
+
 import com.mirukamo.ai.vo.Users;
 
 @RequestMapping("course")
 @Controller
+
 public class CourseController {
 	@Resource(name = "uploadPath")
 	String uploadPath;
@@ -43,6 +52,9 @@ public class CourseController {
 
 	@Autowired
 	CourseDAO courseDAO;
+
+	@Autowired
+	DrillDao drillDao;
 
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";
@@ -101,6 +113,27 @@ public class CourseController {
 		return "eye_blink_detect";
 	}
 
+	// 영상 리스트선택시 패키지 보여주는 화면 / 송수근
+	@RequestMapping(value = "/packagselect", method = RequestMethod.GET)
+	public String YooMyvideolist(Model model, HttpSession session, String val) {
+		ArrayList<Mirukamo_course> list = new ArrayList<Mirukamo_course>();
+		list = courseDAO.selectCourse();
+		System.out.println("코스 전체 가져오기 : " + list);
+		ArrayList<Mirukamo_course> yoshisushi = new ArrayList<Mirukamo_course>();
+		ArrayList<Mirukamo_course> tokyocold = new ArrayList<Mirukamo_course>();
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getTeacher().equals("요시코")) {
+				yoshisushi.add(list.get(i));
+			} else {
+				tokyocold.add(list.get(i));
+			}
+		}
+		model.addAttribute("yoshisushi", yoshisushi);
+		model.addAttribute("tokyocold", tokyocold);
+
+		return "packagselect";
+	}
+
 	@RequestMapping(value = "preview", method = RequestMethod.GET)
 	public void getPreview3(@RequestParam(value = "name") String name, HttpServletResponse response,
 			HttpServletRequest request, HttpSession session) {
@@ -114,108 +147,84 @@ public class CourseController {
 			// e.printStackTrace();
 		}
 	}
-							
+
 	@RequestMapping(value = "/videolist", method = RequestMethod.GET)
-	public String videolist1(Model model, HttpSession session) {
-		
-		// 모든 선생님 강의 다 가져오기
-		ArrayList<Mirukamo_course> CcC = new ArrayList<Mirukamo_course>();
-		CcC = courseDAO.mirucourse();
-		System.out.println("르가르손 수근 잘 ㄱㅏ즈아" + CcC.toString());
+	public String videolist1(Model model, HttpSession session, String teacher) {
+		System.out.println("티쳐!!!!!!" + teacher);
 
-		// 아이디로 마이코스 검색
-		String member_id = (String) session.getAttribute("userId");
-		ArrayList<MyCourse> plz = new ArrayList<MyCourse>();
-		plz = courseDAO.myc(member_id);
-
-		System.out.println("plz : " + plz.toString());
-
-		// 마이 수강코스에 아무것도 없는 경우 -> 추가
-		if (plz.size() == 0) {
-			System.out.println("상요자 이름 강의 하나두 없음");
-		}
-		// 마이 수강코스에 무언가 있는 경우 -> 해당 페키지 이름이 있으면 수강 신청불가(이미있으니까)
-		else {
-			for (int i = 0; i < plz.size(); i++) {
-				for (int j = 0; j < CcC.size(); j++) {
-					if (plz.get(i).getPackagename().equals(CcC.get(j).getPackagename())) {
-						System.out.println("마이코스에 이미 강의가 있는 경우");
-						//현재 강의를 수강중입니다 
-						model.addAttribute("POP", plz.get(i).getPackagename());
-					}
-				}
-			}
-		}
-		
 		ArrayList<Mirukamo_course> list = new ArrayList<Mirukamo_course>();
 		list = courseDAO.selectCourse();
 		System.out.println("코스 전체 가져오기 : " + list);
 
-		ArrayList<Mirukamo_course> yoshisushi = new ArrayList<Mirukamo_course>();
-		ArrayList<Mirukamo_course> tokyocold = new ArrayList<Mirukamo_course>();
+		/*
+		 * ArrayList<Mirukamo_course> yoshisushi = new
+		 * ArrayList<Mirukamo_course>(); ArrayList<Mirukamo_course> tokyocold =
+		 * new ArrayList<Mirukamo_course>();
+		 */
+
+		ArrayList<Mirukamo_course> callmebaby = new ArrayList<Mirukamo_course>();
 
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getTeacher().equals("요시코")) {
-				yoshisushi.add(list.get(i));
-			} else {
-				tokyocold.add(list.get(i));
+			if (list.get(i).getTeacher().equals(teacher)) {
+				callmebaby.add(list.get(i));
 			}
 		}
-		for (int j = 0; j < yoshisushi.size(); j++) {
-			System.out.println("요시코 센세 : " + j + "번쨰" + yoshisushi.get(j).toString());
+		
+		for (int i = 0; i < callmebaby.size(); i++) {
+			System.out.println("꿰에에엥아아앙"+callmebaby.get(i).toString());
 		}
-
-		model.addAttribute("yoshisushi", yoshisushi);
-
-		for (int j = 0; j < tokyocold.size(); j++) {
-			System.out.println("도쿄핫 센세 : " + j + "번쨰" + tokyocold.get(j).toString());
+		
+		String yes = "yes";
+		String no = "no";
+		
+		String member_id = (String) session.getAttribute("userId");
+		ArrayList<MyCourse> plz = new ArrayList<MyCourse>();
+		plz = courseDAO.myc(member_id);
+		
+		// 마이 수강코스에 아무것도 없는 경우 -> 추가
+		if (plz.size() == 0) {
+			System.out.println("사용자 이름 강의 하나두 없음");
 		}
+		
+		  for (int i = 0; i < plz.size(); i++) {
+			  if(plz.get(i).getTeacher().equals(teacher)) {
+				  model.addAttribute("good", yes);
+				  callmebaby.add(list.get(i)); 
+			  }
+		  }
+		model.addAttribute("callmebaby", callmebaby);
+		// 아이디로 마이코스 검색
+		/*
+		 * for (int i = 0; i < plz.size(); i++) { // 마이코스와 아이코 선생 강의 비교 if
+		 * (plz.get(i).getPackagename().equals(yoshisushi.get(0).getPackagename(
+		 * ))) { System.out.println("마이코스에 이미 강의가 있는 경우");
+		 * model.addAttribute("iamnotyoshiko", plz.get(i).getTeacher()); } //
+		 * 박수진 선생님과 강의 비교 if
+		 * (plz.get(i).getPackagename().equals(tokyocold.get(0).getPackagename()
+		 * )) { System.out.println("마이코스에 이미 강의가 있는 경우");
+		 * model.addAttribute("iamnotkimsujin", plz.get(0).getTeacher()); } }
+		 */
 
 		/*
-		 * for (int i = 0; i <= list.size(); i++) { // 선생님 이름이 쿠로사와 요시코면 전체
-		 * 값이들어있는 배열에서 요시코 선생님 전용 배열에 넣기 if
-		 * (list.get(i).getTeacher().equals("쿠로사와요시코")) {
-		 * yosheko.get(yoshe).setFile_name(list.get(i).getFile_name());
-		 * yosheko.get(yoshe).setLanguages(list.get(i).getLanguages());
-		 * yosheko.get(yoshe).setTeacher(list.get(i).getTeacher());
-		 * yosheko.get(yoshe).setNum(list.get(i).getNum());
-		 * yosheko.get(yoshe).setTitle(list.get(i).getTitle()); yoshe ++;
-		 * //yosheko.add(list.get(i)); } else { // 쿠로사와 요시코 센세이가 아니면, 다른선생님 배열에
-		 * 넣자 tokyohot.add(list.get(i)); } }
+		 * model.addAttribute("yoshisushi", yoshisushi);
+		 * model.addAttribute("tokyocold", tokyocold);
 		 */
-		// System.out.println("요시코 베이비 컴온"+yosheko.get(0).toString());
+		return "videolist" ;
+	}
 
-		// model.addAttribute("list", list);
+	@ResponseBody
+	@RequestMapping(value = "updrill", method = RequestMethod.POST)
+	public void updrill(Mirukamo_drill drill, HttpSession session) {
+		System.out.println("드릴저장?");
+		System.out.println(drill);
+		// drill.setMember_id((String)session.getAttribute("userId"));
+		drill.setMember_id("abc");
 
-		model.addAttribute("yoshisushi", yoshisushi);
-		model.addAttribute("tokyocold", tokyocold);
-
-		return "videolist";
+		drillDao.insertDrill(drill);
 	}
 
 	/*
-	 * @RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
-	 * public String video_sidelist() {
 	 * 
-	 * } model.addAttribute("yoshisushi", yoshisushi);
-	 * model.addAttribute("tokyocold", tokyocold); return "videolist";
-	 * 
-	 * return "video_sidelist";
-	 * 
-	 * }
-	 */
-
-	/*
-	 * @RequestMapping(value = "preview", method = RequestMethod.GET) public
-	 * void getPreview3(@RequestParam(value="name") String name,
-	 * HttpServletResponse response,HttpServletRequest request, HttpSession
-	 * session) { //name="1.mp4"; String path = "D://video/"+name;
-	 * logger.debug(name+"영상이름"); try { MultipartFileSender.fromFile(new
-	 * File(path)) .with(request) .with(response) .serveResource(); } catch
-	 * (Exception e) { // TODO Auto-generated catch block //e.printStackTrace();
-	 * } }
-	 */
-	/*
 	 * @RequestMapping(value = "/videolist", method = RequestMethod.GET) public
 	 * String videolist1( Model model) { ArrayList<Mirukamo_course> list=new
 	 * ArrayList<Mirukamo_course>(); list=courseDAO.selectCourse();
@@ -250,7 +259,6 @@ public class CourseController {
 			numstring.add(num);
 		}
 
-	
 		/*
 		 * for (int i = 0; i < numstring.size(); i++) {
 		 * System.out.println("##### 코스11111111111" + numstring.get(i)); int
@@ -312,7 +320,6 @@ public class CourseController {
 
 		System.out.println("르가르손 수근 ㄱk즈아" + course.toString());
 		String member_id = (String) session.getAttribute("userId");
-		System.out.println("로그인한 아이디" + member_id);
 
 		course.setMember_id(member_id);
 		System.out.println("르가르손 수근 잘 ㄱㅏ즈아" + course.toString());
@@ -329,41 +336,14 @@ public class CourseController {
 			courseDAO.ADDClass(course);
 			return 1;
 		}
-		// 마이 수강코스에 무언가 있는 경우 -> 해당 페키지 이름이 있으면 수강 신청불가(이미있으니까)
-		else {
+		// 마이 수강코스에 무언가 있는 경우 -> 무언가 있는데 그게 내가 선택한 패키지가 아닐떄
 			for (int i = 0; i < plz.size(); i++) {
-				if (plz.get(i).getPackagename().equals(course.getPackagename())) {
-					System.out.println("마이코스에 이미 강의가 있는 경우");
-					return 3;
+				if (!plz.get(i).getPackagename().equals(course.getPackagename())) {
+					System.out.println("강의 추가");
+					courseDAO.ADDClass(course);
 				}
-			}
 		}
-
-		/*
-		 * for (int i = 0; i < plz.size(); i++) { if
-		 * (course.get(0).getPackagename().equals(plz.get(i).getPackagename()))
-		 * { System.out.println("일치 하나도 함"); return 0; } else {
-		 * courseDAO.ADDClass(plz); return 1; } }
-		 */
-		return 0;
-		// }
-
-		/*
-		 * if (username.) { }
-		 */
-		/*
-		 * String teachername = sign; String userid = (String)
-		 * session.getAttribute("userId");
-		 * 
-		 * MyCourse mycourse = new MyCourse();
-		 * 
-		 * mycourse.setTeacher(teachername); mycourse.setMember_id(userid);
-		 * 
-		 * courseDAO.insertmypage(mycourse);
-		 */
-		// ArrayList<Mirukamo_MyCourse> mycourse = new
-		// ArrayList<Mirukamo_MyCourse>();
-		// model.addAttribute("mynihongosensei", mynihongosensei);
+		return 1;
 	}
 
 	// 송수근
@@ -379,4 +359,5 @@ public class CourseController {
 
 		return picksensei;
 	}
+
 }

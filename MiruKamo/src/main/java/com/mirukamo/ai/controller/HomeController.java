@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ibm.icu.text.Transliterator;
+
 /**
  * Handles requests for the application home page.
  */
@@ -62,12 +64,83 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		 
 		*/
-		
-		
+		String a[]= {"あい","","","",""};
+		for(String i:a){
+		System.out.println(i);
+		}
+		hatuon(a);
+		for(String i:a){
+			System.out.println(i);
+			}
 		
 		return "test";
 	}
 	
+	public void hatuon(String qqq[]){
+		
+		
+		Transliterator transliterator = Transliterator.getInstance("Katakana-Hiragana");
+		String result = transliterator.transliterate(qqq[0]);
+		qqq[0] = result;
+		System.out.println("이중배열 정답" + qqq[0]);
 	
+	
+		Transliterator transliterator2 = Transliterator.getInstance("Hiragana-Latin");
+		String result2 = transliterator2.transliterate(qqq[0]);
+		qqq[0] = result2;
+		System.out.println(result2);
+	
+	{
+		String kou[] = { "a", "i", "u", "e", "o" };
+		int c = 0;
+		
+			if (((Math.random() * 2) + 1) > 0) {
+				if (qqq[0].contains("a")) {
+					c = 1;
+					for (String s : kou) {
+						if (!s.equals("a")) {
+							qqq[c] = qqq[0].replaceFirst("a", s);
+							c++;
+						}
+					}
+				} else if (qqq[0].contains("i")) {
+					c = 1;
+					for (String s : kou) {
+						if (!s.equals("i")) {
+							qqq[c] = qqq[0].replaceFirst("i", s);
+							c++;
+						}
+					}
+				} else if (qqq[0].contains("u")) {
+					c = 1;
+					for (String s : kou) {
+						if (!s.equals("u")) {
+							qqq[c] = qqq[0].replaceFirst("u", s);
+							c++;
+						}
+					}
+				} else if (qqq[0].contains("e")) {
+					c = 1;
+					for (String s : kou) {
+						if (!s.equals("e")) {
+							qqq[c] = qqq[0].replaceFirst("e", s);
+							c++;
+						}
+					}
+				} else if (qqq[0].contains("o")) {
+					c = 1;
+					for (String s : kou) {
+						if (!s.equals("o")) {
+							qqq[c] = qqq[0].replaceFirst("o", s);
+							c++;
+						}
+					}
+				}
+			} 
+		
+	}
+
+
+}
 	
 }

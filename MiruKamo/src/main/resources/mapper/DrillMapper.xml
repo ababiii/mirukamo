@@ -19,6 +19,22 @@
 	<select id="word" resultType="drill">
 	select * from mirukamo_drill
 	</select>
+
+	<insert id="insertDrill" parameterType="drill">
+	insert into mirukamo_drill
+	(num,
+	member_id,
+	original_word,
+	word
+	)
+	values (
+	mirukamo_drill_seq.nextval,
+	#{member_id},
+	#{original_word},
+	#{word}
+	) 
+	</insert>
+
 	
 	<!-- 틀린 단어 랭크 가져오기 -->
 	<select id="rank" resultType="drill">

@@ -214,7 +214,7 @@ public class MultipartFileSender {
         // Prepare streams.
         
         try (InputStream input = new BufferedInputStream(Files.newInputStream(filepath));
-             OutputStream output = response.getOutputStream()) {
+             OutputStream output = response.getOutputStream() ) {
 
             if (ranges.isEmpty() || ranges.get(0) == full) {
 

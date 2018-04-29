@@ -87,19 +87,9 @@ recstart();
     .ui-dialog .ui-state-error { padding: .3em; }
     .validateTips { border: 1px solid transparent; padding: 0.3em; }
     .innerPopup {
-  	 z-index: 222222;
+  	 z-index: 22222222222;
 	}
   </style>
-<div id="dialog-form" title="따라해 봅시다" style="z-index: 22222">
- 
-  <form>
-    <fieldset>
-      <label for="content">내용</label>
-      <input type="text" name="content" id="content" value="こんにちは" readonly="readonly" class="text ui-widget-content ui-corner-all">
-      <label for="result">결과</label>
-      <input type="text" name="result" id="result" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
-
-
     </fieldset>
   </form>
 </div>
@@ -134,8 +124,6 @@ $( function() {
     	  videostart();
       }
     });
- 
-   
     $( "#create-user" ).button().on( "click", function() {
     audiostart();
     $( "#result" ).val("");
@@ -181,8 +169,12 @@ $( function() {
    <a href="login/find_pw">비밀번호 찾기</a>
    
       <a href="drill"> 형태소 변환 </a>
+
        <a href="servicecenter">고객 센터 </a>	
-      <a href="course/videolist"> 영상리스트 </a>
+      <!-- 기존 경로 -->
+     <!--  <a href="course/videolist"> 영상리스트 </a> -->
+    <a href="course/packagselect"> 영상리스트 </a>
+     
       <a href="course/upload"> 업로드 </a>
    </c:if>
 </div>
@@ -199,6 +191,7 @@ $( function() {
    <a href="myPage/mypage">수정</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+
     <a href="servicecenter">고객 센터 </a>	
    		
       <a href="drill"> 형태소 변환 </a>
@@ -236,6 +229,7 @@ $( function() {
 <a href="course/video">비디오</a>
 <a href="course/video_sidelist">비디오리스트</a>
 <a href="course/eye_blink_detect">눈</a>
+
 
 <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 <input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>

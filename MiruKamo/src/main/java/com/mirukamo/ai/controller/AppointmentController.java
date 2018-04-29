@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
-
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ import com.mirukamo.ai.dao.AppointmentDAO;
 import com.mirukamo.ai.dao.DrillDao;
 import com.mirukamo.ai.vo.MyCourse;
 import com.mirukamo.ai.vo.Users;
-import com.mirukamo.ai.vo.mirukamo_drill;
+import com.mirukamo.ai.vo.Mirukamo_drill;
 
 @Controller
 public class AppointmentController {
@@ -67,7 +66,7 @@ public class AppointmentController {
 
 		// ---------------------------------송수근----
 
-		ArrayList<mirukamo_drill> rank = new ArrayList<mirukamo_drill>();
+		ArrayList<Mirukamo_drill> rank = new ArrayList<Mirukamo_drill>();
 
 		rank = drilldao.getrank();
 
@@ -87,6 +86,11 @@ public class AppointmentController {
 	@RequestMapping(value = "watching", method = RequestMethod.GET)
 	public String watching() {
 		return "board/watching";
+	}
+
+	@RequestMapping(value="test",method=RequestMethod.GET)
+	public String test(){
+		return "miru/grab-frame-take-photo";
 	}
 
 	// 개인정보 수정 페이지로 이동
@@ -117,10 +121,7 @@ public class AppointmentController {
 		return "users/myUpdate";
 	}
 
-	@RequestMapping(value = "test", method = RequestMethod.GET)
-	public String test() {
-		return "test";
-	}
+
 	
 	@RequestMapping(value="login",method=RequestMethod.GET)
 	public String loginTest(String errorMsg,Model model){

@@ -80,6 +80,7 @@ body.active #content {
 		<script src="../resources/js/eye_blink_check.js"></script>
 		<script src="../resources/js/webcam.js"></script>
 		<script src="../resources/js/canvasfilters.js"></script>
+		
 
 <div class="holder" data-title="Correlation">
     <div id="content">

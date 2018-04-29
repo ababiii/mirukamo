@@ -76,6 +76,10 @@ public class HomeController {
 		return "test";
 	}
 	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 	public void hatuon(String qqq[]){
 		
 		
@@ -83,8 +87,6 @@ public class HomeController {
 		String result = transliterator.transliterate(qqq[0]);
 		qqq[0] = result;
 		System.out.println("이중배열 정답" + qqq[0]);
-	
-	
 		Transliterator transliterator2 = Transliterator.getInstance("Hiragana-Latin");
 		String result2 = transliterator2.transliterate(qqq[0]);
 		qqq[0] = result2;

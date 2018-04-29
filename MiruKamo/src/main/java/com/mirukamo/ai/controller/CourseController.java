@@ -102,6 +102,12 @@ public class CourseController {
 		return "face7";
 	}
 	
+	@RequestMapping(value = "/lecture_page", method = RequestMethod.GET)
+	public String lecture_page() {
+		
+		return "lecture_page";
+	}
+	
 
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
@@ -145,12 +151,30 @@ public class CourseController {
 		ArrayList<Mirukamo_course> yoshisushi = new ArrayList<Mirukamo_course>();
 		ArrayList<Mirukamo_course> tokyocold = new ArrayList<Mirukamo_course>();
 		
+		//이미지 파일
+		for (int i = 0; i < list.size(); i++) {
+			String fileName = list.get(i).getFile_name();
+			
+			int lastIndex = fileName.lastIndexOf('.');
+			
+			if(lastIndex != -1){
+				String imgPath = fileName.substring(0, lastIndex);
+				logger.debug("확인용: " + imgPath);
+				list.get(i).setThumnail(imgPath+".png");
+			}
+		}
+		
+		
+		
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getTeacher().equals("요시코")) {
 				yoshisushi.add(list.get(i));
 			} else {
 				tokyocold.add(list.get(i));
 			}
+			
+			
+			
 		}
 			for (int j = 0; j < yoshisushi.size(); j++) {
 				System.out.println("요시코 센세 : " + j + "번쨰" + yoshisushi.get(j).toString());
@@ -162,25 +186,10 @@ public class CourseController {
 				System.out.println("도쿄핫 센세 : " + j + "번쨰" + tokyocold.get(j).toString());
 			}
 
-		/*
-		 * for (int i = 0; i <= list.size(); i++) { // 선생님 이름이 쿠로사와 요시코면 전체
-		 * 값이들어있는 배열에서 요시코 선생님 전용 배열에 넣기 if
-		 * (list.get(i).getTeacher().equals("쿠로사와요시코")) {
-		 * yosheko.get(yoshe).setFile_name(list.get(i).getFile_name());
-		 * yosheko.get(yoshe).setLanguages(list.get(i).getLanguages());
-		 * yosheko.get(yoshe).setTeacher(list.get(i).getTeacher());
-		 * yosheko.get(yoshe).setNum(list.get(i).getNum());
-		 * yosheko.get(yoshe).setTitle(list.get(i).getTitle()); yoshe ++;
-		 * //yosheko.add(list.get(i)); } else { // 쿠로사와 요시코 센세이가 아니면, 다른선생님 배열에
-		 * 넣자 tokyohot.add(list.get(i)); } }
-		 */
-		// System.out.println("요시코 베이비 컴온"+yosheko.get(0).toString());
-
-		//model.addAttribute("list", list);
+		
 			return "videolist";
 			
 	}
-	
 /*	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
 	public String video_sidelist() {
 
@@ -214,18 +223,6 @@ public class CourseController {
 
 	    }
 */
-	 @ResponseBody
-	 @RequestMapping(value = "updrill", method = RequestMethod.POST)
-		public void updrill(Mirukamo_drill drill,HttpSession session) {
-		 System.out.println("드릴저장?");
-		 System.out.println(drill);
-		//drill.setMember_id((String)session.getAttribute("userId"));
-		drill.setMember_id("abc");
-		
-		
-		drillDao.insertDrill(drill);
-}
-	 
 	 
 	/* 
 
@@ -238,13 +235,29 @@ public class CourseController {
 			return "videolist";
 	 }*/
 
+	 @ResponseBody
+	 @RequestMapping(value = "updrill", method = RequestMethod.POST)
+		public void updrill(Mirukamo_drill drill,HttpSession session) {
+		 System.out.println("드릴저장?");
+		 System.out.println(drill);
+		//drill.setMember_id((String)session.getAttribute("userId"));
+		drill.setMember_id("abc");
+		
+		
+		drillDao.insertDrill(drill);
+}
+	 
+    //엄정환 원래 String이었지만 void로 고쳤음
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
-	public String videolist(String name, HttpSession session, Model model) {
+	public void videolist(String packagename,String name, HttpSession session, Model model) {
 		// session.setAttribute("title", title1);
 		System.out.println("★★★★★★" + name);
 		model.addAttribute("file_name", name);
+		//사용자가 선택한 강의의 packagename을 가져와서 인터셉터로 보내주도록한다. 
+		model.addAttribute("packagename", packagename);
 
-		return "video";
+		//return "video";
+		//return "lecture_page";
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
@@ -281,24 +294,15 @@ public class CourseController {
 
 	//여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
-	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
+	public String upload1(Mirukamo_course course, MultipartFile upload, Model model, HttpServletRequest req) {
 		System.out.println("들어오냐?");
 		System.out.println(upload.getOriginalFilename());
-		String savedfile = FileService.saveFile(upload, uploadPath);
+		String savedfile = FileService.saveFile(upload, uploadPath, req);
 		course.setFile_name(savedfile);
 
 		System.out.println("ㅅㅅㄱ : " + course.toString());
 		courseDAO.insertCourse(course);
-		/*
-		 * String savedName = upload.getOriginalFilename();
-		 * 
-		 * File target = new File(uploadPath, savedName);
-		 * 
-		 * // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사 // FileCopyUtils.copy(바이트배열,
-		 * 파일객체) try { FileCopyUtils.copy(upload.getBytes(), target); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
+	
 
 		// ------------송수근
 		ArrayList<Mirukamo_course> mirucourse = new ArrayList<Mirukamo_course>();

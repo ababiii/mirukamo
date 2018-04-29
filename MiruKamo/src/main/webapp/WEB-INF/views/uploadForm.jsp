@@ -94,10 +94,6 @@
 				<td><input type="file" name="upload" size="30" id="upload"></td>
 			</tr>
 			<tr>
-				<th>썸네일</th>
-				<td><input type="text" name="thumnail" size="30"></td>
-			</tr>
-			<tr>
 				<td colspan="2"><input type="submit" value="저장"></td>
 			</tr>
 		</table>

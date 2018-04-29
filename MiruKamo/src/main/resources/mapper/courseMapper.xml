@@ -61,24 +61,6 @@
 	</select>
 
 
-<insert id="insertCourse" parameterType="Course">
-insert into mirukamo_course (
-num
-,title
-,teacher
-,languages
-,file_name
-,thumnail
-)
-values (
-mirukamo_course_seq.nextval
-,#{title}
-,#{teacher}
-,#{languages}
-,#{file_name}
-,#{thumnail}
-)
-</insert>
 
 
 	<insert id="mysensei" parameterType="MyCourse">

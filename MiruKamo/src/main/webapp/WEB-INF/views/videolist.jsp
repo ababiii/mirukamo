@@ -38,9 +38,8 @@
 			}
 		});
 	}
-
     //엄정환 사용자가 인강을 선택해서 들을려 할때 인강의 정보를 넘겨주고 수강한 인강인지 아닌지 확인해 줄 수 있는 ajax
-    function sendPackagenameandTitle() {
+    /* function sendPackagenameandTitle() {
     	var mForm = document.insert;
     	var obj = new Object();
     	obj.packagename = mForm.$('#packagename').val();
@@ -63,8 +62,7 @@
           }
        });
     }
-    
-    
+   */
     function insert_action(){
     	   var mForm = document.insert; // form의 값을 가져오기 위함
     	   var obj = new Object(); // JSON형식으로 변환 할 오브젝트
@@ -90,7 +88,6 @@
     	    }
     	   });
 
->>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </script>
 </head>
 <body>

@@ -229,6 +229,7 @@ public class ServiceCenterController {
 					m.addAttribute("copy",a);
 					return "writeboard/advicereply";
 				}
+				
 				//1:1문의 답변 전송 관리자 시점
 				@RequestMapping(value = "/replyadvice", method = RequestMethod.POST)
 				public String replyadvice(Mirukamo_answer ans) {

@@ -589,22 +589,12 @@
 					<c:if test="${userId != null}">
 						<tr>
 							<th>個人情報</th>
-							<c:if test="${userId.value() != 'admin'}">
-								<td>
-									<ul class="list_type">
-										<li><a href="myPage">マイページ</a></li>
-										<li><a href="myUpdate">個人情報変更</a></li>
-									</ul>
-								</td>
-							</c:if>
-							<c:if test="${userId.value() == 'admin'}">
-								<td>
-									<ul class="list_type">
-										<li><a href="myPage">マイページ</a></li>
-										<li><a href="myUpdate">個人情報変更</a></li>
-									</ul>
-								</td>
-							</c:if>
+							<td>
+								<ul class="list_type">
+									<li><a href="myPage">マイページ</a></li>
+									<li><a href="myUpdate">個人情報変更</a></li>
+								</ul>
+							</td>
 						</tr>
 					</c:if>
 					<!-- <tr>
@@ -624,8 +614,8 @@
 						<th>講義</th>
 						<td>
 							<ul class="list_type">
-								<li><a href="/?s=products#anchor_pack">講義リスト</a></li>
-								<li><a href="/?s=products">講義申請</a></li>
+								<li><a href="course/packagselect">講義リスト</a></li>
+								<!-- <li><a href="/?s=products">講義申請</a></li> -->
 							</ul>
 						</td>
 					</tr>

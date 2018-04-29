@@ -26,7 +26,6 @@
 			</tr>
 		</table>
 	</c:if>
-
 	<BR>
 	<bR>
 	<BR>

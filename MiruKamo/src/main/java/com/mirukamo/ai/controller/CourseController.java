@@ -142,7 +142,7 @@ public class CourseController {
 		try {
 			MultipartFileSender.fromFile(new File(path)).with(request).with(response).serveResource();
 		} catch (Exception e) {
-	
+
 		}
 	}
 
@@ -154,7 +154,6 @@ public class CourseController {
 		list = courseDAO.selectCourse();
 		System.out.println("코스 전체 가져오기 : " + list);
 
-
 		ArrayList<Mirukamo_course> callmebaby = new ArrayList<Mirukamo_course>();
 
 		for (int i = 0; i < list.size(); i++) {
@@ -162,32 +161,32 @@ public class CourseController {
 				callmebaby.add(list.get(i));
 			}
 		}
-		
+
 		for (int i = 0; i < callmebaby.size(); i++) {
-			System.out.println("꿰에에엥아아앙"+callmebaby.get(i).toString());
+			System.out.println("꿰에에엥아아앙" + callmebaby.get(i).toString());
 		}
-		
+
 		String yes = "yes";
-		String no = "no";
-		
+		// String no = "no";
+
 		String member_id = (String) session.getAttribute("userId");
 		ArrayList<MyCourse> plz = new ArrayList<MyCourse>();
 		plz = courseDAO.myc(member_id);
-		
+
 		// 마이 수강코스에 아무것도 없는 경우 -> 추가
 		if (plz.size() == 0) {
 			System.out.println("사용자 이름 강의 하나두 없음");
 		}
-		
-		  for (int i = 0; i < plz.size(); i++) {
-			  if(plz.get(i).getTeacher().equals(teacher)) {
-				  model.addAttribute("good", yes);
-				  callmebaby.add(list.get(i)); 
-			  }
-		  }
+
+		for (int i = 0; i < plz.size(); i++) {
+			if (plz.get(i).getTeacher().equals(teacher)) {
+				model.addAttribute("good", yes);
+				callmebaby.add(list.get(i));
+			}
+		}
 		model.addAttribute("callmebaby", callmebaby);
 
-		return "videolist" ;
+		return "videolist";
 	}
 
 	@ResponseBody
@@ -200,7 +199,6 @@ public class CourseController {
 
 		drillDao.insertDrill(drill);
 	}
-
 
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
 	public String videolist(String name, HttpSession session, Model model) {
@@ -238,13 +236,17 @@ public class CourseController {
 	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
 		System.out.println("들어오냐?");
 		System.out.println(upload.getOriginalFilename());
-	
-	/*	String savedfile = FileService.saveFile(upload, uploadPath);
-		course.setFile_name(savedfile);*/
+
+		/*
+		 * 여기 오류 , ,고쳐야함 - 송수근 4/29 10:29
+		 * 
+		 * String savedfile = FileService.saveFile(upload, uploadPath);
+		 * course.setFile_name(savedfile);
+		 */
 
 		System.out.println("ㅅㅅㄱ : " + course.toString());
 		courseDAO.insertCourse(course);
-	
+
 		// ------------송수근
 		ArrayList<Mirukamo_course> mirucourse = new ArrayList<Mirukamo_course>();
 
@@ -288,11 +290,11 @@ public class CourseController {
 			return 1;
 		}
 		// 마이 수강코스에 무언가 있는 경우 -> 무언가 있는데 그게 내가 선택한 패키지가 아닐떄
-			for (int i = 0; i < plz.size(); i++) {
-				if (!plz.get(i).getPackagename().equals(course.getPackagename())) {
-					System.out.println("강의 추가");
-					courseDAO.ADDClass(course);
-				}
+		for (int i = 0; i < plz.size(); i++) {
+			if (!plz.get(i).getPackagename().equals(course.getPackagename())) {
+				System.out.println("강의 추가");
+				courseDAO.ADDClass(course);
+			}
 		}
 		return 1;
 	}

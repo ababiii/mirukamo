@@ -88,6 +88,12 @@ public class CourseController {
 		return "face7";
 	}
 	
+	@RequestMapping(value = "/lecture_page", method = RequestMethod.GET)
+	public String lecture_page() {
+		
+		return "lecture_page";
+	}
+	
 
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
@@ -132,13 +138,16 @@ public class CourseController {
 			return "videolist";
 	 }
 
+	 
+    //엄정환 원래 String이었지만 void로 고쳤음
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
-	public String videolist(String name, HttpSession session, Model model) {
+	public void videolist(String name, HttpSession session, Model model) {
 		// session.setAttribute("title", title1);
 		System.out.println("★★★★★★" + name);
 		model.addAttribute("file_name", name);
 
-		return "video";
+		//return "video";
+		//return "lecture_page";
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)

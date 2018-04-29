@@ -1,0 +1,365 @@
+*{margin:0;padding:0;list-style:none;}
+img{border:0;}
+hr, .hide{display:none;}
+html{overflow:hidden;}
+body{width:100%;height:100%;}
+#container{position:relative;background:#39393f;z-index:1000;width:100%;height:100%;}
+#container h1 {z-index:50;position:relative;padding:10px 0 8px 20px;background:url(http://img.megastudy.net/Player/player_2011/k_top.gif) repeat-x 0 0;font:0/0 arial;}
+#player_section{padding:0 11px 0 5px;height:100%;position:relative;margin:-35px 284px 0 0;background:#45454d url(http://img.megastudy.net/Player/player_2011/k_centerLine.gif) repeat-y 100% 0;border-bottom:27px solid #39393f;}
+#player_section .control_area{position:relative;background:#0f0f11;height:81px;width:100%;margin-bottom:5px;}
+#player_section .control_area .control_area_innerBox{border:1px solid #3d3d43;background:#2d2d32;height:78px;margin:0 1px 1px 1px;}
+#player_section .control_area .main{position:absolute;left:8px;top:8px;font:0/0 arial;}
+#player_section .control_area .main img{vertical-align:middle;cursor:pointer}
+#player_section .control_area .skip{ position:absolute;left:210px;top:13px;background:url(http://img.megastudy.net/Player/player_2011/k_skip.gif) repeat-x 0 0;}
+#player_section .control_area .skip h2{float:left;padding:4px 8px 4px 0;font:0/0 arial;background:#2d2d32;}
+#player_section .control_area .skip h2 img{cursor:default}
+#player_section .control_area .skip img{float:left;cursor:pointer}
+#player_section .control_area .skip span{float:left;padding:3px 0 0 0;width:23px;text-align:center;}
+#player_section .control_area .skip span input{width:18px;background:none;border:0;font:11px/1.3 Tahoma;color:#a9acb5;text-align:center;}
+
+#player_section .player_obj{position:relative;width:100%;padding:40px 0 0 0;font:0/0 arial;}
+
+#player_section .control_area .speed{ position:absolute;left:340px;top:12px;background:url(http://img.megastudy.net/Player/player_2011/k_speed.png) no-repeat 40px 0;}
+#player_section .control_area .n08{ background-position:40px 0;}
+#player_section .control_area .n09{ background-position:40px -15px;}
+#player_section .control_area .n10{ background-position:40px -30px;}
+#player_section .control_area .n11{ background-position:40px -45px;}
+#player_section .control_area .n12{ background-position:40px -60px;}
+#player_section .control_area .n13{ background-position:40px -75px;}
+#player_section .control_area .n14{ background-position:40px -90px;}
+#player_section .control_area .n15{ background-position:40px -105px;}
+#player_section .control_area .n16{ background-position:40px -120px;}
+#player_section .control_area .n17{ background-position:40px -135px;}
+#player_section .control_area .n18{ background-position:40px -150px;}
+#player_section .control_area .n19{ background-position:40px -165px;}
+#player_section .control_area .n20{ background-position:40px -180px;}
+#player_section .control_area .speed h2{float:left;padding:5px 10px 0 0;}
+#player_section .control_area .speed ul{float:left;}
+#player_section .control_area .speed ul li{float:left;margin-right:4px;width:13px;padding:11px 0 0 0;font:0/0 arial;cursor:pointer;display:inline;text-align:left;}
+#player_section .control_area .speed ul li.b{width:12px;}
+
+
+#player_section .control_area .speed02{ position:absolute;left:134px;top:12px;background:#2d2d32 url(http://img.megastudy.net/Player/player_2011/k_speed_02.png) no-repeat 40px 0;}
+.normal #player_section .control_area .n08{ background-position:40px 0;}
+.normal #player_section .control_area .n09{ background-position:40px -19px;}
+.normal #player_section .control_area .n10{ background-position:40px -38px;}
+.normal #player_section .control_area .n11{ background-position:40px -57px;}
+.normal #player_section .control_area .n12{ background-position:40px -76px;}
+.normal #player_section .control_area .n13{ background-position:40px -95px;}
+.normal #player_section .control_area .n14{ background-position:40px -114px;}
+.normal #player_section .control_area .n15{ background-position:40px -133px;}
+.normal #player_section .control_area .n16{ background-position:40px -152PX;}
+.normal #player_section .control_area .n17{ background-position:40px -171px;}
+.normal #player_section .control_area .n18{ background-position:40px -190px;}
+.normal #player_section .control_area .n19{ background-position:40px -209px;}
+.normal #player_section .control_area .n20{ background-position:40px -228px;}
+#player_section .control_area .speed02 h2{float:left;padding:5px 10px 0 0;}
+#player_section .control_area .speed02 ul{float:left;}
+#player_section .control_area .speed02 ul li{float:left;margin-right:1px;width:12px;padding:11px 0 0 0;font:0/0 arial;cursor:pointer;}
+#player_section .control_area .speed02 ul li.b{width:6px;}
+
+#player_section .control_area .view_size{ position:absolute;left:611px;top:12px;}
+#player_section .control_area .view_size img{float:left;cursor:pointer}
+
+#player_section .control_area .config{position:absolute;right:13px;top:12px;}
+#player_section .control_area .config img{cursor:pointer}
+#player_section .control_area .config_layer{ z-index:10;position:absolute;right:13px;top:1px;padding:10px 0 3px 10px;width:347px;background:#45454d;border:1px solid #0f0f11;}
+#player_section .control_area .config_layer .tit {display:block;font:bold 12px/16px dotum;color:#ef5a78;background:url(http://img.megastudy.net/Player/megaplayer/dot_player.png) 0 2px no-repeat;padding:0 0 5px 15px;}
+#player_section .control_area .config_layer ul{width:100%;overflow:hidden}
+#player_section .control_area .config_layer ul .position {position:absolute;top:9px;right:20px;}
+#player_section .control_area .config_layer label{font:11px/1.3 dotum;color:#fff;letter-spacing:-1px;vertical-align:3px;}
+#player_section .control_area .config_layer input{width:13px;height:13px;vertical-align:top;margin:0 4px 0 0;}
+#player_section .control_area .config_layer li{float:left;padding-bottom:4px;*padding-bottom:0;padding-right:8px;}
+#player_section .control_area .config_layer .close{ position:absolute;right:2px;top:2px;cursor:pointer}
+#player_section .control_area .config_layer .init{ padding-bottom:5px;}
+#player_section .control_area .config_layer .init p{font:11px/1.3 dotum;color:#b5b5b8;letter-spacing:-1px;padding:2px 0 3px 0;}
+#player_section .control_area .config_layer .init input{width:auto;height:auto}
+#player_section .control_area .config_layer .init input.txt{padding:4px 0 0 5px;margin-right:4px;border:0;width:292px;height:12px;background:#c8c8ca;font:11px/1.1 dotum;color:#282828;}
+
+
+#player_section .control_area .move{position:relative;padding:0 13px 0 284px;left:0;top:44px;}
+#player_section .control_area .move h2{position:absolute;left:207px;_left:-77px;top:0;padding:5px 7px 0 0;}
+#player_section .control_area .move .txt{padding:4px 0 2px 7px;border:1px solid #1c1d1f;background:#40424b;color:#a9acb4;font:11px/1.3 dotum;text-overflow:ellipsis;overflow:hidden;width:90%;zoom:1;white-space:nowrap;}
+#player_section .control_area .move .txt img{position:absolute;right:11px;top:0;_top:-1px;+top:-1px;cursor:pointer}
+#player_section .control_area .move select{width:100%;margin:2px 0 0 0;font:11px/1.3 dotum;}
+#player_section .control_area .move02{ padding-left:239px;}
+#player_section .line_btn{position:absolute;right:0;top:0;width:10px;height:100%;cursor:pointer;z-index:10;}
+#player_section .line_btn img{position:absolute;top:50%;right:0;margin-top:-5px;}
+
+#right_section{position:absolute;right:0;top:0;padding:0 0 0 5px;width:279px;background:#45454d url(http://img.megastudy.net/Player/player_2011/k_top.gif) repeat-x 0 0;z-index:100;height:100%;border-bottom:27px solid #39393f;}
+#right_section .util{height:27px;padding:8px 10px 0 0;margin-bottom:5px;text-align:right;font:0/0 arial;}
+#right_section .util img{cursor:pointer}
+#right_section .tab_menu{margin:0 0 0 0;width:100%;overflow:hidden;background:url(http://img.megastudy.net/Player/player_2011/k_tabMenu_01.png) no-repeat 0 0;}
+#right_section .tab_menu li{float:left;}
+#right_section .tab_menu li a{display:block;font:1/1 dotum;text-indent:-9999px;z-index:-1px;}
+#right_section .tab_menu li.a a{width:62px;height:32px}
+#right_section .tab_menu li.b a{width:81px;height:32px}
+#right_section .tab_menu li.c a{width:69px;height:32px}
+#right_section .tab_menu li.d a{width:61px;height:32px}
+#right_section .tab_second{ background-position:0 -32px;}
+#right_section .tab_third{ background-position:0 -64px;}
+#right_section .tab_fourth{ background-position:0 -96px;}
+#right_section .none02{ background-position:-61px 0;}
+#right_section .tab_second02{ background-position:-61px -32px;}
+#right_section .tab_third02{ background-position:-61px -64px;}
+#right_section .tab_fourth02{ background-position:-61px -96px;}
+
+#right_section .tab_content{border:1px solid #1c1d1f;border-top:0;background:#fff;height:89%;overflow-y:scroll;padding:0 10px;width:251px;margin-bottom:6px;}
+#right_section .tab_content_01 .notice{margin-top:13px;padding:2px 0 0 16px;background:url(http://img.megastudy.net/Player/player_2011/u_notice.gif) no-repeat 0 0;font:11px/1.3 dotum;color:#999;letter-spacing:-1px;}
+#right_section .tab_content_01 .view_select{ margin:-18px 0 6px 0;text-align:right;}
+#right_section .tab_content_01 .view_select img{cursor:pointer}
+#right_section .tab_content_01 table.list{width:233px;table-layout:fixed;border-collapse:collapse;border-top:2px solid #2963df;background:;}
+#right_section .tab_content_01 table.list thead th{padding:7px 0 4px 0;background:#f0f0f0;font:11px/1.3 dotum;color:#636363;letter-spacing:-1px;border-bottom:1px solid #c1c1c1;}
+#right_section .tab_content_01 table.list thead th input{margin-top:-3px;cursor:pointer}
+#right_section .tab_content_01 table.list tbody td{padding:7px 0 3px 0;text-align:center; border-bottom:1px solid #e0e0e0;font:11px/1.3 dotum;color:#636363;}
+#right_section .tab_content_01 table.list tbody td input{ height:13px;width:13px;padding:0;margin:0;vertical-align:4px;}
+#right_section .tab_content_01 table.list tbody td.subject{ text-align:left;padding-left:10px;}
+#right_section .tab_content_01 table.list tbody td.subject a{ text-decoration:none;font:11px/1.3 dotum;color:#636363;}
+#right_section .tab_content_01 table.list tbody tr.on td{ background:#edf1f8;color:#1141a7;}
+#right_section .tab_content_01 table.list tbody tr.on td.subject a{color:#1141a7;}
+
+#right_section .tab_content_02{position:relative}
+#right_section .tab_content_02 h2{padding:13px 0 6px 1px;font:0/0 arial;color:#333;}
+#right_section .tab_content_02 ul{margin-bottom:6px;border-top:2px solid #2963df;width:233px;}
+#right_section .tab_content_02 ul li{border-bottom:1px solid #e0e0e0;padding:8px 0 4px 8px;*padding:7px 0 4px 8px;vertical-align:top;font:0/0 arial;}
+#right_section .tab_content_02 ul li a{font:11px/1.3 dotum;color:#636363;text-decoration:none;}
+#right_section .tab_content_02 ul li.noData{position:relative;background:url(http://img.megastudy.net/Player/player_2011/u_notice.gif) no-repeat 51px 50%;font:11px/1.3 dotum;color:#999;letter-spacing:-1px;height:83px;padding:0;}
+#right_section .tab_content_02 ul li.noData p{position:absolute;left:70px;top:50%;margin-top:-5px;}
+#right_section .tab_content_02 .btn{ text-align:center;font:0/0 arial;padding:20px 0 10px 0;}
+#right_section .tab_content_03{}
+#right_section .tab_content_03 h2{padding:13px 0 14px 2px;}
+#right_section .tab_content_03 ul{margin-bottom:6px;border-top:2px solid #2963df;}
+#right_section .tab_content_03 ul li{border-bottom:1px solid #e0e0e0;padding:9px 0 9px 8px;overflow:hidden;width:226px;}
+#right_section .tab_content_03 ul li img{float:left;margin:0 8px 0 0;border:1px solid #d4d4d4;}
+#right_section .tab_content_03 ul li span{float:left;width:150px;padding-top:1px;}
+#right_section .tab_content_03 ul li span a{font:11px/1.5 dotum;color:#898888;text-decoration:none;}
+#right_section .tab_content_03 ul li span a strong{color:#636363;}
+#right_section .tab_content_03 .select{padding:0 0 0 0;margin-bottom:6px;}
+#right_section .tab_content_03 .select label{padding:0 0 0 14px;font:11px/1.3 dotum;letter-spacing:-1px;color:#adadad;background:url(http://img.megastudy.net/Player/player_2011/u_right_02.gif) no-repeat 8px 3px;}
+#right_section .tab_content_03 .select select{font:11px/1.3 dotum;color:#666;border:1px solid #c7c7c7;vertical-align:middle;}
+
+#right_section .tab_content_04{height:554px;margin-bottom:0;border-bottom:0;}
+#right_section .tab_content_04 h2{padding:13px 0 14px 2px;}
+#right_section .tab_content_04 .btn{text-align:right;padding:0 0 6px 0;}
+#right_section .tab_content_04 ul{margin-bottom:74px;border-top:2px solid #2963df;}
+#right_section .tab_content_04 ul li{border-bottom:1px solid #e0e0e0;padding:6px 0 6px 6px;overflow:hidden;width:226px;}
+#right_section .tab_content_04 ul li .time{padding:0 0 6px 16px;background:url(http://img.megastudy.net/Player/player_2011/u_right_04.gif) no-repeat 0 3px;font:bold 11px/1.3 Tahoma;color:#091279;}
+#right_section .tab_content_04 ul li .time span{margin-right:8px;}
+#right_section .tab_content_04 ul li .time img{ vertical-align:middle;cursor:pointer}
+#right_section .tab_content_04 ul li input.txt{width:186px;height:14px;border:1px solid #c7c7c7;margin:0 0 0 10px;font:11px/1.3 dotum;color:#636363;padding:2px 0 0 2px;vertical-align:middle;}
+#right_section .tab_content_04 ul li input.ch{vertical-align:middle;width:13px;height:13px;}
+#right_section .tab_content_04 ul li.noData{position:relative;font:11px/1.5 dotum;color:#999;letter-spacing:-1px;height:400px;padding:0;width:auto;text-align:center;background:#f9f9f9;}
+#right_section .tab_content_04 ul li.noData img{ vertical-align:-2px;margin-right:2px;}
+#right_section .tab_content_04 ul li.noData p{ position:absolute;top:50%;left:0;width:100%;margin-top:-14px;}
+#right_section .search_daum{position:absolute;left:16px;top:82%;background:#fff;border-top:0;margin:0 0 0 0;width:234px;}
+#right_section .search_daum .search_daum_inner{ background:#ececec;padding:9px 0 8px 8px}
+#right_section .search_daum h2{font:0/0 arial;padding:0 0 6px 0;margin:0;}
+#right_section .search_daum *{ vertical-align:middle;}
+#right_section .search_daum select{font:11px/1.3 dotum;color:#636363;width:60px;}
+#right_section .search_daum input.txt{width:105px;height:14px;border:1px solid #c7c7c7;padding:2px 0 0 0;font:11px/1.3 dotum;color:#636363;}
+
+/* Áú¹®ÇÏ±â */
+#container .question_layer{position:absolute;right:7px;top:41px;padding:0 10px;width:251px;background:#fff;z-index:100;}
+#container .question_layer .close{ cursor:pointer;position:absolute;right:6px;top:5px;}
+#container .question_layer h2{font:0/0 arial;padding:14px 0 6px 1px}
+#container .question_layer table{width:251px;table-layout:fixed;border-collapse:collapse;border-top:2px solid #2963df;border-bottom:1px solid #c1c1c1;}
+#container .question_layer table th{padding:2px 0 0 0;font:11px/1.3 dotum;color:#1141a7;background:#edf1f8;border-top:1px solid #e0e0e0;}
+#container .question_layer table td{padding:7px 0 4px 9px;vertical-align:top;font:11px/1.3 dotum;color:#636363;border-top:1px solid #e0e0e0;letter-spacing:-1px;}
+#container .question_layer table td input.txt{vertical-align:middle;border:1px solid #c7c7c7;padding:2px 0 0 2px;font:11px/1.3 dotum;color:#636363;height:14px;}
+#container .question_layer table td.radio input{width:14px;height:14px;}
+#container .question_layer table td label{ vertical-align:top;*vertical-align:0;margin:0 9px 0 4px;}
+#container .question_layer table td select{width:131px;font:11px/1.3 dotum;color:#636363;margin-top:-2px;}
+#container .question_layer table td.subject{padding:2px 0 4px 10px}
+#container .question_layer table td.subject input{ width:189px;}
+#container .question_layer table td.time{padding:3px 0 3px 10px;}
+#container .question_layer table td.time input.txt{vertical-align:top;width:23px;height:14px;text-align:center;padding-left:0;}
+#container .question_layer table td.time input.b{vertical-align:-10px;margin:0 0 0 4px;}
+#container .question_layer table td textarea{width:191px;height:127px;border:1px solid #c7c7c7;font:11px/1.3 dotum;color:#636363;margin-top:-4px;}
+#container .question_layer table tr.first th, .question_layer table tr.first td{ border-top:0;}
+#container .question_layer .btn{ text-align:center;padding:10px 0 0 0;}
+
+/* ¸Þ¸ðÀå */
+#container .memo{position:absolute;right:7px;top:41px;padding:0;width:269px;height:230px;z-index:100;border:1px solid #e6dfbc;background:#fbf7cd;}
+#container .memo h2{font:0/0 arial;padding:13px 0 17px 13px;}
+#container .memo textarea{padding:0 0 0 19px;width:233px;height:143px;background:#fbf7cd;border:0;font:11px/1.5 dotum;color:#636363;overflow:auto}
+#container .memo .btn{ position:absolute;right:7px;bottom:8px;}
+#container .memo .btn img, #container .memo .close_btn img{cursor:pointer}
+#container .memo .close_btn{position:absolute;right:7px;top:8px;}
+
+/* ¸Àº¸±â_¼ö°­½ÅÃ» */
+#right_section .tab_menu_02{width:100%;overflow:hidden;background:url(http://img.megastudy.net/Player/player_2011/k_tabMenu_02.png) no-repeat 0 0;}
+#right_section .tab_menu_02 li{float:left;}
+#right_section .tab_menu_02 li a{display:block;font:1/1 dotum;text-indent:-9999px;z-index:-1px;}
+#right_section .tab_menu_02 li.a a{width:137px;height:32px}
+#right_section .tab_menu_02 li.b a{width:136px;height:32px}
+#right_section .tab_second{ background-position:0 -32px;}
+#right_section .tab_third{ background-position:0 -64px;}
+#right_section .tab_preview{overflow-y:scroll;overflow-x:hidden}
+#right_section .tab_preview h2{font:0/0 arial;padding:14px 0 10px 0;}
+/** #right_section .tab_preview .box{ background:url(http://img.megastudy.net/Player/player_2011/k_prev_01.gif) no-repeat 0 0;} **/
+#right_section .tab_preview .box{ background:url(http://img.megastudy.net/Player/player_2011/bg_mid.gif) repeat-y 0 0;}
+#right_section .tab_preview .box h3{margin:0 5px;padding:16px 10px 5px 10px;border-bottom:1px solid #dde5f5;}
+#right_section .tab_preview .box h3 a{font:bold 12px/1.5 dotum;color:#646464;text-decoration:none;letter-spacing:-1px;}
+#right_section .tab_preview .box .list{padding:11px 5px 1px 5px;width:214px;margin:0 5px;background:#f6f7fb url(http://img.megastudy.net/Player/player_2011/l_right_dotte.gif) no-repeat 50% 100%}
+#right_section .tab_preview .box .list li{ padding:1px 0 5px 15px;background:url(http://img.megastudy.net/Player/player_2011/u_right_05.gif) no-repeat 7px 4px;width:216px;font:11px/1.3 dotum;color:#606060;zoom:1;}
+#right_section .tab_preview .box .list li:after {content:""; display:block; clear:both;}
+#right_section .tab_preview .box .list li span{float:left;width:53px;background:url(http://img.megastudy.net/Player/player_2011/l_right_01.gif) no-repeat 100% 0;margin-right:7px;}
+#right_section .tab_preview .box .list li input{float:left;width:13px;height:13px;}
+#right_section .tab_preview .box .list li label{font-weight:bold;vertical-align:-2px;}
+#right_section .tab_preview .box .list li.num label{float:left;width:65px;text-align:right;}
+#right_section .tab_preview .box .last{padding-top:11px;padding-bottom:8px;margin:0 0 0 5px;width:214px !important;}
+#right_section .tab_preview .box .last li{ background-position:12px 4px;padding-left:20px;width:200px !important;}
+#right_section .tab_preview .box .last li input{margin-top:-2px}
+#right_section .tab_preview .btn{ text-align:center;padding:10px 0 0 0}
+#right_section .tab_preview .b_all{display:block;text-align:right;margin:-27px 0 3px 0;}
+#right_section .tab_preview .r_list{ border-top:2px solid #2963df;height:30%;overflow-y:scroll;}
+#right_section .tab_preview .r_list li{ border-bottom:1px solid #e0e0e0;}
+#right_section .tab_preview .r_list li.first{ border-top:0;}
+#right_section .tab_preview .r_list li h3{font:11px/1.3 dotum;color:#636363;letter-spacing:-1px;padding:8px 9px 3px 9px;cursor:pointer;vertical-align:top;}
+#right_section .tab_preview .r_list li p{font:11px/1.5 dotum;color:#959595;letter-spacing:-1px;padding:7px 9px 4px 9px;background:#ececec;}
+
+#right_section .tab_preview .lec_prevod {border-top:2px solid #2963df;margin:-3px 0 3px;padding:0;}
+#right_section .tab_preview .lec_prevod li {border-bottom:1px solid #e0e0e0;height:25px;width:100%;overflow:hidden}
+#right_section .tab_preview .lec_prevod li.ing {background:#ececec}
+#right_section .tab_preview .lec_prevod li a.tt {display:inline-block;margin-left:5px;margin-top:-5px;vertical-align:middle;font-size:11px;text-decoration:none;font-family:'µ¸¿ò',dotum;font-size:11px;color:#636363;width:202px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;text-decoration:none;}
+#right_section .tab_preview .lec_prevod li span {text-align:right;display:inline-block;padding-top:2px}
+
+/* ÀÌº¥Æ®_½Å±Ô°­ÁÂ */
+#right_section .tab_menu_03{width:100%;overflow:hidden;background:url(http://img.megastudy.net/Player/player_2011/k_tabMenu_03.png) no-repeat 0 0;}
+#right_section .tab_menu_03 li{float:left;}
+#right_section .tab_menu_03 li a{display:block;font:1/1 dotum;text-indent:-9999px;z-index:-1px;}
+#right_section .tab_menu_03 li.a a{width:137px;height:32px}
+#right_section .tab_menu_03 li.b a{width:136px;height:32px}
+#right_section .tab_second{ background-position:0 -32px;}
+#right_section .tab_menu_0302{background-position:-136px -32px;}
+
+/* ÇØ¼³°­ÀÇ »çÀÌÁî */
+#right_section .tab_menu_04{width:100%;overflow:hidden;background:url(http://img.megastudy.net/Player/player_2011/k_tabMenu_04.png) no-repeat 0 0;}
+#right_section .tab_menu_04 li{float:left;}
+#right_section .tab_menu_04 li a{display:block;font:1/1 dotum;text-indent:-9999px;z-index:-1px;}
+#right_section .tab_menu_04 li.a a{width:102px;height:32px}
+#right_section .tab_menu_04 li.b a, #right_section .tab_menu_04 li.c a, #right_section .tab_menu_04 li.d a{width:101px;height:32px}
+#right_section .tab_second{ background-position:0 -32px;}
+#right_section .tab_third{ background-position:0 -64px;}
+#right_section .tab_fourth{ background-position:0 -96px;}
+.teachingNote{}
+.teachingNote #player_section{margin-right:415px}
+.teachingNote #player_section .control_area{}
+.teachingNote #player_section .control_area .move{}
+.teachingNote #right_section{ padding-right:6px;}
+.teachingNote #right_section .select_section{text-align:center;height:26px;}
+.teachingNote #right_section .select_section select{width:95px;font:11px/1.3 dotum;color:#666;}
+.teachingNote #right_section{width:416px}
+.teachingNote #right_section .tab_tNote_01{width:383px;height:90%;}
+.teachingNote #right_section .tab_tNote_01 .btns{float:left;padding:12px 0 4px 0;}
+.teachingNote #right_section .tab_tNote_01 .btns img{ cursor:pointer}
+.teachingNote #right_section .tab_tNote_01 table.a{margin:10px 0 0 0;table-layout:fixed;border-collapse:collapse;float:right;width:168px;border-top:1px solid #d6dce8;border-bottom:1px solid #d6dce8;}
+.teachingNote #right_section .tab_tNote_01 table.a th{padding:4px 0 1px 0;width:38px;background:#edf1f8;font:11px/1.3 dotum;color:#1141a7;letter-spacing:-1px;}
+.teachingNote #right_section .tab_tNote_01 table.a td{padding:4px 0 1px 0;text-align:center;font:bold 11px/1.3 dotum;color:#f54d4a;}
+.teachingNote #right_section .tab_tNote_01 .pic{clear:left;padding:10px 0;border-top:2px solid #2963df;border-bottom:1px solid #c1c1c1;margin-bottom:10px;}
+.teachingNote #right_section .tab_tNote_01 .btn{ text-align:right;padding-right:2px;}
+
+.teachingNote #right_section .tab_tNote_02{}
+.teachingNote #right_section .tab_tNote_02{width:383px;height:90%;}
+.teachingNote #right_section .tab_tNote_02 .btns{float:left;padding:12px 0 4px 0;}
+.teachingNote #right_section .tab_tNote_02 .btns img{ cursor:pointer}
+.teachingNote #right_section .tab_tNote_02 .btns_02{float:right;padding:12px 0 4px 0;}
+.teachingNote #right_section .tab_tNote_02 .btns_02 img{ cursor:pointer}
+.teachingNote #right_section .tab_tNote_02 table{clear:left;table-layout:fixed;border-collapse:collapse;border-top:2px solid #2963df;border-bottom:1px solid #c1c1c1;width:365px;}
+.teachingNote #right_section .tab_tNote_02 table th{padding:7px 0 5px 0;background:#f0f0f0;font:11px/1.3 dotum;color:#636363;border-bottom:1px solid #c1c1c1;}
+.teachingNote #right_section .tab_tNote_02 table td{ text-align:center;padding:7px 0 5px 0;font:11px/1.3 dotum;color:#636363;border-top:1px solid #e0e0e0;}
+.teachingNote #right_section .tab_tNote_02 table td.red{ font-weight:bold;color:#f54d4a;}
+.teachingNote #right_section .tab_tNote_02 table td.blue{ font-weight:bold;color:#2c6bd6;}
+.teachingNote #right_section .tab_tNote_02 table tr.first td{ border-top:0;}
+.teachingNote #right_section .tab_tNote_02 table .inp input{ margin-top:-3px;}
+.teachingNote #right_section .tab_tNote_02 table td.num{ font-family:Tahoma;}
+.teachingNote #right_section .tab_tNote_02 table td.num02{ text-align:left;padding-left:5px;}
+.teachingNote #right_section .tab_tNote_02 table td.txt{text-align:left;padding-left:5px;}
+.teachingNote #right_section .tab_tNote_02 table tr.on td{ background:#edf1f8;color:#1141a7;}
+.teachingNote #right_section .tab_tNote_02 table td a{ color:#636363;}
+.teachingNote #right_section .tab_tNote_02 table td.on a{ color:#1141a7;}
+.teachingNote #right_section .tab_content_02{width:383px;height:90%;}
+.teachingNote #right_section .tab_content_02 ul{width:auto;}
+.teachingNote #right_section .tab_content_02 ul li.noData{background-position:122px 50%;}
+.teachingNote #right_section .tab_content_02 ul li.noData p{ padding-left:70px;}
+.teachingNote #right_section .tab_content_03{width:383px;height:90%;}
+.teachingNote #right_section .tab_content_03 ul li{ width:350px;}
+
+/* ÇØ¼³°­ÀÇ_ÇÏ´Ü ½Ç½Ã°£µî±ÞÄÆ */
+#level_cut{float:left;height:145px;}
+#level_cut h2{font:bold 12px/1.3 dotum;color:#8f919a;letter-spacing:-1px;width:702px;margin:20px auto 5px auto;}
+#level_cut h2 strong{ color:#d7dbee;}
+#level_cut h2 span{ font-size:11px;font-weight:normal;}
+#level_cut .table{position:relative;width:702px;margin:0 auto}
+#level_cut .table table{width:100%;table-layout:fixed;border-collapse:collapse;border:1px solid #000;}
+#level_cut .table table thead th{padding:6px 0 4px 0;font:11px/1.3 dotum;color:#8e909c;letter-spacing:-1px;background:#2d2d32;}
+#level_cut .table table tbody th{padding:6px 0 4px 0;font:11px/1.3 dotum;color:#2d2d32;letter-spacing:-1px;background:#ececec;border-bottom:1px solid #d5d5d6;}
+#level_cut .table table tbody td{padding:6px 0 4px 0;font:11px/1.3 dotum;color:#636363;letter-spacing:-1px;background:#ececec;border-bottom:1px solid #d5d5d6;text-align:center;}
+#level_cut .table .txt{padding:7px 6px 0 0;text-align:right;font:11px/1.3 dotum;letter-spacing:-1px;color:#babdc5;}
+#level_cut .table .txt span{ margin-left:10px;}
+#level_cut .table .btn{ position:absolute;right:1px;top:-22px;}
+#level_cut .table .btn img{ vertical-align:middle;cursor:pointer}
+#level_cut .table .btn span img{ cursor::default}
+.teachingNote02 #right_section .tab_content{height:675px}
+
+/* ÀÏ¹ÝÇÃ·¹ÀÌ¾î */
+.normal{margin-right:0;}
+.normal #player_section{ padding-right:6px;background:#45454d;margin-right:0;}
+.normal .control_area{height:95px !important;border-top:1px solid #000;}
+.normal .skip{left:9px !important}
+.normal .move{top:40px !important;margin:0 8px 0 7px;padding-left:28px !important;padding-top:24px !important;background:url(http://img.megastudy.net/Player/player_2011/l_normal.gif) repeat-x 0 0;}
+.normal .move h2{left:0 !important;_left:-31px !important;padding-top:29px !important;}
+.normal .move .txt{ padding-top:5px !important;border:0 !important;background:none !important;text-overflow:ellipsis;overflow:hidden;width:90%;zoom:1;white-space:nowrap;}
+.normal .teacher{position:absolute;left:9px;top:51px;padding-left:28px;}
+.normal .teacher h2{position:absolute;left:0;top:0;;padding:0 7px 0 0;}
+.normal .teacher div{color:#7d808e;font:11px/1.3 dotum;}
+.normal .speed{ left:134px !important}
+.normal .config{right:9px !important}
+.normal .view_size{left:auto !important;right:33px}
+.normal #player_section .control_area_innerBox{height:90px !important;padding:1px;}
+.normal .footer_btns{margin-top:-5px;padding:6px 5px 0 0;text-align:right;font:0/0 arial;}
+.normal .footer_btns img{ margin-left:2px;}
+
+.a_brain{position:absolute;right:7px;top:41px;padding:0 10px;width:251px;background:#fff;z-index:1000;}
+.a_brain h2{padding:14px 0 10px 0;font:0/0 arial;}
+.a_brain .player{ height:94px;background:url(http://img.megastudy.net/Player/player_2011/k_a_brain_01.png) no-repeat 0 0;}
+.a_brain .player .control{padding:17px 0 23px 0;font:0/0 ariral;text-align:center;}
+.a_brain .player .control .play{margin:0 4px 0 4px;}
+.a_brain .player .control img{cursor:pointer}
+.a_brain .player .volume{width:100%;overflow:hidden;}
+.a_brain .player .volume li{float:left;width:49%;}
+.a_brain .player .volume li *{float:left;}
+.a_brain .player .volume li span{ padding:3px 5px 0 9px;}
+.a_brain .player .volume li span.a{ padding-left:30px;}
+.a_brain .player .volume li img{ cursor:pointer}
+.a_brain .player .volume li span img{ cursor:default}
+.a_brain .player .volume li input{width:26px;border:0;border-top:1px solid #d9dae3;border-bottom:1px solid #d9dae3;background:#e4e4e4;text-align:center;font:11px/1.3 Tahoma;color:#606060;}
+.a_brain h3{font:0/0 arial;margin-bottom:9px;padding:20px 0 8px 5px;border-bottom:2px solid #299fdf;}
+.a_brain p{position:relative;width:100%;font:11px/1.5 dotum;color:#636363;}
+.a_brain p img{position:absolute;right:5px;top:-34px;}
+.a_brain p strong{ font-weight:normal;color:#0085cd;}
+.a_brain .btn{ text-align:center;padding:22px 0 0 0;}
+.a_brain .close{ cursor:pointer;position:absolute;right:6px;top:5px;}
+
+.teachingNote .a_brain{width:383px;}
+.teachingNote .a_brain .player{background:url(http://img.megastudy.net/Player/player_2011/k_a_brain_02.png) no-repeat 0 0;}
+.teachingNote .a_brain .player .volume li span.a{ padding-left:96px;}
+.teachingNote .memo{width:402px !important;}
+.teachingNote .question_layer{width:383px !important;}
+.teachingNote .question_layer table{width:383px !important;}
+.teachingNote .question_layer table textarea{width:95% !important}
+.teachingNote .question_layer table td.subject input{ width:80% !important;}
+
+/* Á¾·á¸Þ¼¼Áö */
+.exit_message{position:absolute;left:50%;top:50%;margin:-220px 0 0 -177px;padding:10px;width:334px;border:3px solid #ee2a28;background:#fff;z-index:1000;}
+.exit_message h2{padding:5px 0 9px 5px;font:bold 12px/1.3 dotum;color:#363636;letter-spacing:-1px;}
+.exit_message h2 img{ vertical-align:-6px;margin-right:5px;}
+.exit_message p{padding:11px 13px 5px 13px;border:1px solid #eaeaea;background:#f2f2f2;font:12px/1.5 dotum;color:#707070;letter-spacing:0}
+.exit_message .btn{padding:12px 0 2px 0;text-align:center;}
+
+
+
+
+
+
+

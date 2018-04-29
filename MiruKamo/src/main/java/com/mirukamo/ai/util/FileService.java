@@ -68,6 +68,21 @@ public class FileService {
 			e.printStackTrace();
 		}
 		
+		//exec 메서드를 이용하여 ffmpeg를 실행하기
+		Runtime run = Runtime.getRuntime();
+		String movie_name = uploadPath + "/" + originalFilename;
+		String thumnail = uploadPath + "/" + originalFilename.substring(0, lastIndex);
+		String command = "C:\\ffmpeg\\bin\\ffmpeg.exe -i \""+movie_name+"\" -ss 00:01:00 -vcodec png -vframes 1 \""+thumnail+".png\"";
+	
+		try{
+		    run.exec("cmd.exe chcp 65001");  // cmd에서 한글문제로 썸네일이 만들어지지않을시 cmd창에서 utf-8로 변환하는 명령
+		    run.exec(command);
+		}catch(Exception e){
+		    System.out.println("error : "+e.getMessage());
+		    e.printStackTrace();
+		}	 
+		
+		
 		//return originalFilename + ext;
 		return originalFilename;
 	}
@@ -93,3 +108,4 @@ public class FileService {
 		return result;
 	}
 }
+

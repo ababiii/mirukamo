@@ -68,6 +68,10 @@ public class HomeController {
 		return "test";
 	}
 	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 	
 	
 }

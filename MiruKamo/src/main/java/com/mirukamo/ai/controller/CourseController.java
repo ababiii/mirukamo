@@ -1,6 +1,7 @@
 
 package com.mirukamo.ai.controller;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.logging.Log;
@@ -15,33 +17,45 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mirukamo.ai.dao.CourseDAO;
+import com.mirukamo.ai.dao.DrillDao;
 import com.mirukamo.ai.dao.UsersDAO;
 import com.mirukamo.ai.util.FileService;
 import com.mirukamo.ai.util.MultipartFileSender;
+
 import com.mirukamo.ai.vo.Mirukamo_course;
+import com.mirukamo.ai.vo.Mirukamo_drill;
+
 import com.mirukamo.ai.vo.MyCourse;
+
 import com.mirukamo.ai.vo.Users;
 
 @RequestMapping("course")
 @Controller
+
 public class CourseController {
 	@Resource(name = "uploadPath")
 	String uploadPath;
 
 	@Autowired
+
 	UsersDAO usersDAO;
 	@Autowired
 	CourseDAO courseDAO;
+	@Autowired
+	DrillDao drillDao;
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";
@@ -203,6 +217,7 @@ public class CourseController {
 	    		HttpServletResponse response,HttpServletRequest request, 
 	    		HttpSession session) {
 		 	//name="1.mp4";
+
 		 	String path = "D://video/"+name;
 		 	logger.debug(name+"영상이름");
 	        try {
@@ -214,8 +229,25 @@ public class CourseController {
 	            // TODO Auto-generated catch block
 	            //e.printStackTrace();
 	        }
-	    }*/
-/*	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
+
+	    }
+*/
+	 @ResponseBody
+	 @RequestMapping(value = "updrill", method = RequestMethod.POST)
+		public void updrill(Mirukamo_drill drill,HttpSession session) {
+		 System.out.println("드릴저장?");
+		 System.out.println(drill);
+		//drill.setMember_id((String)session.getAttribute("userId"));
+		drill.setMember_id("abc");
+		
+		
+		drillDao.insertDrill(drill);
+}
+	 
+	 
+	/* 
+
+	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
 		public String videolist1( Model model) {
 		 ArrayList<Mirukamo_course> list=new ArrayList<Mirukamo_course>();
 		 list=courseDAO.selectCourse();

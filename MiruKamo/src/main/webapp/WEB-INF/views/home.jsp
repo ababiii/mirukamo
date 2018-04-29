@@ -87,71 +87,14 @@ recstart();
     .ui-dialog .ui-state-error { padding: .3em; }
     .validateTips { border: 1px solid transparent; padding: 0.3em; }
     .innerPopup {
-  	 z-index: 222222;
+  	 z-index: 22222222222;
 	}
   </style>
-<div id="dialog-form" title="따라해 봅시다" style="z-index: 22222">
- 
-  <form>
-    <fieldset>
-      <label for="content">내용</label>
-      <input type="text" name="content" id="content" value="こんにちは" readonly="readonly" class="text ui-widget-content ui-corner-all">
-      <label for="result">결과</label>
-      <input type="text" name="result" id="result" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
 
-
-    </fieldset>
-  </form>
-</div>
- 
- 
-
-<button id="create-user">시작</button>
- 
-<script>
-$( function() {
-    var dialog, form,
- 
-      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-      content = $( "#content" ),
-      result = $( "#result" ),
-      allFields = $( [] ).add( content ).add( result );
- 
-   
- 
  
  
 
 
- 
-    dialog = $( "#dialog-form" ).dialog({
-      dialogClass: "innerPopup" , 
-      autoOpen: false,
-      height: 330,
-      width: 350,
-      modal: true,
-      buttons: {
-    	  "넘어가기": function() {
-              $( this ).dialog( "close" );
-            }
-      },
-      close: function() {
-    	  audioend();
-    	  videostart();
-      }
-    });
- 
-   
-    $( "#create-user" ).button().on( "click", function() {
-    audiostart();
-    $( "#result" ).val("");
-      dialog.dialog( "open" );
-    });
-    $( "#result" ).on("change", function() {
-    	$( "#dialog-form" ).dialog( "close" );
-      });
-  } );
-</script>
 
   <form action="http://www.example.com/search">
     <textarea id="txt" style="width: auto; height: auto;">
@@ -187,6 +130,7 @@ $( function() {
    <a href="login/find_pw">비밀번호 찾기</a>
    
       <a href="drill"> 형태소 변환 </a>
+
        <a href="servicecenter">고객 센터 </a>	
       <a href="course/videolist"> 영상리스트 </a>
       <a href="course/upload"> 업로드 </a>
@@ -205,6 +149,7 @@ $( function() {
    <a href="myPage/mypage">수정</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
+
     <a href="servicecenter">고객 센터 </a>	
    		
       <a href="drill"> 형태소 변환 </a>
@@ -242,6 +187,7 @@ $( function() {
 <a href="course/video">비디오</a>
 <a href="course/video_sidelist">비디오리스트</a>
 <a href="course/eye_blink_detect">눈</a>
+
 
 <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 <input class="btn" type="button" value="Stop" onclick="stopVideo()" id="startbutton"></input>

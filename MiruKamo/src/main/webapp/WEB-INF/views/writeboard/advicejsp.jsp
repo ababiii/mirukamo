@@ -8,26 +8,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<script type="text/javascript">
 function writeadvice(){
-
-
+return true;
 }
+</script>
 </head>
 <body>
-	<form action="writereviews" method="post" onsubmit="return writeadvice">
+	<form action="writeadvice" method="post" onsubmit="return writeadvice">
 	<table border="3">
 		<tr>
 			<td colspan="2">1대1 문의 글 작성</td>
 		</tr>
 		<tr>
 			<th>아이디</th>
-			<th><input type="text" name="customer_id" id="customer_id"
+			<th><input type="text" name="member_id" id="member_id"
 				readonly="readonly" value="${userId}"></th>
 		</tr>
 
 		<tr>
 			<th>제목</th>
 			<th><input type="text" name="title" id="title"></th>
+		</tr>
+		<tr>
+			<th>문의 사항 분류</th>
+			<th><input type="text" name="category" id="category" value="동영상 재생" readonly="readonly"></th>
 		</tr>
 		<tr>
 			<th colspan="2">

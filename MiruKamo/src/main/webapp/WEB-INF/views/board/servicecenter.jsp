@@ -36,7 +36,11 @@
 	}
 </script>
 </head>
+
+
+
 <body>
+<!--  고객센터 게시판-->
 	총 게시물 : ${howboardadmin}
 	<table border="1">
 		<tr>
@@ -181,6 +185,9 @@
 	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage + 1})">▶</a> &nbsp;&nbsp;
 	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage + navi.pagePerGroup})">▷▷</a>
 
+<<<<<<< HEAD
+
+=======
 <!-- /페이지 이동 끝 -->                      
 
 <br><br>
@@ -192,5 +199,6 @@
 	<c:if test="${userId != null}">
 		<a href="writereviews">수강후기 작성</a>
 	</c:if> 
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </body>
 </html>

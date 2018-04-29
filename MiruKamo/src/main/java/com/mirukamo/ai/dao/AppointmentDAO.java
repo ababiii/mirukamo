@@ -26,6 +26,7 @@ public class AppointmentDAO {
 		ArrayList<MyCourse> list=mapper.getMyCourse(member_id);
 		return list;
 	}
+
 	public Users getMyInfo(String id){
 		AppointmentMapper mapper=sqlSession.getMapper(AppointmentMapper.class);
 		Users result=mapper.getMyInfo(id);

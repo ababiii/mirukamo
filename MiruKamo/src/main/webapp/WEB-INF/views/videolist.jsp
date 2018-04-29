@@ -16,6 +16,7 @@
 	 $('#videolistlogin').submit();
 	 }
 	 }); */
+
 	function signclass(msg) {
 		 alert(msg);
 		 
@@ -93,6 +94,7 @@
 				</c:forEach>
 		</c:if>
 	</table>
+
 
 	<BR>
 	<bR>

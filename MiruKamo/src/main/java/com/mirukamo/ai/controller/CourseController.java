@@ -180,58 +180,12 @@ public class CourseController {
 				System.out.println("도쿄핫 센세 : " + j + "번쨰" + tokyocold.get(j).toString());
 			}
 
-		/*
-		 * for (int i = 0; i <= list.size(); i++) { // 선생님 이름이 쿠로사와 요시코면 전체
-		 * 값이들어있는 배열에서 요시코 선생님 전용 배열에 넣기 if
-		 * (list.get(i).getTeacher().equals("쿠로사와요시코")) {
-		 * yosheko.get(yoshe).setFile_name(list.get(i).getFile_name());
-		 * yosheko.get(yoshe).setLanguages(list.get(i).getLanguages());
-		 * yosheko.get(yoshe).setTeacher(list.get(i).getTeacher());
-		 * yosheko.get(yoshe).setNum(list.get(i).getNum());
-		 * yosheko.get(yoshe).setTitle(list.get(i).getTitle()); yoshe ++;
-		 * //yosheko.add(list.get(i)); } else { // 쿠로사와 요시코 센세이가 아니면, 다른선생님 배열에
-		 * 넣자 tokyohot.add(list.get(i)); } }
-		 */
-		// System.out.println("요시코 베이비 컴온"+yosheko.get(0).toString());
-
-		//model.addAttribute("list", list);
+		
 			return "videolist";
 			
 	}
 	
-/*	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
-	public String video_sidelist() {
 
-	}
-			model.addAttribute("yoshisushi", yoshisushi);
-			model.addAttribute("tokyocold", tokyocold);
-		return "videolist";
-
-		return "video_sidelist";
-
-	}
-	*/
-	
-	/* @RequestMapping(value = "preview", method = RequestMethod.GET)
-	    public void getPreview3(@RequestParam(value="name") String name, 
-	    		HttpServletResponse response,HttpServletRequest request, 
-	    		HttpSession session) {
-		 	//name="1.mp4";
-
-		 	String path = "D://video/"+name;
-		 	logger.debug(name+"영상이름");
-	        try {
-	            MultipartFileSender.fromFile(new File(path))
-	            .with(request)
-	            .with(response)
-	            .serveResource();
-	        } catch (Exception e) {
-	            // TODO Auto-generated catch block
-	            //e.printStackTrace();
-	        }
-
-	    }
-*/
 	 @ResponseBody
 	 @RequestMapping(value = "updrill", method = RequestMethod.POST)
 		public void updrill(Mirukamo_drill drill,HttpSession session) {
@@ -245,16 +199,7 @@ public class CourseController {
 }
 	 
 	 
-	/* 
-
-	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
-		public String videolist1( Model model) {
-		 ArrayList<Mirukamo_course> list=new ArrayList<Mirukamo_course>();
-		 list=courseDAO.selectCourse();
-		 System.out.println(list);
-			model.addAttribute("list",list);
-			return "videolist";
-	 }*/
+	
 
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
 	public String videolist(String name, HttpSession session, Model model) {
@@ -307,16 +252,7 @@ public class CourseController {
 
 		System.out.println("ㅅㅅㄱ : " + course.toString());
 		courseDAO.insertCourse(course);
-		/*
-		 * String savedName = upload.getOriginalFilename();
-		 * 
-		 * File target = new File(uploadPath, savedName);
-		 * 
-		 * // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사 // FileCopyUtils.copy(바이트배열,
-		 * 파일객체) try { FileCopyUtils.copy(upload.getBytes(), target); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
+	
 
 		// ------------송수근
 		ArrayList<Mirukamo_course> mirucourse = new ArrayList<Mirukamo_course>();

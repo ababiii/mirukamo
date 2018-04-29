@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mirukamo.ai.dao.ServiceCenterDao;
+import com.mirukamo.ai.vo.Mirukamo_answer;
 import com.mirukamo.ai.vo.PageNavigator;
 import com.mirukamo.ai.vo.mirukamo_question;
 import com.mirukamo.ai.vo.mirukamo_reviews;
@@ -176,4 +178,32 @@ public class ServiceCenterController {
 		return "writeboard/advicejsp";
 	}
 	////////////////////
+	//1:1문의 리스트 관리자 시점
+		@RequestMapping(value = "/advicelist", method = RequestMethod.GET)
+		public String advicelist(Model m,@RequestParam(value = "page", defaultValue = "1") int page) {
+			int total = 0;
+			total = servicecenterdao.totalQuestion();
+			PageNavigator navi1 = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			m.addAttribute("navi1", navi1);
+			ArrayList<mirukamo_question> list=servicecenterdao.selectQuestion(
+					navi1.getStartRecord(), navi1.getCountPerPage());
+			m.addAttribute("list",list);
+			return "writeboard/advicelist";
+		}
+		//1:1문의 답변 작성 관리자 시점
+				@RequestMapping(value = "/replyadvice", method = RequestMethod.GET)
+				public String replyadvice(int num,Model m) {
+					ArrayList<mirukamo_question> a=servicecenterdao.adminNotice(num);
+					m.addAttribute("copy",a);
+					return "writeboard/advicereply";
+				}
+				//1:1문의 답변 전송 관리자 시점
+				@RequestMapping(value = "/replyadvice", method = RequestMethod.POST)
+				public String replyadvice(Mirukamo_answer ans) {
+					int a=servicecenterdao.insertAnswer(ans);
+					return "redirect:advicelist";
+				}
+	
+	
+	
 }

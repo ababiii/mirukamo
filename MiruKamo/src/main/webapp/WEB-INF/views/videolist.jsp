@@ -63,11 +63,11 @@
 	<table border="1">
 		<tr>
 			<td>번호</td>
+			<td>썸네일</td>
 			<td>제목</td>
 			<td>선생님</td>
 			<td>언어</td>
 			<td>파일명</td>
-			<td>썸네일</td>
 			<td></td>
 		</tr>
 		<c:if test="${yoshisushi == null || yoshisushi == '' }">
@@ -76,19 +76,21 @@
 			</tr>
 		</c:if>
 		<c:if test="${yoshisushi != null || yoshisushi != '' }">
-			<form action="videolist" method="POST">
 				<c:forEach items="${yoshisushi}" var="a" varStatus="ppap">
+			<form action="videolist" method="POST">
+				<input type="hidden" name="name" value="${a.file_name}">
 					<tr>
 						<td>${ppap.count}</td>
+						<td><img src="../resources/images/${a.thumnail}" style="width: 100px; height: auto;"></td>
 						<td>${a.title}</td>
 						<td>${a.teacher}</td>
 						<td>${a.languages}</td>
 						<td>${a.file_name}</td>
-						<td>${a.thumnail}</td>
+						
 						<td><input type="submit" value="선택"></td>
 					</tr>
-				</c:forEach>
 			</form>
+				</c:forEach>
 		</c:if>
 	</table>
 
@@ -109,11 +111,11 @@
 		<table border="1">
 			<tr>
 				<td>번호</td>
+				<td>썸네일</td>
 				<td>제목</td>
 				<td>선생님</td>
 				<td>언어</td>
 				<td>파일명</td>
-				<td>썸네일</td>
 				<td></td>
 			</tr>
 			<c:if test="${tokyocold == null || tokyocold == '' }">
@@ -122,20 +124,20 @@
 				</tr>
 			</c:if>
 			<c:if test="${tokyocold != null || tokyocold != '' }">
-				<form action="videolist" method="POST">
 					<c:forEach items="${tokyocold}" var="b" varStatus="PPAP">
+				<form action="videolist" method="POST">
 						<input type="hidden" name="name" value="${a.file_name}">
 						<tr>
 							<td>${PPAP.count}</td>
+							<td>${b.thumnail}</td>
 							<td>${b.title}</td>
 							<td>${b.teacher}</td>
 							<td>${b.languages}</td>
 							<td>${b.file_name}</td>
-							<td>${b.thumnail}</td>
 							<td><input type="submit" value="선택"></td>
 						</tr>
-					</c:forEach>
 				</form>
+					</c:forEach>
 			</c:if>
 		</table>
 	</c:if>

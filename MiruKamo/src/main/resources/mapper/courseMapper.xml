@@ -20,7 +20,6 @@
 		,teacher
 		,languages
 		,file_name
-		,thumnail
 		)
 		values (
 		mirukamo_course_seq.nextval
@@ -29,7 +28,6 @@
 		,#{teacher}
 		,#{languages}
 		,#{file_name}
-		,#{thumnail}
 		)
 	</insert>
 

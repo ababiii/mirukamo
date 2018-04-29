@@ -23,6 +23,17 @@ public class Users {
 		this.birth = birth;
 		this.phone = phone;
 	}
+	
+	
+	public Users(String id, String password, String name, String email, String email2, String phone) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.email2 = email2;
+		this.phone = phone;
+	}
 	public String getId() {
 		return id;
 	}

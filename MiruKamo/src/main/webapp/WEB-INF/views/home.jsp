@@ -7,6 +7,7 @@
 <head>
 <style type="text/css">
 body {
+
    /*  background-color: coral; */ 
 }
 /* The side navigation menu */
@@ -62,11 +63,16 @@ body {
 	<title>홈 페이지</title>
 </head>
 <body>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+
+<jsp:include page="menu.jsp" flush="true"/>
+<script src="resources/jQuery/jquery-ui.js"></script>
+
+
 <span onclick="openNav()"><img src="resources/images/menu.png" height="50px" width="50px"></span>
 <a href="./"><img src="resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <!-- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
-<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
-<script src="resources/jQuery/jquery-ui.js"></script>
+
 
 <script src="resources/recognition.js"></script>
 
@@ -188,7 +194,7 @@ $( function() {
   
   <a href="login/logout">로그아웃</a>
   <a href="myPage">마이페이지</a>
-   <a href="myPage/mypage">수정</a>
+   <a href="myPage/myUpdate">수정</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
 
@@ -226,6 +232,7 @@ $( function() {
 <a href="course/face5">얼굴5</a>
 <a href="course/face6">얼굴6</a>
 <a href="course/face7">얼굴7</a>
+<a href="course/lecture_page">강의 페이지</a>
 <a href="course/video">비디오</a>
 <a href="course/video_sidelist">비디오리스트</a>
 <a href="course/eye_blink_detect">눈</a>
@@ -254,8 +261,5 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-
-
-
 </body>
 </html>

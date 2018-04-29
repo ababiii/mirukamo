@@ -49,8 +49,6 @@ public class DrillController {
 
 		String userId = (String) session.getAttribute("userId");
 		ArrayList<Mirukamo_drill> getDrill = drilldao.getword(userId);
-
-
 		// 섞기
 		// Collections.shuffle(getDrill);
 
@@ -59,17 +57,14 @@ public class DrillController {
 			noun[i] = getDrill.get(i).getOriginal_word();
 			System.out.println("문제" + i + "번쨰  :  " + noun[i]);
 		}
-
 		ArrayList<Mirukamo_drill> word = new ArrayList<Mirukamo_drill>();
 		word = drilldao.word();
-
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		Tokenizer tokenizer = Tokenizer.builder().build();
 
 		List<Token> tokens = null;
-
 		// 단어 5개 토큰 삽입
 		for (int i = 0; i <= 4; i++) {
 			tokens = tokenizer.tokenize(getDrill.get(i).getOriginal_word());

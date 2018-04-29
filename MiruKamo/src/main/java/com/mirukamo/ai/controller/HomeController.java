@@ -29,7 +29,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model,boolean joinComplete) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 	/*	//ㅈ석
 		Date date = new Date();
@@ -73,9 +73,17 @@ public class HomeController {
 			System.out.println(i);
 			}
 		
-		return "test";
+		if(joinComplete==true){
+			model.addAttribute("joinComplete", true);
+		}
+		
+		return "home";
 	}
 	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 	public void hatuon(String qqq[]){
 		
 		
@@ -83,8 +91,6 @@ public class HomeController {
 		String result = transliterator.transliterate(qqq[0]);
 		qqq[0] = result;
 		System.out.println("이중배열 정답" + qqq[0]);
-	
-	
 		Transliterator transliterator2 = Transliterator.getInstance("Hiragana-Latin");
 		String result2 = transliterator2.transliterate(qqq[0]);
 		qqq[0] = result2;

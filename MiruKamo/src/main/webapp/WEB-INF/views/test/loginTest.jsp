@@ -158,7 +158,7 @@ function lab_tracking(depth){
 									<div class="wrap_bt">
 									
 										<a href="/?s=find" class="bt_find">アイディー/パスワードを探す</a>
-										<a href="/?s=join" class="bt_st1 bt_join"><span class="txt_pc">会員加入</span><span class="txt_mobile">회원가입</span></a>
+										<a href="appointment" class="bt_st1 bt_join"><span class="txt_pc">会員加入</span><span class="txt_mobile">회원가입</span></a>
 									<br><br>${errorMsg}<br><br><br>
 									</div>
 								</div></div><!--/ login_box -->

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,6 +38,13 @@
 <script type="text/javascript" src="resources/jQuery/imgLiquid-min.js"></script>
 <script type="text/javascript" src="resources/jQuery/main.js?1524476367"></script>
 <script language="javascript" src="https://pgweb.uplus.co.kr/WEB_SERVER/js/escrowValid.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	if(${joinComplete==true}){
+		alert('会員加入を完了しました。');
+	}
+});
+</script>
 </head>
 <body class="main">
 
@@ -52,10 +62,11 @@
 			<a href="http://www.rankey.com/rank/cert/cert_pop.php?mark_no=20180402-B001" target="_blank"><!-- <img src="http://data.siwonschool.com/banner/img/japan/2018/04/05/bimg_src_1522901610.png" alt="2017년 9월 기준 랭키닷컴" /> --></a>		</div>
 		<div class="util_box">
 			<ul class="util1">
-									<li><a href="login/login" onclick="loginChk();">ログイン</a></li>
-									<li><a href="login">ログイン</a></li>
-					<li><a href="https://member.siwonschool.com/?s=join">会員加入</a></li>					
-								<li><a href="course/upload">お問い合わせ</a></li>
+									<c:if test="${userId==null}"><li><a href="login">ログイン</a></li>
+					<li><a href="appointment">会員加入</a></li></c:if>	
+					<c:if test="${userId!=null}"><li>${userId}さん、こんにちは。</li>
+					<li><a href="login/logout">ログアウト</a></li></c:if>				
+								<li><a href="appointment">お問い合わせ</a></li>
 			</ul>
 			<ul class="util2">
 									<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li> -->
@@ -325,7 +336,7 @@
 			[D] : 개발필요
 				 클릭 시 지금과 동일하게 신규회원유무 확인 후 자동쿠폰발급 (/module/sementic/header.html 참고)
 			<li><a href="javascript:;" onClick="evt_act()"><img src="//img.siwonschool.com/japan/main/quick_ban01.jpg" alt="회원가입만 해도 전 강좌 무료 수강권 증정!" /></a></li>
-		</ul>
+		</ul>	
 		<ul class="quick q2">
 			<li><a href="http://japan.siwonschool.com/?s=event&p=161020" onClick="FnUpdateRightBanner('4040');" target="_blank"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521450741.jpg" alt="고독학도서쿠폰등록" /></a></li>			<ul class="sl">
 			<li><a href="http://japan.siwonschool.com/?s=event&p=sdcard" onClick="FnUpdateRightBanner('4042');" target="_blank"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/16/bimg_src_1521190992.jpg" alt="일본어마스터팩" /></a></li><li><a href="https://www.siwonschool.com/?s=event&t=160318" onClick="FnUpdateRightBanner('4087');" target="_blank"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521450778.jpg" alt="암기고래" /></a></li>			</ul>

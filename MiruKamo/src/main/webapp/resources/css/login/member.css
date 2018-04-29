@@ -7,11 +7,11 @@
 #siwon_container .tab_subject.w2{margin:0 329px}
 #siwon_container .tab_subject.w2 li{width:50%;background:none}
 #siwon_container .tab_subject.w2 li.on{background:none}
-#siwon_container .tab_subject.w4{margin:0 160px}
+#siwon_container .tab_subject.w4{margin:0 0px;margin-left: 197px;}
 #siwon_container .tab_subject.w4 li{width:25%}
 #siwon_container .tab_subject.mg{padding-top:22px}
 #siwon_container .tab_subject li{float:left;padding-bottom:19px;background:url(//img.siwonschool.com/member/comm/arw_off.png) no-repeat right top;font-weight:normal;color:#999}
-#siwon_container .tab_subject li.on{border-bottom:2px solid #6db3f2;background:url(//img.siwonschool.com/member/comm/arw_on.png) no-repeat right top;font-weight:bold;color:#333}
+#siwon_container .tab_subject li.on{border-bottom:2px solid #6db3f2;background:url(//img.siwonschool.com/member/comm/arw_on.png) no-repeat right top;font-weight:bold;color:#333;}
 #siwon_container .tab_subject li.lst{background:none}
 #siwon_container .tab_subject li a{text-decoration:none;color:#999}
 #siwon_container .tab_subject li.on a{color:#333}

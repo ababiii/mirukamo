@@ -59,12 +59,12 @@ public class UserLoginController {
 			model.addAttribute("errorMsg", msg);
 			return "users/login";
 		} else if (result == null) {
-			String msg = "존재하지 않는 아이디입니다.";
+			String msg = "IDを正しく入力してください。";
 			model.addAttribute("setId", users.getId());
 			model.addAttribute("errorMsg", msg);
 			return "redirect:/login";
 		} else if (!result.getPassword().equals(users.getPassword())) {
-			String msg = "비밀번호가 다릅니다.";
+			String msg = "PASSWORDを正しく入力してください。";
 			model.addAttribute("setId", users.getId());
 			model.addAttribute("errorMsg", msg);
 			return "redirect:/login";
@@ -172,10 +172,6 @@ public class UserLoginController {
 		
 		return "eye_blink_detect";
 	}
-	
-	
-	
-	
 	
 
 	    public void getPreview3(@RequestParam(value="name") String name, HttpServletResponse response,HttpServletRequest request,HttpSession session) {

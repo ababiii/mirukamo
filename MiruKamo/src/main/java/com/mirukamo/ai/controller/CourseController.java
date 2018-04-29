@@ -1,4 +1,3 @@
-
 package com.mirukamo.ai.controller;
 
 import java.io.File;
@@ -143,8 +142,7 @@ public class CourseController {
 		try {
 			MultipartFileSender.fromFile(new File(path)).with(request).with(response).serveResource();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+	
 		}
 	}
 
@@ -156,11 +154,6 @@ public class CourseController {
 		list = courseDAO.selectCourse();
 		System.out.println("코스 전체 가져오기 : " + list);
 
-		/*
-		 * ArrayList<Mirukamo_course> yoshisushi = new
-		 * ArrayList<Mirukamo_course>(); ArrayList<Mirukamo_course> tokyocold =
-		 * new ArrayList<Mirukamo_course>();
-		 */
 
 		ArrayList<Mirukamo_course> callmebaby = new ArrayList<Mirukamo_course>();
 
@@ -193,22 +186,7 @@ public class CourseController {
 			  }
 		  }
 		model.addAttribute("callmebaby", callmebaby);
-		// 아이디로 마이코스 검색
-		/*
-		 * for (int i = 0; i < plz.size(); i++) { // 마이코스와 아이코 선생 강의 비교 if
-		 * (plz.get(i).getPackagename().equals(yoshisushi.get(0).getPackagename(
-		 * ))) { System.out.println("마이코스에 이미 강의가 있는 경우");
-		 * model.addAttribute("iamnotyoshiko", plz.get(i).getTeacher()); } //
-		 * 박수진 선생님과 강의 비교 if
-		 * (plz.get(i).getPackagename().equals(tokyocold.get(0).getPackagename()
-		 * )) { System.out.println("마이코스에 이미 강의가 있는 경우");
-		 * model.addAttribute("iamnotkimsujin", plz.get(0).getTeacher()); } }
-		 */
 
-		/*
-		 * model.addAttribute("yoshisushi", yoshisushi);
-		 * model.addAttribute("tokyocold", tokyocold);
-		 */
 		return "videolist" ;
 	}
 
@@ -223,14 +201,6 @@ public class CourseController {
 		drillDao.insertDrill(drill);
 	}
 
-	/*
-	 * 
-	 * @RequestMapping(value = "/videolist", method = RequestMethod.GET) public
-	 * String videolist1( Model model) { ArrayList<Mirukamo_course> list=new
-	 * ArrayList<Mirukamo_course>(); list=courseDAO.selectCourse();
-	 * System.out.println(list); model.addAttribute("list",list); return
-	 * "videolist"; }
-	 */
 
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
 	public String videolist(String name, HttpSession session, Model model) {
@@ -259,16 +229,6 @@ public class CourseController {
 			numstring.add(num);
 		}
 
-		/*
-		 * for (int i = 0; i < numstring.size(); i++) {
-		 * System.out.println("##### 코스11111111111" + numstring.get(i)); int
-		 * posernum = Integer.parseInt(numstring.get(i));
-		 * comesensei.get(i).setNum(posernum); }
-		 * 
-		 * for (int i = 0; i < comesensei.size(); i++) {
-		 * System.out.println("##### 코스22222222222" +
-		 * comesensei.get(i).toString()); }
-		 */
 		model.addAttribute("comesensei", comesensei);
 		return "uploadForm";
 	}
@@ -278,22 +238,13 @@ public class CourseController {
 	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
 		System.out.println("들어오냐?");
 		System.out.println(upload.getOriginalFilename());
-		String savedfile = FileService.saveFile(upload, uploadPath);
-		course.setFile_name(savedfile);
+	
+	/*	String savedfile = FileService.saveFile(upload, uploadPath);
+		course.setFile_name(savedfile);*/
 
 		System.out.println("ㅅㅅㄱ : " + course.toString());
 		courseDAO.insertCourse(course);
-		/*
-		 * String savedName = upload.getOriginalFilename();
-		 * 
-		 * File target = new File(uploadPath, savedName);
-		 * 
-		 * // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사 // FileCopyUtils.copy(바이트배열,
-		 * 파일객체) try { FileCopyUtils.copy(upload.getBytes(), target); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-
+	
 		// ------------송수근
 		ArrayList<Mirukamo_course> mirucourse = new ArrayList<Mirukamo_course>();
 

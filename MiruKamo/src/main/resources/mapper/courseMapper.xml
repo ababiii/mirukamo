@@ -62,15 +62,6 @@
 	<select id="mirucourse" resultType="Course">
 		select * from mirukamo_course
 	</select>
-	<!-- <insert id="mysensei" parameterType="MyCourse"> <insert id="insertCourse" 
-		parameterType="Course"> insert into mirukamo_course ( num ,title ,teacher 
-		,languages ,file_name ,thumnail ) values ( mirukamo_course_seq.nextval ,#{title} 
-		,#{teacher} ,#{languages} ,#{file_name} ,#{thumnail} ) </insert> <insert 
-		id="mysensei" parameterType="MyCourse"> insert into mirukamo_mycourse (num 
-		,packagename ,member_id ,teacher) values (mirukamo_mycourse_seq.nextval , 
-		,#{member_id} ,#{teacher} )
-		 </insert> -->
-	
 	
 	<!-- 수강 신청 -> 값 가져오기 -->
 	<select id="yoursenseicours" resultType="Course" parameterType="int">

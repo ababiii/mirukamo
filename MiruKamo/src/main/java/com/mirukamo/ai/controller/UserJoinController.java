@@ -30,18 +30,22 @@ public class UserJoinController {
 	private static final Logger logger = LoggerFactory.getLogger(UserJoinController.class);
 	
 	@RequestMapping(value = "/joinForm", method = RequestMethod.POST)
-	public String join(Model model,boolean ok1,boolean ok2,boolean fromAppointment) {
-		logger.debug(ok1+","+ok2+","+fromAppointment);
-		if(ok1==false||ok2==false||fromAppointment==false){
+	public String join(Model model,String ck_agree,String ck_agree_charge,String ck_poliy) {
+		logger.debug(ck_agree+","+ck_agree_charge+","+ck_poliy);
+		if(!ck_agree.equals("Y")||!ck_agree_charge.equals("Y")||!ck_poliy.equals("Y")){
 			model.addAttribute("error", true);
 			return "redirect:../appointment";
 		}
-		return "users/join";
+		return "test/join2";
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(Users users, Model model) {
-		
+	public String join(String third,String usrid,String usrpw,String uname, String phone1,String phone2,String phone3
+			,String email_id,String email_back, Model model) {
+		if(!third.equals("Y")){
+			return "redirect:/";
+		}
+		Users users=new Users(usrid,usrpw,uname,email_id,email_back,phone1+"-"+phone2+"-"+phone3);
 		/*UsersValidator uv = new UsersValidator(); 
 		String msg = uv.validate(users);
 		if(msg!=null){
@@ -50,8 +54,8 @@ public class UserJoinController {
 			return "users/join";
 		}*/
 		usersDAO.insertUser(users);
-		model.addAttribute("id", users.getId());
-		return "users/joinSuccessPage";
+		model.addAttribute("joinComplete", true);
+		return "redirect:/";
 	}
 /*	
 	아이디 중복확인
@@ -100,10 +104,14 @@ public class UserJoinController {
 	@ResponseBody
 	@RequestMapping(value = "/userRegisterCheck", method = RequestMethod.POST)
 	public int userRegisterCheck(String userId, Users user,HttpSession session) {
-		System.out.println("회원가입 체크");
+		if(userId.length()<6){
+			return 2;
+		}
+		if(userId.length()>12){
+			return 3;
+		}
 		user = usersDAO.selectUser(userId);
 		if(user!=null){
-			session.setAttribute("toID", user.getId());
 			//사용할 수 없는 아이디일 경우 0을 return 하고 
 			return 0;
 		}
@@ -118,10 +126,10 @@ public class UserJoinController {
 		Users result=usersDAO.selectEmail(user);
 		
 		if(result!=null){
-			 
+			
 			return 0;
 		}
-		//사용할 수 있는 이메일일 경우 1을 return
+		//사용할 수 있는 이메일일 경우1을 return
 		return 1;
 	}
 	

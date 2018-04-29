@@ -300,12 +300,10 @@
 					<!-- 2개일 경우 -->
 					<!--div class="tab__common tab__ot tab__3ea"-->
 					<!-- 3개일 경우 -->
-					<div class="tab__common tab__ot tab__2ea">
+					<div class="tab__common tab__ot tab__1ea">
 						<!-- 4개일 경우 -->
 						<div class="tab__inner">
 							<a href="#_blank" acd="preview" onmousedown="try{logerClickTrace('EVT','/플레이어/OT맛보기/강좌맛보기');}catch(e){}" class="">강좌 맛보기</a> 
-								<a href="#_blank" acd="tecinfo"
-								onmousedown="try{logerClickTrace('EVT','/플레이어/OT맛보기/선생님소식');}catch(e){}"
 								class="on">선생님 소식</a>
 						</div>
 					</div>

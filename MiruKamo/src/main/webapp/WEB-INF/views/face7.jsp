@@ -124,8 +124,7 @@ var settings = {
     threshold: 80,
     minCorrelation: 0.17,
 };
-var d = new Date();
-var n = d.getSeconds();
+
 
 function init() {
     content = document.getElementById('content');
@@ -298,13 +297,17 @@ function correlation() {
     
      document.addEventListener("clmtrackrConverged", function() {
     	 if (count<200) {
-    			myTime();
+    			var d = new Date();
+    			var n = d.getSeconds();
+    		    	if(n==5){
+    		        	 pauseVid();
+    		        	 alert("dddd");
+    		        	  n=0;
+    		    	}	
     	 }else{
-    		 myTime = function(){
     				return false;
     	 }
-    	 }
-     });	
+    	 });	
    
 
     currentCorrelation = count / (cContext.canvas.width * cContext.canvas.height);
@@ -328,20 +331,8 @@ function pauseVid() {
     myvid.pause(); 
 }
 
-//얼굴이 없으면 영상이 멈추기
+//얼굴이 없으면 영상이 멈추기 **완료
 document.addEventListener("clmtrackrLost", pauseVid);
-
-//눈을 감은지 일정 시간이 지나면 동영상을 멈춰주도록 한다.
-function myTime() {
-    console.log(n);
-    	if(n==5){
-    		
-        	 pauseVid();
-        	 alert("dddd");
-        	  n=0;
-    	}	
-}	
-
 init();
 </script>
 

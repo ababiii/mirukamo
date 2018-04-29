@@ -177,6 +177,7 @@ h1, h2, h3 {
           <button name="Submit" type="submit" value="회원가입" class="btn btn-primary" onclick="formCheck()">회원가입</button>
           </div>
         </div>
+        
       </form>
     </div>
 </div>

@@ -15,7 +15,7 @@
 	,email2
 	,name
 	,phone
-	,birth
+	
 	)
 	values (
 	#{id},
@@ -23,8 +23,8 @@
 	#{email},
 	#{email2},
 	#{name},
-	#{phone},
-	#{birth}
+	#{phone}
+	
 	) 
 	</insert>
 	

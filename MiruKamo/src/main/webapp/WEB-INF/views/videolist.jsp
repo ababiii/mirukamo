@@ -11,33 +11,44 @@
 <script src="../resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
 	/* 수강신청 펑션 */
-	/* $(document).ready(function(){
+	$(document).ready(function(){
+		
+		
+	/* 	
 	 if (${userId == null}) {
 	 $('#videolistlogin').submit();
 	 }
 	 }); */
+	
+	
 	function signclass(msg) {
-		 alert(msg);
-		 
-		 //json 파싱
-		 //contentType: "application/json", 
+		alert(msg);
+		//json 파싱
+		//contentType: "application/json", 
 		$.ajax({
 			url : 'signclass',
 			type : 'POST',
-			contentType: "application/json",
+			dataType : "text",
 			data : {
 				msg : msg
 			},
 			success : function(e) {
-				alert("수강신청 성공 :" + e);
-		
-				//	$("#signid").val("수강 완료");
-				/* var singid = document.getElementById("signid");
-				singid.value = "수강중 "; */
-
+				if (e == 0) {
+					alert("수강 실패");
+				}
+				else if (e == 1) {
+					alert("수강 성공");
+					var singid = document.getElementById("signid");
+					singid.value = "수강중 ";
+				}
+				else if (e == 3) {
+					alert("이미 수강한 강의");
+					var singid = document.getElementById("signid");
+					singid.value = "수강중 ";
+				}
 			},
 			error : function(e) {
-				alert("신청 실패");
+				alert("신청 오류");
 			}
 		});
 	}
@@ -55,14 +66,30 @@
 	</c:if>
 
 	<!-- 수강 신청 버튼-->
-	${yoshisushi.get(0).teacher} 선생님과 함께 기초 실력을 다지세요!
 	<c:if test="${userId != null}">
-		<input type="button" onclick="signclass()" value="수강 신청" id="signid">
+	${yoshisushi.get(0).teacher} 선생님과 함께 기초 실력을 다지세요!
+		<input type="button" onclick="signclass('${tokyocold.get(0).num}')" value="수강 신청" id="signid">
 		<input type="hidden" name="signid" id="signid" value="${yoshisushi}">
 	</c:if>
 	<table border="1">
 		<tr>
-			<td>번호</td>
+
+	<!-- //------------------------------- -->
+		
+		<!-- 수강 신청 버튼-->
+	<%--
+	 <c:if test="${userId != null}">
+	${yoshisushi.get(0).teacher} 선생님과 함께 기초 실력을 다지세요!
+		<c:if test="${POP != null}"><br> 현재 강의를 수강 중이십니다.</c:if>
+		<c:if test="${POP == null}">
+			<input type="button" onclick="signclass('${tokyocold.get(0).num}')" value="수강 신청" id="signid">
+			<input type="hidden" name="signid" id="signid" value="${tokyocold}">
+		</c:if>
+		<table border="1">
+			<tr>	
+		 --%>
+	<!-- 	//-------------------------------
+	 -->		<td>번호</td>
 			<td>제목</td>
 			<td>선생님</td>
 			<td>언어</td>
@@ -101,11 +128,12 @@
 	<!-- 수강 신청 버튼-->
 	<c:if test="${userId != null}">
 	중급 회화는 나에게!, ${tokyocold.get(0).teacher}선생님과 현지에서 쓰이는 일본 회화를!
-		<input type="button" onclick="signclass('${tokyocold}')" value="수강 신청"
-			id="signid">
-		<input type="hidden" name="signid" id="signid" value="${tokyocold}">
-	</c:if>
-	<c:if test="${userId != null}">
+		<c:if test="${POP != null}"><br> 현재 강의를 수강 중이십니다.</c:if>
+		<c:if test="${POP == null}">
+			<input type="button" onclick="signclass('${tokyocold.get(0).num}')"
+				value="수강 신청" id="signid">
+			<input type="hidden" name="signid" id="signid" value="${tokyocold}">
+		</c:if>
 		<table border="1">
 			<tr>
 				<td>번호</td>

@@ -117,12 +117,6 @@ $( function() {
       result = $( "#result" ),
       allFields = $( [] ).add( content ).add( result );
  
-   
- 
- 
- 
-
-
  
     dialog = $( "#dialog-form" ).dialog({
       dialogClass: "innerPopup" , 

@@ -40,6 +40,7 @@ public class CourseController {
 
 	@Autowired
 	UsersDAO usersDAO;
+
 	@Autowired
 	CourseDAO courseDAO;
 
@@ -81,13 +82,12 @@ public class CourseController {
 
 		return "face6";
 	}
-	
+
 	@RequestMapping(value = "/face7", method = RequestMethod.GET)
 	public String face7() {
-		
+
 		return "face7";
 	}
-	
 
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
 	public String video() {
@@ -114,23 +114,46 @@ public class CourseController {
 			// e.printStackTrace();
 		}
 	}
-
+							
 	@RequestMapping(value = "/videolist", method = RequestMethod.GET)
-	public String videolist1(Model model) {
-
-		// 요시코 선생님만 들어갈 배열
-		ArrayList<Mirukamo_course> yosheko = new ArrayList<Mirukamo_course>();
+	public String videolist1(Model model, HttpSession session) {
 		
-		// 도쿄핫(예명) 선생님만 들어갈 배열
-		ArrayList<Mirukamo_course> tokyohot = new ArrayList<Mirukamo_course>();
+		// 모든 선생님 강의 다 가져오기
+		ArrayList<Mirukamo_course> CcC = new ArrayList<Mirukamo_course>();
+		CcC = courseDAO.mirucourse();
+		System.out.println("르가르손 수근 잘 ㄱㅏ즈아" + CcC.toString());
 
+		// 아이디로 마이코스 검색
+		String member_id = (String) session.getAttribute("userId");
+		ArrayList<MyCourse> plz = new ArrayList<MyCourse>();
+		plz = courseDAO.myc(member_id);
+
+		System.out.println("plz : " + plz.toString());
+
+		// 마이 수강코스에 아무것도 없는 경우 -> 추가
+		if (plz.size() == 0) {
+			System.out.println("상요자 이름 강의 하나두 없음");
+		}
+		// 마이 수강코스에 무언가 있는 경우 -> 해당 페키지 이름이 있으면 수강 신청불가(이미있으니까)
+		else {
+			for (int i = 0; i < plz.size(); i++) {
+				for (int j = 0; j < CcC.size(); j++) {
+					if (plz.get(i).getPackagename().equals(CcC.get(j).getPackagename())) {
+						System.out.println("마이코스에 이미 강의가 있는 경우");
+						//현재 강의를 수강중입니다 
+						model.addAttribute("POP", plz.get(i).getPackagename());
+					}
+				}
+			}
+		}
+		
 		ArrayList<Mirukamo_course> list = new ArrayList<Mirukamo_course>();
 		list = courseDAO.selectCourse();
 		System.out.println("코스 전체 가져오기 : " + list);
 
 		ArrayList<Mirukamo_course> yoshisushi = new ArrayList<Mirukamo_course>();
 		ArrayList<Mirukamo_course> tokyocold = new ArrayList<Mirukamo_course>();
-		
+
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getTeacher().equals("요시코")) {
 				yoshisushi.add(list.get(i));
@@ -138,15 +161,15 @@ public class CourseController {
 				tokyocold.add(list.get(i));
 			}
 		}
-			for (int j = 0; j < yoshisushi.size(); j++) {
-				System.out.println("요시코 센세 : " + j + "번쨰" + yoshisushi.get(j).toString());
-			}
+		for (int j = 0; j < yoshisushi.size(); j++) {
+			System.out.println("요시코 센세 : " + j + "번쨰" + yoshisushi.get(j).toString());
+		}
 
-			model.addAttribute("yoshisushi", yoshisushi);
-			
-			for (int j = 0; j < tokyocold.size(); j++) {
-				System.out.println("도쿄핫 센세 : " + j + "번쨰" + tokyocold.get(j).toString());
-			}
+		model.addAttribute("yoshisushi", yoshisushi);
+
+		for (int j = 0; j < tokyocold.size(); j++) {
+			System.out.println("도쿄핫 센세 : " + j + "번쨰" + tokyocold.get(j).toString());
+		}
 
 		/*
 		 * for (int i = 0; i <= list.size(); i++) { // 선생님 이름이 쿠로사와 요시코면 전체
@@ -162,49 +185,43 @@ public class CourseController {
 		 */
 		// System.out.println("요시코 베이비 컴온"+yosheko.get(0).toString());
 
-		//model.addAttribute("list", list);
-			return "videolist";
-			
-	}
-	
-/*	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
-	public String video_sidelist() {
+		// model.addAttribute("list", list);
 
-	}
-			model.addAttribute("yoshisushi", yoshisushi);
-			model.addAttribute("tokyocold", tokyocold);
+		model.addAttribute("yoshisushi", yoshisushi);
+		model.addAttribute("tokyocold", tokyocold);
+
 		return "videolist";
-
-		return "video_sidelist";
-
 	}
-	*/
-	
-	/* @RequestMapping(value = "preview", method = RequestMethod.GET)
-	    public void getPreview3(@RequestParam(value="name") String name, 
-	    		HttpServletResponse response,HttpServletRequest request, 
-	    		HttpSession session) {
-		 	//name="1.mp4";
-		 	String path = "D://video/"+name;
-		 	logger.debug(name+"영상이름");
-	        try {
-	            MultipartFileSender.fromFile(new File(path))
-	            .with(request)
-	            .with(response)
-	            .serveResource();
-	        } catch (Exception e) {
-	            // TODO Auto-generated catch block
-	            //e.printStackTrace();
-	        }
-	    }*/
-/*	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
-		public String videolist1( Model model) {
-		 ArrayList<Mirukamo_course> list=new ArrayList<Mirukamo_course>();
-		 list=courseDAO.selectCourse();
-		 System.out.println(list);
-			model.addAttribute("list",list);
-			return "videolist";
-	 }*/
+
+	/*
+	 * @RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
+	 * public String video_sidelist() {
+	 * 
+	 * } model.addAttribute("yoshisushi", yoshisushi);
+	 * model.addAttribute("tokyocold", tokyocold); return "videolist";
+	 * 
+	 * return "video_sidelist";
+	 * 
+	 * }
+	 */
+
+	/*
+	 * @RequestMapping(value = "preview", method = RequestMethod.GET) public
+	 * void getPreview3(@RequestParam(value="name") String name,
+	 * HttpServletResponse response,HttpServletRequest request, HttpSession
+	 * session) { //name="1.mp4"; String path = "D://video/"+name;
+	 * logger.debug(name+"영상이름"); try { MultipartFileSender.fromFile(new
+	 * File(path)) .with(request) .with(response) .serveResource(); } catch
+	 * (Exception e) { // TODO Auto-generated catch block //e.printStackTrace();
+	 * } }
+	 */
+	/*
+	 * @RequestMapping(value = "/videolist", method = RequestMethod.GET) public
+	 * String videolist1( Model model) { ArrayList<Mirukamo_course> list=new
+	 * ArrayList<Mirukamo_course>(); list=courseDAO.selectCourse();
+	 * System.out.println(list); model.addAttribute("list",list); return
+	 * "videolist"; }
+	 */
 
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
 	public String videolist(String name, HttpSession session, Model model) {
@@ -216,8 +233,8 @@ public class CourseController {
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
-	public String upload(Model model) {
-		// ----------송수근
+	public String upload(Model model, HttpSession session) {
+		// ------------------------송수근
 		ArrayList<Mirukamo_course> comesensei = courseDAO.senseicours();
 
 		for (int i = 0; i < comesensei.size(); i++) {
@@ -233,21 +250,22 @@ public class CourseController {
 			numstring.add(num);
 		}
 
-		for (int i = 0; i < numstring.size(); i++) {
-			System.out.println("##### 코스11111111111" + numstring.get(i));
-			int posernum = Integer.parseInt(numstring.get(i));
-			comesensei.get(i).setNum(posernum);
-		}
-
-		for (int i = 0; i < comesensei.size(); i++) {
-			System.out.println("##### 코스22222222222" + comesensei.get(i).toString());
-		}
-
+	
+		/*
+		 * for (int i = 0; i < numstring.size(); i++) {
+		 * System.out.println("##### 코스11111111111" + numstring.get(i)); int
+		 * posernum = Integer.parseInt(numstring.get(i));
+		 * comesensei.get(i).setNum(posernum); }
+		 * 
+		 * for (int i = 0; i < comesensei.size(); i++) {
+		 * System.out.println("##### 코스22222222222" +
+		 * comesensei.get(i).toString()); }
+		 */
 		model.addAttribute("comesensei", comesensei);
 		return "uploadForm";
 	}
 
-	//여기에서 비디오 정보가 저장됨
+	// 여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
 	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
 		System.out.println("들어오냐?");
@@ -286,25 +304,66 @@ public class CourseController {
 	// 송수근 > 수강신청 버튼누르기
 	@ResponseBody
 	@RequestMapping(value = "signclass", method = RequestMethod.POST)
-	public String videolistlogin(Model model, HttpSession session,
-			String msg) {
-		System.out.println("%%%%%%%%수강%%%%%%%%%%  : " + msg.toString());
-	
-	/*	
-		String teachername = sign;
-		String userid = (String) session.getAttribute("userId");
+	public int videolistlogin(Model model, HttpSession session, int msg) {
+		System.out.println("%%%%%%%%수강%%%%  : " + msg);
+		// 넘어온 번호로 찾은 수강목록
 
-		MyCourse mycourse = new MyCourse();
+		Mirukamo_course course = courseDAO.yoursenseicours(msg);
 
-		mycourse.setTeacher(teachername);
-		mycourse.setMember_id(userid);
+		System.out.println("르가르손 수근 ㄱk즈아" + course.toString());
+		String member_id = (String) session.getAttribute("userId");
+		System.out.println("로그인한 아이디" + member_id);
 
-		courseDAO.insertmypage(mycourse);*/
+		course.setMember_id(member_id);
+		System.out.println("르가르손 수근 잘 ㄱㅏ즈아" + course.toString());
+
+		// 아이디로 마이코스 검색
+		ArrayList<MyCourse> plz = new ArrayList<MyCourse>();
+		plz = courseDAO.myc(member_id);
+
+		System.out.println("plz : " + plz.toString());
+
+		// 마이 수강코스에 아무것도 없는 경우 -> 추가
+		if (plz.size() == 0) {
+			System.out.println("일치 하나도 안함");
+			courseDAO.ADDClass(course);
+			return 1;
+		}
+		// 마이 수강코스에 무언가 있는 경우 -> 해당 페키지 이름이 있으면 수강 신청불가(이미있으니까)
+		else {
+			for (int i = 0; i < plz.size(); i++) {
+				if (plz.get(i).getPackagename().equals(course.getPackagename())) {
+					System.out.println("마이코스에 이미 강의가 있는 경우");
+					return 3;
+				}
+			}
+		}
+
+		/*
+		 * for (int i = 0; i < plz.size(); i++) { if
+		 * (course.get(0).getPackagename().equals(plz.get(i).getPackagename()))
+		 * { System.out.println("일치 하나도 함"); return 0; } else {
+		 * courseDAO.ADDClass(plz); return 1; } }
+		 */
+		return 0;
+		// }
+
+		/*
+		 * if (username.) { }
+		 */
+		/*
+		 * String teachername = sign; String userid = (String)
+		 * session.getAttribute("userId");
+		 * 
+		 * MyCourse mycourse = new MyCourse();
+		 * 
+		 * mycourse.setTeacher(teachername); mycourse.setMember_id(userid);
+		 * 
+		 * courseDAO.insertmypage(mycourse);
+		 */
 		// ArrayList<Mirukamo_MyCourse> mycourse = new
 		// ArrayList<Mirukamo_MyCourse>();
 		// model.addAttribute("mynihongosensei", mynihongosensei);
-
-		return msg ;
 	}
 
 	// 송수근

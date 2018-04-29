@@ -20,16 +20,15 @@ public class DrillDao {
 	SqlSession sqlSession;
 	private static final Logger logger = LoggerFactory.getLogger(DrillDao.class);
 	
-
+	
 	public ArrayList<mirukamo_drill> getword(String userId) {
 		System.out.println("디스팅 시");
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
 		ArrayList<mirukamo_drill> getword = mapper.getword(userId);
 		System.out.println("디스팅 끝");
 		return getword;
-		
 	}
-
+	
 	/*public ArrayList<mirukamo_drill> getRowBoundsword(RowBounds rb) {
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
 		ArrayList<mirukamo_drill> getRowBoundsword = mapper.getRowBoundsword(rb);	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.session.RowBounds;
 
+import com.mirukamo.ai.vo.Mirukamo_answer;
 import com.mirukamo.ai.vo.mirukamo_question;
 import com.mirukamo.ai.vo.mirukamo_reviews;
 
@@ -47,6 +48,12 @@ public interface ServiceCenterMapper {
 	public ArrayList<mirukamo_question> adminlistreviewsBoard(String searchText, RowBounds rb);
 	//qna 페이징
 	public ArrayList<mirukamo_question> qnalistreviewsBoard(String searchText, RowBounds rb);
+
+	public ArrayList<mirukamo_question> selectQustion(RowBounds rb);
+
+	public int totalQuestion();
+
+	public int insertAnswer(Mirukamo_answer ans);
 
 	
 }

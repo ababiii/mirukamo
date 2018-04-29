@@ -176,5 +176,40 @@ values (
 		where category = 9 
 		order by num desc
 	</select>
+	<!-- 1:1 문의사항 리스트 -->
+	<select id="selectQuestion"
+		resultType="question">
+		select
+		member_id
+		,title
+		, num
+		, content
+		,category
+		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		, answer
+		from
+		mirukamo_question
+		where category = 1
+		order by num desc
+	</select>
+	<!-- 1:1 문의사항 전체 글 개수 가져오기 -->
+	<select id="totalQuestion" resultType="int">
+		select count(*) as
+		totalCount from mirukamo_question
+		where category = 1
+	</select>
+	
+	<insert id="insertAnswer" parameterType="answer">
+insert into mirukamo_answer(
+	num 	
+,q_num  	
+,content 	
+)
+values (
+mirukamo_answer_seq.nextval 		
+,#{q_num}
+,#{content}	
+	)
+</insert>
 	
 </mapper>

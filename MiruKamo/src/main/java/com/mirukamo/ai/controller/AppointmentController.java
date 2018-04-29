@@ -89,11 +89,6 @@ public class AppointmentController {
 		return "board/watching";
 	}
 
-	@RequestMapping(value="test",method=RequestMethod.GET)
-	public String test(){
-		return "miru/grab-frame-take-photo";
-	}
-
 	// 개인정보 수정 페이지로 이동
 	@RequestMapping(value = "myUpdate", method = RequestMethod.GET)
 	public String myUpdate(HttpSession session, Model model) {
@@ -122,7 +117,10 @@ public class AppointmentController {
 		return "users/myUpdate";
 	}
 
-
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	public String test() {
+		return "test";
+	}
 	
 	@RequestMapping(value="login",method=RequestMethod.GET)
 	public String loginTest(String errorMsg,Model model){
@@ -135,9 +133,10 @@ public class AppointmentController {
 		return "test/courseTest";
 	}
 	
-	@RequestMapping(value="joinTest",method=RequestMethod.GET)
+	@RequestMapping(value="test3",method=RequestMethod.GET)
 	public String joinTest(){
 		return "test/join2";
 	}
+	
 	
 }

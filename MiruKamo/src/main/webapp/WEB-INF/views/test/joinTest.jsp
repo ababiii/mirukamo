@@ -14,21 +14,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="format-detection" content="telephone=no">
-<title>Mirukamo Login</title>
-<link type="text/css" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css?t=0&date=1524701607" rel="stylesheet">
-<link type="text/css" href="resources/css/login/member.css?date=1524701607" rel="stylesheet">
+<title>MIRUKAMO会員加入</title>
+<link type="text/css" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css?t=0&date=1524890835" rel="stylesheet">
+<link type="text/css" href="resources/css/login/member.css?date=1524890835" rel="stylesheet">
 <!-- 회원 탈퇴일때는 media.css 호출하지 않습니다. -->
-<link type="text/css" href="resources/css/login/media.css?date=1524701607" rel="stylesheet" media="screen">
+<link type="text/css" href="resources/css/login/media.css?date=1524890835" rel="stylesheet" media="screen">
 <link href="//img.siwonschool.com/member/favicon.ico" rel="shortcut icon">
 <script type="text/javascript" src="resources/jQuery/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="resources/jQuery/member_script.js?date=1524701607"></script>
-<script type="text/javascript" src="resources/jQuery/jquery.bxslider.min.js?date=1524701607"></script>
-<script type="text/javascript" src="resources/jQuery/login.js?date=1524701607"></script>
-
-
-<script type="text/javascript" src="resources/jQuery/wcslog.js"> </script> 
+<script type="text/javascript" src="resources/jQuery/member_script.js?date=1524890835"></script>
+<script type="text/javascript" src="resources/jQuery/jquery.bxslider.min.js?date=1524890835"></script>
+<script type="text/javascript" src="resources/jQuery/join.js?date=1524890835"></script>
+<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"> </script> 
 <script type="text/javascript"> 
-// AccoutId 적용
+//AccoutId 적용
 if (!wcs_add) var wcs_add={};
 wcs_add["wa"] = "s_15f4ba48667f";
 
@@ -63,7 +61,7 @@ var LLscriptPlugIn = new function () { this.load = function(eSRC,fnc) { var scri
 
 
 <!-- 기초영어 랜딩 내 스크립트 추가 요청의 건(https://intra.sjwcorp.kr/?c=168&uid=150332) -->
-<script type="text/javascript" charset="UTF-8" src="resources/jQuery/kp.js"></script>
+<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
 <script type="text/javascript">
 	kakaoPixel('1291054235488043797').pageView();
 	kakaoPixel('1291054235488043797').completeRegistration();
@@ -75,74 +73,64 @@ var LLscriptPlugIn = new function () { this.load = function(eSRC,fnc) { var scri
 <div id="siwon_wrap">
 		<div id="siwon_header">
 		<div class="inner_header">
-			<h1 class="logo"><a href="/"><img src="resources/images/mirukamo3.jpg" alt="대한민국 왕초보탈출 시원스쿨" width="200px"/></a></h1>
+			<h1 class="logo"><a href="./"><img src="resources/images/mirukamo3.jpg" alt="대한민국 왕초보탈출 시원스쿨"  width="200px"/></a></h1>
 			<ul class="login_info">
 								<!-- 로그인 전 -->
-				<li class="ico1 fst"><a href="/?s=login">ログイン</a></li>
-				<li class="ico2"><a href="/?s=join" class="bar">会員加入</a></li>
+				<li class="ico1 fst"><a href="login">ログイン</a></li>
+				<li class="ico2"><a href="appointment" class="bar">会員加入</a></li>
 				<!--// 로그인 전 -->
 							</ul>
 		</div><!--// inner_header -->
 	</div><!--// siwon_header -->
-		<div id="siwon_container" class="sub_section">
-
-<script>
-function lab_tracking(depth){
-    $.ajax({
-        url : "https://mobile.midas-i.com/roianal.mezzo/tracking?cmp_no=1594&depth="+depth,
-        dataType : "jsonp",
-        async : true,
-        timeout: 500,
-        success: function(data) {}
- });
-}
+		<div id="siwon_container" class="sub_section"><script type="text/javascript">
+	$(document).ready(function(){
+		$('.step1_agree .main_box').not('.ck_box').click(function(){
+			$(this).toggleClass('on');
+			$(this).siblings('.sub_box').slideToggle();
+		});
+	});
 </script>
-<style type="text/css">
-.g-recaptcha {
-    transform:scale(1.14);
-    transform-origin:0 0;
-	margin:auto;
-}
-</style>
+
 		<div class="inner_container">
 			<div class="top_area">
-				<h2 class="tit_comm">회원가입</h2>
+				<h2 class="tit_comm">会員加入</h2>
 				<a href="javascript:history.back()" class="bt_prev ir2"><span>이전</span></a>
 			</div><!--// top_area -->
 			<div class="contents sub">
 				<ul class="tab_subject w4">
-					<li class="on"><h3>약관동의</h3></li>
-					<li><h3>본인인증</h3></li>
-					<li><h3>정보입력</h3></li>
-					<li class="lst"><h3>가입완료</h3></li>
+					<li class="on"><h3>約款同意</h3></li>
+					<!-- <li><h3>본인인증</h3></li> -->
+					<li><h3>情報入れ</h3></li>
+					<li class="lst"><h3>加入完了</h3></li>
 				</ul>
 				<div class="sub_con">
-					<form method="POST" name="joinform" id="joinform" action="/?s=join&t=step2">
+					<form method="POST" name="joinform" id="joinform" action="join/joinForm">
 					<input type="hidden" id="ref" name="ref" value="" />
 					<fieldset>
 					<legend>약관 동의</legend>
 					<div class="step1_area">
 						<p class="top_notice">
-							<strong>시원스쿨을 가입하시면<br /> 무료 강의 및 각종 이벤트 혜택을 받으실 수 있습니다.</strong>
-							인터넷 회원 가입을 위해 아래 서비스 약관 및 개인정보처리방침을 읽어 보시기 바랍니다.<br />
-							회원가입은 무료이며, 등록 즉시 시원스쿨 사이트 이용이 가능합니다.
+							<strong>ミルカモに加入すれば<br />　日本語の実力が向上されます。</strong>
+							会員加入のために下の約款をよく読んでください。<br />
+							会員加入は只です。
 						</p>
 						<p class="ck_box_all">
-							<input type="checkbox" id="ck_all" name="save_id" id="save_id" class="input_check_comm" /> <label for="ck_all" class="input_check_label ls">이용약관, 유료 서비스 이용약관, 개인정보 수집 및 이용에 대한 안내, 제3자에 대한 제공 및 공유(선택)에 모두 동의합니다.</label>
+							<input type="checkbox" id="ck_all" name="save_id" id="save_id" class="input_check_comm" /> <label for="ck_all" class="input_check_label ls">
+利用約款,有料サービスの利用約款,個人情報の収集と利用することに対する案内,他の人に情報を提供することに全て同意します。</label>
 						</p>
 						<div class="step_overflow">
 							<div class="step1_agree">
 								<div class="main_box">
 									<span class="ico_arw"></span>
-									<h4 class="check">이용약관 동의<em>2017년 09월 13일부로 변경되었습니다.</em></h4>
+									<h4 class="check">利用約款<em></em></h4>
 								</div>
 								<p class="ck_box">
-									<input type="checkbox" name="ck_agree" id="ck_agree" value="Y" class="input_check_comm" /> <label for="ck_agree" class="input_check_label">약관 내용에 동의합니다.<em>(필수)</em></label>
+									<input type="checkbox" name="ck_agree" id="ck_agree" value="Y" class="input_check_comm" /> <label for="ck_agree" class="input_check_label">同意します。<em>(必修)</em></label>
 								</p>
 								<div class="sub_box agree_cont">
 									<h4>제 1장 총칙</h4>
 									<h5 id="anchor_art01">제 1조 [목적]</h5>
-									<p>이 약관은 “㈜에스제이더블유인터내셔널 및 ㈜어니스트랩 (이하 “회사”라 한다)”에서 운영하는 “시원스쿨 패밀리사이트” (이하 "웹사이트"라 한다)에서 제공하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
+									<p>이 약관은 ミルカモ에서 제공하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
 									<h5 id="anchor_art02">제 2조 [용어의 정의]</h5>
 									<ol class="depth_1st">
 										<li>
@@ -485,21 +473,21 @@ function lab_tracking(depth){
 							<div class="step1_agree">
 								<div class="main_box">
 									<span class="ico_arw"></span>
-									<h4 class="check">유료서비스 이용약관(시원스쿨) 동의<em>2017년 09월 13일부로 변경되었습니다.</em></h4>
+									<h4 class="check">有料サービスの利用約款<em></em></h4>
 								</div>
 								<p class="ck_box">
-									<input type="checkbox" name="ck_agree_charge" id="ck_agree_charge" value="Y" class="input_check_comm" /> <label for="ck_agree_charge" class="input_check_label">약관내용에 동의합니다.<em>(필수)</em></label>
+									<input type="checkbox" name="ck_agree_charge" id="ck_agree_charge" value="Y" class="input_check_comm" /> <label for="ck_agree_charge" class="input_check_label">同意します。<em>(必修)</em></label>
 								</p>
 								<div class="sub_box agree_cont">
 									<h4>제 1장 총칙</h4>
 									<h5 id="anchor_sjw_art01">제 1조 [목적]</h5>
-									<p>이 약관은 “㈜에스제이더블유인터내셔널 및 ㈜어니스트랩(이하 “회사”라 한다)”이 운영하는 “시원스쿨 패밀리사이트”에서 제공하는 유료서비스의 제반사항(환불 규정 및 손해배상책임 등 포함)에 대한 “회사”와 유료서비스 이용자간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+									<p>이 약관은 ミルカモ에서 제공하는 유료서비스의 제반사항(환불 규정 및 손해배상책임 등 포함)에 대한 “회사”와 유료서비스 이용자간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
 									<h5 id="anchor_sjw_art02">제 2조 [용어의 정의]</h5>
 									<ol class="depth_1st">
 										<li>
 											① 이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
 											<ol class="depth_2nd">
-												<li>1. <strong>유료서비스</strong> : “시원스쿨 패밀리사이트”에서 제공하는 온라인 동영상 강의,도서,기타 제품 등 유료로 제공하는 모든 서비스 및 재화를 말합니다.</li>
+												<li>1. <strong>유료서비스</strong> : ミルカモ에서 제공하는 온라인 동영상 강의,도서,기타 제품 등 유료로 제공하는 모든 서비스 및 재화를 말합니다.</li>
 												<li>2. <strong>결제금액</strong> : “이용자”가 입금한 금액 중에서 신용 카드 수수료 등의 이유로 발생되는 비용을 제외하고 회사가 실질적으로 고객으로부터 수납한 금액을 말합니다.</li>
 												<li>3. <strong>환불금</strong> : “이용자”가 유료서비스 이용계약을 청약철회 또는 해지하여 발생하는 수수료를 제외하고 “이용자”에게 도로 돌려주는 금액을 말합니다.</li>
 											</ol>
@@ -613,127 +601,22 @@ function lab_tracking(depth){
 										<li>③ “회사”는 “이용자”가 “웹사이트”에 게재한 사실의 신뢰도, 정보나 자료의 정확성 등 내용에 관하여는 책임을 지지 않습니다.</li>
 										<li>④ “회사”는 “서비스” 이용과 관련하여 “이용자”에게 발생한 손해 가운데 “이용자”의 고의, 과실에 의한 손해에 대하여 책임을 지지 않습니다.</li>
 									</ol>
-									<p class="pt15">[부칙]<br />유료서비스 이용약관에 규정된 사항 이외의 사항에 대하여는 “시원스쿨 패밀리사이트” 의 이용약관규정에 따르도록 합니다.</p>
+									<p class="pt15">[부칙]<br /></p>
 								</div><!--// agree_cont -->
 							</div><!--// step1_agree -->
 
-							<!-- <div class="step1_agree">
-								<div class="main_box">
-									<span class="ico_arw"></span>
-									<h4 class="check">유료서비스 이용약관(어니스트랩) 동의<em>2016년 11월 7일부로 변경되었습니다.</em></h4>
-								</div>
-								<p class="ck_box">
-									<input type="checkbox" name="ck_agree_hl" id="ck_agree_hl" value="Y" class="input_check_comm" /> <label for="ck_agree_hl" class="input_check_label">약관내용에 동의합니다.<em>(필수)</em></label>
-								</p>
-								<div class="sub_box agree_cont">
-									<h4>제 1장 총칙</h4>
-									<h5 id="anchor_hl_art01">제 1조 [목적]</h5>
-									<p>이 약관은 “㈜에스제이더블유인터내셔널 및 ㈜어니스트랩(이하 “회사”라 한다)”이 운영하는 “시원스쿨 패밀리사이트”에서 제공하는 유료서비스의 제반사항(환불 규정 및 손해배상책임 등 포함)에 대한 “회사”와 유료서비스 이용자간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
-									<h5 id="anchor_hl_art02">제 2조 [용어의 정의]</h5>
-									<ol class="depth_1st">
-										<li>
-											① 이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
-											<ol class="depth_2nd">
-												<li>1. <strong>유료서비스</strong> : “㈜어니스트랩 사이트”에서 유료로 제공하는 모든 서비스 및 재화를 말합니다.</li>
-												<li>2. <strong>결제금액</strong> : “이용자”가 입금한 금액 중에서 신용 카드 수수료 등의 이유로 발생되는 비용을 제외하고 회사가 실질적으로 고객으로부터 수납한 금액을 말합니다.</li>
-												<li>3. <strong>환불금</strong> : “이용자”가 유료서비스 이용계약을 청약철회 또는 해지하여 발생하는 수수료를 제외하고 “이용자”에게 도로 돌려주는 금액을 말합니다.</li>
-											</ol>
-										</li>
-										<li>② 제1항의 용어를 제외한 용어의 정의는 거래 관행 및 관계 법령에 따릅니다.</li>
-									</ol>
-									<h4>제 2장 유료서비스의 요금</h4>
-									<h5 id="anchor_hl_art03">제 3조 [요금의 산정 및 납입]</h5>
-									<ol class="depth_1st">
-										<li>① 서비스 이용과 관련하여 이용자가 납입하여야 할 요금 등의 종류는 해당 사이트의 서비스에 따라 정해집니다.</li>
-										<li>② 요금 납입자는 이용고객으로 합니다. 다만, 미성년자 등 기타 요금을 납입 할 수 없는 자는 회사가 인정하는 경우에 그 법정대리인 또는 제3자를 요금납입자로 지정할 수 있습니다.</li>
-										<li>③ 제2항의 단서규정에 의한 요금 납입자는 이용고객이 회사에 납입해야 할 요금 등의 모든 채무를 이용자와 연대하여 책임을 지도록 합니다.</li>
-									</ol>
-									<h5 id="anchor_hl_art04">제 4조 [서비스 이용요금 납입 방법 및 기일]</h5>
-									<ol class="depth_1st">
-										<li>① 서비스 이용요금의 납입은 선납제를 원칙으로 합니다.</li>
-										<li>② 요금납입책임자가 요금 등을 납부하여야 “유료서비스”의 계약이 체결됩니다.</li>
-									</ol>
-									<h5 id="anchor_hl_art05">제 5조 [유료서비스의 승인]</h5>
-									<ol class="depth_1st">
-										<li>① “회사”는 “회사”에서 규정한 결제 방법을 사용하여 “이용자”가 이용 요금을 납입한 사실이 확인되면 지체 없이 그 유료 “서비스” 이용 신청을 승인합니다.</li>
-										<li>
-											② “회사”는 다음 각 호에 해당하는 경우 전 항의 승인을 제한할 수 있고 그 사유가 해소될 때까지 승인을 유보할 수 있습니다.
-											<ol class="depth_2nd">
-												<li>1. “유료서비스” 이용 요금을 납입하지 않은 경우</li>
-												<li>2. “유료서비스” 신청 금액 총액과 납입 금액 총액이 일치하지 않는 경우</li>
-												<li>3. 기타 합리적인 이유가 있는 경우로서 “회사”가 필요하다고 인정하는 경우</li>
-											</ol>
-										</li>
-										<li>③ 제2항에 의하여 승인을 유보하거나 승인하지 아니하는 경우, 회사는 이를 “이용자”에 알려야 합니다. 다만, 회사의 귀책사유 없이 “이용자”에 통지할 수 없는 경우는 예외로 합니다.</li>
-									</ol>
-									<h5 id="anchor_hl_art06">제 6조 [서비스 과오납 요금의 환불]</h5>
-									<ol class="depth_1st">
-										<li>① “회사”는 “유료서비스” 결제와 관련하여 과오납 요금이 발생한 경우 대금결제와 동일한 방법으로 혹은 결제 취소 후 재결제 등의 방법으로 그 과오납 요금을 “이용자”에게 환불합니다.</li>
-										<li>② “회사”의 책임 있는 사유로 과오납 요금이 발생한 경우 “회사”는 과오납 요금 전액을 환급합니다. 다만, “이용자”의 책임 있는 사유로 과오납 요금이 발생한 경우, 과오납 요금의 환급에 소요되는 비용은 “이용자”가 부담합니다.</li>
-									</ol>
-									<h4>제 3장 유료서비스의 이용계약의 환불 및 변경</h4>
-									<h5 id="anchor_hl_art07">제 7조 [유료서비스 이용계약의 환불규정]</h5>
-									<ol class="depth_1st">
-										<li>① “유료서비스” 에 관한 계약을 체결한 “이용자”는 “유료서비스” 구매일 또는 수령일로부터 7일 이내에 “회사” 고객센터나 “웹사이트”를 통해 신청하시면 전액 환불이 가능합니다. </li>
-										<li>
-											② 회원은 다음의 경우 위 1항의 환불을 할 수 없습니다.
-											<ol class="depth_2nd">
-												<li>1. 회원에게 책임 있는 사유 또는 천재지변 사유로 “서비스 등” 이 멸실 또는 훼손된 경우</li>
-												<li>2. 회원의 사용 또는 일부 소비로 “서비스 등”의 가치가 현저히 감소한 경우</li>
-												<li>3. 시간의 경과에 의하여 재판매가 곤란할 정도로 “서비스 등”의 가치가 현저히 감소한 경우</li>
-												<li>4. “서비스 등”의 포장을 훼손한 경우</li>
-											</ol>
-										</li>
-										<li>③ 회원이 위 1항에 따라서 환불을 한 경우 회사로부터 공급받은 “서비스 등”을 반환하여야 하며, 해당 비용은 회원이 부담합니다.</li>
-										<li>④ 제공받은 “사은품”이 있다면 "회원"은 이를 반환하여야 하며, "회원"이 이를 사용하거나 훼손한 경우에는 동종 상품의 판매가격에서 소비자피해보상규정의 손율 등에 따른 금액을 지급하고 반환해야 합니다.</li>
-										<li>⑤ “서비스 등”을 수령한 그대로 반송한 경우에 한해 환불 가능하며 반품 후 포장 훼손 등 사용한 흔적이 발견되는 경우 환불이 불가하며 이 경우 발생되는 배송비는 “회원”이 부담합니다.</li>
-										<li>⑥ 당사의 “유료서비스”를 다른 유통경로로 구매한 경우 별도의 명시가 없는 한 “회원”은 최종 판매처의 환불 규정에 따릅니다.</li>
-										<li>⑦ 건강기능식품법 제6조 제12항 건강기능식품에 관한 법률 제10조에 따라 "회사"는 부패·변질되거나 폐기된 제품 또는 유통기한이 지난 제품을 판매한 경우 회사에 정당한 사유가 없으면 교환하여 드리며, 출고된 건강기능식품이 안전성·기능성의 문제가 있거나 품질이 불량한 때에는 당해 제품을 스스로 회수합니다.</li>
-									</ol>
-									<h5 id="anchor_hl_art08">제 8조 [유료서비스 이용계약의 변경]</h5>
-									<ol class="depth_1st">
-										<li>① “이용자”는 “유료서비스” 에 관한 계약을 체결한 이후 회사와의 합의 없이 변경은 불가능하지만 제2장 제3조 1항의 조건으로 계약 취소 후 재계약 할 수 있습니다.</li>
-										<li>② 이용계약 변경을 위한 청약철회의 경우 제2장 6조 “유료서비스 이용계약의 환불규정”을 따릅니다.</li>
-									</ol>
-									<h4>제4장 유료서비스 손해배상 및 면책조항</h4>
-									<h5 id="anchor_hl_art09">제 9조 [유료서비스 손해배상]</h5>
-									<ol class="depth_1st">
-										<li>
-											① “회사”는 다음 각 호에 해당하는 경우 “서비스” 제공을 중지하거나 제한할 수 있습니다.
-											<ol class="depth_2nd">
-												<li>1. 서비스용 설비의 최적화를 위한 시스템 점검 또는 설비 보수로 인해 부득이한 경우</li>
-												<li>2. 분산서비스거부(DDoS) 공격 등에 의해 발생한 서비스 장애 복구를 위해 부득이한 경우</li>
-												<li>3. 기타 서비스용 설비의 장애 또는 “서비스”이용의 폭주 등으로 “서비스”이용에 지장이 있는 경우</li>
-												<li>4. 전기통신사업법에 규정된 기간통신사업자가 전기통신 서비스를 중지했을 경우</li>
-												<li>5. 국가비상사태, 천재지변에 의해 부득이한 경우</li>
-												<li>6. 기타 합리적인 이유가 있는 경우로서 “회사”가 필요하다고 인정하는 경우</li>
-											</ol>
-										</li>
-										<li>② “회사”가 전 항에 의하여 “서비스” 제공을 중지하거나 제한하는 경우 “회사”는 이를 “이용자”에게 알려야 합니다. 다만, “회사”의 귀책사유 없이 “이용자”에게 통지할 수 없는 경우에는 예외로 합니다.
-										<li>③ “회사”의 귀책사유로 “서비스” 제공이 중지되거나 그 이용에 장애가 발생하는 경우에는 “회사”의 규정에 따라 이용이 중지되거나 장애가 발생한 시간만큼 이용 기간을 연장합니다. 다만, 천재지변 또는 이에 준하는 불가항력으로 인하여 “서비스” 제공이 중지되거나 그 이용에 장애가 발생하는 경우에는 예외로 합니다.</li>
-										<li>④ “회사”의 귀책사유로 “컨텐츠” 자체에 하자가 있는 경우에는 “회사”의 규정에 따라 그 하자가 복구되지 못한 기간만큼 이용 기간을 연장합니다. 다만, 완전한 “서비스”를 다시 제공하는 것이 불가능한 경우에는 “회사”의 규정에 따라 다른 방법으로 그에 대한 보상을 실시할 수 있습니다.</li>
-									</ol>
-									<h5 id="anchor_hl_art10">제 10조 [유료서비스 면책조항]</h5>
-									<ol class="depth_1st">
-										<li>① “회사”는 천재지변 또는 이에 준하는 불가항력으로 인하여 “서비스”를 제공할 수 없는 경우에는 “서비스” 제공에 관한 책임이 면제됩니다.</li>
-										<li>② “회사”는 “회원”의 귀책사유로 인한 “서비스” 이용의 장애에 대하여 책임을 지지 않습니다.</li>
-										<li>③ “회사”는 “이용자”가 “웹사이트”에 게재한 사실의 신뢰도, 정보나 자료의 정확성 등 내용에 관하여는 책임을 지지 않습니다.</li>
-										<li>④ “회사”는 “서비스” 이용과 관련하여 “이용자”에게 발생한 손해 가운데 “이용자”의 고의, 과실에 의한 손해에 대하여 책임을 지지 않습니다.</li>
-									</ol>
-									<p class="pt15">[부칙]<br />유료서비스 이용약관에 규정된 사항 이외의 사항에 대하여는 “시원스쿨 패밀리사이트” 의 이용약관규정에 따르도록 합니다.</p>
-								</div>
-							</div> --><!--// step1_agree -->
+				
 
 							<div class="step1_agree">
 								<div class="main_box">
 									<span class="ico_arw"></span>
-									<h4 class="check">개인정보 수집 및 이용에 대한 안내</h4>
+									<h4 class="check">個人情報の収集と利用することに対する案内</h4>
 								</div>
 								<p class="ck_box">
-									<input type="checkbox" name="ck_poliy" id="ck_poliy" value="Y" class="input_check_comm" /> <label for="ck_poliy" class="input_check_label">개인정보 수집 및 이용에 동의합니다.<em>(필수)</em></label>
+									<input type="checkbox" name="ck_poliy" id="ck_poliy" value="Y" class="input_check_comm" /> <label for="ck_poliy" class="input_check_label">同意します。<em>(必修)</em></label>
 								</p>
 								<div class="sub_box">
-									정보통신망법 규정에 따라 시원스쿨 통합회원에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.<br />
+									정보통신망법 규정에 따라 ミルカモ 통합회원에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.<br />
 									<br />
 									<div>
 										<h4 id="anchor_art01">1. 수집하는 개인정보의 항목 및 수집방법</h4>
@@ -835,10 +718,10 @@ function lab_tracking(depth){
 							<div class="step1_agree">
 								<div class="main_box">
 									<span class="ico_arw"></span>
-									<h4 class="check">제3자에 대한 제공 및 공유</h4>
+									<h4 class="check">他の人に情報を提供する</h4>
 								</div>
 								<p class="ck_box">
-									<input type="checkbox" name="ck_third" id="ck_third" value="Y" class="input_check_comm" /> <label for="ck_third" class="input_check_label">제3자에 대한 제공 및 공유에 동의합니다.<em>(선택)</em></label>
+									<input type="checkbox" name="ck_third" id="ck_third" value="Y" class="input_check_comm" /> <label for="ck_third" class="input_check_label">同意します。<em>(選択)</em></label>
 								</p>
 								<div class="sub_box">
 									<h4 id="anchor_art05">1. 개인정보의 제3자에 대한 제공 및 공유</h4>
@@ -851,111 +734,23 @@ function lab_tracking(depth){
 									</ol>
 
 									<p class="pt15">현재 회원님의 동의를 받아 개인정보를 제공하고 있는 제3자 및 제공항목, 제공된 개인정보의 보유 및 이용기간은 아래와 같습니다.</p>
-									<table cellspacing="0" cellpadding="0" class="policy_info">
-										<colgroup>
-											<col><col><col><col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>수탁업체</th>
-												<th>위탁업무 내용</th>
-												<th>개인정보의 보유 및 이용기간</th>
-												<th>보유 및 이용기간</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>청담러닝<br>아미고톡</td>
-												<td>화상영어 서비스 및 회원 정보 안내</td>
-												<td>성명, skype id, 이메일, 휴대폰번호, 성명, 성별, 프로필 사진</td>
-												<td rowspan="3">동의 철회시까지</td>
-											</tr>
-											<tr>
-												<td>아이보린</td>
-												<td>아이엘츠, 토스, 오픽 첨삭 위탁</td>
-												<td>시원스쿨 ID, 사용자에게서 전달받은 Skype ID</td>
-											</tr>
-											<tr>
-												<td>로제타스톤 코리아(유한회사)</td>
-												<td>상품 활성화 코드의 발송</td>
-												<td>시원스쿨 ID, 휴대폰 번호</td>
-											</tr>
-										</tbody>
-									</table>
+									
 									<p class="pt15">상기 기재된 개인정보를 제공하는 업체와의 제휴 계약 등을 해지할 수 있으며, 그 경우 개인정보 제공업체의 변경이 생길 수 있습니다.<br />
 									이에 대한 변경사항은 당 사 인터넷 사이트를 통해 공지 및 별도의 회원 동의를 득한 후 업체에게 제공됩니다.</p>
 
 									<h4 id="anchor_art06">2. 개인정보의 취급위탁 </h4>
 									<p class="pt15">회사는 서비스 이용계약의 이행 등을 위해 개인정보를 외부 전문업체에 위탁하여 운영하고 위탁계약시 관계법령에 따라 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하며 철저하게 관리하고 있습니다
 									<br /><br />회사의 개인정보 위탁처리 기관 및 위탁업무는 다음과 같습니다.</p>
-									<table cellspacing="0" cellpadding="0" class="policy_info">
-										<colgroup>
-											<col style="width:30%"/>
-											<col style="width:35%"/>
-											<col style="width:35%"/>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>수탁업체</th>
-												<th>위탁업무 내용</th>
-												<th>개인정보의 보유 및 이용기간</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>㈜ 북센<br />
-												㈜ CJ대한통운<br />
-												㈜ 한진</td>
-												<td>서비스 물품 및 이벤트 경품 배송 등의 물류 업무(개인정보 공유 및 이용기간 : 6개월)</td>
-												<td rowspan="9">회원탈퇴 시 혹은 위탁계약 종료 시까지</td>
-											</tr>
-											<tr>
-												<td>㈜ GS네오텍</td>
-												<td>서버 호스팅 CDN업무 / AWS 클라우드</td>
-											</tr>
-											<tr>
-												<td>㈜ 세종텔레콤</td>
-												<td>SMS/MMS(문자메시지), 카카오 알림톡/플러스친구</td>
-											</tr>
-											<tr>
-												<td>㈜ 콘텐츠브릿지</td>
-												<td>서버/네트워크 유지보수 관리</td>
-											</tr>
-											<tr>
-												<td>㈜ KG이니시스<br />㈜ 엘지유플러스<br />㈜ 네이버</td>
-												<td>결제처리(휴대폰, 무통장입금, 계좌이체, 신용카드, 지류상품권 및 기타 결제수단, 환불계좌 인증)</td>
-											</tr>
-											<tr>
-												<td>㈜ 트랜스코스모스코리아</td>
-												<td>회원관리 서비스(본인 확인, 불만처리, 민원처리, 일반 안내들 인바운드 업무) 마케팅 신규 서비스 및 이벤트, 광고, 수강안내 등 정보 전달</td>
-											</tr>
-											<tr>
-												<td>
-													㈜ 액시스소프트<br>
-													㈜ 잉카엔네트웍스㈜ <br>
-													㈜ 테르텐
-												</td>
-												<td>DRM플레이어 관련 기술 문의 / 상담 업무</td>
-											</tr>
-											<tr>
-												<td>㈜ SK인포섹</td>
-												<td>보안관제 업무</td>
-											</tr>
-											<tr>
-												<td>㈜ 엔에이치엔에이스</td>
-												<td>이용자 맞춤 분석(서비스 방문 이력)</td>
-											</tr>
-										</tbody>
-									</table>
+									
 								</div>
 							</div><!--// step1_agree -->
 						</div><!--// step_overflow -->
 						<p class="ck_box_btm">
-							<input type="checkbox" id="ck_all" name="save_id" id="save_id" class="input_check_comm" /> <label for="ck_all" class="input_check_label ls">모두 동의합니다.</label>
+							<input type="checkbox" id="ck_all" name="save_id" id="save_id" class="input_check_comm" /> <label for="ck_all" class="input_check_label ls">全て同意します。</label>
 						</p>
 						<div class="bt_group">
-							<a href="javascript:void(0)" class="bt_st2 btn" id="agree"><span>동의</span></a>
-							<a href="javascript:history.go(-1);" class="bt_st3 btn"><span>비동의</span></a>
+							<a href="javascript:void(0)" class="bt_st2 btn" id="agree"><span>同意</span></a>
+							<a href="javascript:history.go(-1);" class="bt_st3 btn"><span>拒絶</span></a>
 						</div>
 					</div><!--// step1_area -->
 					</fieldset>
@@ -963,7 +758,7 @@ function lab_tracking(depth){
 				</div><!--// sub_con-->
 			</div><!--// contents -->
 		</div><!--// inner_container -->	</div><!--// siwon_container -->
-		<div id="siwon_footer">
+		
 		
 
 	</body>

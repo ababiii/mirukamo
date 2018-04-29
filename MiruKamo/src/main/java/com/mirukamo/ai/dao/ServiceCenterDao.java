@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.mirukamo.ai.vo.Mirukamo_answer;
 import com.mirukamo.ai.vo.mirukamo_question;
 import com.mirukamo.ai.vo.mirukamo_reviews;
 
@@ -74,7 +75,7 @@ public class ServiceCenterDao {
 
 	}
 
-
+	//1:1문의 등록
 	public int insertQustion(mirukamo_question qs) {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
 		
@@ -129,6 +130,27 @@ public class ServiceCenterDao {
 		RowBounds rb = new RowBounds(startRecord, countPerPage);
 		ArrayList<mirukamo_question> mirukamo_qna = mapper.qnalistreviewsBoard(searchText, rb);
 		return mirukamo_qna;
+	}
+	//1:1문의 리스트 관리자 시점
+	public ArrayList<mirukamo_question> selectQuestion(int startRecord, int countPerPage) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		ArrayList<mirukamo_question> mirukamo_list = mapper.selectQustion(rb);
+		return mirukamo_list;
+	}
+	//1:1문의글 개수
+	public int totalQuestion() {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		int totalQuestion = mapper.totalQuestion();
+
+		return totalQuestion;
+	}
+	//1:1 답변 저장
+	public int insertAnswer(Mirukamo_answer ans) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		
+		
+		return mapper.insertAnswer(ans);
 	}
 
 

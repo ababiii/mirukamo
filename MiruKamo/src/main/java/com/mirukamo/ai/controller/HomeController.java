@@ -29,7 +29,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model,boolean joinComplete) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 	/*	//ㅈ석
 		Date date = new Date();
@@ -72,6 +72,10 @@ public class HomeController {
 		for(String i:a){
 			System.out.println(i);
 			}
+		
+		if(joinComplete==true){
+			model.addAttribute("joinComplete", true);
+		}
 		
 		return "test";
 	}

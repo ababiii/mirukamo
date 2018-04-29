@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	/* �묐같�� */
+	
 	var topban = $('.topban');
 	var topbanTit = $('.bt_topban');
 	var topbanCon = $('.topban .cont');
@@ -12,19 +12,19 @@ $(document).ready(function() {
 	var docuH = $(document).height();
 	var coord_topbanTit = topbanTit.offset().top + topbanTit.height();
 	if($('.topban .cont').length){
-		// �⑤�由ы꺆 諛곕꼫 �곷떒 �몄텧 �묒뾽�쇰줈 �명븳 �꾩떆 if臾� 異붽� 161230
+		
 		var coord_topbanCon = topbanCon.offset().top + topbanCon.height();
 	}
 	var coord_login = login.offset().top + login.height();
 	var coord_fixarea = fixarea.offset().top + fixarea.height();
 	var scrTop = $(window).scrollTop();
 
-	// �묐같�� �ロ옒
+	
 	$('.topban .bt_topban').click(function(){
 		if( topban.hasClass('opened') ){ 
 			topbanClose(); 
 			if( scrTop > 0 ){
-				$('.wrap_fixarea').addClass('fix_top'); // 怨듯넻
+				$('.wrap_fixarea').addClass('fix_top'); 
 				$('.ico_menuall').css({'margin-top' : '8px'});
 			}
 		}

@@ -33,6 +33,7 @@ public class CourseInterceptor
 		String loginId=(String)session.getAttribute("userId");
 		ArrayList<MyCourse> list = appointmentDAO.getMyCourse(loginId);
 		for(int i=0; i<list.size();i++){
+		//이 부분이 사용자가 클릭한 수업과 틀릴경우 
 		 list.get(i).getCourse_num();
 		};
 		//없으면 로그인 페이지로 리다이렉트

@@ -68,8 +68,24 @@ public class CourseDAO {
 		
 		return mirucourse;
 	}
-	
 
+	public Mirukamo_course yoursenseicours(int num) {
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		Mirukamo_course mirucourse = mapper.yoursenseicours(num);
+		
+		return mirucourse;
+	}
+	//아이디로 마이페이지 가져오기
+	public ArrayList<MyCourse> myc(String member_id) {
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		ArrayList<MyCourse> mycc = mapper.myc(member_id);
+		return mycc;
+	}
 	
-	
+	//마이페이지 강의 저장
+	public void ADDClass(Mirukamo_course course) {
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		mapper.ADDClass(course);
+	}
+
 }

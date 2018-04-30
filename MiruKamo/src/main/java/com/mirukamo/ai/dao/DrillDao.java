@@ -20,8 +20,6 @@ public class DrillDao {
 	SqlSession sqlSession;
 	private static final Logger logger = LoggerFactory.getLogger(DrillDao.class);
 	
-
-
 	public ArrayList<Mirukamo_drill> getword(String userId) {
 		System.out.println("디스팅 시");
 		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
@@ -30,15 +28,7 @@ public class DrillDao {
 
 		System.out.println("디스팅 끝");
 		return getword;
-		
 	}
-
-	/*public ArrayList<mirukamo_drill> getRowBoundsword(RowBounds rb) {
-		DrillMapper mapper = sqlSession.getMapper(DrillMapper.class);
-		ArrayList<mirukamo_drill> getRowBoundsword = mapper.getRowBoundsword(rb);	
-		
-		return getRowBoundsword;
-	}*/
 	
 	//중복없이 가져온 오리지널 넘버가 가진 워드 값 가져오기 -> ovo
 	public ArrayList<Mirukamo_drill> word(ArrayList<Mirukamo_drill> getDrill) {

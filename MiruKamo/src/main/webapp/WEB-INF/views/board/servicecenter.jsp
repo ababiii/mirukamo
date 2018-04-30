@@ -13,13 +13,6 @@
 <script src="resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
 <!-- 페이지 이동 스크립트  -->
-	function pagingFormSubmitreview(currentPage) {
-		var form = document.getElementById('pagingForm');
-		var page = document.getElementById('page');
-		alert(currentPage);
-		page.value = currentPage;
-		form.submit();
-	}
 
 	function pagingFormSubmitadmin(currentPage) {
 		var form = document.getElementById('adminpagingForm');
@@ -36,12 +29,9 @@
 	}
 </script>
 </head>
-
-
-
 <body>
 <!--  고객센터 게시판-->
-	총 게시물 : ${howboardadmin}
+	총 게시물 : ${attributeValues}
 	<table border="1">
 		<tr>
 			<td colspan="3">공지 사항</td>
@@ -50,7 +40,6 @@
 			<td>제목</td>
 			<td>작성 날자</td>
 		</tr>
-
 		<c:forEach items="${adminboardlist}" var="q">
 			<c:if test="${q.category == 0}">
 				<tr>
@@ -100,7 +89,7 @@
 
 	<input type="button" value="1대1 문의 접수"
 		onclick="location.href ='<c:url value="writeboard/advice"/>'">
-	<input type="button" value="나의 문의 내역">
+	<input type="button" value="나의 문의 내역"  onclick="location.href='<c:url value="replyadvice"/>'">
 	<br>
 	<br>
 	<br>총 게시물 : ${howboardqna}
@@ -153,52 +142,5 @@
 
 	<!--------------------------------------------------------------------------------------------------------------->
 
-	<br> 총 게시물 : ${howboardreview}
-	<table border="1">
-		<tr>
-			<td colspan="3">수강 후기</td>
-		</tr>
-		<tr>
-			<td>번호</td>
-			<td>제목</td>
-			<td>작성 날자</td>
-		</tr>
-		<c:forEach items="${reviewpaging}" var="re">
-			<tr>
-				<td>${re.num}</td>
-				<td><a href="reviews?num=${re.num}">${re.title}</a></td>
-				<td>${re.review_date}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<div id="navigator">
-	<!-- 페이지 이동 부분 -->                      
-	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage - navi0.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
-	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage - 1})">◀</a> &nbsp;&nbsp;
-
-	<c:forEach var="counter" begin="${navi0.startPageGroup}" end="${navi0.endPageGroup}"> 
-		<c:if test="${counter == navi0.currentPage}"><b></c:if>
-			<a href="javascript:pagingFormSubmitreview(${counter})">${counter}</a>&nbsp;
-		<c:if test="${counter == navi0.currentPage}"></b></c:if>
-	</c:forEach>
-	&nbsp;&nbsp;
-	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage + 1})">▶</a> &nbsp;&nbsp;
-	<a href="javascript:pagingFormSubmitreview(${navi0.currentPage + navi.pagePerGroup})">▷▷</a>
-
-<<<<<<< HEAD
-
-=======
-<!-- /페이지 이동 끝 -->                      
-
-<br><br>
-		<form id="pagingForm" method="get" action="servicecenter">
-			<input type="hidden" name="page" id="page" />
-		</form>
-	</div>
-
-	<c:if test="${userId != null}">
-		<a href="writereviews">수강후기 작성</a>
-	</c:if> 
->>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </body>
 </html>

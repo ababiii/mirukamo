@@ -76,11 +76,11 @@ public class ServiceCenterDao {
 	}
 
 	//1:1문의 등록
-	public int insertQustion(mirukamo_question qs) {
+	public int insertQuestion(mirukamo_question qs) {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
 		
 		
-		return mapper.insertQustion(qs);
+		return mapper.insertQuestion(qs);
 	}
 	
 

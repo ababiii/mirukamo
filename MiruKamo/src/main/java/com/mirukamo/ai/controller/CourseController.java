@@ -1,4 +1,3 @@
-
 package com.mirukamo.ai.controller;
 
 
@@ -60,16 +59,11 @@ public class CourseController {
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";
 
-	@RequestMapping(value = "/face", method = RequestMethod.GET)
-	public String face() {
 
-		return "face";
-	}
-	
-	@RequestMapping(value = "/faceTest", method = RequestMethod.GET)
-	public String faceTest() {
+	@RequestMapping(value = "/lectureInfoPage", method = RequestMethod.GET)
+	public String lectureInfoPage() {
 
-		return "faceTest";
+		return "lectureInfoPage";
 	}
 
 	@RequestMapping(value = "/face2", method = RequestMethod.GET)

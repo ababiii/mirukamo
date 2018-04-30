@@ -7,6 +7,7 @@
 <head>
 <style type="text/css">
 body {
+
    /*  background-color: coral; */ 
 }
 /* The side navigation menu */
@@ -62,11 +63,16 @@ body {
 	<title>홈 페이지</title>
 </head>
 <body>
+<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
+
+<jsp:include page="menu.jsp" flush="true"/>
+<script src="resources/jQuery/jquery-ui.js"></script>
+
+
 <span onclick="openNav()"><img src="resources/images/menu.png" height="50px" width="50px"></span>
 <a href="./"><img src="resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <!-- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
-<script src="resources/jQuery/jquery-3.2.1.min.js"></script>
-<script src="resources/jQuery/jquery-ui.js"></script>
+
 
 <script src="resources/recognition.js"></script>
 
@@ -90,11 +96,50 @@ recstart();
   	 z-index: 22222222222;
 	}
   </style>
-
+    </fieldset>
+  </form>
+</div>
  
  
 
-
+<button id="create-user">시작</button>
+ 
+<script>
+$( function() {
+    var dialog, form,
+ 
+      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+      content = $( "#content" ),
+      result = $( "#result" ),
+      allFields = $( [] ).add( content ).add( result );
+ 
+ 
+    dialog = $( "#dialog-form" ).dialog({
+      dialogClass: "innerPopup" , 
+      autoOpen: false,
+      height: 330,
+      width: 350,
+      modal: true,
+      buttons: {
+    	  "넘어가기": function() {
+              $( this ).dialog( "close" );
+            }
+      },
+      close: function() {
+    	  audioend();
+    	  videostart();
+      }
+    });
+    $( "#create-user" ).button().on( "click", function() {
+    audiostart();
+    $( "#result" ).val("");
+      dialog.dialog( "open" );
+    });
+    $( "#result" ).on("change", function() {
+    	$( "#dialog-form" ).dialog( "close" );
+      });
+  } );
+</script>
 
   <form action="http://www.example.com/search">
     <textarea id="txt" style="width: auto; height: auto;">
@@ -132,7 +177,10 @@ recstart();
       <a href="drill"> 형태소 변환 </a>
 
        <a href="servicecenter">고객 센터 </a>	
-      <a href="course/videolist"> 영상리스트 </a>
+      <!-- 기존 경로 -->
+     <!--  <a href="course/videolist"> 영상리스트 </a> -->
+    <a href="course/packagselect"> 영상리스트 </a>
+     
       <a href="course/upload"> 업로드 </a>
    </c:if>
 </div>
@@ -146,7 +194,7 @@ recstart();
   
   <a href="login/logout">로그아웃</a>
   <a href="myPage">마이페이지</a>
-   <a href="myPage/mypage">수정</a>
+   <a href="myPage/myUpdate">수정</a>
   <a href="myPage/myPage">마이페이지</a>
    <a href="myPage/myPage">수정</a>
 
@@ -213,8 +261,5 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-
-
-
 </body>
 </html>

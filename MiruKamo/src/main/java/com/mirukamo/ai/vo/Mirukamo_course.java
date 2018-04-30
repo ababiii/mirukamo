@@ -8,7 +8,18 @@ public class Mirukamo_course {
 	private String file_name;
 	private String thumnail;
 	private String packagename;
+	private String member_id;
 	
+	
+	
+	public String getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+
 	public Mirukamo_course() {
 		super();
 	}
@@ -69,12 +80,28 @@ public class Mirukamo_course {
 		this.packagename = packagename;
 	}
 
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Mirukamo_course [num=" + num + ", title=" + title + ", teacher=" + teacher + ", languages=" + languages
-				+ ", file_name=" + file_name + ", thumnail=" + thumnail + ", packagename=" + packagename + "]";
+				+ ", file_name=" + file_name + ", thumnail=" + thumnail + ", packagename=" + packagename
+				+ ", member_id=" + member_id + "]";
 	}
 
+	public Mirukamo_course(int num, String title, String teacher, String languages, String file_name, String thumnail,
+			String packagename, String member_id) {
+		super();
+		this.num = num;
+		this.title = title;
+		this.teacher = teacher;
+		this.languages = languages;
+		this.file_name = file_name;
+		this.thumnail = thumnail;
+		this.packagename = packagename;
+		this.member_id = member_id;
+	}
 
-
+	
 }

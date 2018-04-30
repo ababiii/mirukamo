@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,7 +33,8 @@ public class ServiceCenterController {
 
 	// 공지 사항
 	@RequestMapping(value = "/servicecenter", method = RequestMethod.GET)
-	public String servicecenter(Locale locale, Model model, @RequestParam(value = "page", defaultValue = "1") int page, // 리뷰
+	public String servicecenter(Locale locale, Model model,
+			@RequestParam(value = "page", defaultValue = "1") int page, // 리뷰
 			@RequestParam(value = "adminpage", defaultValue = "1") int adminpage, // 공지
 			@RequestParam(value = "qnapage", defaultValue = "1") int qnapage, // qna
 			@RequestParam(value = "searchText", defaultValue = "") String searchText) {
@@ -104,7 +104,39 @@ public class ServiceCenterController {
 		
 		return "board/servicecenter";
 	}
+	
+		// 수강 후기 게시판
+		@RequestMapping(value = "/customerReviews", method = RequestMethod.GET)
+		public String customerReviews(Locale locale, Model model,
+				@RequestParam(value = "page", defaultValue = "1") int page, // 리뷰
+				@RequestParam(value = "searchText", defaultValue = "") String searchText) {
+			logger.debug("----독립 수강후기 jsp----" );
+			
+			// 수강후기 테이블
+			ArrayList<mirukamo_reviews> reviews = servicecenterdao.mirukamo_reviews();
+			model.addAttribute("reviews", reviews);
 
+			// 수강후기 게시물 수 가져오기
+			int howboardreview = 0;
+			howboardreview = servicecenterdao.howboardreview();
+			System.out.println("수강 후기" + howboardreview);
+			model.addAttribute("howboardreview", howboardreview);
+
+			// 리뷰
+			int total = howboardreview; // 전체 글 개수
+			// 페이지 계산을 위한 객체 생성
+			PageNavigator navi0 = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			// 페이지당 글 수를 전달하여 목록 읽기
+			ArrayList<mirukamo_reviews> reviewsboardlist = servicecenterdao.listreviewsBoard(searchText,
+					navi0.getStartRecord(), navi0.getCountPerPage());
+			// 페이지 정보 객체와 글 목록, 검색어를 모델에 저장
+			model.addAttribute("reviewpaging", reviewsboardlist);
+			model.addAttribute("navi0", navi0);
+
+			return "board/customerReviews";
+		}	
+		
+		
 	// 공지사항 글 읽기
 	@RequestMapping(value = "/adminNotice", method = RequestMethod.GET)
 	public String adminNotice(Locale locale, Model model, int num) {
@@ -173,7 +205,7 @@ public class ServiceCenterController {
 	@RequestMapping(value = "/writeadvice", method = RequestMethod.POST)
 	public String writeadvice(mirukamo_question qs) {
 		qs.setCategory(1);
-		int i=servicecenterdao.insertQustion(qs);
+		int i=servicecenterdao.insertQuestion(qs);
 		
 		return "writeboard/advicejsp";
 	}

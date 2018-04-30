@@ -10,40 +10,35 @@
 <script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="../resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
-   /* 수강신청 펑션 */
-   /* $(document).ready(function(){
-      사용자마이페이지에 수강된 강의가이씅면 버튼 수강중으로 바꿀것
-    if (${userId == null}) {
-    $('#videolistlogin').submit();
-    }
-    }); */
-   function signclass(msg) {
-       alert(msg);
-       //json 파싱
-       //contentType: "application/json", 
-      $.ajax({
-         url : 'signclass',
-         type : 'POST',
-         dataType: "int",
-         data : {
-            msg : msg
-         },
-         success : function(e) {
-            if (e == 0) {
-               alert("수강 실패----");
-            }
-            if (e == 1) {
-               alert("수강 성공");
-            }
-            //   $("#signid").val("수강 완료");
-            /* var singid = document.getElementById("signid");
-            singid.value = "수강중 "; */
-         },
-         error : function(e) {
-            alert("신청 실패");
-         }
-      });
-   }
+	/* 수강신청 펑션 */
+	/*$(document).ready(function(){
+	 if (${userId == null}) {
+	 $('#videolistlogin').submit();
+	 }
+	 }); */
+	function signclass(msg) {
+		$.ajax({
+			url : 'signclass',
+			type : 'POST',
+			dataType : "text",
+			data : {
+				msg : msg
+			},
+			success : function(e) {
+				if (e == 0) {
+					alert("수강 실패");
+				}
+				else if (e == 1) {
+					alert("수강 성공");
+					location.reload();
+				}
+			},
+			error : function(e) {
+				alert("신청 오류");
+			}
+		});
+	}
+
     //엄정환 사용자가 인강을 선택해서 들을려 할때 인강의 정보를 넘겨주고 수강한 인강인지 아닌지 확인해 줄 수 있는 ajax
     function sendPackagenameandTitle() {
     	var mForm = document.insert;
@@ -95,6 +90,7 @@
     	    }
     	   }); */
 
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </script>
 </head>
 <body>
@@ -107,16 +103,16 @@
 	<c:if test="${userId == null}">
 		로그인 후 수강 신청을 해주세요.
 	</c:if>
-
-
 	<!-- 수강 신청 버튼-->
 	<c:if test="${userId != null}">
-	중급 회화는 나에게!, ${tokyocold.get(0).teacher}선생님과 현지에서 쓰이는 일본 회화를!
-		<input type="button" onclick="signclass('${tokyocold}')" value="수강 신청"
-			id="signid">
-		<input type="hidden" name="signid" id="signid" value="${tokyocold}">
-	</c:if>
-	<c:if test="${userId != null}">
+	${callmebaby.get(0).teacher} 선생님과 함께 기초 실력을 다지세요!
+		<c:if test="${good != null }">
+			<br> 현재 강의를 수강 중이십니다.</c:if>
+		<c:if test="${good == null }">
+			<input type="button" onclick="signclass('${callmebaby.get(0).num}')"
+				value="수강 신청" id="signid">
+			<input type="hidden" name="signid" id="signid" value="${callmebaby}">
+		</c:if>
 		<table border="1">
 			<tr>
 				<td>번호</td>
@@ -125,36 +121,28 @@
 				<td>선생님</td>
 				<td>언어</td>
 				<td>파일명</td>
+				<td>썸네일</td>
+				<td>시청</td>
 				<td></td>
 			</tr>
-			<c:if test="${tokyocold == null || tokyocold == '' }">
-				<tr>
-					<td colspan="5">nothing</td>
-				</tr>
-			</c:if>
-			<c:if test="${tokyocold != null || tokyocold != '' }">
-					<c:forEach items="${tokyocold}" var="b" varStatus="PPAP">
-						<input type="hidden" name="name" id="name" value="${b.file_name}">
-						<input type="hidden" name="packagename" id="packagename" value="${b.packagename}">
+			<c:if test="${callmebaby != null || callmebaby != ''}">
 				<form action="videolist" method="POST">
-						<input type="hidden" name="name" value="${a.file_name}">
-						<tr>
-							<td>${PPAP.count}</td>
-							<td>${b.thumnail}</td>
-							<td>${b.title}</td>
-							<td>${b.teacher}</td>
-							<td>${b.languages}</td>
-							<td>${b.file_name}</td>
-							<td>${b.thumnail}</td>
-							<!-- <td><input type="submit" value="선택"></td> -->
+					<c:forEach items="${callmebaby}" var="a" varStatus="ppap">
+							<tr>
+							<td>${ppap.count}</td>
+							<td>${a.title}</td>
+							<td>${a.teacher}</td>
+							<td>${a.languages}</td>
+							<td>${a.file_name}</td>
+							<td>${a.thumnail}</td>
 							<td><button onclick="sendPackagenameandTitle()" >선택</button></td>
 							<td><input type="submit" value="선택"></td>
 						</tr>
+						</c:forEach>
 				</form>
-					</c:forEach>
 			</c:if>
 		</table>
-	</c:if>
+</c:if>
 </body>
 
 </html>

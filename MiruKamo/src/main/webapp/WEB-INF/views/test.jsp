@@ -8,22 +8,16 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="keyword" content="시원스쿨 일본어,일본어 인강,기초 일본어,독학 일본어,일본어">
-<meta name="description" content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
-<meta property="og:keywords" content="기초일본어,일본어독학,일본어회화,여행일본어,JPT JLPT,무료일본어,일본어인강,일본어학원">
-<meta property="og:description" content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
-<meta property="og:site_name" content="시원스쿨 일본어">
-<meta property="og:title" content="시원스쿨 일본어">
 <meta property="og:image" content="http://img.siwonschool.com/japan/200x200.png">
 <meta name="twitter:image" content="http://img.siwonschool.com/japan/400x400.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
-<meta name="twitter:description" content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
+
 <title>test</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="apple-mobile-web-app-title" content="시원스쿨 일본어">
+
 <meta name="viewport" content="width=1200">
 <link rel="apple-touch-icon-precomposed"  href="http://img.siwonschool.com/japan/56x56.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://img.siwonschool.com/japan/114x114.png" />
@@ -157,7 +151,7 @@ $(document).ready(function(){
 					</div> -->
 				</li>
 				<li class="gnb_item add_ico">
-					<a href="/?s=products" class="tit"><!-- <i class="ico_event" name="products">日本語の能力向上</i> --><span>受講申請</span></a>
+					<a href="courseView" class="tit"><span>受講申請</span></a>
 				<!-- 	<div class="wrap_snb wr3">
 						<dl>
 							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>
@@ -336,7 +330,7 @@ $(document).ready(function(){
 			[D] : 개발필요
 				 클릭 시 지금과 동일하게 신규회원유무 확인 후 자동쿠폰발급 (/module/sementic/header.html 참고)
 			<li><a href="javascript:;" onClick="evt_act()"><img src="//img.siwonschool.com/japan/main/quick_ban01.jpg" alt="회원가입만 해도 전 강좌 무료 수강권 증정!" /></a></li>
-		</ul>
+		</ul>	
 		<ul class="quick q2">
 			<li><a href="http://japan.siwonschool.com/?s=event&p=161020" onClick="FnUpdateRightBanner('4040');" target="_blank"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521450741.jpg" alt="고독학도서쿠폰등록" /></a></li>			<ul class="sl">
 			<li><a href="http://japan.siwonschool.com/?s=event&p=sdcard" onClick="FnUpdateRightBanner('4042');" target="_blank"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/16/bimg_src_1521190992.jpg" alt="일본어마스터팩" /></a></li><li><a href="https://www.siwonschool.com/?s=event&t=160318" onClick="FnUpdateRightBanner('4087');" target="_blank"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521450778.jpg" alt="암기고래" /></a></li>			</ul>

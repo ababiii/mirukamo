@@ -29,7 +29,7 @@ public interface ServiceCenterMapper {
 	//수강후기 조회수 증가
 	public void reviewshits(int num);
 
-	public int insertQustion(mirukamo_question qs);
+	public int insertQuestion(mirukamo_question qs);
 
 	
 	//공지사항 가져오기

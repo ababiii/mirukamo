@@ -9,18 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-/* html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    font-family: sans-serif;
-    font-size: 20px;
-    color: #000;
-    text-align: center;
-    -webkit-font-smoothing: subpixel-antialiased;
-} */
+
+
 
 p {
     margin: 0;
@@ -69,20 +59,12 @@ body.active .holder:after {
 body.active #content {
     visibility: visible;
 }
+
+
 </style>
 </head>
 <body>
-		<script src="../resources/js/utils.js"></script>
-		<script src="../resources/js/clmtrackr1.js"></script>
-		<script src="../resources/js/model_pca_20_svm_emotionDetection.js"></script>
-		<script src="../resources/js/Stats.js"></script>
-		<script src="../resources/js/d3.min.js"></script>
-		<script src="../resources/js/eye_blink_check.js"></script>
-		<script src="../resources/js/webcam.js"></script>
-		<script src="../resources/js/canvasfilters.js"></script>
-		
-
-<div class="holder" data-title="Correlation">
+<div>
     <div id="content">
         <canvas id="originalCanvas" width=320 height=240></canvas>
         <canvas id="trackerCanvas" width=320 height=240></canvas>
@@ -101,13 +83,22 @@ body.active #content {
         <p id="blinksDetected">
             0
         </p>
+        <p id="countDetected">
+            0
+        </p>
     </div>
 </div>
 <!-- 인강 재생되는 비디오 부분 -->
 <video controls preload="auto" poster="poster.jpg" id="myVideo" width="320" height="176" controls autoplay>
     <source src="./preview?name=2.mp4" type="video/mp4"/>
 </video>
+<script src="../resources/js/utils.js"></script>
+		<script src="../resources/js/clmtrackr1.js"></script>
+		<!-- <script src="../resources/js/d3.min.js"></script> -->
+		<script src="../resources/js/webcam.js"></script>
+		<script src="../resources/js/canvasfilters.js"></script>
 
+</body>
 <script type="text/javascript">
 //properties
 var content, webcam, tracker, raf, eyeRect, interval, oldData, curData, cData, currentCorrelation, blinks;
@@ -125,13 +116,13 @@ var settings = {
     minCorrelation: 0.17,
 };
 
-
+var lasttime=0;
 function init() {
     content = document.getElementById('content');
 
     // adds listeners to activate and deactivate on iframe focus
-    window.addEventListener('focus', start, false);
-    window.addEventListener('blur', stop, false);
+    window.addEventListener('load', start, false);
+    window.addEventListener('blur', stop, false); 
 
     // instanciate our Webcam class
     webcam = new Webcam();
@@ -196,7 +187,7 @@ function start(e) {
 
     raf = requestAnimationFrame(update);
     interval = setInterval(correlation, 100);
-
+    
     blinks = 0;
 }
 
@@ -270,7 +261,7 @@ function update() {
         }
     }
 }
-
+ 
 function correlation() {
     if (curData) {
         oldData = curData;
@@ -289,23 +280,35 @@ function correlation() {
             if (curData.data[i] !== oldData.data[i]) {
                 cData.data[i] = 255;
                 count++;
+                countDetected.innerHTML = count + ' count detected';
             }
         }
     }
-    
-    //만약에 눈을 감았다고 인식이 된다면
-    
+    console.log(lasttime);
+    //엄정환 만약 얼굴이 프레임안에 들어있는 것이 확인되고 있던 중 사용자가 눈을 감았다고 인식이 된다면
      document.addEventListener("clmtrackrConverged", function() {
-    	 if (count<200) {
+    	 if (count<100) {
+    		
     			var d = new Date();
-    			var n = d.getSeconds();
-    		    	if(n==5){
+    			
+    			if(lasttime<1){
+    				 console.log("값이 들어감");
+    			lasttime=d.getTime();
+    			
+    			}
+    			var n;
+    			n = d.getTime();
+    			
+    		    	if(n>lasttime+3000){
+    		    		console.log(n);
     		        	 pauseVid();
     		        	 alert("dddd");
     		        	  n=0;
+    		        	  lasttime=0;
     		    	}	
     	 }else{
-    				return false;
+    		n=0;		
+    		 return false;
     	 }
     	 });	
    
@@ -336,5 +339,5 @@ document.addEventListener("clmtrackrLost", pauseVid);
 init();
 </script>
 
-</body>
+
 </html>

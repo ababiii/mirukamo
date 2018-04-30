@@ -37,4 +37,10 @@ public class AppointmentDAO {
 		AppointmentMapper mapper=sqlSession.getMapper(AppointmentMapper.class);
 		mapper.setMyInfo(user);
 	}
+	
+	public ArrayList<MyCourse> myCourseCheck(MyCourse mycourse){
+		AppointmentMapper mapper=sqlSession.getMapper(AppointmentMapper.class);
+		ArrayList<MyCourse> list =  mapper.myCourseCheck(mycourse);
+		return list;
+	}
 }

@@ -38,7 +38,10 @@
 	
 <!-- 로그인 인터셉터 정의 -->
 	<beans:bean id="loginInterceptor" class="com.mirukamo.ai.interceptor.LoginInterceptor"></beans:bean>
-
+<!-- 강의 수강 인터셉터 정의 -->	
+	<beans:bean id="CourseInterceptor" class="com.mirukamo.ai.interceptor.CourseInterceptor"></beans:bean>
+<!-- 어드민 인터셉터 정의 -->	
+	<beans:bean id="adminInterceptor" class="com.mirukamo.ai.interceptor.AdminInterceptor"></beans:bean>
 
 	<!-- 로그인 인터셉터를 경유해서 처리할 경로들 지정 -->
 	<!-- 현 XML파일 상단의 beans 태그 내에 xmlns:mvc="http://www.springframework.org/schema/mvc" 추가하고 사용 -->
@@ -53,7 +56,28 @@
 			<!-- 위의 경로들은 다음의 인터셉터를 경유한다. -->
 			<beans:ref bean="loginInterceptor" />
 		</mvc:interceptor>
+		
+		<!-- CourseInterceptor를 지나야 하는 페이지들의 mapping -->
+		<mvc:interceptor>
+			<!-- 특정 네임스페이스 하위의 모든 경로에 대하여 다음과 같이 와일드카드 지정 가능 -->
+			<mvc:mapping path="/ai/course/lecture_page" />
+			<beans:ref bean="CourseInterceptor" />
+		</mvc:interceptor>
 	</mvc:interceptors>
 	
+	<!-- 어드민 인터셉터를 경유해서 처리할 경로들 지정 -->
+   <!-- 현 XML파일 상단의 beans 태그 내에 xmlns:mvc="http://www.springframework.org/schema/mvc" 추가하고 사용 -->
+
+   <mvc:interceptors>
+      <mvc:interceptor>
+         <!-- 특정 네임스페이스 하위의 모든 경로에 대하여 다음과 같이 와일드카드 지정 가능 -->
+         <mvc:mapping path="/replyadvice" />
+         <mvc:mapping path="/advicelist" />
+         <mvc:mapping path="/upload" />
+         <mvc:mapping path="/uploadcomplete" />
+         <!-- 위의 경로들은 다음의 인터셉터를 경유한다. -->
+         <beans:ref bean="adminInterceptor" />
+      </mvc:interceptor>
+   </mvc:interceptors>
 	
 </beans:beans>

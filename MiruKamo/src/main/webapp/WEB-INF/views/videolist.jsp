@@ -70,7 +70,7 @@
     }
     
     
-    function insert_action(){
+  /*   function insert_action(){
     	   var mForm = document.insert; // form의 값을 가져오기 위함
     	   var obj = new Object(); // JSON형식으로 변환 할 오브젝트
     	   obj.user_id = mForm.user_id.value; // form의 값을 오브젝트에 저장
@@ -93,7 +93,7 @@
     	      alert("등록 완료! 로그인 하시기 바랍니다.");
     	     }
     	    }
-    	   });
+    	   }); */
 
 </script>
 </head>

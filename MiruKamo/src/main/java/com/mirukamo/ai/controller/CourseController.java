@@ -65,6 +65,12 @@ public class CourseController {
 
 		return "face";
 	}
+	
+	@RequestMapping(value = "/faceTest", method = RequestMethod.GET)
+	public String faceTest() {
+
+		return "faceTest";
+	}
 
 	@RequestMapping(value = "/face2", method = RequestMethod.GET)
 	public String face2() {
@@ -135,7 +141,7 @@ public class CourseController {
 		}
 	}
 
-	@RequestMapping(value = "/videolist", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/videolist", method = RequestMethod.GET)
 	public String videolist1(Model model) {
 
 		// 요시코 선생님만 들어갈 배열
@@ -189,19 +195,13 @@ public class CourseController {
 		
 			return "videolist";
 			
-	}
-/*	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
+	}*/
+	@RequestMapping(value = "/video_sidelist", method = RequestMethod.GET)
 	public String video_sidelist() {
-
-	}
-			model.addAttribute("yoshisushi", yoshisushi);
-			model.addAttribute("tokyocold", tokyocold);
-		return "videolist";
 
 		return "video_sidelist";
 
 	}
-	*/
 	
 	/* @RequestMapping(value = "preview", method = RequestMethod.GET)
 	    public void getPreview3(@RequestParam(value="name") String name, 
@@ -221,10 +221,10 @@ public class CourseController {
 	            //e.printStackTrace();
 	        }
 
-	    }
-*/
+	    }*/
+
 	 
-	/* 
+	 
 
 	 @RequestMapping(value = "/videolist", method = RequestMethod.GET)
 		public String videolist1( Model model) {
@@ -233,7 +233,7 @@ public class CourseController {
 		 System.out.println(list);
 			model.addAttribute("list",list);
 			return "videolist";
-	 }*/
+	 }
 
 	 @ResponseBody
 	 @RequestMapping(value = "updrill", method = RequestMethod.POST)
@@ -249,14 +249,14 @@ public class CourseController {
 	 
     //엄정환 원래 String이었지만 void로 고쳤음
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
-	public void videolist(String packagename,String name, HttpSession session, Model model) {
+	public String videolist(String packagename,String name, HttpSession session, Model model) {
 		// session.setAttribute("title", title1);
 		System.out.println("★★★★★★" + name);
 		model.addAttribute("file_name", name);
 		//사용자가 선택한 강의의 packagename을 가져와서 인터셉터로 보내주도록한다. 
 		model.addAttribute("packagename", packagename);
 
-		//return "video";
+		return "video";
 		//return "lecture_page";
 	}
 
@@ -314,7 +314,7 @@ public class CourseController {
 		}
 
 		// 강의 영상가져오기
-		model.addAttribute("list", mirucourse);
+		model.addAttribute("tokyocold", mirucourse);
 
 		return "redirect:videolist";
 	}

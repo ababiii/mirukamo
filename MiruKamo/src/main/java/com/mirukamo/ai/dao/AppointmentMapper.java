@@ -12,6 +12,7 @@ public interface AppointmentMapper {
 	public ArrayList<MyCourse> getMyCourse(String member_id);
 	public Users getMyInfo(String id);
 	public void setMyInfo(Users user);
+	public ArrayList<MyCourse> myCourseCheck(MyCourse mycourse);
 
 
 

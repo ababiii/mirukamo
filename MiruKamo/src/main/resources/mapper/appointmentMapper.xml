@@ -25,4 +25,12 @@
 		where
 		 member_id=#{member_id}
 	</select>
+	
+	<select id="myCourseCheck" parameterType="MyCourse" resultType="MyCourse">
+		select
+			*
+		from mirukamo_mycourse
+		where
+		 member_id=#{member_id} and packagename=#{packagename}
+	</select>
 </mapper>

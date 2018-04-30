@@ -159,6 +159,7 @@ public class CourseController {
 
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getTeacher().equals(teacher)) {
+				//한 선생님 강의만 담기
 				callmebaby.add(list.get(i));
 			}
 		}
@@ -182,7 +183,6 @@ public class CourseController {
 		  for (int i = 0; i < plz.size(); i++) {
 			  if(plz.get(i).getTeacher().equals(teacher)) {
 				  model.addAttribute("good", yes);
-				  callmebaby.add(list.get(i)); 
 			  }
 		  }
 		model.addAttribute("callmebaby", callmebaby);
@@ -289,11 +289,12 @@ public class CourseController {
 		}
 		// 마이 수강코스에 무언가 있는 경우 -> 무언가 있는데 그게 내가 선택한 패키지가 아닐떄
 			for (int i = 0; i < plz.size(); i++) {
-				if (!plz.get(i).getPackagename().equals(course.getPackagename())) {
+				if (plz.get(i).getPackagename().equals(course.getPackagename())) {
 					System.out.println("강의 추가");
-					courseDAO.ADDClass(course);
+					return 0;
 				}
 		}
+			courseDAO.ADDClass(course);
 		return 1;
 	}
 
@@ -309,6 +310,33 @@ public class CourseController {
 		System.out.println("꿰엑" + picksensei.toString());
 
 		return picksensei;
+	}
+	
+	//김지혜 : 수강신청
+	@RequestMapping(value="insertCourse",method=RequestMethod.POST)
+	public String insertCourse(String packageName,HttpSession session,Model model){
+		System.out.println(packageName);
+		Mirukamo_course course = courseDAO.getPackageInfo(packageName);
+		if(course==null){
+			model.addAttribute("fail", "notCourse");
+			return "redirect:../courseView";
+		}
+		String member_id = (String) session.getAttribute("userId");
+		course.setMember_id(member_id);
+		ArrayList<MyCourse> plz = new ArrayList<MyCourse>();
+		plz = courseDAO.myc(member_id);
+		
+				// 마이 수강코스에 무언가 있는 경우 -> 무언가 있는데 그게 내가 선택한 패키지일 때
+					for (int i = 0; i < plz.size(); i++) {
+						if (plz.get(i).getPackagename().equals(course.getPackagename())) {
+							model.addAttribute("fail", "already");
+							return "redirect:../courseView";
+						}
+				}
+					courseDAO.ADDClass(course);
+				
+		
+		return "redirect:../myCourseView";
 	}
 
 }

@@ -62,7 +62,8 @@ public class CourseController {
 
 	@RequestMapping(value = "/lectureInfoPage", method = RequestMethod.GET)
 	public String lectureInfoPage() {
-
+		
+		
 		return "lectureInfoPage";
 	}
 

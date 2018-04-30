@@ -117,6 +117,8 @@
 		.rightArea .entinfo .leftArea select{width:48%;height: 25px;font-size: 12px;font-weight: bold;}
 		.rightArea .bookmark__nodata{text-align: center;padding-top:50px;padding-bottom: 40px;font-size:11px;}
 	</style>
+	<script src="../resources/jQuery/jquery-ui.js"></script>
+	
     <script type="text/javascript">
         //플레이어구분
         var pk = "P";
@@ -248,12 +250,58 @@
 
 
     </script>
+	
+ <script src="../resources/js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="../resources/playlist_css/cssplay-playlist-min.js"></script>-->
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    .innerPopup {
+  	 z-index: 2222222222;
+	}
+  </style>
+	
+	<!--음성인식부분 끝 -->
 
+<script type="text/javascript">	
+		//사용자 선택에 따라 재생 동영상을 불러 옴
+		function movieDialog(str) {
+			//선택한 버튼의 동영상 경로를 불러옴
+			$($("#movie_src")[0]).attr("src", $(str).attr("value"));
+			
+			//console.log($("#movie_src")[0]);
+			//$("#movie_src")[0].setAttribute( 'src', $(str).attr("value") );;
+			//console.log($("#movie_src")[0]);
+			//동영상을 다시 load 함
+			$("#movie")[0].load();
+			//load한 동영상을 재생
+			document.getElementById("movie").play();
+		};
+		</script>
 
 
 </head>
 <body>
-	<div id="container" >
+<script src="../resources/jQuery/jquery-ui.js"></script>
+<div id="dialog-form" title="따라해 봅시다" style="z-index: 2222222222222; visibility: hidden" >	 
+	  <form>
+	    <fieldset>
+	      <label for="content2">내용</label>
+	      <input type="text" name="content2" id="content2" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
+	      <label for="result">결과</label>
+	      <input type="text" name="result" id="result" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
+	    </fieldset>
+	  </form>
+	 </div>
+
+	<div id="container">
 		<div id="player_section" >
             <!-- /control_area -->
             <div id="divControlArea" >
@@ -266,7 +314,7 @@
 
 <!-- <iframe id="movie" class="pframe" width='100%' height='100%' src='../resources/videos/2.mp4' allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe> -->
 					<video id="movie" class="pframe" width='100%' height='100%' controls="true" preload="true" poster="posters/despicable.jpg" controls autoplay>
-	<source src="../resources/videos/2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+	<source id="movie_src" src="../resources/videos/2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
 </video>
 					</div>
                     			<div id="divControlArea" class="control_area" style="height:31px; position:static;" >
@@ -279,24 +327,16 @@
 
 						<!-- 이부분에 강의 packagename과 강의 title을 넣어 주면 된다. -->
 						<div class="txt" style="width:100%;">1강. 3강 2번~11강 5번</div>
-					
-
 				</div>
-
 			</div>
 			</div>
-
-
                 </div>
 			</div>
-
             <div id="line_btn" class="line_btn"><img id="divTabControl" src="http://img.megastudy.net/Player/player_2011/u_closeTab.gif" alt="접기" onclick="fncPlayerTab()" /></div>
 			<!-- /control_area -->
         </div>
 		<div id="right_section" style="background:none;" >
-	
             <!-- /tab_area -->
-            
  <div id="divTabMenu" style="margin-top:30px; background-color:#45454d;" >
 				<div class="rightArea">
 					<div class="tab__common tab__ot tab__1ea">
@@ -321,12 +361,20 @@
 												</div></a></li> -->
 												<div class="playlistHolder">
 	<!-- <p class="playlist chosen" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/despicable.jpg"><img src="../resources/posters/despicablet.jpg" alt=""><br>Despicable Me 2</p> -->
-	<p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</p>
-	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/smurfs.jpg"><img src="../resources/posters/smurfst.jpg" alt=""><br>The Smurfs 2</p>
+	<p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/2.mp4"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</a></p>
+	<!--  이부분 반복문 돌릴것
+	<p class="playlist" data-id="#movie" data-video="파일주소띵" data-poster="썸네일">
+		<a onClick="movieDialog(this)" href="#" value="파일주소띵">
+			<img src="썸네일" alt="">
+			<br>강의명</a>
+	</p>
+	-->
+	
+	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/smurfs.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/3.mp4"><img src="../resources/posters/smurfst.jpg" alt=""><br>The Smurfs 2</a></p>
 	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/planes.jpg"><img src="../resources/posters/planest.jpg" alt=""><br>Planes</p>
 	<p class="playlist lastchild" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/monster.jpg"><img src="../resources/posters/monstert.jpg" alt=""><br>Monster University</p>
-
 </div>
+
 								<!-- <li><p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</p> <img class="cast--bg"
 										src="http://img.megastudy.net/Player/player_2016/bg_openLecture.png"
 										alt=""> <img class="cast--pic"
@@ -399,8 +447,10 @@
         </p>
     </div>
 </div>
-			 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../resources/playlist_css/cssplay-playlist-min.js"></script>
+<!-- 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/playlist_css/cssplay-playlist-min.js"></script> 
+ -->
 <script type="text/javascript">
     var pno = "0";
 
@@ -446,13 +496,19 @@
             
         </div>
     </div>
+    
+    <video id="video2" autoplay style="visibility: hidden;"></video>
+    
+    
+      </style>
+   
 </body>
 <script src="../resources/js/utils.js"></script>
 		<script src="../resources/js/clmtrackr1.js"></script>
 		<!-- <script src="../resources/js/d3.min.js"></script> -->
 		<script src="../resources/js/webcam.js"></script>
 		<script src="../resources/js/canvasfilters.js"></script>
-		
+	
 		<script type="text/javascript">
 //properties
 var content, webcam, tracker, raf, eyeRect, interval, oldData, curData, cData, currentCorrelation, blinks;
@@ -690,6 +746,35 @@ function pauseVid() {
 document.addEventListener("clmtrackrLost", pauseVid);
 init();
 </script>
-		
+
+
+
+
+	<!--음성인식부분 시작 -->
+	<script src="../resources/jQuery/jquery-ui.js"></script>
+	<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
+<script src="<c:url value="/resources/recognition.js"/>"></script>
+<script type="text/javascript">
+recstart();
+</script>
+<script src="<c:url value="/resources/audio.js"/>"></script>
+
+
+	
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    .innerPopup {
+  	 z-index: 2222222222;
+	}
 
 </html>

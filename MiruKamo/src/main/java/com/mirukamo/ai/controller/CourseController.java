@@ -234,14 +234,16 @@ public class CourseController {
 		public void updrill(Mirukamo_drill drill,HttpSession session) {
 		 System.out.println("드릴저장?");
 		 System.out.println(drill);
-		//drill.setMember_id((String)session.getAttribute("userId"));
-		drill.setMember_id("abc");
-		
-		
-		drillDao.insertDrill(drill);
+		drill.setMember_id((String)session.getAttribute("userId"));
+		//drill.setMember_id("qweqwe");
+		if(!drill.getOriginal_word().equals(drill.getWord())){
+			
+			drillDao.insertDrill(drill);
+		}else{
+			System.out.println("저장 안함");
+		}
 }
 	 
-    //엄정환 원래 String이었지만 void로 고쳤음
 	@RequestMapping(value = "/videolist", method = RequestMethod.POST)
 	public String videolist(String packagename,String name, HttpSession session, Model model) {
 		// session.setAttribute("title", title1);

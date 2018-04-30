@@ -1083,9 +1083,9 @@
 .prod_sec .sec_pack .prod_list .tit_area dl{position:relative;min-height:140px;padding-bottom:80px}
 .prod_sec .sec_uni{}
 .prod_sec .sec_uni h4{height:110px;padding-left:92px;border-bottom:1px solid #111;line-height:178px;font-size:16px;color:#111}
-.prod_sec .sec_uni h4.cyr{background:url(//img.siwonschool.com/japan/application/th_tit_cyr.png) no-repeat left bottom}
-.prod_sec .sec_uni h4.kks{background:url(//img.siwonschool.com/japan/application/th_tit_kks.png) no-repeat left bottom}
-.prod_sec .sec_uni h4.ksk{background:url(//img.siwonschool.com/japan/application/th_tit_ksk.png) no-repeat left bottom}
+.prod_sec .sec_uni h4.cyr{background:url(//localhost:8888/ai/resources/images/yosiko.png) no-repeat left bottom;background-size: 100px; }
+.prod_sec .sec_uni h4.kks{background:url(//localhost:8888/ai/resources/images/sujin.png) no-repeat left bottom}
+.prod_sec .sec_uni h4.ksk{background:url(//localhost:8888/ai/resources/images/sujin.png) no-repeat left bottom;background-size: 100px;}
 .prod_sec .sec_uni h4.khj{background:url(//img.siwonschool.com/japan/application/th_tit_khj.png) no-repeat left bottom}
 .prod_sec .sec_uni h4.ayk{background:url(//img.siwonschool.com/japan/application/th_tit_ayk.png) no-repeat left bottom}
 .prod_sec .sec_uni h4.skw{background:url(//img.siwonschool.com/japan/application/th_tit_skw.png) no-repeat left bottom}
@@ -2118,7 +2118,7 @@
 .mylec_section .wrap_lecinfo .inside{overflow:hidden;margin-top:-3px;padding-bottom:4px;background:url(//img.siwonschool.com/japan/comm/tr_bottom3.gif) no-repeat left bottom}
 .mylec_section .wrap_lecinfo li{overflow:hidden;float:left;width:166px;height:138px;text-align:center;background:url(//img.siwonschool.com/japan/comm/dot_v_line1.gif) repeat-y left 0}
 .mylec_section .wrap_lecinfo li img.ico{padding:20px 0 18px}
-.mylec_section .wrap_lecinfo li.st1{position:relative;width:331px;margin-left:1px;background:none}
+.mylec_section .wrap_lecinfo li.st1{position:relative;width:431px;margin-left:300px;background:none}
 .mylec_section .wrap_lecinfo li.st1 .avatar{position:absolute;top:16px;left:12px;width:104px;height:104px}
 .mylec_section .wrap_lecinfo li.st1 .con{position:absolute;top:28px;left:126px;line-height:1.8em;text-align:left}
 .mylec_section .wrap_lecinfo li.st1 span.name{font-size:20px}

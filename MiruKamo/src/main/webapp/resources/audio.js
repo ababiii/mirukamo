@@ -8,13 +8,21 @@
 
 'use strict';
 
-var video= '<video id="video" autoplay></video>';
-document.body.innerHTML=document.body.innerHTML+video;
-var videoElement = document.querySelector('#video');
-videoElement.width=0;
-videoElement.volume=0.15;
-console.log(videoElement);
-videoElement.setSinkId('default');
+//var video= '<video id="video" autoplay></video>';
+//document.body.innerHTML=document.body.innerHTML+video;
+
+var videoElement;
+
+$(document).ready(function(){
+	videoElement = document.getElementById('video2');
+	console.log(videoElement);
+	videoElement.width=0;
+	videoElement.volume=0.15;
+	videoElement.setSinkId('default');
+	
+	
+ });
+
 
 
 

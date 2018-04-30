@@ -73,7 +73,7 @@ $(document).ready(function(){
 			<div class="mypage_layer">
 				<ul>
 											<li><a href="javascript:;" onClick="loginChk();">マイページ</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">受講内訳</a></li>
+						<li><a href="myCourseView" onClick="loginChk();">受講内訳</a></li>
 						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">SJ멤버십</a></li>
@@ -211,7 +211,7 @@ $(document).ready(function(){
 					<a href="/?s=community&b=event" class="tit grey"><!-- <span>이벤트</span> --> <!-- <i class="evt_cnt evt_num">0</i> --></a>
 				</li>		
 			</ul><!--// #wrap_gnb -->
-						<a href="javascript:;" onClick="loginChk();" class="bt_myclass"><img src="resources/images/mycourse.png" alt="내 강의실"></a>
+						<a href="myCourseView" onClick="loginChk();" class="bt_myclass"><img src="resources/images/mycourse.png" alt="내 강의실"></a>
 					</div><!--// wrap_gnb -->
 	</div><!--// wrap_fixarea -->
 	

@@ -45,7 +45,7 @@
 	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/smurfs.jpg"><img src="../resources/posters/smurfst.jpg" alt=""><br>The Smurfs 2</p>
 	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/planes.jpg"><img src="../resources/posters/planest.jpg" alt=""><br>Planes</p>
 	<p class="playlist lastchild" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/monster.jpg"><img src="../resources/posters/monstert.jpg" alt=""><br>Monster University</p>
-<!-- </div> -->
+<!--  </div> -->
 <!-- </div> -->
 </body>
 </html>

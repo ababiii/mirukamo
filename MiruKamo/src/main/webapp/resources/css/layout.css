@@ -3,7 +3,7 @@
 /* layout css */
 #siwon_header{z-index:55;/* �묐같�덉뿉bx�ㅼ뼱媛덇꼍�� bx�쁹index媛믩낫�ㅻ넂�꾩빞�� */position:relative;width:100%;padding-bottom:50px;background:#fff}
 #siwon_header.sub_wrap{border-bottom:1px solid #333}
-.fix_top{position:fixed !important;/* top:0 !important */}
+.fix_top{/* position:fixed !important; *//* top:0 !important */}
 .fix_btm{position:fixed !important;bottom:0 !important}
 #siwon_header .wrap_fixarea{position:relative;left:0;bottom:0;width:100%;min-width:1000px;height:52px;box-sizing:border-box;border:1px solid #ddd;background:#fff}
 #siwon_header .wrap_fixarea.fix_top{bottom:auto;height:50px;background:url(//img.siwonschool.com/japan/comm/bg_white_op95.png) repeat}
@@ -77,7 +77,7 @@
 #wrap_gnb .gnb_item a.tit:hover{text-decoration:none}
 #wrap_gnb .gnb_item a.tit.grey{color:#666;background:url(//img.siwonschool.com/japan/comm/bar_grey2x13.gif) no-repeat 4px 18px}
 #wrap_gnb .gnb_item .bgnone{background:none !important;}
-#wrap_gnb .gnb_item .ico_event{display:inline-block;position:absolute;top:-10px;left:50%;margin-left:-40px;width:80px;height:25px;background:url(//img.siwonschool.com/japan/comm/ico_event.png) 0 0 no-repeat;text-indent:-99999px}
+#wrap_gnb .gnb_item .ico_event{visibility:hidden;display:inline-block;position:absolute;top:-10px;left:50%;margin-left:-40px;width:80px;height:25px;background:url(//img.siwonschool.com/japan/comm/ico_event.png) 0 0 no-repeat;text-indent:-99999px}
 #wrap_gnb .gnb_item .evt_cnt{display: inline-block;width:16px;height:16px;background:#e83428;font-size:12px;vertical-align:middle;color:#fff;border-radius:2px;text-align:center;margin-top:-2px;line-height:16px;letter-spacing:0;}
 #wrap_gnb .gnb_item.circle{z-index:1;}
 #wrap_gnb .gnb_item.circle.my{z-index:2}

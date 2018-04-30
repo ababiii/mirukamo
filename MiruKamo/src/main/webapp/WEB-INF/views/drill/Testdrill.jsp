@@ -12,8 +12,12 @@
 <script type="text/javascript">
 //로그인 안할시 문제풀이 접근 방지
 $(document).ready(function(){	
-	if (${userId == null}) {
-		$('#fromDrill').submit();	
+	if (${userId == null} || ${noun == null} ) {
+		 setTimeout(function(){
+
+			 $('#fromDrill').submit();
+
+			 }, 3000);
 	}
 });
 //제약 사항
@@ -139,12 +143,17 @@ function retry(){
 </script>
 </head>
 <body>
-	<form action="login/login" method="get" id="fromDrill">
+	<form action="<c:url value = "/login" />" method="get" id="fromDrill">
 		<input type="hidden" name="fromDrill" value="true">
 	</form>
-	<c:if test="${userId == null}">
+		<c:if test="${userId == null}">
 	로그인 후 사용해주세요.
 </c:if>
+	<c:if test="${noun == null &&userId != null}">
+		좀더 공부하고 오세요.
+</c:if> 
+<c:if test="${userId != null && noun != null}">
+	
 	오늘의 문제
 	<br>
 	<table border="1">
@@ -226,5 +235,6 @@ function retry(){
 	<br>
 	<br>
 	<input type="button" value="답 확인" onclick="checkq()">
+	</c:if>
 </body>
 </html>

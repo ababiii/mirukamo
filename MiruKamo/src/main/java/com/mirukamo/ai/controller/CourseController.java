@@ -330,6 +330,7 @@ public class CourseController {
 					for (int i = 0; i < plz.size(); i++) {
 						if (plz.get(i).getPackagename().equals(course.getPackagename())) {
 							model.addAttribute("fail", "already");
+						
 							return "redirect:../courseView";
 						}
 				}

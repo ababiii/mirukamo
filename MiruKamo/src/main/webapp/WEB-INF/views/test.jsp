@@ -174,7 +174,7 @@ $(document).ready(function(){
 					<a href="/?s=community&b=review" class="tit"><span>講座評価</span></a>
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=free" class="tit grey bgnone"><span>今日の問題</span></a>
+					<a href="mirukamoDrill" class="tit grey bgnone"><span>今日の問題</span></a>
 					<!-- <div class="wrap_snb wr5">
 						<dl>
 							<dd><a href="/?s=free&p=freemovie">무료강의</a></dd>

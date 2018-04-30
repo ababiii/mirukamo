@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
 
-/* table 怨듯넻 v2 */
+
 table ul.desc_comm, table+ ul.desc_comm{padding-top:4px}
 table ul.desc_comm li, table+ ul.desc_comm li{padding-left:9px;text-indent:-9px;line-height:1.4;font-size:13px;color:#999}
-/* table2_st1 (th�몃줈�뺣젹): �곹뭹寃곗젣 */
+
 .table2_st1{width:100%;border-top:2px solid #444;border-bottom:1px solid #dbdbdb}
 .table2_st1 th{padding-top:25px !important;text-align:left;vertical-align:top;font-weight:bold;line-height:1.4;font-size:14px;color:#333;background:#fafafa}
 .table2_st1 th, .table2_st1 td{padding:15px 20px;padding-right:0;border-top:1px solid #eee}
@@ -11,7 +11,7 @@ table ul.desc_comm li, table+ ul.desc_comm li{padding-left:9px;text-indent:-9px;
 .table2_st1 tr:first-child th, .table2_st1 tr:first-child td{border-top:none}
 .table2_st1 p.phone{}
 .table2_st1 p.phone em{display:inline-block;width:14px;height:100%;text-align:center;font-size:20px;color:#ddd}
-/* table2_st2: �섍컯�좎껌, �섍컯�꾧린, �덈꺼�뚯뒪��, �ㅻ뒛�섎떒��, �섎（1遺꾩씪蹂몄뼱, 怨듭��ы빆, 1:1臾몄쓽, �섎텋�좎껌 */
+
 .table2_st2{width:100%;border-top:2px solid #111;border-bottom:1px solid #ddd}
 .table2_st2.ico{border:1px solid #111}
 .table2_st2 th{height:40px;border-bottom:1px solid #ddd;text-align:center;line-height:40px;font-size:14px;font-weight:bold;color:#111;background:#fafafa}
@@ -24,10 +24,10 @@ table ul.desc_comm li, table+ ul.desc_comm li{padding-left:9px;text-indent:-9px;
 .table2_st2.ico th:first-child, .table2_st2.ico td:first-child{border-left:none}
 .table2_st2 strong.cost{font-size:16px;color:#e83428}
 .table2_st2.ico .position i{position:absolute;top:-4px;right:-13px}
-/* table2_st2.cate: �섍컯�꾧린 */
+
 .table2_st2.cate td.tl{color:#333}
 .table2_st2.cate td.tl span.cate{display:block;font-size:13px;color:#666}
-/* table2_st2.holder: �덈꺼�뚯뒪��, �ㅻ뒛�섎떒��, �섎（1遺꾩씪蹂몄뼱, 留덉씠�섏씠吏� */
+
 .table2_st2.holder .wrap_tit{cursor:pointer}
 .table2_st2.holder .wrap_tit td{padding:15px 0}
 .table2_st2.holder .wrap_tit td:first-child{padding-top:8px}

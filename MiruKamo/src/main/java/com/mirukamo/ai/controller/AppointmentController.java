@@ -127,7 +127,7 @@ public class AppointmentController {
 		return "test/loginTest";
 	}
 	
-	@RequestMapping(value="courseTest",method=RequestMethod.GET)
+	@RequestMapping(value="courseView",method=RequestMethod.GET)
 	public String courseTest(){
 		return "test/courseTest";
 	}
@@ -135,6 +135,17 @@ public class AppointmentController {
 	@RequestMapping(value="test3",method=RequestMethod.GET)
 	public String joinTest(){
 		return "test/join2";
+	}
+	
+	@RequestMapping(value="myCourseView",method=RequestMethod.GET)
+	public String myCourseView(HttpSession session,Model model){
+		
+		String id = (String) session.getAttribute("userId");
+		ArrayList<MyCourse> list = appointmentDAO.getMyCourse(id);
+
+		model.addAttribute("list", list);
+		
+		return "myCourse";
 	}
 	
 	

@@ -77,7 +77,7 @@ public class HomeController {
 			model.addAttribute("joinComplete", true);
 		}
 		
-		return "home";
+		return "test";
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)

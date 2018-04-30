@@ -8,22 +8,16 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="keyword" content="시원스쿨 일본어,일본어 인강,기초 일본어,독학 일본어,일본어">
-<meta name="description" content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
-<meta property="og:keywords" content="기초일본어,일본어독학,일본어회화,여행일본어,JPT JLPT,무료일본어,일본어인강,일본어학원">
-<meta property="og:description" content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
-<meta property="og:site_name" content="시원스쿨 일본어">
-<meta property="og:title" content="시원스쿨 일본어">
 <meta property="og:image" content="http://img.siwonschool.com/japan/200x200.png">
 <meta name="twitter:image" content="http://img.siwonschool.com/japan/400x400.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
-<meta name="twitter:description" content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
+
 <title>test</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="apple-mobile-web-app-title" content="시원스쿨 일본어">
+
 <meta name="viewport" content="width=1200">
 <link rel="apple-touch-icon-precomposed"  href="http://img.siwonschool.com/japan/56x56.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://img.siwonschool.com/japan/114x114.png" />
@@ -79,7 +73,7 @@ $(document).ready(function(){
 			<div class="mypage_layer">
 				<ul>
 											<li><a href="javascript:;" onClick="loginChk();">マイページ</a></li>
-						<li><a href="javascript:;" onClick="loginChk();">受講内訳</a></li>
+						<li><a href="myCourseView" onClick="loginChk();">受講内訳</a></li>
 						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">SJ멤버십</a></li>
@@ -157,7 +151,7 @@ $(document).ready(function(){
 					</div> -->
 				</li>
 				<li class="gnb_item add_ico">
-					<a href="/?s=products" class="tit"><!-- <i class="ico_event" name="products">日本語の能力向上</i> --><span>受講申請</span></a>
+					<a href="courseView" class="tit"><span>受講申請</span></a>
 				<!-- 	<div class="wrap_snb wr3">
 						<dl>
 							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>
@@ -217,7 +211,7 @@ $(document).ready(function(){
 					<a href="/?s=community&b=event" class="tit grey"><!-- <span>이벤트</span> --> <!-- <i class="evt_cnt evt_num">0</i> --></a>
 				</li>		
 			</ul><!--// #wrap_gnb -->
-						<a href="javascript:;" onClick="loginChk();" class="bt_myclass"><img src="resources/images/mycourse.png" alt="내 강의실"></a>
+						<a href="myCourseView" onClick="loginChk();" class="bt_myclass"><img src="resources/images/mycourse.png" alt="내 강의실"></a>
 					</div><!--// wrap_gnb -->
 	</div><!--// wrap_fixarea -->
 	

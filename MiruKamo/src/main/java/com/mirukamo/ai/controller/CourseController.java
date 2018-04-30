@@ -176,9 +176,6 @@ public class CourseController {
 		// 마이 수강코스에 아무것도 없는 경우 -> 추가
 		if (plz.size() == 0) {
 			System.out.println("사용자 이름 강의 하나두 없음");
-			String plzlogin = "로그인 후 사용해주세요.";
-			model.addAttribute("plzlogin", plzlogin);
-			return "packageselect";
 		}
 
 		for (int i = 0; i < plz.size(); i++) {
@@ -187,6 +184,18 @@ public class CourseController {
 				callmebaby.add(list.get(i));
 			}
 		}
+		
+		  for (int i = 0; i < plz.size(); i++) {
+			  if(plz.get(i).getTeacher().equals(teacher)) {
+				  model.addAttribute("good", yes);
+			  }
+		  }
+		
+		  for (int i = 0; i < plz.size(); i++) {
+			  if(plz.get(i).getTeacher().equals(teacher)) {
+				  model.addAttribute("good", yes);
+			  }
+		  }
 		model.addAttribute("callmebaby", callmebaby);
 
 		return "videolist";

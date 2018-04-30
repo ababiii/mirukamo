@@ -87,5 +87,13 @@ public class CourseDAO {
 		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
 		mapper.ADDClass(course);
 	}
+	
+	public Mirukamo_course getPackageInfo(String packageName){
+		Mirukamo_course result=null;
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		result=mapper.getPackageInfo(packageName);
+		return result;
+		
+	}
 
 }

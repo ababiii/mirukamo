@@ -3,5 +3,9 @@
   <fixed facet="jst.web"/>
   <fixed facet="jst.java"/>
   <installed facet="jst.web" version="2.5"/>
+<<<<<<< HEAD
   <installed facet="jst.java" version="1.8"/>
+=======
+  <installed facet="jst.java" version="1.6"/>
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </faceted-project>

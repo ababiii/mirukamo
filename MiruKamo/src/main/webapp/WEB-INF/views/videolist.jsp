@@ -88,6 +88,10 @@
     	    }
     	   });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 </script>
 </head>
 <body>

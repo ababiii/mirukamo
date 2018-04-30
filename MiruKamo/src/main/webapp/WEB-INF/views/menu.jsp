@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<<<<<<< HEAD
 <meta charset="utf-8">
 <meta name="keyword" content="시원스쿨 일본어,일본어 인강,기초 일본어,독학 일본어,일본어">
 <meta name="description"
@@ -14,11 +15,14 @@
 	content="기초일본어,일본어독학,일본어회화,여행일본어,JPT JLPT,무료일본어,일본어인강,일본어학원">
 <meta property="og:description"
 	content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
+
 <meta property="og:type" content="website">
 <meta property="og:url"
 	content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
+
 <meta property="og:site_name" content="시원스쿨 일본어">
 <meta property="og:title" content="시원스쿨 일본어">
+
 <meta property="og:image"
 	content="http://img.siwonschool.com/japan/200x200.png">
 <meta name="twitter:image"
@@ -26,8 +30,12 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url"
 	content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
+
 <meta name="twitter:description"
 	content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
+
+
+
 <title>test</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="apple-mobile-web-app-title" content="시원스쿨 일본어">
@@ -75,6 +83,7 @@
 		</div>
 	</div>
 
+
 	<div id="siwon_header">
 		<div id="header_top" class="sec_login">
 			<h1 class="logo">
@@ -101,6 +110,35 @@
 				<ul class="util2">
 					<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li> -->
 					<li><a href="myPage"><span class="my">마이페이지</span></a></li>
+
+	<div id="siwon_header">
+		<div id="header_top" class="sec_login">
+			<h1 class="logo">
+				<a href="<c:url value = "/"/>"><img
+					src="<c:url value = "/resources/images/mirukamo3.jpg"/>"
+					alt="mirukamo" width="200px" /></a>
+			</h1>
+			<div class="random_ban">
+				<a
+					href="http://www.rankey.com/rank/cert/cert_pop.php?mark_no=20180402-B001"
+					target="_blank"> <!-- <img src="http://data.siwonschool.com/banner/img/japan/2018/04/05/bimg_src_1522901610.png" alt="2017년 9월 기준 랭키닷컴" /> -->
+				</a>
+			</div>
+			<div class="util_box">
+				<ul class="util1">
+				
+								<c:if test="${userId==null}"><li><a href="login">ログイン</a></li>
+					<li><a href="appointment">会員加入</a></li></c:if>	
+					<c:if test="${userId!=null}"><li>${userId}さん、こんにちは。</li>
+					<li><a href="login/logout">ログアウト</a></li></c:if>				
+								<li><a href="appointment">お問い合わせ</a></li>
+								
+								
+				</ul>
+				<ul class="util2">
+					<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li> -->
+					<li><a href="javascript:;"><span class="my">マイページ</span></a></li>
+
 					<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="coupon">쿠폰</span></a></li>
 					<li><a href="javascript:;" onClick="loginChk();"><span class="cart">장바구니</span></a></li> -->
 				</ul>
@@ -109,7 +147,11 @@
 				<div class="mypage_layer">
 					<ul>
 						<li><a href="javascript:;" onClick="loginChk();">マイページ</a></li>
+
 						<li><a href="javascript:;" onClick="loginChk();">受講内訳</a></li>
+
+						<li><a href="myCourseView" onClick="loginChk();">受講内訳</a></li>
+
 						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">SJ멤버십</a></li>
@@ -117,6 +159,7 @@
 					</ul>
 				</div>
 				<!-- //마이페이지 레이어 -->
+
 
 			</div>
 		</div>
@@ -182,9 +225,15 @@
 						</div>
 						<span class="decoline" style="width:70px;left:26px;"></span>
 					</div> --></li>
+
 					<li class="gnb_item add_ico"><a href="course/packagselect"
 						class="tit"> <!-- <i class="ico_event" name="products">日本語の能力向上</i> -->
 							<span>合議リスト</span>
+
+					<li class="gnb_item add_ico"><a href="courseView"
+						class="tit"> <!-- <i class="ico_event" name="products">日本語の能力向上</i> -->
+							<span>講義申請</span>
+
 					</a> <!-- 	<div class="wrap_snb wr3">
 						<dl>
 							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>
@@ -244,7 +293,10 @@
 					</a></li>
 				</ul>
 				<!--// #wrap_gnb -->
-				<a href="myPage" onClick="loginChk();" class="bt_myclass"><img
+
+				<!-- <a href="myPage" onClick="loginChk();" class="bt_myclass"><img -->
+
+				<a href="myCourseView" onClick="loginChk();" class="bt_myclass"><img
 					src="resources/images/mycourse.png" alt="내 강의실"></a>
 			</div>
 			<!--// wrap_gnb -->
@@ -572,7 +624,11 @@
 	<div class="sitemap_pop">
 		<a href="javascript:void(0)" class="bt_cls ir2"><span>닫기</span></a>
 		<div class="menu_con">
-			<c:if test="${userId !='admin'}">
+
+			<c:if test="${userId !='admin'}"></c:if>
+
+			<c:if test="${!admin}">
+
 				<table>
 					<colgroup>
 						<col width="160px" />
@@ -687,7 +743,8 @@
 					</tbody>
 				</table>
 			</c:if>
-			<c:if test="${userId =='admin'}">
+
+			<c:if test="${userId =='admin'}"></c:if>
 				<!--------------------------------------------- 
 			운영자 전용 메뉴 바 
 			---------------------------------------------->
@@ -748,6 +805,69 @@
 							<td>
 								<ul class="list_type">
 									<li><a href="advicelist">答え</a></li>
+
+			<c:if test="${admin}">
+				<!--------------------------------------------- 
+			운영자 전용 메뉴 바 
+			---------------------------------------------->
+				<table>
+					<colgroup>
+						<col width="160px" />
+						<col width="*" />
+					</colgroup>
+					<tbody>
+						<c:if test="${userId != null}">
+							<tr>
+								<th>個人情報</th>
+								<td>
+									<ul class="list_type">
+										<li><a href="myPage">マイページ</a></li>
+										<li><a href="myUpdate">個人情報変更</a></li>
+									</ul>
+								</td>
+							</tr>
+						</c:if>
+						<tr>
+							<th>講義</th>
+							<td>
+								<ul class="course/list_type">
+									<li><a href="course/packagselect">講義リスト</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>無料学習</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="drill">今日の問題</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>お問い合わせ</th>
+							<td>
+								<!-- 좌측메뉴 226번쨰 줄 -->
+								<ul class="list_type">
+									<li><a href="servicecenter">よく聞く質問</a></li>
+									<li><a href="customerReviews">講義リビュー</a></li>
+									<li><a href="servicecenter">公地事項</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>講義映像</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="course/upload">映像アップロード</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>問い合わせ</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="">答え</a></li>
+
 								</ul>
 							</td>
 						</tr>

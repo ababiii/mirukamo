@@ -98,5 +98,10 @@
 		,#{languages}
 		)
 	</insert>
+	
+	<select id="getPackageInfo" parameterType="string" resultType="Course">
+	select * from mirukamo_package_info
+	where packagename=#{packagename}
+	</select>
 
 </mapper>

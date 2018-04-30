@@ -24,7 +24,7 @@ $(document).ready(function(){
 	
 });
 
-function insertCourse(){
+function insertCourse(){ 
 	
 	var packageName=$(this).attr('package');
 	/* alert($(this).attr('package')); */

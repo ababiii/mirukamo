@@ -35,7 +35,6 @@
 		if (val == "x") {
 			return;
 		}
-
 		$.ajax({
 			url : 'checksen',
 			type : 'POST',

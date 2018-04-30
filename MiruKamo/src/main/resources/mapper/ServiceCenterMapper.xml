@@ -6,7 +6,6 @@
 
 <!-- 검색 처리 SQL -->
 <mapper namespace="com.mirukamo.ai.dao.ServiceCenterMapper">
-
 	<!-- 공지사항 전체 출력 -->
 	<select id="getboardinfo" resultType="question">
 		select
@@ -15,7 +14,8 @@
 		,title
 		,category
 		,answer
-		,to_char(question_date, 'YYYY-MM-DD') question_date
+		,to_char(question_date,'YYYY/MM/DD
+		HH24:MI')question_date
 		from mirukamo_question
 	</select>
 
@@ -25,11 +25,12 @@
 		member_id
 		,num
 		,title
+		,content
 		,category
 		,answer
-		,to_char(question_date,
-		'YYYY-MM-DD HH24:MI:SS') question_date
-		from mirukamo_question
+		,to_char(question_date,'YYYY/MM/DD HH24:MI') question_date
+		from
+		mirukamo_question
 		where num
 		=#{num}
 	</select>
@@ -42,7 +43,7 @@
 		,title
 		,content
 		,hits
-		,to_char(review_date, 'YYYY-MM-DD') review_date
+		,to_char(question_date,'YYYY/MM/DD HH24:MI') review_date
 		from
 		mirukamo_reviews
 	</select>
@@ -54,9 +55,9 @@
 		,title
 		,content
 		,hits
-		,to_char(review_date, 'YYYY-MM-DD
-		HH24:MI:SS') review_date
-		from mirukamo_reviews
+		,to_char(question_date,'YYYY/MM/DD HH24:MI') review_date
+		from
+		mirukamo_reviews
 		where num =#{num}
 	</select>
 
@@ -78,29 +79,29 @@
 		,content
 		)
 		values (
-		mirukamo_reviews_seq.nextval,
-		#{customer_id},
-		#{title},
-		#{content}
+		mirukamo_reviews_seq.nextval
+		,#{customer_id}
+		,#{title}
+		,#{content}
+		)
+	</insert>
 
-	)
-</insert>
-<insert id="insertQuestion" parameterType="question">
-insert into mirukamo_question(
-	num 	
-,member_id 	
-,title	
-,content	
-,category
-)
-values (
-		mirukamo_question_seq.nextval 	
-,#{member_id} 	
-,#{title}
-,#{content}	
-,#{category}
-	)
-</insert>
+	<insert id="insertQuestion" parameterType="question">
+		insert into mirukamo_question(
+		num
+		,member_id
+		,title
+		,content
+		,category
+		)
+		values (
+		mirukamo_question_seq.nextval
+		,#{member_id}
+		,#{title}
+		,#{content}
+		,#{category}
+		)
+	</insert>
 
 
 
@@ -132,7 +133,8 @@ values (
 		, customer_id
 		, title
 		,content
-		, to_char(review_date, 'YYYY-MM-DD HH24:MI:SS') review_date
+		,
+		to_char(question_date,'YYYY/MM/DD HH24:MI') review_date
 		, hits
 		from
 		mirukamo_reviews
@@ -152,14 +154,15 @@ values (
 		, num
 		, content
 		,category
-		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		,
+		to_char(question_date,'YYYY/MM/DD HH24:MI') question_date
 		, answer
 		from
 		mirukamo_question
 		where category = 0
 		order by num desc
 	</select>
-	
+
 	<!-- 공지사항 페이징 -->
 	<select id="qnalistreviewsBoard" parameterType="string"
 		resultType="question">
@@ -169,28 +172,31 @@ values (
 		, num
 		, content
 		,category
-		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		,
+		to_char(question_date,'YYYY/MM/DD HH24:MI') question_date
 		, answer
 		from
 		mirukamo_question
-		where category = 9 
+		where category = 9
 		order by num desc
 	</select>
 	<!-- 1:1 문의사항 리스트 -->
-	<select id="selectQuestion"
-		resultType="question">
+	<select id="selectQuestion" resultType="question">
 		select
 		member_id
 		,title
-		, num
+		,
+		num
 		, content
 		,category
-		, to_char(question_date, 'YYYY-MM-DD HH24:MI:SS') question_date
+		, to_char(question_date,'YYYY/MM/DD HH24:MI')
+		question_date
 		, answer
 		from
 		mirukamo_question
 		where category = 1
-		order by num desc
+		order by
+		num desc
 	</select>
 	<!-- 1:1 문의사항 전체 글 개수 가져오기 -->
 	<select id="totalQuestion" resultType="int">
@@ -198,18 +204,55 @@ values (
 		totalCount from mirukamo_question
 		where category = 1
 	</select>
-	
+
 	<insert id="insertAnswer" parameterType="answer">
-insert into mirukamo_answer(
-	num 	
-,q_num  	
-,content 	
-)
-values (
-mirukamo_answer_seq.nextval 		
-,#{q_num}
-,#{content}	
-	)
-</insert>
-	
+		insert into mirukamo_answer(
+		num
+		,q_num
+		,content
+		)
+		values (
+		mirukamo_answer_seq.nextval
+		,#{q_num}
+		,#{content}
+		)
+	</insert>
+	<!--답변완료처리 -->
+	<update id="updateReply" parameterType="int">
+		update mirukamo_question
+		set answer = 1
+		where num =#{num}
+	</update>
+	<!--나의1:1 문의사항 리스트 -->
+	<select id="selectMyQuestion" resultType="question"
+		parameterType="question">
+		select
+		member_id
+		,title
+		, num
+		, content
+		,category
+		,
+		to_char(question_date,'YYYY/MM/DD HH24:MI') question_date
+		, answer
+		from
+		mirukamo_question
+		where category = 1
+		and member_id = #{member_id}
+		order by num desc
+	</select>
+	<!-- 나의 1:1 문의사항 전체 글 개수 가져오기 -->
+	<select id="totalMyQuestion" resultType="int" parameterType="question">
+		select count(*) as
+		totalCount from mirukamo_question
+		where category = 1
+		and member_id = #{member_id}
+	</select>
+
+	<select id="selectReply" resultType="answer" parameterType="int">
+		select *
+		from mirukamo_answer
+		where q_num = #{num}
+	</select>
+
 </mapper>

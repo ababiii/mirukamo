@@ -61,9 +61,7 @@ public class ServiceCenterDao {
 
 	// 수강 후기 작성
 	public void writereviews(mirukamo_reviews reviews) {
-
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
-
 		mapper.writereviews(reviews);
 
 	}
@@ -75,15 +73,12 @@ public class ServiceCenterDao {
 
 	}
 
-	//1:1문의 등록
-	public int insertQustion(mirukamo_question qs) {
+	//1:1문의, qna, 공지사항 등록
+	public void insertQuestion(mirukamo_question qs) {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
-		
-		
-		return mapper.insertQustion(qs);
+		 mapper.insertQuestion(qs);
 	}
 	
-
 	// qna 게시물 총 갯수
 	public int howboardqna() {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
@@ -135,7 +130,7 @@ public class ServiceCenterDao {
 	public ArrayList<mirukamo_question> selectQuestion(int startRecord, int countPerPage) {
 		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
 		RowBounds rb = new RowBounds(startRecord, countPerPage);
-		ArrayList<mirukamo_question> mirukamo_list = mapper.selectQustion(rb);
+		ArrayList<mirukamo_question> mirukamo_list = mapper.selectQuestion(rb);
 		return mirukamo_list;
 	}
 	//1:1문의글 개수
@@ -151,6 +146,35 @@ public class ServiceCenterDao {
 		
 		
 		return mapper.insertAnswer(ans);
+	}
+
+	public int updateReply(int q_num) {
+ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		
+		
+		return mapper.updateReply(q_num);
+	}
+	//나의1:1 문의 개수
+	public int totalMyQuestion(mirukamo_question qs) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		int totalQuestion = mapper.totalMyQuestion(qs);
+
+		return totalQuestion;
+	}
+	//1:1문의 리스트 유저 시점
+	public ArrayList<mirukamo_question> selectMyQuestion(mirukamo_question qs, int startRecord, int countPerPage) {
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		ArrayList<mirukamo_question> mirukamo_list = mapper.selectMyQuestion(qs,rb);
+		return mirukamo_list;
+	}
+
+	public ArrayList<Mirukamo_answer> selectReply(int num) {
+		System.out.println("수강후기 게시물 가져오기");
+
+		ServiceCenterMapper mapper = sqlSession.getMapper(ServiceCenterMapper.class);
+		ArrayList<Mirukamo_answer> reply = mapper.selectReply(num);
+		return reply;
 	}
 
 

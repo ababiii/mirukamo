@@ -131,7 +131,7 @@
 							<td>${a.teacher}</td>
 							<td>${a.languages}</td>
 							<td>${a.file_name}</td>
-							<td>${a.thumnail}</td>
+							<td><img src="../resources/images/${a.thumnail}" style="width: 100px; height: auto;"></td>
 							<td><button onclick="sendPackagenameandTitle()" >선택</button></td>
 							<td><input type="submit" value="선택"></td>
 						</tr>

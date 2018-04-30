@@ -30,19 +30,12 @@ public interface CourseMapper {
 	//중복없이 가져온 패키티타이틀로 선생님, 랭귀지 , num가져오기
 	public ArrayList<Mirukamo_course> mirucourse(String packagename);
 
-	
 	//수강페이지 수강신청에 쓰일것 
 	public Mirukamo_course yoursenseicours(int num);
 
-	
 	public ArrayList<MyCourse> myc(String member_id);
 	
 	//마이페이지 강의 저장
 	public void ADDClass(Mirukamo_course course);
 	//public void ADDClass(ArrayList<Mirukamo_course> course);
-
-	
-	
-
-	
 }

@@ -28,10 +28,10 @@ public interface ServiceCenterMapper {
 	
 	//수강후기 조회수 증가
 	public void reviewshits(int num);
-
-	public int insertQustion(mirukamo_question qs);
-
 	
+	//qna , 공지사항 , 1대1 넣기 
+	public void insertQuestion(mirukamo_question qs);
+
 	//공지사항 가져오기
 	public int howboardadmin();
 
@@ -49,11 +49,19 @@ public interface ServiceCenterMapper {
 	//qna 페이징
 	public ArrayList<mirukamo_question> qnalistreviewsBoard(String searchText, RowBounds rb);
 
-	public ArrayList<mirukamo_question> selectQustion(RowBounds rb);
+	public ArrayList<mirukamo_question> selectQuestion(RowBounds rb);
 
 	public int totalQuestion();
 
 	public int insertAnswer(Mirukamo_answer ans);
+
+	public int updateReply(int q_num);
+
+	public int totalMyQuestion(mirukamo_question qs);
+
+	public ArrayList<mirukamo_question> selectMyQuestion(mirukamo_question qs, RowBounds rb);
+
+	public ArrayList<Mirukamo_answer> selectReply(int num);
 
 	
 }

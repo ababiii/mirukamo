@@ -176,6 +176,9 @@ public class CourseController {
 		// 마이 수강코스에 아무것도 없는 경우 -> 추가
 		if (plz.size() == 0) {
 			System.out.println("사용자 이름 강의 하나두 없음");
+			String plzlogin = "로그인 후 사용해주세요.";
+			model.addAttribute("plzlogin", plzlogin);
+			return "packageselect";
 		}
 
 		for (int i = 0; i < plz.size(); i++) {
@@ -211,42 +214,45 @@ public class CourseController {
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public String upload(Model model, HttpSession session) {
-		// ------------------------송수근
-		ArrayList<Mirukamo_course> comesensei = courseDAO.senseicours();
-
-		for (int i = 0; i < comesensei.size(); i++) {
-			System.out.println("센세이들 코스" + comesensei.get(i).toString());
-		}
-
-		ArrayList<String> numstring = new ArrayList<String>();
-
-		// 객체말고 스트링으로 넣어라
-		for (int i = 0; i < comesensei.size(); i++) {
-			String packagename = comesensei.get(i).getPackagename();
-			String num = "" + courseDAO.sen(packagename).get(i).getNum();
-			numstring.add(num);
-		}
-
-		model.addAttribute("comesensei", comesensei);
-		return "uploadForm";
+			// ------------------------송수근
+			ArrayList<Mirukamo_course> comesensei = courseDAO.senseicours();
+	
+			for (int i = 0; i < comesensei.size(); i++) {
+				System.out.println("센세이들 코스" + comesensei.get(i).toString());
+			}
+	
+			ArrayList<String> numstring = new ArrayList<String>();
+	
+			// 객체말고 스트링으로 넣어라
+			for (int i = 0; i < comesensei.size(); i++) {
+				String packagename = comesensei.get(i).getPackagename();
+				System.out.println("패키지 네임 " + packagename);
+				int num = (courseDAO.sen(packagename)).get(i).getNum();
+				System.out.println("숫자"+num);
+				comesensei.get(i).setNum(num);
+				//numstring.add(num);
+			}
+	
+			for (int i = 0; i < comesensei.size(); i++) {
+				System.out.println("22센세이들 코스22" + comesensei.get(i).toString());
+			}
+	
+			model.addAttribute("comesensei", comesensei);
+			return "uploadForm";
 	}
 
 	// 여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
-	public String upload1(Mirukamo_course course, MultipartFile upload, Model model) {
+	public String upload1(Mirukamo_course course, MultipartFile upload, Model model,HttpServletRequest HttpServletRequest) {
 		System.out.println("들어오냐?");
 		System.out.println(upload.getOriginalFilename());
-
-		/*
-		 * 여기 오류 , ,고쳐야함 - 송수근 4/29 10:29
-		 * 
-		 * String savedfile = FileService.saveFile(upload, uploadPath);
-		 * course.setFile_name(savedfile);
-		 */
+	
+		String savedfile = FileService.saveFile(upload, uploadPath, HttpServletRequest);
+		course.setFile_name(savedfile);
 
 		System.out.println("ㅅㅅㄱ : " + course.toString());
 		courseDAO.insertCourse(course);
-
+	
 		// ------------송수근
 		ArrayList<Mirukamo_course> mirucourse = new ArrayList<Mirukamo_course>();
 
@@ -259,7 +265,7 @@ public class CourseController {
 		// 강의 영상가져오기
 		model.addAttribute("list", mirucourse);
 
-		return "redirect:videolist";
+		return "redirect:packagselect";
 	}
 
 	// 송수근 > 수강신청 버튼누르기
@@ -310,6 +316,8 @@ public class CourseController {
 
 		System.out.println("꿰엑" + picksensei.toString());
 
+		
+		
 		return picksensei;
 	}
 

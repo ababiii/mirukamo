@@ -60,11 +60,15 @@
 	src="<c:url value = "/resources/jQuery/main.js?1524476367"/>"></script>
 <script language="javascript"
 	src="https://pgweb.uplus.co.kr/WEB_SERVER/js/escrowValid.js"></script>
+<script type="text/javascript">
+	function callJLPT() {
+
+		window.open("http://www.jlpt.or.kr/index.html", "팝업",
+				"left=10, top=10, width=800, height=800");
+	}
+</script>
 </head>
 <body class="main">
-
-
-
 	<div class="topban closed">
 		<div class="bt_topban position">
 			<div class="w1000 position"></div>
@@ -86,14 +90,17 @@
 			</div>
 			<div class="util_box">
 				<ul class="util1">
+
+
+
 					<li><a href="login/login" onclick="loginChk();">ログイン</a></li>
 					<li><a href="login">ログイン</a></li>
 					<li><a href="https://member.siwonschool.com/?s=join">会員加入</a></li>
-					<li><a href="course/upload">お問い合わせ</a></li>
+					<li><a href="servicecenter">お問い合わせ</a></li>
 				</ul>
 				<ul class="util2">
 					<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li> -->
-					<li><a href="javascript:;"><span class="my">마이페이지</span></a></li>
+					<li><a href="myPage"><span class="my">마이페이지</span></a></li>
 					<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="coupon">쿠폰</span></a></li>
 					<li><a href="javascript:;" onClick="loginChk();"><span class="cart">장바구니</span></a></li> -->
 				</ul>
@@ -110,7 +117,6 @@
 					</ul>
 				</div>
 				<!-- //마이페이지 레이어 -->
-
 
 			</div>
 		</div>
@@ -176,9 +182,9 @@
 						</div>
 						<span class="decoline" style="width:70px;left:26px;"></span>
 					</div> --></li>
-					<li class="gnb_item add_ico"><a href="/?s=products"
+					<li class="gnb_item add_ico"><a href="course/packagselect"
 						class="tit"> <!-- <i class="ico_event" name="products">日本語の能力向上</i> -->
-							<span>受講申請</span>
+							<span>合議リスト</span>
 					</a> <!-- 	<div class="wrap_snb wr3">
 						<dl>
 							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>
@@ -196,11 +202,12 @@
 						</div>
 						<span class="decoline" style="width:55px;left:26px;"></span>
 					</div> --></li>
-					<li class="gnb_item"><a href="/?s=community&b=review"
-						class="tit"><span>講座評価</span></a></li>
-					<li class="gnb_item"><a href="/?s=free"
-						class="tit grey bgnone"><span>今日の問題</span></a> <!-- <div class="wrap_snb wr5">
+					<li class="gnb_item"><a href="javascript:callJLPT();"
+						class="tit"><span>JLPT申し込み</span></a></li>
+					<li class="gnb_item"><a href="drill" class="tit grey bgnone"><span>今日の問題</span></a>
+						<!-- <div class="wrap_snb wr5">
 						<dl>
+
 							<dd><a href="/?s=free&p=freemovie">무료강의</a></dd>
 							<dd><a href="/?s=free&p=leveltest">레벨테스트</a></dd>
 							<dd><a href="/?s=free&p=request_mail">학습메일</a></dd>
@@ -216,14 +223,14 @@
 						</div>
 						<span class="decoline" style="width:55px;left:26px;"></span>
 					</div> --></li>
-					<li class="gnb_item"><a href="/?s=community" class="tit grey"><span>公知事項</span></a>
+					<li class="gnb_item"><a href="servicecenter" class="tit grey"><span>お知らせ</span></a>
 						<div class="wrap_snb wr6">
 							<dl>
 								<dd>
-									<a href="/?s=community&b=news">公知事項</a>
+									<a href="servicecenter">よく聞く質問</a>
 								</dd>
 								<dd>
-									<a href="servicecenter">よく聞く質問</a>
+									<a href="customerReviews">講義リビュー</a>
 								</dd>
 								<!-- <dd><a href="/?s=community&b=today_ready">오늘의 각오</a></dd>
 							<dd><a href="/?s=community&b=study_qna">공부 질문하기</a></dd>
@@ -237,7 +244,7 @@
 					</a></li>
 				</ul>
 				<!--// #wrap_gnb -->
-				<a href="javascript:;" onClick="loginChk();" class="bt_myclass"><img
+				<a href="myPage" onClick="loginChk();" class="bt_myclass"><img
 					src="resources/images/mycourse.png" alt="내 강의실"></a>
 			</div>
 			<!--// wrap_gnb -->
@@ -482,11 +489,6 @@
 	<!-- 우측 퀵배너(원형) -->
 
 	</div>
-
-
-
-
-
 	<style type="text/css">
 #floating_Layer {
 	position: relative;
@@ -553,7 +555,7 @@
 							+ '","args":""}', '*');
 		}
 	</script>
-	<!----------------------------------------------------------- 안 씀 --------------------------------------------------------------------------->
+	<!-----------------------안 씀---------------------
 	<script>
 		$(document).ready(function() {
 			var mode = $('input[name=mode]').val();
@@ -570,34 +572,35 @@
 	<div class="sitemap_pop">
 		<a href="javascript:void(0)" class="bt_cls ir2"><span>닫기</span></a>
 		<div class="menu_con">
-			<table>
-				<colgroup>
-					<col width="160px" />
-					<col width="*" />
-				</colgroup>
-				<tbody>
-					<c:if test="${userId == null}">
+			<c:if test="${userId !='admin'}">
+				<table>
+					<colgroup>
+						<col width="160px" />
+						<col width="*" />
+					</colgroup>
+					<tbody>
 						<tr>
-							<th>個人情報</th>
-							<td>
-								<ul class="list_type">
-									<li>ログインしてください</li>
-								</ul>
-							</td>
+							<c:if test="${userId == null}">
+								<th>個人情報</th>
+								<td>
+									<ul class="list_type">
+										<li>ログインしてください</li>
+									</ul>
+								</td>
+							</c:if>
 						</tr>
-					</c:if>
-					<c:if test="${userId != null}">
-						<tr>
-							<th>個人情報</th>
-							<td>
-								<ul class="list_type">
-									<li><a href="myPage">マイページ</a></li>
-									<li><a href="myUpdate">個人情報変更</a></li>
-								</ul>
-							</td>
-						</tr>
-					</c:if>
-					<!-- <tr>
+						<c:if test="${userId != null}">
+							<tr>
+								<th>個人情報</th>
+								<td>
+									<ul class="list_type">
+										<li><a href="myPage">マイページ</a></li>
+										<li><a href="myUpdate">個人情報変更</a></li>
+									</ul>
+								</td>
+							</tr>
+						</c:if>
+						<!-- <tr>
 					<th>선생님</th>
 					<td>
 						<ul class="list_type2"><li><strong>왕초보</strong></li><li><a href="/?s=teacher&p=cyr">최유리</a></li></ul>
@@ -610,41 +613,42 @@
 						<ul class="list_type2"><li><strong>JLPT</strong></li><li><a href="/?s=teacher&p=narumi">나루미</a></li></ul>
 					</td>
 				</tr> -->
-					<tr>
-						<th>講義</th>
-						<td>
-							<ul class="list_type">
-								<li><a href="course/packagselect">講義リスト</a></li>
-								<!-- <li><a href="/?s=products">講義申請</a></li> -->
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<th>無料学習</th>
-						<td>
-							<ul class="list_type">
-								<li><a href="drill">今日の問題</a></li>
-								<!-- <li><a href="/?s=free&p=leveltest">레벨테스트</a></li>
+						<tr>
+							<th>講義</th>
+							<td>
+								<ul class="course/list_type">
+									<li><a href="course/packagselect">講義リスト</a></li>
+									<!-- <li><a href="/?s=products">講義申請</a></li> -->
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>無料学習</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="drill">今日の問題</a></li>
+									<!-- <li><a href="/?s=free&p=leveltest">레벨테스트</a></li>
 								<li><a href="/?s=free&p=request_mail">학습메일</a></li>
 								<li><a href="/?s=free&p=jpt">JPT 집중탐구</a></li>
 								<li><a href="/?s=free&p=todayword">오늘의 단어</a></li>
 								<li><a href="/?s=free&p=one_minute">하루 1분 일본어</a></li>
 								<li><a href="/?s=free&p=writing">작문연습</a></li>
 								<li><a href="/?s=free&p=nowjapan">지금 일본은</a></li> -->
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<th>お問い合わせ</th>
-						<td>
-							<ul class="list_type">
-								<li><a href="servicecenter">QnA</a></li>
-								<li><a href="customerReviews">講義リビュー</a></li>
-								<li><a href="servicecenter">お知らせ</a></li>
-							</ul>
-						</td>
-					</tr>
-					<!-- <tr>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>お問い合わせ</th>
+							<td>
+								<!-- 좌측메뉴 226번쨰 줄 -->
+								<ul class="list_type">
+									<li><a href="servicecenter">よく聞く質問</a></li>
+									<li><a href="customerReviews">講義リビュー</a></li>
+									<li><a href="servicecenter">公地事項</a></li>
+								</ul>
+							</td>
+						</tr>
+						<!-- <tr>
 					<th>커뮤니티</th>
 					<td>
 						<ul class="list_type">
@@ -656,7 +660,7 @@
 						</ul>
 					</td>
 				</tr> -->
-					<!-- <tr>
+						<!-- <tr>
 					<th>이벤트</th>
 					<td>
 						<ul class="list_type evt_list">
@@ -665,7 +669,7 @@
 						</ul>
 					</td>
 				</tr> -->
-					<!-- <tr>
+						<!-- <tr>
 						<th>고객센터</th>
 						<td>
 							<ul class="list_type">
@@ -680,11 +684,78 @@
 							</ul>
 						</td>
 					</tr> -->
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</c:if>
+			<c:if test="${userId =='admin'}">
+				<!--------------------------------------------- 
+			운영자 전용 메뉴 바 
+			---------------------------------------------->
+				<table>
+					<colgroup>
+						<col width="160px" />
+						<col width="*" />
+					</colgroup>
+					<tbody>
+						<c:if test="${userId != null}">
+							<tr>
+								<th>個人情報</th>
+								<td>
+									<ul class="list_type">
+										<li><a href="myPage">マイページ</a></li>
+										<li><a href="myUpdate">個人情報変更</a></li>
+									</ul>
+								</td>
+							</tr>
+						</c:if>
+						<tr>
+							<th>講義</th>
+							<td>
+								<ul class="course/list_type">
+									<li><a href="course/packagselect">講義リスト</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>無料学習</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="drill">今日の問題</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>お問い合わせ</th>
+							<td>
+								<!-- 좌측메뉴 226번쨰 줄 -->
+								<ul class="list_type">
+									<li><a href="servicecenter">よく聞く質問</a></li>
+									<li><a href="customerReviews">講義リビュー</a></li>
+									<li><a href="servicecenter">公地事項</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>講義映像</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="course/upload">映像アップロード</a></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th>問い合わせ</th>
+							<td>
+								<ul class="list_type">
+									<li><a href="advicelist">答え</a></li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</c:if>
 		</div>
 	</div>
-
 
 	<input type="hidden" name="uno" value="">
 

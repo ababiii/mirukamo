@@ -10,6 +10,8 @@
 
 <script type="text/javascript">
 
+//사용자 글 읽는 시점
+
 </script>
 </head>
 <body>
@@ -31,23 +33,20 @@
 <td>${copy.member_id}</td>
 </tr>
 <tr>
-
 <td>날짜</td>
 <td>${copy.question_date}</td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">
-<textarea rows="10" cols="10" name="content ">
-
-
-========================================
+<textarea rows="10" cols="10" name="content">
 ${copy.content}
+========================================
 </textarea>
-
 </td>
 </tr>
 
 </table>
+<input type="submit" value="작성">
 </form>
 </c:if>
 </body>

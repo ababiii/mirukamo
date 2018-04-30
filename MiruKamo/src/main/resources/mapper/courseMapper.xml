@@ -96,5 +96,45 @@
 		,#{languages}
 		)
 	</insert>
+	
+	<select id="getPackageInfo" parameterType="string" resultType="Course">
+	select * from mirukamo_package_info
+	where packagename=#{packagename}
+	</select>
 
+	
+	<select id="getTeacherInfo" parameterType="string" resultType="Course">
+	select *
+from mirukamo_course
+where  teacher = #{teacher}
+order by num,packagename
+	</select>
+		
+<!-- 특정넘버 수강 가져오기 -->
+	<select id="selectNumCourse" resultType="Course" parameterType="int">
+		select * from mirukamo_course
+		where
+		num =#{num}
+	</select>
+<!-- 특정패키지 수강 가져오기 -->
+	<select id="selectPackCourse" resultType="Course" parameterType="string">
+		select * from mirukamo_course
+		where
+		packagename =#{packagename}
+		order by num
+	</select>
+<!-- 수강 신청중인지 확인하기 -->
+	<select id="checkCourse" resultType="MyCourse" parameterType="MyCourse">
+		select
+			*
+		from mirukamo_mycourse
+		where
+		 member_id=#{member_id} and
+         packagename in (
+            select
+                packagename
+            from mirukamo_course
+            where  num=#{num})
+
+	</select>
 </mapper>

@@ -314,7 +314,7 @@
 
 <!-- <iframe id="movie" class="pframe" width='100%' height='100%' src='../resources/videos/2.mp4' allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe> -->
 					<video id="movie" class="pframe" width='100%' height='100%' controls="true" preload="true" poster="posters/despicable.jpg" controls autoplay>
-	<source id="movie_src" src="../resources/videos/2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+	<source id="movie_src" src="./preview?name=${name}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
 </video>
 					</div>
                     			<div id="divControlArea" class="control_area" style="height:31px; position:static;" >
@@ -359,9 +359,7 @@
 													<span class="cast--subject">[학습법]</span>정식쌤이 답변합니다! [서영,
 													아윤, 재희 학생에게]<span class="cast--date">2018-04-20</span>
 												</div></a></li> -->
-												<div class="playlistHolder">
 	<!-- <p class="playlist chosen" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/despicable.jpg"><img src="../resources/posters/despicablet.jpg" alt=""><br>Despicable Me 2</p> -->
-	<p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/2.mp4"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</a></p>
 	<!--  이부분 반복문 돌릴것
 	<p class="playlist" data-id="#movie" data-video="파일주소띵" data-poster="썸네일">
 		<a onClick="movieDialog(this)" href="#" value="파일주소띵">
@@ -369,12 +367,29 @@
 			<br>강의명</a>
 	</p>
 	-->
+	<div class="playlistHolder">
+		<c:if test="${thumb != null}">
+			<c:forEach items="${thumb}" var="a">
+				<p class="playlist" data-id="#movie" data-video="./preview?name=${a.file_name}" data-poster="./preview?name=${a.thumnail}">
+					<a onClick="movieDialog(this)" href="#" value="./preview?name=${a.file_name}">
+					<img src="./preview?name=${a.thumnail}" alt="" style="width: 260px;height: 140px;">
+					<br><font size="${2+18/(fn:length(a.title))}"><b>${a.title}</b></font></a>
+				</p>
+			</c:forEach>			
+		</c:if>
+	</div>
 	
+	
+	
+	
+	<!--
+<div class="playlistHolder">
+	<p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/2.mp4"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</a></p>
 	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/smurfs.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/3.mp4"><img src="../resources/posters/smurfst.jpg" alt=""><br>The Smurfs 2</a></p>
 	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/planes.jpg"><img src="../resources/posters/planest.jpg" alt=""><br>Planes</p>
 	<p class="playlist lastchild" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/monster.jpg"><img src="../resources/posters/monstert.jpg" alt=""><br>Monster University</p>
 </div>
-
+-->
 								<!-- <li><p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</p> <img class="cast--bg"
 										src="http://img.megastudy.net/Player/player_2016/bg_openLecture.png"
 										alt=""> <img class="cast--pic"

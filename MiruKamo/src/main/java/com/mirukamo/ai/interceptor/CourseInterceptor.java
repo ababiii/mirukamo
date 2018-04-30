@@ -1,5 +1,6 @@
 package com.mirukamo.ai.interceptor;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,31 +22,38 @@ public class CourseInterceptor
 	private static final Logger logger=LoggerFactory.getLogger(CourseInterceptor.class);
 	
 	@Autowired
-	AppointmentDAO appointmentDAO;
+	CourseDAO courseDAO;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.debug("CourseInterceptor 실행");
-		MyCourse mycourse = new MyCourse();
+		
 		//세션의 로그인 정보 읽음
 		HttpSession session=request.getSession();
 		String loginId=(String)session.getAttribute("userId");
-		String packagename = (String)request.getAttribute("packagename");
-		mycourse.setMember_id(loginId);
-		mycourse.setPackagename(packagename);
-		appointmentDAO.myCourseCheck(mycourse);
+		Object a= request.getAttribute("num");
+		int num=-1;
 		
-		ArrayList<MyCourse> list = appointmentDAO.myCourseCheck(mycourse);
-		for(int i=0; i<list.size();i++){
-		 if(list.isEmpty()){
-			 response.sendRedirect(request.getContextPath()+"/course/videolist"); 
-		 }
-		};
+		if(a!=null){
+			num=(int)a;
+		}
+		MyCourse my= new MyCourse();
+		my.setMember_id(loginId);
+		my.setNum(num);
+		ArrayList<MyCourse> aru= courseDAO.checkCourse(my);
+		
 		//없으면 로그인 페이지로 리다이렉트
-		if(loginId==null){
-			response.sendRedirect(request.getContextPath()+"/login/login");
-			return false;
+		if(aru!=null){
+			if(aru.size()<1){
+				PrintWriter pw=response.getWriter();
+				pw.print("<script type='text/javascript'>"+
+						"close();"+ "</script>");
+				pw.flush();
+				pw.close();
+			//response.sendRedirect(request.getContextPath()+"/course/lectureInfoPage?teacher="+request.getAttribute("teacher"));
+			
+			}
 		}
 		return super.preHandle(request, response, handler);
 	}

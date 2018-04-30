@@ -40,6 +40,17 @@ public interface CourseMapper {
 	//마이페이지 강의 저장
 	public void ADDClass(Mirukamo_course course);
 	//public void ADDClass(ArrayList<Mirukamo_course> course);
+	
+	//패키지 정보 가져오기
+	public Mirukamo_course getPackageInfo(String packageName);
+
+	public ArrayList<Mirukamo_course> getTeacherInfo(String teacher);
+
+	public Mirukamo_course selectNumCourse(int num);
+
+	public ArrayList<Mirukamo_course> selectPackCourse(String packagename);
+	//코스체크
+		public ArrayList<MyCourse> checkCourse(MyCourse my);
 
 	
 	

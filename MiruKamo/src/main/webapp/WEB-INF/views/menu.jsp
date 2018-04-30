@@ -6,19 +6,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="keyword" content="시원스쿨 일본어,일본어 인강,기초 일본어,독학 일본어,일본어">
-<meta name="description"
-	content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
-<meta property="og:keywords"
-	content="기초일본어,일본어독학,일본어회화,여행일본어,JPT JLPT,무료일본어,일본어인강,일본어학원">
-<meta property="og:description"
-	content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
 <meta property="og:type" content="website">
 <meta property="og:url"
 	content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
-<meta property="og:site_name" content="시원스쿨 일본어">
-<meta property="og:title" content="시원스쿨 일본어">
+
 <meta property="og:image"
 	content="http://img.siwonschool.com/japan/200x200.png">
 <meta name="twitter:image"
@@ -26,8 +17,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url"
 	content="http://japan.siwonschool.com/?&utm_source=naverjapan&utm_medium=cpc&utm_content=%C0%CF%B9%DD%B4%EB%C7%A5A&utm_campaign=siwonschool&NaPm=ct%3Djgc1mlbs%7Cci%3D0zu0000VEbPo%5FjM8jKNG%7Ctr%3Dsa%7Chk%3Db244bd38d400eab3a67b65e8c0f973768e0039c3">
-<meta name="twitter:description"
-	content="말문이 트이는 진짜 일본어! 일본어인강, 일본어회화, 기초일본어부터 JLPT까지!">
+
 <title>test</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="apple-mobile-web-app-title" content="시원스쿨 일본어">
@@ -184,9 +174,9 @@
 						</div>
 						<span class="decoline" style="width:70px;left:26px;"></span>
 					</div> --></li>
-					<li class="gnb_item add_ico"><a href="course/packagselect"
+					<li class="gnb_item add_ico"><a href="courseView"
 						class="tit"> <!-- <i class="ico_event" name="products">日本語の能力向上</i> -->
-							<span>合議リスト</span>
+							<span>講義申請</span>
 					</a> <!-- 	<div class="wrap_snb wr3">
 						<dl>
 							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>

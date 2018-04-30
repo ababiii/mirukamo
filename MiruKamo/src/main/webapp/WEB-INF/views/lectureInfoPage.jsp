@@ -29,6 +29,29 @@ $(document).ready(function(){
 	
 	
  });
+ 
+function watching_class(num) {
+	$.ajax({
+		url : 'lecture_page',
+		type : 'POST',
+		dataType : "int",
+		data : {
+			num : num
+		},
+		success : function(e) {
+			if (e == 0) {
+				alert("존재하는 강의가 없습니다.");
+			}
+			else if (e == 1) {
+				alert("수강 성공");
+				location.reload();
+			}
+		},
+		error : function(e) {
+			alert("신청 오류");
+		}
+	});
+}
 
 
 
@@ -82,16 +105,23 @@ function stop_float_video(){
 </script>
 <div id="siwon_container" class="prod_sec detail">
 	<div class="sec_main"><div class="inner_container2"><div class="inner">
-		<span class="img_t"><img src="../resources/images/yosiko2.jpg" alt="" /  height="400" width="350" ></span>
+		<span class="img_t">
+		<c:if test="${name eq '요시코'}"><img src="../resources/images/yosiko2.jpg" alt=""   height="400" width="350" ></c:if>
+		<c:if test="${name eq '박수진'}"><img src="../resources/images/sujin2.png" alt=""   height="400" width="350" ></c:if>
+		</span>
 		
 											<a href="javascript:void(0);" onClick="loginChk();" class="bt_pay">수강신청</a>
 	</div></div></div><!--// sec_main -->
 
 		<div class="inner_container2">
+		
+		
+		<c:forEach var="i" items="${list}">
+		
 					<div class="sec_comp tab_cate" id="anchor_comp">
-				<h3>New 일본어 왕초보 탈출 1탄</h3>
+				<h3>${i[0].packagename}</h3>
 				<div class="wrap_info2">
-			<ul><li class="l1"><span>강좌구성 : <em class="fc_red">71강</em></span></li><li class="l2"></li></ul>
+			<ul><li class="l1"><span>강좌구성 : <em class="fc_red">${fn:length(i)} 강</em></span></li><li class="l2"></li></ul>
 		</div>
 				<div class="wrap_tmenu" id="tmenu_comm">
 					<ul class="tcon">
@@ -99,12 +129,13 @@ function stop_float_video(){
 							<table class="table2_st2">
 								<colgroup><col style="width:90px"/><col style="width:175px"/><col /><col style="width:215px"/></colgroup>
 								<thead>
-									<tr><th>차시</th><th>강의명</th><th>학습목표</th><th>강의수강</th></tr>
+									<tr><th>차시</th><th>강의명</th><th>강의사진</th><th>강의수강</th></tr>
 								</thead>
 								<tbody>
-								<c:forEach  var = "i" begin = "1" end = "5">
-								<tr><td>${i}</td><td><a class="open-popup" target="_blank" href="./lecture_page">Orientation</a></td><td class="tl">강좌 소개 및 강좌 커리큘럼 안내</td>
-									<td><button>강의수강</button></td>
+								
+								<c:forEach var="j" items="${i}" varStatus="status">
+								<tr><td>${status.count}</td><td><a class="open-popup" target="_blank" href="./lecture_page?num=${j.num}">${j.title}</a></td>
+									<td><img src="./preview?name=${j.thumnail}" alt="" style="width: 260px;height: 140px;"></td>
 								</c:forEach>
 									<!-- </tr><tr><td>사전1</td><td>히라가나 part1</td>
 									<td class="tl">히라가나 50음도를 알고 말할 수 있다</td><td>24:55</td></tr><tr><td>사전2</td><td>히라가나 part2</td><td class="tl">히라가나 탁음과 반탁음을 구분하고 소리내서 말할 수 있다</td><td>22:55</td></tr><tr><td>사전3</td><td>인사하기</td><td class="tl">8가지 상황에서의 기본 일본어 인사말을 말할 수 있다</td><td>14:14</td></tr><tr><td>사전4</td><td>지시어</td><td class="tl">이, 그, 저, 어느에 해당하는 지시어를 알고 말할 수 있다</td><td>11:27</td></tr><tr><td>1강</td><td>만능재주꾼 </td><td class="tl">일본어 명사를 알고 현재와 과거의 긍정문을 말할 수 있다</td><td>31:24</td></tr><tr><td>2강</td><td>모두가 '예'할 때 </td><td class="tl">일본어 명사의 현재와 과거의 부정문을 말할 수 있다</td><td>28:10</td></tr><tr><td>3강</td><td>내가 바라는 그것 </td><td class="tl">사물을 달라고 부탁하는 표현을 말할 수 있다</td><td>26:30</td></tr><tr><td>4강</td><td>궁금한 건 못참아!</td><td class="tl">우리말 은/는에 해당하는 주격조사를 넣은 문장을 말할 수 있다</td><td>27:17</td></tr><tr><td>5강</td><td>한번 맞춰볼게요!  </td><td class="tl">3가지 의문사를 이용하여 장소와 정보를 묻는 의문문을 말할 수 있다</td><td>21:34</td></tr><tr><td>6강</td><td>만능 재주꾼2 </td><td class="tl">나형용사를 알고 현재와 과거의 긍정문을 말할 수 있다</td><td>29:32</td></tr><tr><td>7강</td><td>그렇지 않더라구요  </td><td class="tl">나형용사의 현재와 과거의 부정문을 말할 수 있다</td><td>26:47</td></tr><tr><td>8강</td><td>'나'만 믿어 </td><td class="tl">나형용사를 사용하여 명사를 꾸며주는 방법을 알고 문장을 말할 수 있다</td><td>22:51</td></tr><tr><td>9강</td><td>'이'형용사라고 해  </td><td class="tl">이형용사를 알고 현재와 과거의 긍정문을 말할 수 있다</td><td>31:41</td></tr><tr><td>10강</td><td>조금 특별한 너  </td><td class="tl">이형용사의 현재와 과거의 부정문을 말할 수 있다</td><td>27:07</td></tr><tr><td>11강</td><td>한결같은 너 </td><td class="tl">이형용사를 사용하여 명사를 꾸며주는 방법을 알고 문장을 말할 수 있다</td><td>26:18</td></tr><tr><td>12강</td><td>도와줘! 의문사 어벤져스 </td><td class="tl">4가지 의문사를 사용하여 특정인물을 묻는 의문문을 말할 수 있다</td><td>21:33</td></tr><tr><td>13강</td><td>'가'는 투잡 중 </td><td class="tl">두 가지 문장을 이어주는 역접의 조사를 알고 문장을 말할 수 있다</td><td>24:10</td></tr><tr><td>14강</td><td>한 놈만 판다 </td><td class="tl">특정 조사만을 사용하는 형용사를 알고 문장을 말할 수 있다</td><td>24:18</td></tr><tr><td>15강</td><td>저에겐 없네요 </td><td class="tl">존재동사를 알고 현재와 과거의 부정문을 말할 수 있다</td><td>21:34</td></tr> -->
@@ -113,6 +144,8 @@ function stop_float_video(){
 					</ul>
 				</div>
 			</div><!--// sec_comp -->
+			
+			</c:forEach>
 						<div class="inner_container2">
 		
 		</div><!--// inner_container2 -->

@@ -83,9 +83,9 @@ public class FileService {
 		String movie_name = uploadPath + "/" + originalFilename;
 		//String thumnail = uploadPath + "/" + originalFilename.substring(0, lastIndex);
 		
-		String thumnail = resourcesPath + originalFilename.substring(0, lastIndex);
+		String thumnail = uploadPath+"/" + originalFilename.substring(0, lastIndex);
 		
-		String command = "C:\\ffmpeg\\bin\\ffmpeg.exe -i \"" + movie_name + "\" -ss 00:05:00 -vcodec png -vframes 1 \""
+		String command = "C:\\ffmpeg\\bin\\ffmpeg.exe -i \"" + movie_name + "\" -ss 00:00:05 -vcodec png -vframes 1 \""
 				+ thumnail + ".png\"";
 
 		try {

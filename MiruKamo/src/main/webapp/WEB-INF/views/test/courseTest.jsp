@@ -1,14 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="ko">
 <head>
+<script type="text/javascript"
+	src="<c:url value = "/resources/jQuery/jquery-1.8.3.min.js"/>"></script>
+<title>ミルカモCourse</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#insertCourseBt1').on('click',insertCourse);
+	$('#insertCourseBt2').on('click',insertCourse);
+	
+	if(${fail=='already'}){
+		alert('すでに受講している講義です。');
+	}else if(${fail=='notCourse'}){
+		alert('講義が削除されて申請することができません。');
+	}
+});
 
+function insertCourse(){
+	
+	var packageName=$(this).attr('package');
+	/* alert($(this).attr('package')); */
+	$('#insertCourseForm').html('<input type="hidden" name="packageName" value='+packageName+'>');
+	$('#insertCourseForm').submit();
+}
+</script>
 </head>
 <body class="">
 
 	<jsp:include page="../menu.jsp" flush="true" />
+
+	<form action="course/insertCourse" id="insertCourseForm" method="post">
+	
+	</form>
+
 
 	<div id="siwon_container" class="prod_sec main">
 		<input type="hidden" name="is_over_smart" value="1" /> <input
@@ -26,7 +56,7 @@
 
 
 			<div class="sec_uni" id="anchor_single">
-				<h3 class="tit_comm">단과</h3>
+				<h3 class="tit_comm">単科</h3>
 
 				<div id="single_cyr_title">
 					<h4 class="cyr">
@@ -37,10 +67,10 @@
 							<div class="tit_area">
 								<dl>
 									<dd class="label_comm">
-										<span class="blue">단과</span>
+										<span class="blue">単科</span>
 									</dd>
 									<dt>
-										<a href="">New 日本語の初級を脱出する。</a>
+										<a href="">New日本語の初級を脱出する</a>
 									</dt>
 									<dd class="desc">
 										<ul>
@@ -95,8 +125,8 @@
 							</span>
 						</p>
 						<div class="bt_area_comm">
-							<a href="javascript:void(0);" onclick="loginChk()" class="bt_pay">受講申請</a>
-							<a href="" class="bt_more">詳細ページ</a>
+							<a href="javascript:void(0);" id="insertCourseBt1" class="bt_pay" package="New日本語の初級を脱出する">受講申請</a>
+							<a href="course/lectureInfoPage?teacher=요시코" class="bt_more">詳細ページ</a>
 						</div>
 					</div>
 				</div>
@@ -116,14 +146,14 @@
 										<span class="blue">단과</span>
 									</dd>
 									<dt>
-										<a href="">New 日本語を話す方法</a>
+										<a href="">New日本語を話す方法</a>
 									</dt>
 									<dd class="desc">
 										<ul>
 											<font color="#ff6d6d"> <b>簡単で速く日本語を話せるように。 <br>
 											日本語の初級の方でも2ヶ月勉強したら日本の旅行ができます。</b>
 											</font>
-											<br>
+											
 
 										</ul>
 									</dd>
@@ -172,8 +202,8 @@
 							</span>
 						</p>
 						<div class="bt_area_comm">
-							<a href="javascript:void(0);" onclick="loginChk()" class="bt_pay">受講申請</a>
-							<a href="" class="bt_more">詳細ページ</a>
+							<a href="javascript:void(0);" id="insertCourseBt2" class="bt_pay" package="New日本語を話す方法">受講申請</a>
+							<a href="course/lectureInfoPage" class="bt_more">詳細ページ</a>
 						</div>
 					</div>
 				</div>
@@ -182,6 +212,8 @@
 			</ul>
 			
 		</div>
+	</div>
+	</div>
 	</div>
 	<!--// sec_uni -->
 

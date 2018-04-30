@@ -128,7 +128,14 @@ public class AppointmentController {
 	}
 	
 	@RequestMapping(value="courseView",method=RequestMethod.GET)
-	public String courseTest(){
+	public String courseTest(String fail,Model model){
+		if(fail!=null){
+			if(fail.equals("already")){
+			model.addAttribute("fail", "already");
+			}else if(fail.equals("notCourse")){
+				model.addAttribute("fail", "notCourse");
+			}
+		}
 		return "test/courseTest";
 	}
 	

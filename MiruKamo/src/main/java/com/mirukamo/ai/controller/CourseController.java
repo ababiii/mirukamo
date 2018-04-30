@@ -3,6 +3,9 @@ package com.mirukamo.ai.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
@@ -26,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mirukamo.ai.dao.CourseDAO;
 import com.mirukamo.ai.dao.DrillDao;
@@ -61,6 +65,52 @@ public class CourseController {
 
 
 	@RequestMapping(value = "/lectureInfoPage", method = RequestMethod.GET)
+	public String lectureInfoPage(Model model, @RequestParam("teacher") String teacher) {
+		/*
+		try {
+			teacher = URLDecoder.decode(teacher, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		//courseView에서 보내준 값을 model에 넣어준다
+		//넣어 준 값을 jsp에서 그 선생님이 맞는지 확인해 주는대 사용해준다. 
+		System.out.println(teacher);
+		ArrayList<Mirukamo_course> list=courseDAO.getTeacherInfo(teacher);
+		ArrayList<ArrayList<Mirukamo_course>> result=new ArrayList<ArrayList<Mirukamo_course>>();
+		
+		for (Mirukamo_course a : list) {
+			boolean flag=true;
+			if(result.size()<1){
+				ArrayList<Mirukamo_course> temp=new ArrayList<Mirukamo_course>();
+				temp.add(a);
+				result.add(temp);
+			}else{
+				for (ArrayList<Mirukamo_course> b : result) {
+					if(b.get(0).getPackagename().equals(a.getPackagename())){
+						b.add(a);
+						flag=false;
+						break;
+					}
+				}
+				if(flag){
+					ArrayList<Mirukamo_course> temp=new ArrayList<Mirukamo_course>();
+					temp.add(a);
+					result.add(temp);
+				}
+				
+			}
+			
+		}
+		
+		model.addAttribute("list", result);
+		model.addAttribute("name", teacher);
+		
+		return "lectureInfoPage";
+	}
+	
+	@RequestMapping(value = "/lectureInfoPage", method = RequestMethod.POST)
 	public String lectureInfoPage() {
 		
 		
@@ -104,8 +154,24 @@ public class CourseController {
 	}
 	
 	@RequestMapping(value = "/lecture_page", method = RequestMethod.GET)
-	public String lecture_page() {
+	public String lecture_page(@RequestParam(value="num", required = true) int num,Model m) {
+		System.out.println(num+"이름 들어감");
+		logger.debug(num+"");
 		
+		Mirukamo_course c= courseDAO.selectNumCourse(num);
+	ArrayList<Mirukamo_course> p= courseDAO.selectPackCourse(c.getPackagename());
+		m.addAttribute("name",c.getFile_name());
+		m.addAttribute("thumb",p);
+		//엄정환 강의를 보았는지 확인하기
+	
+		
+		return "lecture_page";
+	}
+	
+	@RequestMapping(value = "/lecture_page", method = RequestMethod.POST)
+	public String lecture_page2(int num, Model model) {
+		logger.debug(num+"숫자들어감");
+		model.addAttribute("title_num", num);
 		return "lecture_page";
 	}
 	
@@ -121,7 +187,7 @@ public class CourseController {
 
 		return "eye_blink_detect";
 	}
-
+	
 	@RequestMapping(value = "preview", method = RequestMethod.GET)
 	public void getPreview3(@RequestParam(value = "name") String name, HttpServletResponse response,
 			HttpServletRequest request, HttpSession session) {
@@ -292,11 +358,22 @@ public class CourseController {
 	//여기에서 비디오 정보가 저장됨
 	@RequestMapping(value = "uploadcomplete", method = RequestMethod.POST)
 	public String upload1(Mirukamo_course course, MultipartFile upload, Model model, HttpServletRequest req) {
+		try {
+			req.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("들어오냐?");
 		System.out.println(upload.getOriginalFilename());
 		String savedfile = FileService.saveFile(upload, uploadPath, req);
 		course.setFile_name(savedfile);
-
+		
+		int lastIndex = savedfile.lastIndexOf('.');
+		String thumnail = savedfile.substring(0, lastIndex)+".png";
+		
+		
+		course.setThumnail(thumnail);
 		System.out.println("ㅅㅅㄱ : " + course.toString());
 		courseDAO.insertCourse(course);
 	
@@ -312,8 +389,16 @@ public class CourseController {
 
 		// 강의 영상가져오기
 		model.addAttribute("tokyocold", mirucourse);
+		String encodeResult="";
+		try {
+			encodeResult = URLEncoder.encode(course.getTeacher(), "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		return "redirect:videolist";
+		출처: http://unikys.tistory.com/195 [All-round programmer]
+		return "redirect:lectureInfoPage?teacher="+encodeResult;
 	}
 
 	// 송수근 > 수강신청 버튼누르기

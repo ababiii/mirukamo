@@ -1,0 +1,11 @@
+@charset euc-kr;
+div.layerpop_bg{z-index:999;overflow:hidden;position:fixed;top:0;left:0;width:100%;height:100%;background:url(//img.siwonschool.com/japan/comm/bg_black_opacity.png)}
+div.layerpop_bg div.layerpop_box{position:fixed;left:50%;z-index:998}
+div.layerpop_bg div.layerpop_box div.layerpop_video{clear:both;z-index:999}
+div.layerpop_bg div.layerpop_box div.layerpop_video video{width:100%;height:100%}
+div.layerpop_bg div.layerpop_box div.layerpop_close{overflow:hidden;clear:left;float:right;width:28px;height:28px;background:url(//img.siwonschool.com/japan/comm/video_close_img.gif) no-repeat;cursor:pointer;z-index:999;margin-bottom:10px;text-indent:-999px}
+
+/* text-title */
+div.layerpop_bg div.layerpop_box .layerpop_head{overflow:hidden;position:relative;min-height:38px}
+div.layerpop_bg div.layerpop_box .layerpop_head .layerpop_close{position:absolute;bottom:0;right:0}
+div.layerpop_bg div.layerpop_box .layerpop_head .layerpop_tit{font-size:25px;font-weight:bold;color:#fff}

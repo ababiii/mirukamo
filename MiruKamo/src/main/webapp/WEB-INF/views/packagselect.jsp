@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,11 +11,17 @@
 <script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="../resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
-	
+$(document).ready(function(){
+	if (${plzlogin}!= null) {
+		alert("로그인 후 사용해주세요.");
+	}
+}
 </script>
 </head>
 <body>
-
+	<c:if test="${plzlogin != null}">
+		
+	</c:if>
 	<c:if test="${yoshisushi != null || yoshisushi != ''}">
 		<table>
 			<tr>
@@ -26,7 +33,6 @@
 			</tr>
 		</table>
 	</c:if>
-
 	<BR>
 	<bR>
 	<BR>

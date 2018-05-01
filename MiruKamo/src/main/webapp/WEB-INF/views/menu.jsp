@@ -119,102 +119,18 @@
 					<li class="gnb_item circle all"><a href="javascript:void(0)"
 						class="tit ir2"><span>전체메뉴</span></a></li>
 					<li class="gnb_item">
-						<!-- <a href="/?s=info&info_1" class="tit"><span>시원스쿨 일본어</span></a> -->
-						<!-- <div class="wrap_snb wr1">
-						<dl>
-							<dd><a href="/?s=info&info_1">시원스쿨 일본어</a></dd>
-							<dd><a href="/?s=info&p=info_2">일본어 연구소</a></dd>
-							<dd><a href="/?s=info&p=info_3">학습프로그램</a></dd>
-							<dd><a href="/?s=info&p=share">사회공헌</a></dd>
-							<dd><a href="/?s=info&p=alliance">제휴안내</a></dd>
-						</dl>
-						<div class="box_r">
-							<div class="wr1_sub1 on"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521421915.jpg" alt="시원스쿨 일본어"></div>
-							<div class="wr1_sub2"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521421997.jpg" alt="일본어 연구소"></div>
-							<div class="wr1_sub3"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521422051.jpg" alt="학습 프로그램"></div>
-							<div class="wr1_sub4"><img src="http://data.siwonschool.com/banner/img/japan/2018/03/19/bimg_src_1521422316.jpg" alt="사회공헌"></div>
-							<div class="banner_wrap" id="gnbBanner1">
-								<ul class="wr1_sl">
-									<li><a href="http://japan.siwonschool.com/?s=community&b=event&m=view&sno=173" target="_blank" onClick="FnUpdateRightBanner('4418');"><img src="http://data.siwonschool.com/banner/img/japan/2018/04/11/bimg_src_1523411694.jpg" alt="여행인증이벤트" /></a></li><li><a href="http://japan.siwonschool.com/?s=community&b=event&m=view&sno=174" target="_blank" onClick="FnUpdateRightBanner('4369');"><img src="http://data.siwonschool.com/banner/img/japan/2018/04/06/bimg_src_1523003186.jpg" alt="4월 수강신청 이벤트" /></a></li><li><a href="http://japan.siwonschool.com/?s=event&p=ev_present" target="_blank" onClick="FnUpdateRightBanner('4370');"><img src="http://data.siwonschool.com/banner/img/japan/2018/04/06/bimg_src_1523003195.jpg" alt="출첵이벤트" /></a></li><li><a href="http://japan.siwonschool.com/?s=event&p=prod201804" target="_blank" onClick="FnUpdateRightBanner('4371');"><img src="http://data.siwonschool.com/banner/img/japan/2018/04/06/bimg_src_1523003143.jpg" alt="4월 수강신청 이벤트" /></a></li>								</ul>
-							</div>
-						</div>
-						<span class="decoline" style="width:94px;left:26px;"></span>
-					</div> -->
+						
 					</li>
 					<li class="gnb_item"><a href="/?s=teacher" class="tit"> <!-- <span>선생님소개</span> -->
-					</a> <!-- 	<div class="wrap_snb wr2">
-						<dl>
-							<dd><strong>왕초보</strong></dd>
-							<dd><strong>문법 | 어휘</strong></dd>
-							<dd><strong>회화</strong></dd>
-							<dd><strong>작문 | 표현</strong></dd>
-							<dd><strong>JPT</strong></dd>
-							<dd><strong>JLPT</strong></dd>
-						</dl>
-						<div class="box_teachers">
-							<dl>
-								<dd><a href="/?s=teacher&p=cyr" class="cyr on">최유리</a></dd>
-								<dd><a href="/?s=teacher&p=kks" class="kks">강기석</a> | <a href="/?s=teacher&p=khj" class="khj">권현정</a></dd>
-								<dd><a href="/?s=teacher&p=ksk" class="ksk">김수경</a> | <a href="/?s=teacher&p=ayaka" class="ayk">아야카</a></dd>
-								<dd><a href="/?s=teacher&p=ksm" class="ksm">고수민</a> | <a href="/?s=teacher&p=hsa" class="hsa">황선아</a></dd>
-								<dd><a href="/?s=teacher&p=skw" class="skw">서경원</a></dd>
-								<dd><a href="/?s=teacher&p=narumi" class="nrm">나루미</a></dd>
-							</dl>
-						</div>
-						<div class="teachers_img">
-							<div class="t_cyr on"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_cyr.png" alt="최유리 선생님 - 기초일본어 NO.1" /></div>
-							<div class="t_kks"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_kks.png" alt="강기석 선생님 - 왕초보문법 NO.1" /></div>
-							<div class="t_ksk"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_ksk.png" alt="김수경 선생님 - 일본어회화 NO.1" /></div>
-							<div class="t_ksm"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_ksm.png" alt="고수민 선생님 - 이야기작문 NO.1" /></div>
-							<div class="t_skw"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_skw.png" alt="서경원 선생님 - 대한민국JPT NO.1" /></div>
-							<div class="t_nrm"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_nrm.png" alt="나루미 선생님 - JLPT NO.1" /></div>
-							<div class="t_khj"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_khj.png" alt="권현정 선생님 - 속성문법 NO.1" /></div>
-							<div class="t_ayk"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_ayk.png" alt="아야카 선생님 - 리얼일본어 NO.1" /></div>
-							<div class="t_hsa"><img src="//img.siwonschool.com/japan/comm/gnb_teacher_hsa.png" alt="황선아 선생님 - 이야기일본어 NO.1" /></div>
-						</div>
-						<span class="decoline" style="width:70px;left:26px;"></span>
-					</div> --></li>
+					</a></li>
 					<li class="gnb_item add_ico"><a href="courseView"
 						class="tit"> <!-- <i class="ico_event" name="products">日本語の能力向上</i> -->
 							<span>講義申請</span>
-					</a> <!-- 	<div class="wrap_snb wr3">
-						<dl>
-							<dd><a href="/?s=products#anchor_pack">패키지</a></dd>
-							<dd><a href="/?s=products#tpl_free_title">프리패스</a></dd>
-							<dd><a href="/?s=products#tpl_tab_title">일본어탭</a></dd>
-							<dd><a href="/?s=products#tpl_refund_title">환급반</a></dd>
-							<dd><a href="/?s=products#anchor_single">단과</a></dd>
-							<dd><a href="/?s=products&p=book">교재/MP3</a></dd>
-						</dl>
-						<div class="box_r">
-							 <div class="banner_wrap" id="gnbBanner3">
-								<ul class="wr3_sl">
-									<li><a href="/?s=event&p=pkg_allkill" target="_blank" onClick="FnUpdateRightBanner('4383');"><img src="http://data.siwonschool.com/banner/img/japan/2018/04/10/bimg_src_1523324690.jpg" alt="올킬패키지" /></a></li>								</ul>
-							 </div>
-						</div>
-						<span class="decoline" style="width:55px;left:26px;"></span>
-					</div> --></li>
+					</a> </li>
 					<li class="gnb_item"><a href="javascript:callJLPT();"
 						class="tit"><span>JLPT申し込み</span></a></li>
 					<li class="gnb_item"><a href="drill" class="tit grey bgnone"><span>今日の問題</span></a>
-						<!-- <div class="wrap_snb wr5">
-						<dl>
-
-							<dd><a href="/?s=free&p=freemovie">무료강의</a></dd>
-							<dd><a href="/?s=free&p=leveltest">레벨테스트</a></dd>
-							<dd><a href="/?s=free&p=request_mail">학습메일</a></dd>
-							<dd><a href="/?s=free&p=jpt">JPT 집중탐구</a></dd>
-						</dl>
-						<div class="box_r">
-							<dl>
-								<dd><a href="/?s=free&p=todayword">오늘의 단어</a></dd>
-								<dd><a href="/?s=free&p=one_minute">하루 1분 일본어</a></dd>
-								<dd><a href="/?s=free&p=writing">작문연습</a></dd>
-								<dd><a href="/?s=free&p=nowjapan">지금 일본은..</a></dd>
-							</dl>
-						</div>
-						<span class="decoline" style="width:55px;left:26px;"></span>
-					</div> --></li>
+						</li>
 					<li class="gnb_item"><a href="servicecenter" class="tit grey"><span>お知らせ</span></a>
 						<div class="wrap_snb wr6">
 							<dl>
@@ -224,10 +140,7 @@
 								<dd>
 									<a href="customerReviews">講義リビュー</a>
 								</dd>
-								<!-- <dd><a href="/?s=community&b=today_ready">오늘의 각오</a></dd>
-							<dd><a href="/?s=community&b=study_qna">공부 질문하기</a></dd>
-							<dd><a href="/?s=community&b=study_file">공부 자료실</a></dd>
-							<dd><a href="/?s=community&b=free">자유게시판</a></dd> -->
+								
 							</dl>
 							<span class="decoline" style="width: 55px; left: 26px;"></span>
 						</div></li>
@@ -243,46 +156,6 @@
 		</div>
 		<!--// wrap_fixarea -->
 
-		<!-- 패밀리배너 : 유럽어, 아시아어 공통 -->
-
-		<!-- <div class="ban_family">
-		<div class="fam_opened">
-			<div class="fam_tit">
-				<h4 class="hide">소비자가 뽑은 브랜드대상 1위 시원스쿨 일본어</h4>
-				<a href="javascript:;" class="bt_close_fam ir2"><span>접기</span></a>
-				<a href="javascript:bookmark_site('대한민국 왕초보탈출 시원스쿨', 'http://japan.siwonschool.com/index.php?');" class="bt_add ir2"><span>즐겨찾기 추가</span></a>
-			</div>
-			<div class="fam_cont">
-				[D] BEST i 태그를 띄워야 할 때는 class 'best' 추가
-				<ul class="fam_dep1">
-					<li>
-												<a href="/?s=event&p=161025" target="_blank">시원스쿨 일본어탭<i class="best"><img src="//img.siwonschool.com/www/v2/comm/ico_best.gif" alt="BEST"></i></a>
-					</li>
-					<li class=""><a href="javascript:;">기초영어/회화<i class="ico_handle">&nbsp;</i></a><ul class="fam_dep2" style=""><li class=""><a href="http://www.siwonschool.com/" target="_blank">기초영어</a></li><li class=""><a href="http://familytab.siwonschool.com/" target="_blank">시원스쿨 패밀리탭</a></li><li class=""><a href="http://tab.siwonschool.com/" target="_blank">시원스쿨 탭</a></li><li class=""><a href="http://welearn.siwonschool.com/" target="_blank">시원스쿨 위런영어</a></li><li class=""><a href="http://max.siwonschool.com/" target="_blank">시원스쿨 맥스</a></li></ul></li><li class=""><a href="javascript:;">시원스쿨 LAB<i class="ico_handle">&nbsp;</i></a><ul class="fam_dep2" style=""><li><a href="http://lab.siwonschool.com/" target="_blank">토익</a></li><li><a href="http://lab.siwonschool.com/?p=tos" target="_blank">토스</a></li><li><a href="http://lab.siwonschool.com/?p=opic" target="_blank">오픽</a></li><li><a href="http://lab.siwonschool.com/?p=gramm" target="_blank">영문법</a></li><li><a href="http://lab.siwonschool.com/?p=ielts" target="_blank">아이엘츠</a></li><li><a href="http://lab.siwonschool.com/?s=event&t=vicgtelp" target="_blank">지텔프</a></li></ul></li><li class="on"><a href="javascript:;">제 2외국어<i class="ico_handle">&nbsp;</i></a><ul class="fam_dep2" style="display:block;"><li class="on"><a href="http://japan.siwonschool.com/" target="_blank">일본어</a></li><li class=""><a href="http://china.siwonschool.com/" target="_blank">중국어</a></li><li class=""><a href="http://spain.siwonschool.com/" target="_blank">스페인어</a></li><li class=""><a href="http://france.siwonschool.com/" target="_blank">프랑스어</a></li><li class=""><a href="http://germany.siwonschool.com/" target="_blank">독일어</a></li><li class=""><a href="http://russia.siwonschool.com/" target="_blank">러시아어</a></li><li class=""><a href="http://vietnam.siwonschool.com/" target="_blank">베트남어</a></li><li class=""><a href="http://indonesia.siwonschool.com/" target="_blank">인도네시아어</a></li></ul></li><li><a href="javascript:;">기업/채용<i class="ico_handle">&nbsp;</i></a><ul class="fam_dep2"><li><a href="http://b2b.siwonschool.com/" target="_blank">기업교육</a></li><li><a href="http://corp.siwonschool.com/" target="_blank">인재채용</a></li></ul></li>				</ul>
-
-								</ul>
-				<ul class="sns_list">
-					<li><a href="https://www.facebook.com/japan.siwonschool" target="_blank" class="sns_fb ir2"><span>페이스북</span></a></li>
-					<li><a href="https://story.kakao.com/ch/siwonjapanese" target="_blank" class="sns_ks ir2"><span>카카오스토리</span></a></li>
-					<li><a href="http://blog.naver.com/siwonjapan" target="_blank" class="sns_nb ir2"><span>네이버블로그</span></a></li>
-					<li><a href="https://www.instagram.com/siwonjapanese/" target="_blank" class="sns_is ir2"><span>인스타그램</span></a></li>
-					<li><a href="http://tv.naver.com/siwonjapanese" target="_blank" class="sns_nc ir2"><span>네이버캐스트</span></a></li>
-					<li><a href="https://www.youtube.com/c/시원스쿨일본어" target="_blank" class="sns_ut ir2"><span>유튜브</span></a></li>
-				</ul>
-				<ul class="ban_list"><li class="cheater"><a href="http://www.siwonschool.com/?s=cheater" target="_blank"><img src="//img.siwonschool.com/comm/ban_cheater.jpg" alt="지식재산권"></a></li><li class="mt5 tc"><a href="https://www.siwonschool.com/?s=event&t=kids" target="_blank"><img src="//img.siwonschool.com/comm/ban_storybook.jpg" alt="시원스쿨 스토리북 자세히 보기"></a></li></ul>			</div>
-		</div>// fam_opened
-		<div class="fam_closed on">
-			<a href="javascript:;" class="bt_open_fam"><img src="//img.siwonschool.com/japan/comm/family_txt.png" alt="FAMILY SITE"></a>
-			<ul class="sns_list">
-				<li><a href="https://www.facebook.com/japan.siwonschool" target="_blank" class="sns_fb ir2"><span>페이스북</span></a></li>
-				<li><a href="https://story.kakao.com/ch/siwonjapanese" target="_blank" class="sns_ks ir2"><span>카카오스토리</span></a></li>
-				<li><a href="http://blog.naver.com/siwonjapan" target="_blank" class="sns_nb ir2"><span>네이버블로그</span></a></li>
-				<li><a href="https://www.instagram.com/siwonjapanese/" target="_blank" class="sns_is ir2"><span>인스타그램</span></a></li>
-				<li><a href="http://tv.naver.com/siwonjapanese" target="_blank" class="sns_nc ir2"><span>네이버캐스트</span></a></li>
-				<li><a href="https://www.youtube.com/c/시원스쿨일본어" target="_blank" class="sns_ut ir2"><span>유튜브</span></a></li>
-			</ul>
-		</div>// fam_closed
-	</div>// ban_family	 -->
 	</div>
 	<!--// siwon_header -->
 

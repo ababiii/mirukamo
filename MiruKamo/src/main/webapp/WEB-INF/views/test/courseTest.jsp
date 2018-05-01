@@ -20,9 +20,11 @@ $(document).ready(function(){
 	}else if(${fail=='notCourse'}){
 		alert('講義が削除されて申請することができません。');
 	}
+	
+	
 });
 
-function insertCourse(){
+function insertCourse(){ 
 	
 	var packageName=$(this).attr('package');
 	/* alert($(this).attr('package')); */

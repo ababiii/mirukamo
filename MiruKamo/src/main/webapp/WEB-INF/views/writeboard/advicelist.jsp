@@ -9,70 +9,61 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript">
-
+	
 </script>
 </head>
 <body>
-<c:if test="${list != null}">
-<table>
-<tr>
-<td>번호</td>
-<td>제목</td>
-<td>작성자</td>
-<td>날짜</td>
-<td>답변완료</td>
-</tr>
-<c:forEach items="${list}" var="a">
-<tr>
-<td>${a.num}</td>
-<td>
-<a href="replyadvice?num=${a.num}"> 
-${a.title}
-</a>
-</td>
-<td>${a.member_id}</td>
-<td>${a.question_date}</td>
-<td>
-<c:if test="${a.answer == 0}">
-X
-</c:if>
-<c:if test="${a.answer != 0}">
-O
-</c:if>
-</td>
-</tr>
-</c:forEach>
-</table>
-<div id="navigator1">
-		<!-- 페이지 이동 부분 -->
-		<a
-			href="javascript:pagingFormSubmitadmin(${navi1.currentPage - navi1.pagePerGroup})">◁◁
-		</a> &nbsp;&nbsp; <a
-			href="javascript:pagingFormSubmitadmin(${navi1.currentPage - 1})">◀</a>
-		&nbsp;&nbsp;
+	<c:if test="${list != null}">
+		<table>
+			<tr>
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성자</td>
+				<td>날짜</td>
+				<td>답변완료</td>
+			</tr>
+			<c:forEach items="${list}" var="a">
+				<tr>
+					<td>${a.num}</td>
+					<td><a href="replyadvice?num=${a.num}"> ${a.title} </a></td>
+					<td>${a.member_id}</td>
+					<td>${a.question_date}</td>
+					<td>${a.answer}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div id="navigator1">
+			<!-- 페이지 이동 부분 -->
+			<a
+				href="javascript:pagingFormSubmitadmin(${navi1.currentPage - navi1.pagePerGroup})">◁◁
+			</a> &nbsp;&nbsp; <a
+				href="javascript:pagingFormSubmitadmin(${navi1.currentPage - 1})">◀</a>
+			&nbsp;&nbsp;
 
-		<c:forEach var="counter" begin="${navi1.startPageGroup}"
-			end="${navi1.endPageGroup}">
-			<c:if test="${counter == navi1.currentPage}">
-				<b>
-			</c:if>
-			<a href="javascript:pagingFormSubmitadmin(${counter})">${counter}</a>&nbsp;
+			<c:forEach var="counter" begin="${navi1.startPageGroup}"
+				end="${navi1.endPageGroup}">
+				<c:if test="${counter == navi1.currentPage}">
+					<b>
+				</c:if>
+				<a href="javascript:pagingFormSubmitadmin(${counter})">${counter}</a>&nbsp;
 		<c:if test="${counter == navi1.currentPage}">
-				</b>
-			</c:if>
-		</c:forEach>
-		&nbsp;&nbsp; <a
-			href="javascript:pagingFormSubmitadmin(${navi1.currentPage + 1})">▶</a>
-		&nbsp;&nbsp; <a
-			href="javascript:pagingFormSubmitadmin(${navi1.currentPage + navi1.pagePerGroup})">▷▷</a>
-		
-		<!-- /페이지 이동 끝 -->
+					</b>
+				</c:if>
+			</c:forEach>
+			&nbsp;&nbsp; <a
+				href="javascript:pagingFormSubmitadmin(${navi1.currentPage + 1})">▶</a>
+			&nbsp;&nbsp; <a
+				href="javascript:pagingFormSubmitadmin(${navi1.currentPage + navi1.pagePerGroup})">▷▷</a>
 
-		<form id="adminpagingForm" method="get" action="servicecenter">
-			<input type="hidden" name="adminpage" id="pageadmin" />
-		</form>
-	</div>
+			<!-- /페이지 이동 끝 -->
 
-</c:if>
+			<form id="adminpagingForm" method="get" action="servicecenter">
+				<input type="hidden" name="adminpage" id="pageadmin" />
+			</form>
+		</div>
+
+	</c:if>
+	<a href = "home">홈</a>
+	<a href = "./servicecenter">뒤로가기</a>
 </body>
 </html>

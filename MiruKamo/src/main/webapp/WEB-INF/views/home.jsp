@@ -68,7 +68,6 @@ body {
 <jsp:include page="menu.jsp" flush="true"/>
 <script src="resources/jQuery/jquery-ui.js"></script>
 
-
 <span onclick="openNav()"><img src="resources/images/menu.png" height="50px" width="50px"></span>
 <a href="./"><img src="resources/images/loverdug.jpg" height="100px" width="100px"></a>
 <!-- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
@@ -220,10 +219,7 @@ $( function() {
       <a href="drill"> 형태소 변환 </a>
       <a href="course/videolist"> 영상리스트 </a>
 		</div>
-
 	</c:if>
-
-<!-- Use any element to open the sidenav -->
 
 <a href="course/face">얼굴</a>
 <a href="course/face2">얼굴2</a>

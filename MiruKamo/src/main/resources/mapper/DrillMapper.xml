@@ -11,7 +11,7 @@
 	<select id="getword" resultType="drill" parameterType="string">
 	select distinct original_word from mirukamo_drill 
 		where
-	member_id=#{userid}
+	member_id=#{userid,jdbcType=VARCHAR}
 	ORDER BY DBMS_RANDOM.RANDOM
 	</select>
 	

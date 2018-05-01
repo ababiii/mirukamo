@@ -49,6 +49,11 @@ public class DrillController {
 
 		String userId = (String) session.getAttribute("userId");
 		ArrayList<Mirukamo_drill> getDrill = drilldao.getword(userId);
+		
+		if(getDrill.size()<5){
+			return "drill/Testdrill";
+		}
+		
 		// 섞기
 		// Collections.shuffle(getDrill);
 

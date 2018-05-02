@@ -99,7 +99,7 @@
 				<!-- 마이페이지 레이어 -->
 				<div class="mypage_layer">
 					<ul>
-						<li><a href="<c:url value = "/myPage"/>">マイページ</a></li>
+						<li><a href="<c:url value = 'myUpdate'/>">マイページ</a></li>
 						<li><a href="<c:url value = "/myCourseView"/>">受講内訳</a></li>
 						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->

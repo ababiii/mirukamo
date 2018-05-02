@@ -65,7 +65,7 @@ public class AppointmentController {
 		}
 		logger.debug(list.get(0).getId());
 		System.out.println(list.get(0).getId());
-		return list.get(0).getId();
+		return "회원님의 ID는 "+list.get(0).getId()+"입니다.";
 
 	}
 
@@ -105,27 +105,40 @@ public class AppointmentController {
 	public String myUpdate(HttpSession session, Model model) {
 		Users result = appointmentDAO.getMyInfo((String) session.getAttribute("userId"));
 		model.addAttribute("info", result);
-		return "users/myUpdate";
+		String [] phone=new String[3];
+		phone=result.getPhone().split("-");
+		model.addAttribute("phone", phone);
+		return "myUpdate";
 	}
 
 	// 개인정보 수정
 	@RequestMapping(value = "myUpdate", method = RequestMethod.POST)
-	public String myUpdate(HttpSession session, Model model, Users user) {
+	public String myUpdate(HttpSession session, Model model, Users user,String phone1,String phone2,String phone3) {
 		Users moto = appointmentDAO.getMyInfo((String) session.getAttribute("userId"));
-		if (user.getBirth().isEmpty()) {
+		String [] phone=new String[3];
+		phone=moto.getPhone().split("-");
+		/*if (user.getBirth().isEmpty()) {
 			user.setBirth(moto.getBirth());
-		}
+		}*/
 		if (user.getPassword().isEmpty()) {
 			user.setPassword(moto.getPassword());
 		}
-		if (user.getPhone().isEmpty()) {
-			user.setPhone(moto.getPhone());
+		if(phone2.isEmpty()){
+			phone2=phone[1];
 		}
+		if(phone3.isEmpty()){
+			phone3=phone[2];
+		}
+		String newPhone=phone1+"-"+phone2+"-"+phone3;
+		user.setPhone(newPhone);
+		user.setId((String)session.getAttribute("userId"));
 		appointmentDAO.setMyInfo(user);
 		Users result = appointmentDAO.getMyInfo((String) session.getAttribute("userId"));
 		model.addAttribute("info", result);
 		model.addAttribute("result", true);
-		return "users/myUpdate";
+		phone=result.getPhone().split("-");
+		model.addAttribute("phone", phone);
+		return "myUpdate";
 	}
 
 	@RequestMapping(value = "test", method = RequestMethod.GET)
@@ -371,5 +384,27 @@ public class AppointmentController {
 		return "test/drillTest";
 	}
 	
+	
+	@RequestMapping(value="mirukamoMyUpdate",method=RequestMethod.GET)
+	public String mirukamoUpdate(){
+		return "myUpdate";
+	}
+	
+	@RequestMapping(value="mirukamo_find",method=RequestMethod.GET)
+	public String mirukamo_find(){
+		return "test/idFind";
+	}
+	
+	@RequestMapping(value="mirukamo_pw_find",method=RequestMethod.GET)
+	public String mirukamo_pw_find(){
+		return "test/pwFind";
+	}
+	
+	@RequestMapping(value="re_pw",method=RequestMethod.POST)
+	public String re_pw(Model model,Users user){
+		System.out.println(user);
+		model.addAttribute("based", user);
+		return "users/reset_pw_form";
+	}
 	
 }

@@ -88,29 +88,33 @@ public class UserLoginController {
 		return "users/find_pw";
 	}
 
-	@RequestMapping(value = "/reset_pw_form", method = RequestMethod.POST)
+	@ResponseBody
+	@RequestMapping(value = "/reset_pw_form", method = RequestMethod.POST, produces = "application/text; charset=utf8")
 	public String find_pw2(Model model, Users user, HttpSession session) {
-		String email[] = user.getEmail().split("@");
-		user.setEmail(email[0]);
-		if (email.length > 1)
-			user.setEmail2(email[1]);
 
 		Users result = usersDAO.find_pw(user);
+		System.out.println(result);
 		if (result == null) {
-			return "redirect:/";
+			return "false";
 		} else {
-			session.setAttribute("based", result);
-			return "users/reset_pw_form";
+			model.addAttribute("based", result);
+			return "true";
+			//return "users/reset_pw_form";
 		}
 	}
+	
+	
 
 	@RequestMapping(value = "/reset_pw", method = RequestMethod.POST)
 	public String reset_pw(Users users, String userId, String userPassword, HttpSession session, Model model) {
-		Users result = (Users) session.getAttribute("based");
-		result.setPassword(users.getPassword());
-		usersDAO.reset_pw(result);
-		session.invalidate();
-		return "users/complete_pw";
+		/*Users result = (Users) session.getAttribute("based");
+		result.setPassword(users.getPassword());*/
+		System.out.println("reset_pw : "+users);
+		users.setPassword(userPassword);
+		usersDAO.reset_pw(users);
+		//session.invalidate();
+		model.addAttribute("result", 1);
+		return "redirect:/";
 	}
 
 	@ResponseBody

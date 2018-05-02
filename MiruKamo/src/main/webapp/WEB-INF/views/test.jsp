@@ -37,6 +37,10 @@ $(document).ready(function(){
 	if(${joinComplete==true}){
 		alert('会員加入を完了しました。');
 	}
+	
+	if(${result==1}){
+		alert('비밀번호 변경이 완료되었습니다.');
+	}
 });
 </script>
 </head>

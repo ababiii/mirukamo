@@ -29,6 +29,11 @@ public class CourseDAO {
 		check = mapper.insertCourse(vo);
 		return check;
 	}
+	
+	public void insertPackage(Mirukamo_course course){
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		mapper.insertPackage(course);
+	}
 
 	public ArrayList<Mirukamo_course> senseicours() {
 		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
@@ -95,5 +100,7 @@ public class CourseDAO {
 		return result;
 		
 	}
+	
+	
 
 }

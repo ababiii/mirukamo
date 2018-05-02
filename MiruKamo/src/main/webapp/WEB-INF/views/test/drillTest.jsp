@@ -12,15 +12,17 @@
 <script src="resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
 //로그인 안할시 문제풀이 접근 방지
-$(document).ready(function(){	
-	if (${userId == null} || ${noun == null} ) {
-		 setTimeout(function(){
 
-			 $('#fromDrill').submit();
+$(document).ready(function(){   
+	   if (${userId == null}) {
+	       setTimeout(function(){
 
-			 }, 3000);
-	}
-});
+	          $('#fromDrill').submit();
+
+	          }, 3000);
+	   }
+	});
+
 //제약 사항
 function checkq(){
 	var q1 = document.getElementsByName("q1");
@@ -117,17 +119,18 @@ function checkq(){
 			}
 
 		var div = document.getElementById('yourscore');
-		div.innerText = "다섯문제 중 " + cnt + "문제 정답입니다.";
+		div.innerText = "五個の問題の中で 正解は" + cnt + "個です。";
+		div.innerHTML += "<br>";
 		
 		if (cnt >= 4) {
-			div.innerText += "대단합니다."	
+			div.innerText += "すごい。"	
 				div.innerHTML += "<hr>";
-			div.innerHTML += '<input type="button" value ="다시 풀기" onclick="retry()">';
+			div.innerHTML += '<a href="javascript:retry()" class="bt_st1_s mt12" style="width:100px;font-size: 20px;">新しい問題</a>';
 		}
 		if (cnt <= 2) {
-			div.innerText += "분발하세요."	
+			div.innerText += "頑張ってください。"	
 			div.innerHTML += "<hr>";
-			div.innerHTML += '<input type="button" value ="다시 풀기" onclick="retry()">';
+			div.innerHTML += '<a href="javascript:retry()" class="bt_st1_s mt12" style="width:100px;font-size: 20px;">新しい問題</a>';
 		}
 
 		},
@@ -142,6 +145,23 @@ function retry(){
 }
 
 </script>
+<style>
+.gray{
+background: #f5f5f5;
+}
+.bold{
+font-weight: bolder;
+}
+.drill{
+height : 300px;
+}
+.red{
+color : red;
+}
+#yourscore{
+text-align: center;
+}
+</style>
 <title>ミルカモ</title>
 </head>
 <body>
@@ -175,6 +195,12 @@ function retry(){
 				<table class="table_st8 mt10">
 					<colgroup><col style="width:203px"/><col /><col style="width:298px"/><col style="width:190px"/></colgroup>
 					<tbody id="ing_list">
+					<tr>
+			<th class="th_list_comm5 box_th gray"></th>
+			<th class="th_list_comm5 box_th gray">文章</th>
+			<th class="th_list_comm5 box_th gray">間違った回数</th>
+			
+		</tr>
 					<tr >
 			<th class="th_list_comm5 box_th">1位</th>
 			<th class="th_list_comm5 box_th">${rank[0].original_word}</th>
@@ -218,85 +244,93 @@ function retry(){
 	
 	
 	<br>
-	<table  class="table_st8 mt10">
+	<table class="table_st8 mt10 drill">
+	
 		<tr>
-			<td colspan="5"><div>1. ${noun[0]}</div><div id = noun1></div>
+			<td colspan="10"><div class="bold gray">1. ${noun[0]}<span id = noun1 class="red"></span></div></td>
 		</tr>
 		<tr>
-			<td>1) ${questions[0][0]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][0]}"></td>
-			<td>2) ${questions[0][1]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][1]}"></td>
-			<td>3) ${questions[0][2]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][2]}"></td>
-			<td>4) ${questions[0][3]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][3]}"></td>
-			<td>5) ${questions[0][4]}<input type="radio" name="q1" id="q1" class="q1" value="${questions[0][4]}"></td>
+			<th >1) ${questions[0][0]}</th>
+			<th ><input type="radio" name="q1" id="q1" class="q1" value="${questions[0][0]}"></th>
+			<th>2) ${questions[0][1]}</th>
+			<th><input type="radio" name="q1" id="q1" class="q1" value="${questions[0][1]}"></th>
+			<th>3) ${questions[0][2]}</th>
+			<th><input type="radio" name="q1" id="q1" class="q1" value="${questions[0][2]}"></th>
+			<th>4) ${questions[0][3]}</th>
+			<th><input type="radio" name="q1" id="q1" class="q1" value="${questions[0][3]}"></th>
+			<th>5) ${questions[0][4]}</th>
+			<th><input type="radio" name="q1" id="q1" class="q1" value="${questions[0][4]}"></th>
 		</tr>
 		<tr>
-			<td colspan="5"><div>2. ${noun[1]}</div><div id = noun2></div></td>
+			<td colspan="10"><div class="bold gray">2. ${noun[1]}<span id = noun2 class="red"></span></div></td>
 		</tr>
 		<tr>
-			<td>1) ${questions[1][0]}<input type="radio" name="q2" id="q2"
-				value="${questions[1][0]}"></td>
-			<td>2) ${questions[1][1]}<input type="radio" name="q2" id="q2"
-				value="${questions[1][1]}"></td>
-			<td>3) ${questions[1][2]}<input type="radio" name="q2" id="q2"
-				value="${questions[1][2]}"></td>
-			<td>4) ${questions[1][3]}<input type="radio" name="q2" id="q2"
-				value="${questions[1][3]}"></td>
-			<td>5) ${questions[1][4]}<input type="radio" name="q2" id="q2"
-				value="${questions[1][4]}"></td>
+			<th >1) ${questions[1][0]}</th>
+			<th ><input type="radio" name="q2" id="q2" class="q2" value="${questions[1][0]}"></th>
+			<th>2) ${questions[1][1]}</th>
+			<th><input type="radio" name="q2" id="q2" class="q2" value="${questions[1][1]}"></th>
+			<th>3) ${questions[1][2]}</th>
+			<th><input type="radio" name="q2" id="q2" class="q2" value="${questions[1][2]}"></th>
+			<th>4) ${questions[1][3]}</th>
+			<th><input type="radio" name="q2" id="q2" class="q2" value="${questions[1][3]}"></th>
+			<th>5) ${questions[1][4]}</th>
+			<th><input type="radio" name="q2" id="q2" class="q2" value="${questions[1][4]}"></th>
 		</tr>
 
 		<tr>
-			<td colspan="5"><div>3. ${noun[2]}</div><div id = noun3></div></td>
+			<td colspan="10"><div class="bold gray">3. ${noun[2]}<span id = noun3 class="red"></span></div></td>
 		</tr>
 		<tr>
-			<td>1) ${questions[2][0]}<input type="radio" name="q3" id="q3"
-				value="${questions[2][0]}"></td>
-			<td>2) ${questions[2][1]}<input type="radio" name="q3" id="q3"
-				value="${questions[2][1]}"></td>
-			<td>3) ${questions[2][2]}<input type="radio" name="q3" id="q3"
-				value="${questions[2][2]}"></td>
-			<td>4) ${questions[2][3]}<input type="radio" name="q3" id="q3"
-				value="${questions[2][3]}"></td>
-			<td>5) ${questions[2][4]}<input type="radio" name="q3" id="q3"
-				value="${questions[2][4]}"></td>
+			<th >1) ${questions[2][0]}</th>
+			<th ><input type="radio" name="q3" id="q3" class="q3" value="${questions[2][0]}"></th>
+			<th>2) ${questions[2][1]}</th>
+			<th><input type="radio" name="q3" id="q3" class="q3" value="${questions[2][1]}"></th>
+			<th>3) ${questions[2][2]}</th>
+			<th><input type="radio" name="q3" id="q3" class="q3" value="${questions[2][2]}"></th>
+			<th>4) ${questions[2][3]}</th>
+			<th><input type="radio" name="q3" id="q3" class="q3" value="${questions[2][3]}"></th>
+			<th>5) ${questions[2][4]}</th>
+			<th><input type="radio" name="q3" id="q3" class="q3" value="${questions[2][4]}"></th>
 		</tr>
 		<tr>
-			<td colspan="5"><div>4. ${noun[3]}</div><div id = noun4></div></td>
+			<td colspan="10"><div class="bold gray">4. ${noun[3]}<span id = noun4 class="red"></span></div></td>
 		</tr>
 		<tr>
-			<td>1) ${questions[3][0]}<input type="radio" name="q4" id="q4"
-				value="${questions[3][0]}"></td>
-			<td>2) ${questions[3][1]}<input type="radio" name="q4" id="q4"
-				value="${questions[3][1]}"></td>
-			<td>3) ${questions[3][2]}<input type="radio" name="q4" id="q4"
-				value="${questions[3][2]}"></td>
-			<td>4) ${questions[3][3]}<input type="radio" name="q4" id="q4"
-				value="${questions[3][3]}"></td>
-			<td>5) ${questions[3][4]}<input type="radio" name="q4" id="q4"
-				value="${questions[3][4]}"></td>
+			<th >1) ${questions[3][0]}</th>
+			<th ><input type="radio" name="q4" id="q4" class="q4" value="${questions[3][0]}"></th>
+			<th>2) ${questions[3][1]}</th>
+			<th><input type="radio" name="q4" id="q4" class="q4" value="${questions[3][1]}"></th>
+			<th>3) ${questions[3][2]}</th>
+			<th><input type="radio" name="q4" id="q4" class="q4" value="${questions[3][2]}"></th>
+			<th>4) ${questions[3][3]}</th>
+			<th><input type="radio" name="q4" id="q4" class="q4" value="${questions[3][3]}"></th>
+			<th>5) ${questions[3][4]}</th>
+			<th><input type="radio" name="q4" id="q4" class="q4" value="${questions[3][4]}"></th>
 		</tr>
 		<tr>
-			<td colspan="5"><div>5. ${noun[4]}</div><div id = noun5></div></td>
+			<td colspan="10"><div class="bold gray">5. ${noun[4]}<span id = noun5 class="red"></span></div></td>
 		</tr>
 		<tr>
-			<td>1) ${questions[4][0]}<input type="radio" name="q5" id="q5"
-				value="${questions[4][0]}"></td>
-			<td>2) ${questions[4][1]}<input type="radio" name="q5" id="q5"
-				value="${questions[4][1]}"></td>
-			<td>3) ${questions[4][2]}<input type="radio" name="q5" id="q5"
-				value="${questions[4][2]}"></td>
-			<td>4) ${questions[4][3]}<input type="radio" name="q5" id="q5"
-				value="${questions[4][3]}"></td>
-			<td>5) ${questions[4][4]}<input type="radio" name="q5" id="q5"
-				value="${questions[4][4]}"></td>
+			<th >1) ${questions[4][0]}</th>
+			<th ><input type="radio" name="q5" id="q5" class="q5" value="${questions[4][0]}"></th>
+			<th>2) ${questions[4][1]}</th>
+			<th><input type="radio" name="q5" id="q5" class="q5" value="${questions[4][1]}"></th>
+			<th>3) ${questions[4][2]}</th>
+			<th><input type="radio" name="q5" id="q5" class="q5" value="${questions[4][2]}"></th>
+			<th>4) ${questions[4][3]}</th>
+			<th><input type="radio" name="q5" id="q5" class="q5" value="${questions[4][3]}"></th>
+			<th>5) ${questions[4][4]}</th>
+			<th><input type="radio" name="q5" id="q5" class="q5" value="${questions[4][4]}"></th>
 		</tr>
+		
 	</table>
 	<br>
 	<br>
 		<div id="yourscore"></div>
 	<br>
 	<br>
-	<input type="button" value="답 확인" onclick="checkq()">
+	<a href="javascript:checkq()" class="bt_st1_s mt12" style="width:86px;font-size: 20px;">解答</a>
+	
 	</c:if>
 </div></div></div>
 </body>

@@ -32,6 +32,16 @@
 		,#{thumnail}
 		)
 	</insert>
+	
+	<insert id="insertPackage" parameterType="Course">
+	insert into mirukamo_package_info
+	values(
+	mirukamo_package_info_seq.nextval
+	,#{packagename}
+	,#{teacher}
+	,#{languages}
+	)
+	</insert>
 
 	<select id="getcourse" resultType="Course">
 		select packagename from

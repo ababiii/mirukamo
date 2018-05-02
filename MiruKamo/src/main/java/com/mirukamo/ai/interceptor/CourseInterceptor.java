@@ -1,5 +1,6 @@
 package com.mirukamo.ai.interceptor;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ public class CourseInterceptor
 	private static final Logger logger=LoggerFactory.getLogger(CourseInterceptor.class);
 	
 	@Autowired
-	AppointmentDAO appointmentDAO;
+	CourseDAO courseDAO;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -31,23 +32,28 @@ public class CourseInterceptor
 		//세션의 로그인 정보 읽음
 		HttpSession session=request.getSession();
 		String loginId=(String)session.getAttribute("userId");
+		Object a= request.getAttribute("num");
+		int num=-1;
 		
-		//강의 제목을 가져온다. 모델에 넣어준..
-		String packagename = (String)request.getAttribute("packagename");
+		if(a!=null){
+			num=(int)a;
+		}
+		MyCourse my= new MyCourse();
+		my.setMember_id(loginId);
+		my.setNum(num);
+		ArrayList<MyCourse> aru= courseDAO.checkCourse(my);
 		
-		//사용자의 수강정보를 list에 담아줌
-		ArrayList<MyCourse> list = appointmentDAO.getMyCourse(loginId);
-		//list에 담긴 수강정보가 선택한 수업의 수강정보와 일치하지 않을 경우는 시청하지 못하도록 만든다.
-		for(int i=0; i<list.size();i++){
-		//이 부분이 사용자가 클릭한 수업과 틀릴경우 
-		 if(!packagename.equals(list.get(i).getPackagename())){
-			 response.sendRedirect(request.getContextPath()+"/course/videolist"); 
-		 }
-		};
 		//없으면 로그인 페이지로 리다이렉트
-		if(loginId==null){
-			response.sendRedirect(request.getContextPath()+"/login/login");
-			return false;
+		if(aru!=null){
+			if(aru.size()<1){
+				PrintWriter pw=response.getWriter();
+				pw.print("<script type='text/javascript'>"+
+						"close();"+ "</script>");
+				pw.flush();
+				pw.close();
+			//response.sendRedirect(request.getContextPath()+"/course/lectureInfoPage?teacher="+request.getAttribute("teacher"));
+			
+			}
 		}
 		return super.preHandle(request, response, handler);
 	}

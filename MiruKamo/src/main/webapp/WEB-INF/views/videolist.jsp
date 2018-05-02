@@ -38,9 +38,8 @@
 			}
 		});
 	}
-
     //엄정환 사용자가 인강을 선택해서 들을려 할때 인강의 정보를 넘겨주고 수강한 인강인지 아닌지 확인해 줄 수 있는 ajax
-    function sendPackagenameandTitle() {
+    /* function sendPackagenameandTitle() {
     	var mForm = document.insert;
     	var obj = new Object();
     	obj.packagename = mForm.$('#packagename').val();
@@ -63,9 +62,10 @@
           }
        });
     }
-    
-    
+
+   */
     function insert_action(){
+
     	   var mForm = document.insert; // form의 값을 가져오기 위함
     	   var obj = new Object(); // JSON형식으로 변환 할 오브젝트
     	   obj.user_id = mForm.user_id.value; // form의 값을 오브젝트에 저장
@@ -88,8 +88,7 @@
     	      alert("등록 완료! 로그인 하시기 바랍니다.");
     	     }
     	    }
-    	   });
-
+    	   }); */
 
 </script>
 </head>
@@ -134,7 +133,7 @@
 							<td>${a.teacher}</td>
 							<td>${a.languages}</td>
 							<td>${a.file_name}</td>
-							<td>${a.thumnail}</td>
+							<td><img src="../resources/images/${a.thumnail}" style="width: 100px; height: auto;"></td>
 							<td><button onclick="sendPackagenameandTitle()" >선택</button></td>
 							<td><input type="submit" value="선택"></td>
 						</tr>

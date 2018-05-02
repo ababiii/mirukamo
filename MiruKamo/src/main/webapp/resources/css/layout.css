@@ -5,7 +5,7 @@
 #siwon_header.sub_wrap{border-bottom:1px solid #333}
 .fix_top{/* position:fixed !important; *//* top:0 !important */}
 .fix_btm{position:fixed !important;bottom:0 !important}
-#siwon_header .wrap_fixarea{position:absolute;left:0;bottom:0;width:100%;min-width:1000px;height:52px;box-sizing:border-box;border:1px solid #ddd;background:#fff}
+#siwon_header .wrap_fixarea{position:relative;left:0;bottom:0;width:100%;min-width:1000px;height:52px;box-sizing:border-box;border:1px solid #ddd;background:#fff}
 #siwon_header .wrap_fixarea.fix_top{bottom:auto;height:50px;background:url(//img.siwonschool.com/japan/comm/bg_white_op95.png) repeat}
 
 #header_top{width:1100px;height:110px;margin:0 auto;position:relative;}

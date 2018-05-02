@@ -99,8 +99,8 @@
 				<!-- 마이페이지 레이어 -->
 				<div class="mypage_layer">
 					<ul>
-						<li><a href="javascript:;" onClick="loginChk();">マイページ</a></li>
-						<li><a href="myCourseView" onClick="loginChk();">受講内訳</a></li>
+						<li><a href="<c:url value = "/myPage"/>">マイページ</a></li>
+						<li><a href="<c:url value = "/myCourseView"/>">受講内訳</a></li>
 						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">SJ멤버십</a></li>
@@ -149,8 +149,8 @@
 					</a></li>
 				</ul>
 				<!--// #wrap_gnb -->
-				<a href="myCourseView" onClick="loginChk();" class="bt_myclass"><img
-					src="resources/images/mycourse.png" alt="내 강의실"></a>
+				<a href="<c:url value = "/myPage"/>" class="bt_myclass"><img
+					src="<c:url value = "/resources/images/mycourse.png"/>" alt="내 강의실"></a>
 			</div>
 			<!--// wrap_gnb -->
 		</div>

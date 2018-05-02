@@ -80,7 +80,7 @@ var LLscriptPlugIn = new function () { this.load = function(eSRC,fnc) { var scri
 <div id="siwon_wrap">
 		<div id="siwon_header">
 		<div class="inner_header">
-			<h1 class="logo"><a href="./"><img src="resources/images/mirukamo3.jpg" alt="대한민국 왕초보탈출 시원스쿨" width="200px"/></a></h1>
+			<h1 class="logo"><a href="/"><img src="resources/images/mirukamo3.jpg" alt="대한민국 왕초보탈출 시원스쿨" width="200px"/></a></h1>
 			<ul class="login_info">
 								<!-- 로그인 전 -->
 				<li class="ico1 fst"><a href="login">ログイン</a></li>
@@ -117,7 +117,7 @@ function lab_tracking(depth){
 				</div>
 				<div class="login_area2">
 					<div class="notice">
-						ログイン<br />
+						시원스쿨 통합회원은 한 아이디로<br />시원스쿨 전 사이트를 이용하실 수 있습니다.
 					</div>
 					<div class="login_area_1st">
 						<div class="login_fl">
@@ -157,7 +157,7 @@ function lab_tracking(depth){
 									
 									<div class="wrap_bt">
 									
-										<a href="mirukamo_find" class="bt_find">アイディー/パスワードを探す</a>
+										<a href="/?s=find" class="bt_find">アイディー/パスワードを探す</a>
 										<a href="appointment" class="bt_st1 bt_join"><span class="txt_pc">会員加入</span><span class="txt_mobile">회원가입</span></a>
 									<br><br>${errorMsg}<br><br><br>
 									</div>

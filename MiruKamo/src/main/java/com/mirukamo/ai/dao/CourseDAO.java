@@ -103,4 +103,31 @@ public class CourseDAO {
 	
 	
 
+	public ArrayList<Mirukamo_course> getTeacherInfo(String teacher) {
+		ArrayList<Mirukamo_course>  result=null;
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		result=mapper.getTeacherInfo(teacher);
+		return result;
+	}
+
+	public Mirukamo_course selectNumCourse(int num) {
+		Mirukamo_course result=null;
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		result=mapper.selectNumCourse(num);
+		return result;
+	}
+
+	public ArrayList<Mirukamo_course> selectPackCourse(String packagename) {
+		ArrayList<Mirukamo_course>  result=null;
+		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+		result=mapper.selectPackCourse(packagename);
+		return result;
+	}
+	//코스체크
+		public ArrayList<MyCourse> checkCourse(MyCourse my) {
+			CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+			ArrayList<MyCourse>  mirucourse = mapper.checkCourse(my);
+			
+			return mirucourse;
+		}
 }

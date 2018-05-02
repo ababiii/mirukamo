@@ -29,14 +29,10 @@ function chkPwd(str){
 }
 
 $(document).ready(function(){
-	
-	$('#repassword_bt').on('click',function(){
-		$('#repassword_form').submit();
-	});
 
 	$("#usrid").val('');
-	/*$("#usrpw").val('');	
-	$("#usrpw_re").val('');*/	
+	$("#usrpw").val('');	
+	$("#usrpw_re").val('');	
 	
 	$("#agree").on("click",function(){
 		if( $(".step_overflow .input_check_label").eq(0).hasClass("on") && $(".step_overflow .input_check_label").eq(1).hasClass("on") && $(".step_overflow .input_check_label").eq(2).hasClass("on")){
@@ -156,18 +152,6 @@ $(document).ready(function(){
 			$("#pw_text").show();
 			$("#pw_text").html('使用できます。');
 		 }
-		 
-		 if($("#usrpw_re").val()!=''){
-		 if( $("#usrpw").val() != $("#usrpw_re").val()){
-				$("#pwre_text").removeClass("ok");
-				$("#pwre_text").show();
-				$("#pwre_text").html('パスワードが上と合いません。');
-			}else{
-				$("#pwre_text").addClass("ok");
-				$("#pwre_text").show();
-				$("#pwre_text").html('上と合います。');
-			}
-		 }
 	});
 
 	$("#usrpw_re").on("keyup",function(){
@@ -191,15 +175,6 @@ $(document).ready(function(){
 	$("#emailCheck").on("click",function(){
 		var userEmail = $('#email_id').val();
  		var userEmail2 = $('#email_back').val();
- 		if(userEmail==null||userEmail==''){
- 			alert('イーメールを入力してください。');
- 			$('#email_id').focus();
- 			return;
- 		}else if(userEmail2==null||userEmail2==''){
- 			alert('イーメールを入力してください。');
- 			$('#email_back').focus();
- 			return;
- 		}
  		
  		$.ajax({
  			type:'POST',
@@ -611,7 +586,7 @@ $(document).ready(function(){
 		
 		var usrid = $("#uname2").val();
 		var RegExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=0-9]/gi;
-		//var rtjoin = $(this).data("rtjoin");
+		var rtjoin = $(this).data("rtjoin");
 
 		if( !usrid ){
 			alert('이름을 입력해주세요.');
@@ -657,34 +632,30 @@ $(document).ready(function(){
 			return false;
 		}
 
-		/*if( !$("#cert_num2").val() ){
+		if( !$("#cert_num2").val() ){
 			alert('메일로 발송된 인증번호를 입력해주세요.');
 			$("#cert_num2").focus();
 			return false;
-		}*/
+		}
 
 		var email_cert_no = $("#email_cert_no").val();  // 인증키값의 serial_no
 		var cert_num = $("#cert_num2").val();  // 인증키 6자리 값
 		var cert_confirm = "Y";
-		
-		
-		var email=$('#email_id').val();
-		var email2=$('#email_back').val();
-		var name=$('#uname2').val();
-		
-		$.ajax({
-			url : 'findMyID',
-			type : 'post',
-			data : {email : email , email2 : email2, name : name},
-			dataType : 'text',
-			success : function(str){
-				$('.layer_popup_bg').css('display','block');
-				alert(str);
-				$('.layer_popup_bg').css('display','none');
-			},
-			error : function(e){
-				alert('오류가 발생했습니다.');
-			}
+		$.ajax({url:"/?s=join_cert",
+					type:"POST",
+					dataType: "json",
+					data:{email_cert_no:email_cert_no, cert_num:cert_num, cert_confirm:cert_confirm},
+					error : function(request,status,error){
+						//alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					},
+					success : function(data){
+						if(data.result == 1){
+							alert('확인되었습니다.');
+							$("#email_cert_form").submit();
+						}else{
+							alert('잘못된 인증번호 입니다.');
+						}
+					}
 		});
 		
 	});

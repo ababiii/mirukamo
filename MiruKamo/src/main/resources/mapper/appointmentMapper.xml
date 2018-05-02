@@ -26,15 +26,11 @@
 		 member_id=#{member_id}
 	</select>
 	
-	   <select id="getMyInfo" parameterType="String" resultType="Users">
-      select *
-      from mirukamo_member
-      where id=#{id}
-   </select>
-   
-   <update id="setMyInfo" parameterType="Users">
-   update mirukamo_member
-   set phone=#{phone},password=#{password}
-   where id=#{id}
-   </update>
+	<select id="myCourseCheck" parameterType="MyCourse" resultType="MyCourse">
+		select
+			*
+		from mirukamo_mycourse
+		where
+		 member_id=#{member_id} and packagename=#{packagename}
+	</select>
 </mapper>

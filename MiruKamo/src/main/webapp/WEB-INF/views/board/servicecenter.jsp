@@ -12,15 +12,20 @@
 <script src="resources/jQuery/jquery-3.2.1.min.js"></script>
 <script src="resources/jQuery/jquery-ui.js"></script>
 <script type="text/javascript">
-<!-- 페이지 이동 스크립트  -->
 
+	$(document).ready(function() {
+		if (!${empty(param.plzlogin)}) {
+			location.href="./login";	
+				}
+	});
+	
+	/* 페이지 이동 스크립트  */	
 	function pagingFormSubmitadmin(currentPage) {
 		var form = document.getElementById('adminpagingForm');
 		var page = document.getElementById('pageadmin');
 		page.value = currentPage;
 		form.submit();
 	}
-	
 	function pagingFormSubmitqna(currentPage) {
 		var form = document.getElementById('qnapagingForm');
 		var page = document.getElementById('pageqna');
@@ -30,7 +35,7 @@
 </script>
 </head>
 <body>
-<!--  고객센터 게시판-->
+	<!--  고객센터 게시판-->
 	총 게시물 : ${attributeValues}
 	<table border="1">
 		<tr>
@@ -50,6 +55,11 @@
 			</c:if>
 		</c:forEach>
 	</table>
+
+	<c:if test="${userId == 'admin'}">
+		<a href="writenotice?category=0">공지 사항 글 작성</a>
+	</c:if>
+
 
 	<div id="navigator1">
 		<!-- 페이지 이동 부분 -->
@@ -73,7 +83,7 @@
 			href="javascript:pagingFormSubmitadmin(${navi1.currentPage + 1})">▶</a>
 		&nbsp;&nbsp; <a
 			href="javascript:pagingFormSubmitadmin(${navi1.currentPage + navi1.pagePerGroup})">▷▷</a>
-		
+
 		<!-- /페이지 이동 끝 -->
 
 		<form id="adminpagingForm" method="get" action="servicecenter">
@@ -81,15 +91,14 @@
 		</form>
 	</div>
 
-	<c:if test="${admin} != null">
-		<a href="writenotice">공지 사항 글 작성</a>
-	</c:if>
 
 	<!--------------------------------------------------------------------------------------------------------------->
-
-	<input type="button" value="1대1 문의 접수"
-		onclick="location.href ='<c:url value="writeboard/advice"/>'">
-	<input type="button" value="나의 문의 내역"  onclick="location.href='<c:url value="replyadvice"/>'">
+	<c:if test="${userId != 'admin'}">
+		<c:if test="${userId != null}">
+			<input type="button" value="1대1 문의 접수" onclick="location.href ='<c:url value="writeadvice"/>'">
+			<input type="button" value="나의 문의 내역" onclick="location.href='<c:url value="myadvicelist"/>'">
+		</c:if>
+	</c:if>
 	<br>
 	<br>
 	<br>총 게시물 : ${howboardqna}
@@ -110,7 +119,9 @@
 			</c:if>
 		</c:forEach>
 	</table>
-
+	<c:if test="${userId == 'admin'}">
+		<a href="writenotice?category=9">자주 묻는 글 작성</a>
+	</c:if>
 	<div id="navigator">
 		<a
 			href="javascript:pagingFormSubmitqna(${navi2.currentPage - navi2.pagePerGroup})">◁◁
@@ -134,13 +145,10 @@
 			href="javascript:pagingFormSubmitqna(${navi2.currentPage + navi2.pagePerGroup})">▷▷</a>
 
 		<!-- /페이지 이동 끝 -->
-		<br><br>
+		<br> <br>
 		<form id="qnapagingForm" method="get" action="servicecenter">
 			<input type="hidden" name="qnapage" id="pageqna" />
 		</form>
 	</div>
-
-	<!--------------------------------------------------------------------------------------------------------------->
-
 </body>
 </html>

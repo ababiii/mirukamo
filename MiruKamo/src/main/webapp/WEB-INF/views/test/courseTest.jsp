@@ -24,7 +24,7 @@ $(document).ready(function(){
 	
 });
 
-function insertCourse(){
+function insertCourse(){ 
 	
 	var packageName=$(this).attr('package');
 	/* alert($(this).attr('package')); */
@@ -128,7 +128,7 @@ function insertCourse(){
 						</p>
 						<div class="bt_area_comm">
 							<a href="javascript:void(0);" id="insertCourseBt1" class="bt_pay" package="New日本語の初級を脱出する">受講申請</a>
-							<a href="" class="bt_more">詳細ページ</a>
+							<a href="course/lectureInfoPage?teacher=요시코" class="bt_more">詳細ページ</a>
 						</div>
 					</div>
 				</div>
@@ -205,7 +205,7 @@ function insertCourse(){
 						</p>
 						<div class="bt_area_comm">
 							<a href="javascript:void(0);" id="insertCourseBt2" class="bt_pay" package="New日本語を話す方法">受講申請</a>
-							<a href="" class="bt_more">詳細ページ</a>
+							<a href="course/lectureInfoPage" class="bt_more">詳細ページ</a>
 						</div>
 					</div>
 				</div>

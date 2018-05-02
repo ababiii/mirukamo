@@ -13,12 +13,13 @@
     <script type="text/javascript" src="../resources/js/jquery-latest_header.js"></script>
     <script type="text/javascript" src="../resources/js/kollus.videogateway-controller.min.js"></script>
     <link type="text/css" href="../resources/css/player_2011.css" rel="stylesheet" />
+   
     	<style type="text/css">
 
-		.rightArea div,.rightArea  a,.rightArea  table,.rightArea  td,.rightArea  th,.rightArea  ul,.rightArea  li,.rightArea  span,.rightArea  input{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;*behavior: url(/common/js/boxsizing.htc);margin:0;padding: 0;}
+		.rightArea div,.rightArea  a,.rightArea  table,.rightArea  td,.rightArea  th,.rightArea  ul,.rightArea  li,.rightArea  input{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;*behavior: url(/common/js/boxsizing.htc);margin:0;padding: 0;}
 		ul{list-style: none}
 		img{border: 0;}
-		.rightArea{width:271px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;*behavior: url(/common/js/boxsizing.htc);font-size: 12px;line-height: 1.4;font-family: dotum,"돋움";background: #fff;border-top:10px solid #45454d}
+		.rightArea{width:600px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;*behavior: url(/common/js/boxsizing.htc);font-size: 12px;line-height: 1.4;font-family: dotum,"돋움";background: #fff;border-top:10px solid #45454d}
 		.rightArea2{width:416px;padding: 0 5px;background: #45454d;}
 		.rightArea a{font-size: 12px;line-height: 1.3;font-family: dotum,"돋움";text-decoration: none;color: #54545a;}
 		.rightArea .tab__common{width:100%;overflow: hidden;margin-bottom: 10px;height: 33px;}
@@ -116,6 +117,8 @@
 		.rightArea .entinfo .leftArea select{width:48%;height: 25px;font-size: 12px;font-weight: bold;}
 		.rightArea .bookmark__nodata{text-align: center;padding-top:50px;padding-bottom: 40px;font-size:11px;}
 	</style>
+	<script src="../resources/jQuery/jquery-ui.js"></script>
+	
     <script type="text/javascript">
         //플레이어구분
         var pk = "P";
@@ -247,22 +250,72 @@
 
 
     </script>
+	
+ <script src="../resources/js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="../resources/playlist_css/cssplay-playlist-min.js"></script>-->
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    .innerPopup {
+  	 z-index: 2222222222;
+	}
+  </style>
+	
+	<!--음성인식부분 끝 -->
 
+<script type="text/javascript">	
+		//사용자 선택에 따라 재생 동영상을 불러 옴
+		function movieDialog(str) {
+			//선택한 버튼의 동영상 경로를 불러옴
+			$($("#movie_src")[0]).attr("src", $(str).attr("value"));
+			
+			//console.log($("#movie_src")[0]);
+			//$("#movie_src")[0].setAttribute( 'src', $(str).attr("value") );;
+			//console.log($("#movie_src")[0]);
+			//동영상을 다시 load 함
+			$("#movie")[0].load();
+			//load한 동영상을 재생
+			document.getElementById("movie").play();
+		};
+		</script>
 
 
 </head>
 <body>
-	<div id="container" >
+<script src="../resources/jQuery/jquery-ui.js"></script>
+<div id="dialog-form" title="따라해 봅시다" style="z-index: 2222222222222; visibility: hidden" >	 
+	  <form>
+	    <fieldset>
+	      <label for="content2">내용</label>
+	      <input type="text" name="content2" id="content2" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
+	      <label for="result">결과</label>
+	      <input type="text" name="result" id="result" value="" readonly="readonly" class="text ui-widget-content ui-corner-all">
+	    </fieldset>
+	  </form>
+	 </div>
+
+	<div id="container">
 		<div id="player_section" >
             <!-- /control_area -->
             <div id="divControlArea" >
                 <div id="player_obj" style="padding-top:38px;" >
-                    <div id="video">
+                    <div id="video" class="cssplayPlaylist">
 						<style type="text/css">
     .pframe{border:none;}
 </style>
-<iframe id="play_PNH43408873431" class="pframe" width='100%' height='100%' src='./preview?name=${file_name}' allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+<%-- './preview?name=${file_name}' --%>
 
+<!-- <iframe id="movie" class="pframe" width='100%' height='100%' src='../resources/videos/2.mp4' allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe> -->
+					<video id="movie" class="pframe" width='100%' height='100%' controls="true" preload="true" poster="posters/despicable.jpg" controls autoplay>
+	<source id="movie_src" src="./preview?name=${name}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+</video>
 					</div>
                     			<div id="divControlArea" class="control_area" style="height:31px; position:static;" >
 			<div class="control_area_innerBox" style="height:28px;">
@@ -272,59 +325,78 @@
 
 					<!--h2 style="left:8px;"><img src="http://img.megastudy.net/Player/player_2011/st_move.gif" alt="다른 강의로 이동" /></h2-->
 
-					
+						<!-- 이부분에 강의 packagename과 강의 title을 넣어 주면 된다. -->
 						<div class="txt" style="width:100%;">1강. 3강 2번~11강 5번</div>
-					
-
 				</div>
-
 			</div>
 			</div>
-
-
                 </div>
 			</div>
-
             <div id="line_btn" class="line_btn"><img id="divTabControl" src="http://img.megastudy.net/Player/player_2011/u_closeTab.gif" alt="접기" onclick="fncPlayerTab()" /></div>
 			<!-- /control_area -->
         </div>
 		<div id="right_section" style="background:none;" >
-			
             <!-- /tab_area -->
-            
-<div id="divTabMenu" style="margin-top:30px; background-color:#45454d;" >
+ <div id="divTabMenu" style="margin-top:30px; background-color:#45454d;" >
 				<div class="rightArea">
-					<!--div class="tab__common tab__ot tab__1ea"-->
-					<!-- 1개일 경우 -->
-					<!--div class="tab__common tab__ot tab__2ea"-->
-					<!-- 2개일 경우 -->
-					<!--div class="tab__common tab__ot tab__3ea"-->
-					<!-- 3개일 경우 -->
-					<div class="tab__common tab__ot tab__2ea">
-						<!-- 4개일 경우 -->
+					<div class="tab__common tab__ot tab__1ea">
 						<div class="tab__inner">
-							<a href="#_blank" acd="preview" onmousedown="try{logerClickTrace('EVT','/플레이어/OT맛보기/강좌맛보기');}catch(e){}" class="">강좌 맛보기</a> 
-								<a href="#_blank" acd="tecinfo"
-								onmousedown="try{logerClickTrace('EVT','/플레이어/OT맛보기/선생님소식');}catch(e){}"
-								class="on">선생님 소식</a>
+							<a>이어지는 강좌 보기</a> 
 						</div>
 					</div>
 					<div id="divTabContent" class="list--container "
 						style="height: 718px;">
-						<!-- 메가 캐스트, 메가 핫이슈, 선생님 새소식 -->
 						<div class="cast">
 
-							<div class="table__top">메가 캐스트</div>
+							<div class="table__top">ミルカモ</div>
 							<ul class="cast--list">
-
-								<li><a
-									href="../resources/videos/3.mp4"
-									target="_blank"> <img class="cast--bg"
+							
+							<!-- <li><p class="playlist chosen" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/despicable.jpg"><img src="../resources/posters/despicablet.jpg" alt=""><br>Despicable Me 2</p> <img class="cast--pic"
+											src="http://file.megastudy.net//fileserver/teacher_2007/tcc/tcc_tec_pic/tcc_sni_20180420180741.jpg"
+											alt="">
+												<div class="cast--txt">
+												이부분에 다음에 볼 화면의 사진과 정보가 들어간다
+													<span class="cast--subject">[학습법]</span>정식쌤이 답변합니다! [서영,
+													아윤, 재희 학생에게]<span class="cast--date">2018-04-20</span>
+												</div></a></li> -->
+	<!-- <p class="playlist chosen" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/despicable.jpg"><img src="../resources/posters/despicablet.jpg" alt=""><br>Despicable Me 2</p> -->
+	<!--  이부분 반복문 돌릴것
+	<p class="playlist" data-id="#movie" data-video="파일주소띵" data-poster="썸네일">
+		<a onClick="movieDialog(this)" href="#" value="파일주소띵">
+			<img src="썸네일" alt="">
+			<br>강의명</a>
+	</p>
+	-->
+	<div class="playlistHolder">
+		<c:if test="${thumb != null}">
+			<c:forEach items="${thumb}" var="a">
+				<p class="playlist" data-id="#movie" data-video="./preview?name=${a.file_name}" data-poster="./preview?name=${a.thumnail}">
+					<a onClick="movieDialog(this)" href="#" value="./preview?name=${a.file_name}">
+					<img src="./preview?name=${a.thumnail}" alt="" style="width: 260px;height: 140px;">
+					<br><font size="${2+18/(fn:length(a.title))}"><b>${a.title}</b></font></a>
+				</p>
+			</c:forEach>			
+		</c:if>
+	</div>
+	
+	
+	
+	
+	<!--
+<div class="playlistHolder">
+	<p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/2.mp4"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</a></p>
+	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/smurfs.jpg"><a onClick="movieDialog(this)" href="#" value="../resources/videos/3.mp4"><img src="../resources/posters/smurfst.jpg" alt=""><br>The Smurfs 2</a></p>
+	<p class="playlist" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/planes.jpg"><img src="../resources/posters/planest.jpg" alt=""><br>Planes</p>
+	<p class="playlist lastchild" data-id="#movie" data-video="../resources/videos/2" data-poster="../resources/posters/monster.jpg"><img src="../resources/posters/monstert.jpg" alt=""><br>Monster University</p>
+</div>
+-->
+								<!-- <li><p class="playlist" data-id="#movie" data-video="../resources/videos/3" data-poster="../resources/posters/turbo2.jpg"><img src="../resources/posters/turbo2t.jpg" alt=""><br>Turbo</p> <img class="cast--bg"
 										src="http://img.megastudy.net/Player/player_2016/bg_openLecture.png"
 										alt=""> <img class="cast--pic"
 											src="http://file.megastudy.net//fileserver/teacher_2007/tcc/tcc_tec_pic/tcc_sni_20180420180741.jpg"
 											alt="">
 												<div class="cast--txt">
+												이부분에 다음에 볼 화면의 사진과 정보가 들어간다
 													<span class="cast--subject">[학습법]</span>정식쌤이 답변합니다! [서영,
 													아윤, 재희 학생에게]<span class="cast--date">2018-04-20</span>
 												</div></a></li>
@@ -338,30 +410,13 @@
 												<div class="cast--txt">
 													<span class="cast--subject">[학습법]</span>[절대평가 영어] 1,2등급을
 													왔다~갔다 한다면?<span class="cast--date">2018-04-13</span>
-												</div></a></li>
+												</div></a></li> -->
 
-							</ul>
-
-							<div class="table__top">선생님 새소식</div>
-							<ul class="hotissue--list">
-
-								<li><a
-									href="/teacher_v2/notice/notice_list.asp?idx=28628&amp;tec_cd=rimbaud666"
-									target="_blank">▷교재 입고 완료◁ 오를거야! EBS로 점수를 올려줄게 [수특 영어편]</a></li>
-
-								<li><a
-									href="/teacher_v2/notice/notice_list.asp?idx=28515&amp;tec_cd=rimbaud666"
-									target="_blank">내신 휴강? 내가 뭘 쉬겠니 ㅋㅋㅋ</a></li>
 							</ul>
 						</div>
 					</div>
 					<div id="divTabContent" class="list--container "
 						style="height: 718px;">
-						<!-- 플레이어 공통 인클루드 페이지 시작 -->
-
-						<!-- 플레이어 공통 인클루드 페이지 종료 -->
-
-						<!-- 강좌맛보기 -->
 						<div class="preview">
 							<a
 								href="/Player/kollus/player.asp?dng_kbn=72&amp;CHR_CD=43408&amp;PlayerKbn=P&amp;PlayerApp=N&amp;UseWidth=1536&amp;UseHeight=826&amp;PlayerLoc=H"
@@ -381,7 +436,36 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> 
+			<!-- 웹켐으로 확인하는 부분 -->
+			<div>
+    <div id="content">
+        <canvas id="originalCanvas" width=320 height=240></canvas>
+        <canvas id="trackerCanvas" width=320 height=240></canvas>
+        <br />
+        <canvas id="eyeCanvas" width=80 height=60></canvas>
+        <canvas id="bwCanvas" width=80 height=60></canvas>
+        <canvas id="thCanvas" width=80 height=60></canvas>
+        <br />
+        <canvas id="oldCanvas" width=80 height=60></canvas>
+        <canvas id="curCanvas" width=80 height=60></canvas>
+        <canvas id="cCanvas" width=80 height=60></canvas>
+        <br />
+        <p id="correlationPercentage">
+            0%
+        </p>
+        <p id="blinksDetected">
+            0
+        </p>
+        <p id="countDetected">
+            0
+        </p>
+    </div>
+</div>
+<!-- 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/playlist_css/cssplay-playlist-min.js"></script> 
+ -->
 <script type="text/javascript">
     var pno = "0";
 
@@ -427,6 +511,285 @@
             
         </div>
     </div>
+    
+    <video id="video2" autoplay style="visibility: hidden;"></video>
+    
+    
+      </style>
+   
 </body>
+<script src="../resources/js/utils.js"></script>
+		<script src="../resources/js/clmtrackr1.js"></script>
+		<!-- <script src="../resources/js/d3.min.js"></script> -->
+		<script src="../resources/js/webcam.js"></script>
+		<script src="../resources/js/canvasfilters.js"></script>
+	
+		<script type="text/javascript">
+//properties
+var content, webcam, tracker, raf, eyeRect, interval, oldData, curData, cData, currentCorrelation, blinks;
+
+// canvas and contexts
+var originalCanvas, originalContext, trackerCanvas, trackerContext, eyeCanvas, eyeContext, bwCanvas, bwContext, thCanvas, thContext, oldCanvas, oldContext, curCanvas, curContext, cCanvas, cContext;
+
+// dom elements
+var correlationPercentage, blinksDetected;
+
+var settings = {
+    contrast: 3,
+    brightness: 0.5,
+    threshold: 80,
+    minCorrelation: 0.17,
+};
+
+var lasttime=0;
+function init() {
+    content = document.getElementById('content');
+
+    // adds listeners to activate and deactivate on iframe focus
+    window.addEventListener('load', start, false);
+   /*  window.addEventListener('abort', stop, false);  */
+
+    // instanciate our Webcam class
+    webcam = new Webcam();
+
+    // tracker
+    tracker = new clm.tracker();
+    tracker.init(window.pModel);
+
+    // eye rect
+    eyeRect = {
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0,
+    };
+
+    // original canvas and context
+    originalCanvas = document.getElementById('originalCanvas');
+    originalContext = originalCanvas.getContext('2d');
+
+    // tracker canvas and context
+    trackerCanvas = document.getElementById('trackerCanvas');
+    trackerContext = trackerCanvas.getContext('2d');
+
+    // eye canvas and context
+    eyeCanvas = document.getElementById('eyeCanvas');
+    eyeContext = eyeCanvas.getContext('2d');
+
+    // black & white canvas and context
+    bwCanvas = document.getElementById('bwCanvas');
+    bwContext = bwCanvas.getContext('2d');
+
+    // threshold canvas and context
+    thCanvas = document.getElementById('thCanvas');
+    thContext = thCanvas.getContext('2d');
+
+    // old canvas and context
+    oldCanvas = document.getElementById('oldCanvas');
+    oldContext = oldCanvas.getContext('2d');
+
+    // cur canvas and context
+    curCanvas = document.getElementById('curCanvas');
+    curContext = curCanvas.getContext('2d');
+
+    // correlation canvas and context
+    cCanvas = document.getElementById('cCanvas');
+    cContext = cCanvas.getContext('2d');
+
+    // correlation percentage dom
+    correlationPercentage = document.getElementById('correlationPercentage');
+
+    // blinks detected dom
+    blinksDetected = document.getElementById('blinksDetected');
+}
+
+function start(e) {
+    e.preventDefault();
+    document.body.className = 'active';
+
+    webcam.start()
+    tracker.start(webcam.domElement);
+
+    raf = requestAnimationFrame(update);
+    interval = setInterval(correlation, 100);
+    
+    blinks = 0;
+}
+
+function stop(e) {
+    e.preventDefault();
+    document.body.className = '';
+
+    webcam.stop();
+    tracker.stop();
+
+    cancelAnimationFrame(raf);
+    clearInterval(interval);
+
+    blinks = 0;
+}
+
+function update() {
+    raf = requestAnimationFrame(update);
+    originalContext.clearRect(0, 0, originalContext.canvas.width, originalContext.canvas.height);
+    trackerContext.clearRect(0, 0, trackerContext.canvas.width, trackerContext.canvas.height);
+    bwContext.clearRect(0, 0, bwContext.canvas.width, bwContext.canvas.height);
+    thContext.clearRect(0, 0, thContext.canvas.width, thContext.canvas.height);
+    oldContext.clearRect(0, 0, oldContext.canvas.width, oldContext.canvas.height);
+    curContext.clearRect(0, 0, curContext.canvas.width, curContext.canvas.height);
+    cContext.clearRect(0, 0, cContext.canvas.width, cContext.canvas.height);
+
+    // draw video element to canvas
+    originalContext.drawImage(webcam.domElement, 0, 0, originalContext.canvas.width, originalContext.canvas.height);
+
+    // draw tracker to canvas
+    trackerContext.drawImage(webcam.domElement, 0, 0, trackerContext.canvas.width, trackerContext.canvas.height);
+    tracker.draw(trackerCanvas);
+
+    // extract right eye data
+    var pos = tracker.getCurrentPosition();
+    if (pos) {
+        eyeRect.x = pos[23][0];
+        eyeRect.y = pos[24][1];
+        eyeRect.w = pos[25][0] - pos[23][0];
+        eyeRect.h = pos[26][1] - pos[24][1];
+
+        // draw eye
+        eyeContext.drawImage(originalCanvas, eyeRect.x, eyeRect.y, eyeRect.w, eyeRect.h, 0, 0, eyeContext.canvas.width, eyeContext.canvas.height);
+
+        // black and white
+        var data = CanvasFilters.getPixels(eyeCanvas);
+        var grayscale = CanvasFilters.grayscale(data, settings.contrast, settings.brightness);
+
+        bwContext.putImageData(grayscale, 0, 0);
+
+        // threshold
+        var data = CanvasFilters.getPixels(eyeCanvas);
+        var grayscale = CanvasFilters.grayscale(data, settings.contrast, settings.brightness);
+        var threshold = CanvasFilters.threshold(grayscale, settings.threshold);
+
+        thContext.putImageData(threshold, 0, 0);
+
+        // draw old data set
+        if (oldData) {
+            oldContext.putImageData(oldData, 0, 0);
+        }
+
+        // draw cur data set
+        if (curData) {
+            curContext.putImageData(curData, 0, 0);
+        }
+
+        // draw correlation
+        if (cData) {
+            cContext.putImageData(cData, 0, 0);
+        }
+    }
+}
+ 
+function correlation() {
+    if (curData) {
+        oldData = curData;
+    }
+
+    curData = thContext.getImageData(0, 0, thContext.canvas.width, thContext.canvas.height);
+
+    // correlation data
+    cData = cContext.createImageData(cContext.canvas.width, cContext.canvas.height);
+
+    var count = 0;
+    if (oldData && curData) {
+        var total = curData.data.length;
+        for (var i = 0; i < total; i += 4) {
+            cData.data[i + 3] = 255;
+            if (curData.data[i] !== oldData.data[i]) {
+                cData.data[i] = 255;
+                count++;
+                countDetected.innerHTML = count + ' count detected';
+            }
+        }
+    }
+    console.log(lasttime);
+    //엄정환 만약 얼굴이 프레임안에 들어있는 것이 확인되고 있던 중 사용자가 눈을 감았다고 인식이 된다면
+     document.addEventListener("clmtrackrConverged", function() {
+    	 if (count<100) {
+    		
+    			var d = new Date();
+    			
+    			if(lasttime<1){
+    			lasttime=d.getTime();
+    			
+    			}
+    			var n;
+    			n = d.getTime();
+    			
+    		    	if(n>lasttime+3000){
+    		    		console.log(n);
+    		        	 pauseVid();
+    		        	  n=0;
+    		        	  lasttime=0;
+    		    	}	
+    	 }else{
+    		n=0;		
+    		 return false;
+    	 }
+    	 });	
+   
+
+    currentCorrelation = count / (cContext.canvas.width * cContext.canvas.height);
+
+    correlationPercentage.innerHTML = parseFloat(currentCorrelation).toFixed(2) + '%';
+
+    if (currentCorrelation > settings.minCorrelation) {
+        blinks++;
+    }
+
+    blinksDetected.innerHTML = blinks + ' blinks detected';
+}
+
+//영상 play 그리고 일시정지하는 부분
+var myvid = document.getElementById("movie"); 
+function playVid() { 
+    myvid.play(); 
+}
+
+function pauseVid() { 
+    myvid.pause(); 
+}
+
+//얼굴이 없으면 영상이 멈추기 **완료
+document.addEventListener("clmtrackrLost", pauseVid);
+init();
+</script>
+
+
+
+
+	<!--음성인식부분 시작 -->
+	<script src="../resources/jQuery/jquery-ui.js"></script>
+	<script src="../resources/jQuery/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
+<script src="<c:url value="/resources/recognition.js"/>"></script>
+<script type="text/javascript">
+recstart();
+</script>
+<script src="<c:url value="/resources/audio.js"/>"></script>
+
+
+	
+<style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    .innerPopup {
+  	 z-index: 2222222222;
+	}
 
 </html>

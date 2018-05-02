@@ -5,14 +5,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.mirukamo.ai.vo.Users" alias="Users" />
-		<typeAlias type="com.mirukamo.ai.vo.mirukamo_question"
-			alias="question" />
+		<typeAlias type="com.mirukamo.ai.vo.mirukamo_question" alias="question" />
 		<typeAlias type="com.mirukamo.ai.vo.mirukamo_reviews" alias="reviews" />
 		<typeAlias type="com.mirukamo.ai.vo.Mirukamo_drill" alias="drill" />
 		<typeAlias type="com.mirukamo.ai.vo.MyCourse" alias="MyCourse"/>
 		<typeAlias type="com.mirukamo.ai.vo.Mirukamo_course" alias="Course"/>
 		<typeAlias type="com.mirukamo.ai.vo.Mirukamo_answer" alias="answer"/>
-		
 	</typeAliases>
 
 	<!-- DB접속 정보 셋팅 -->

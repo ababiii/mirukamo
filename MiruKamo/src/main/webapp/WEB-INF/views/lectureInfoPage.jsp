@@ -106,8 +106,8 @@ function stop_float_video(){
 <div id="siwon_container" class="prod_sec detail">
 	<div class="sec_main"><div class="inner_container2"><div class="inner">
 		<span class="img_t">
-		<c:if test="${name eq '요시코'}"><img src="../resources/images/yosiko2.jpg" alt=""   height="400" width="350" ></c:if>
-		<c:if test="${name eq '박수진'}"><img src="../resources/images/sujin2.png" alt=""   height="400" width="350" ></c:if>
+		<c:if test="${name eq '黒島・佳子'}"><img src="../resources/images/yosiko2.jpg" alt=""   height="400" width="350" ></c:if>
+		<c:if test="${name eq 'キム・スジン'}"><img src="../resources/images/sujin2.png" alt=""   height="400" width="350" ></c:if>
 		</span>
 		
 											<a href="javascript:void(0);" onClick="loginChk();" class="bt_pay">수강신청</a>

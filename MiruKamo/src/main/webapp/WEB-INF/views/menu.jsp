@@ -149,7 +149,7 @@
 					</a></li>
 				</ul>
 				<!--// #wrap_gnb -->
-				<a href="<c:url value = "/myPage"/>" class="bt_myclass"><img
+				<a href="<c:url value = "myCourseView"/>" class="bt_myclass"><img
 					src="<c:url value = "/resources/images/mycourse.png"/>" alt="내 강의실"></a>
 			</div>
 			<!--// wrap_gnb -->

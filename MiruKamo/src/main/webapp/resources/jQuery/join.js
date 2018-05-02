@@ -296,6 +296,17 @@ $(document).ready(function(){
 			return false;
 		}
 		
+		if( !$("#phone2").val() ){
+			alert('電話番号を入力してください。');
+			$("#phone2").focus();
+			return false;
+		}
+		
+		if( !$("#phone3").val() ){
+			alert('電話番号を入力してください。');
+			$("#phone3").focus();
+			return false;
+		}
 		
 		if($("#checkEmailMessage").text()!='使用できます。'){
 			alert('イーメールをチェックしてください。');
@@ -303,11 +314,7 @@ $(document).ready(function(){
 		}
 
 
-		if( !$("#phone2").val() ){
-			alert('電話番号を入力してください。');
-			$("#phone2").focus();
-			return false;
-		}
+		
 
 		var num_patt = /[^0-9]/gi;
 		if( num_patt.test($("#phone2").val()) ){

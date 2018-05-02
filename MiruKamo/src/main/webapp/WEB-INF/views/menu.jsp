@@ -612,7 +612,7 @@
 							<th>問い合わせ</th>
 							<td>
 								<ul class="list_type">
-									<li><a href="">答え</a></li>
+									<li><a href="advicelist">答え</a></li>
 								</ul>
 							</td>
 						</tr>

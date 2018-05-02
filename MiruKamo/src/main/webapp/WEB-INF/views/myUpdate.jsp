@@ -228,9 +228,9 @@ function gotoUpdate(){
 													<th class="vt"><span class="mt">携帯電話</span></th>
 													<td class="select_td"><select name="phone1"
 														id="phone1" class="select w2">
-															<option value="010" <c:if test="${phone[0]==010 }">checked="checked"</c:if> >010</option>
-															<option value="080" <c:if test="${phone[0]==080 }">checked="checked"</c:if> >080</option>
-															<option value="090" <c:if test="${phone[0]==090 }">checked="checked"</c:if> >090</option>
+															<option value="010" <c:if test="${phone[0]==010 }">selected="selected"</c:if> >010</option>
+															<option value="080" <c:if test="${phone[0]==080 }">selected="selected"</c:if> >080</option>
+															<option value="090" <c:if test="${phone[0]==090 }">selected="selected"</c:if> >090</option>
 													</select>- <input type="tel" name="phone2" id="phone2" value="${phone[1]}"
 														class="input w2">- <input
 														type="tel" name="phone3" id="phone3" value="${phone[2]}"

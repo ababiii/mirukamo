@@ -43,7 +43,7 @@
 		,title
 		,content
 		,hits
-		,to_char(question_date,'YYYY/MM/DD HH24:MI') review_date
+		,to_char(review_date,'YYYY/MM/DD HH24:MI') review_date
 		from
 		mirukamo_reviews
 	</select>
@@ -55,7 +55,7 @@
 		,title
 		,content
 		,hits
-		,to_char(question_date,'YYYY/MM/DD HH24:MI') review_date
+		,to_char(review_date,'YYYY/MM/DD HH24:MI') review_date
 		from
 		mirukamo_reviews
 		where num =#{num}
@@ -134,7 +134,7 @@
 		, title
 		,content
 		,
-		to_char(question_date,'YYYY/MM/DD HH24:MI') review_date
+		to_char(review_date,'YYYY/MM/DD HH24:MI') review_date
 		, hits
 		from
 		mirukamo_reviews

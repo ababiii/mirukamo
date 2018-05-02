@@ -12,7 +12,7 @@
 <script type="text/javascript">
 //로그인 안할시 문제풀이 접근 방지
 $(document).ready(function(){	
-	if (${userId == null} || ${noun == null} ) {
+	if (${userId == null}) {
 		 setTimeout(function(){
 
 			 $('#fromDrill').submit();

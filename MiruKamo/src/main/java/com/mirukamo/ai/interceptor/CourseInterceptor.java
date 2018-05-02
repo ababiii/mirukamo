@@ -28,33 +28,53 @@ public class CourseInterceptor
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.debug("CourseInterceptor 실행");
-		
+		response.setCharacterEncoding("utf-8");
 		//세션의 로그인 정보 읽음
 		HttpSession session=request.getSession();
 		String loginId=(String)session.getAttribute("userId");
-		Object a= request.getAttribute("num");
+		String a= request.getParameter("num");
 		int num=-1;
 		
 		if(a!=null){
-			num=(int)a;
+			num=Integer.parseInt(a);
 		}
 		MyCourse my= new MyCourse();
 		my.setMember_id(loginId);
 		my.setNum(num);
+		System.out.println("aaaa"+my);
 		ArrayList<MyCourse> aru= courseDAO.checkCourse(my);
-		
+		System.out.println(aru.size());
 		//없으면 로그인 페이지로 리다이렉트
 		if(aru!=null){
 			if(aru.size()<1){
 				PrintWriter pw=response.getWriter();
-				pw.print("<script type='text/javascript'>"+
-						"close();"+ "</script>");
+				pw.print("<script src='../resources/jQuery/jquery-3.2.1.min.js'></script><script type='text/javascript'>"
+					+"$(document).ready(function(){	"
+	+"	 setTimeout(function(){"
+		+"close();"
++" }, 1000);"
++"});"
++				 "</script><img src='../resources/images/loverdug.jpg' style='width:190px;height:auto;'>");
+				if(loginId==null){
+					pw.print("<script src='../resources/jQuery/jquery-3.2.1.min.js'></script><script type='text/javascript'>"
+							+"$(document).ready(function(){	"
+			+"	 setTimeout(function(){"
+				+"opener.document.location.href='../login';"
+		+" }, 500);"
+		+"});"
+		+				 "</script>");
+
+					
+					
+					
+				}
 				pw.flush();
 				pw.close();
 			//response.sendRedirect(request.getContextPath()+"/course/lectureInfoPage?teacher="+request.getAttribute("teacher"));
 			
 			}
 		}
+		
 		return super.preHandle(request, response, handler);
 	}
 

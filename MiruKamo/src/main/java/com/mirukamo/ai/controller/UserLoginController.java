@@ -46,32 +46,32 @@ public class UserLoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Users users, Model model,HttpSession session) {
 		logger.info(users+"");
-		System.out.println(users+"");
-		Users result = usersDAO.selectUser(users.getId());
+	      System.out.println(users+"");
+	      Users result = usersDAO.selectUser(users.getId());
 
-		if (users.getId().isEmpty()) {
-			String msg = "아이디를 입력해주세요.";
-			model.addAttribute("errorMsg", msg);
-			return "users/login";
-		} else if (users.getPassword().isEmpty()) {
-			String msg = "비밀번호 입력해주세요.";
-			model.addAttribute("setId", users.getId());
-			model.addAttribute("errorMsg", msg);
-			return "users/login";
-		} else if (result == null) {
-			String msg = "IDを正しく入力してください。";
-			model.addAttribute("setId", users.getId());
-			model.addAttribute("errorMsg", msg);
-			return "redirect:/login";
-		} else if (!result.getPassword().equals(users.getPassword())) {
-			String msg = "PASSWORDを正しく入力してください。";
-			model.addAttribute("setId", users.getId());
-			model.addAttribute("errorMsg", msg);
-			return "redirect:/login";
-		}
-		
-		session.setAttribute("userId", result.getId());
-		return "redirect:/";
+	      if (users.getId().isEmpty()) {
+	         String msg = "아이디를 입력해주세요.";
+	         model.addAttribute("errorMsg", msg);
+	         return "users/login";
+	      } else if (users.getPassword().isEmpty()) {
+	         String msg = "비밀번호 입력해주세요.";
+	         model.addAttribute("setId", users.getId());
+	         model.addAttribute("errorMsg", msg);
+	         return "users/login";
+	      } else if (result == null) {
+	         String msg = "IDを正しく入力してください。";
+	         model.addAttribute("setId", users.getId());
+	         model.addAttribute("errorMsg", msg);
+	         return "redirect:/login";
+	      } else if (!result.getPassword().equals(users.getPassword())) {
+	         String msg = "PASSWORDを正しく入力してください。";
+	         model.addAttribute("setId", users.getId());
+	         model.addAttribute("errorMsg", msg);
+	         return "redirect:/login";
+	      }
+	      session.setAttribute("admin", (result.getAdmin().equals("0")?false:true));
+	      session.setAttribute("userId", result.getId());
+	      return "redirect:/";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

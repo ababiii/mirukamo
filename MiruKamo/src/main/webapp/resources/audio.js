@@ -64,8 +64,10 @@ function handleError(error) {
   console.log('navigator.getUserMedia error: ', error);
 }
 function audiostart(){
+	videoElement = document.getElementById('video2');
 	start();
 }
 function audioend(){
+	videoElement = document.getElementById('video2');
 	end();
 }

@@ -9,7 +9,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>합격 불변의 법칙 megastudy</title>
+    <title>みるかも</title>
     <script type="text/javascript" src="../resources/js/jquery-latest_header.js"></script>
     <script type="text/javascript" src="../resources/js/kollus.videogateway-controller.min.js"></script>
     <link type="text/css" href="../resources/css/player_2011.css" rel="stylesheet" />
@@ -290,7 +290,7 @@
 </head>
 <body>
 <script src="../resources/jQuery/jquery-ui.js"></script>
-<div id="dialog-form" title="따라해 봅시다" style="z-index: 2222222222222; visibility: hidden" >	 
+<div id="dialog-form" title="따라해 봅시다" style="z-index: 2222222222222;" >	 
 	  <form>
 	    <fieldset>
 	      <label for="content2">내용</label>
@@ -374,6 +374,35 @@
 					<a onClick="movieDialog(this)" href="#" value="./preview?name=${a.file_name}">
 					<img src="./preview?name=${a.thumnail}" alt="" style="width: 260px;height: 140px;">
 					<br><font size="${2+18/(fn:length(a.title))}"><b>${a.title}</b></font></a>
+					<!--  테스트용 화면
+					<div>
+    <div id="content" style="visibility: visible;">
+        <canvas id="originalCanvas" width=320 height=240></canvas>
+        <canvas id="trackerCanvas" width=320 height=240></canvas>
+        <br />
+        <canvas id="eyeCanvas" width=80 height=60></canvas>
+        <canvas id="bwCanvas" width=80 height=60></canvas>
+        <canvas id="thCanvas" width=80 height=60></canvas>
+        <br />
+        <canvas id="oldCanvas" width=80 height=60></canvas>
+        <canvas id="curCanvas" width=80 height=60></canvas>
+        <canvas id="cCanvas" width=80 height=60></canvas>
+        <br />
+        <p id="correlationPercentage">
+            0%
+        </p>
+        <p id="blinksDetected">
+            0
+        </p>
+        <p id="countDetected">
+            0
+        </p>
+        <p id="timeDetected">
+            0
+        </p>
+    </div>
+</div>
+					 -->
 				</p>
 			</c:forEach>			
 		</c:if>
@@ -438,8 +467,8 @@
 				</div>
 			</div> 
 			<!-- 웹켐으로 확인하는 부분 -->
-			<div>
-    <div id="content">
+			 <div>
+    <div id="content" style="visibility: hidden;">
         <canvas id="originalCanvas" width=320 height=240></canvas>
         <canvas id="trackerCanvas" width=320 height=240></canvas>
         <br />
@@ -461,7 +490,7 @@
             0
         </p>
     </div>
-</div>
+</div> 
 <!-- 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="../resources/playlist_css/cssplay-playlist-min.js"></script> 
@@ -512,13 +541,16 @@
         </div>
     </div>
     
-    <video id="video2" autoplay style="visibility: hidden;"></video>
+    <video id="video2" style="visibility: hidden;"></video>
     
     
       </style>
    
 </body>
 <script src="../resources/js/utils.js"></script>
+<!-- 
+<script src="../resources/js/no_face.js"></script>
+ -->
 		<script src="../resources/js/clmtrackr1.js"></script>
 		<!-- <script src="../resources/js/d3.min.js"></script> -->
 		<script src="../resources/js/webcam.js"></script>
@@ -698,6 +730,8 @@ function correlation() {
     cData = cContext.createImageData(cContext.canvas.width, cContext.canvas.height);
 
     var count = 0;
+    count = 0;
+    
     if (oldData && curData) {
         var total = curData.data.length;
         for (var i = 0; i < total; i += 4) {
@@ -709,37 +743,68 @@ function correlation() {
             }
         }
     }
-    console.log(lasttime);
+    
+    {
+    	var d = new Date();
+    	if(lasttime<1){
+			lasttime=d.getTime();
+		}
+		 n= d.getTime();
+		 if((n-lasttime)>10000){
+	    		console.log("안깜빡임");
+	        	 pauseVid();
+	        	  n= d.getTime();
+	        	  lasttime=d.getTime();
+	    	}	
+    }
+    
+    //console.log(lasttime);
     //엄정환 만약 얼굴이 프레임안에 들어있는 것이 확인되고 있던 중 사용자가 눈을 감았다고 인식이 된다면
-     document.addEventListener("clmtrackrConverged", function() {
-    	 if (count<100) {
+     document.addEventListener("clmtrackrIteration", function() {
+    	 /*
+    	 if (count<3000) {
     		
     			var d = new Date();
     			
     			if(lasttime<1){
     			lasttime=d.getTime();
-    			
+    			console.log("값넣음");
     			}
     			var n;
     			n = d.getTime();
     			
-    		    	if(n>lasttime+3000){
-    		    		console.log(n);
+    			
+    			
+    		    	if((n-lasttime)>3000){
+    		    		//alert('a');
+    		    		//console.log(n +" : " +lasttime+"="+(n-lasttime));
+    		    	//console.log("정지");
     		        	 pauseVid();
-    		        	  n=0;
-    		        	  lasttime=0;
+    		        	  n= d.getTime();
+    		        	  lasttime=d.getTime();
     		    	}	
     	 }else{
-    		n=0;		
-    		 return false;
-    	 }
+    		 
+    		 console.log(count);
+    		 var d = new Date();
+    		 n= d.getTime();
+    		
+    		lasttime=d.getTime();
+    		
+    	 }*/
     	 });	
    
 
     currentCorrelation = count / (cContext.canvas.width * cContext.canvas.height);
 
     correlationPercentage.innerHTML = parseFloat(currentCorrelation).toFixed(2) + '%';
+    if (parseFloat(currentCorrelation).toFixed(2) >= 0.10) {
+        var d = new Date();
+        lasttime=d.getTime();
+        console.log("깜빡");
+    }
 
+    
     if (currentCorrelation > settings.minCorrelation) {
         blinks++;
     }

@@ -96,13 +96,12 @@ public class CourseDAO {
 		
 	}
 
-	public ArrayList<Mirukamo_course> getTeacherInfo(String teacher) {
+	public ArrayList<Mirukamo_course> getTeacherInfo(Mirukamo_course search) {
 		ArrayList<Mirukamo_course>  result=null;
 		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
-		result=mapper.getTeacherInfo(teacher);
+		result=mapper.getTeacherInfo(search);
 		return result;
 	}
-
 	public Mirukamo_course selectNumCourse(int num) {
 		Mirukamo_course result=null;
 		CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);

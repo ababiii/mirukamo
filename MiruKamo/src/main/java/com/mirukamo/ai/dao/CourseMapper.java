@@ -43,7 +43,7 @@ public interface CourseMapper {
 	//패키지 정보 가져오기
 	public Mirukamo_course getPackageInfo(String packageName);
 
-	public ArrayList<Mirukamo_course> getTeacherInfo(String teacher);
+	public ArrayList<Mirukamo_course> getTeacherInfo(Mirukamo_course search);
 
 	public Mirukamo_course selectNumCourse(int num);
 

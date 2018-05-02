@@ -1339,7 +1339,7 @@ ga('send', 'pageview');
 					<img src="http://data.siwonschool.com/common/avatar/avatar01.png" alt="이미지" class="avatar"/>
 					<p class="con">
 											<span class="name"><strong>${userId}</strong>さん</span><br />日本語の実力が向上することを応援します。
-						<a href="https://member.siwonschool.com/?s=modify" class="bt_st1_s mt12" style="width:86px">マイページ</a>
+						<a href="./myPage" class="bt_st1_s mt12" style="width:86px">マイページ</a>
 					</p>
 				</li>
 			
@@ -1377,7 +1377,7 @@ ga('send', 'pageview');
 			<c:if test="${list.size() !=0 }">
 				<c:forEach items="${list}" var="list">
 		<tr>
-					<th class="th_list_comm3 box_th"><a href="">${list.packagename}</a></th>
+					<th class="th_list_comm3 box_th"><a href="./course/lectureInfoPage?teacher=${list.teacher}">${list.packagename}</a></th>
 					<th class="th_list_comm3 box_th">${list.teacher}</th>
 					<th class="th_list_comm3 box_th">${list.languages}</th>
 		</tr>

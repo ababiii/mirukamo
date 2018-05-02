@@ -28,7 +28,10 @@ public class AdminInterceptor
 		HttpSession session=request.getSession();
 		String loginId=(String)session.getAttribute("userId");
 		Users user=appointmentDAO.getMyInfo(loginId);
-		
+		if(user==null){
+	         response.sendRedirect(request.getContextPath()+"/");
+	         return false;
+	      }
 		//없으면 로그인 페이지로 리다이렉트
 		if(user.getAdmin()==null||user.getAdmin().equals("0")||user.getAdmin().equals("")){
 			response.sendRedirect(request.getContextPath()+"/");

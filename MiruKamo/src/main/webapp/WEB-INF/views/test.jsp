@@ -60,7 +60,7 @@ $(document).ready(function(){
 					<li><a href="appointment">会員加入</a></li></c:if>	
 					<c:if test="${userId!=null}"><li>${userId}さん、こんにちは。</li>
 					<li><a href="login/logout">ログアウト</a></li></c:if>				
-								<li><a href="appointment">お問い合わせ</a></li>
+					<li><a href="appointment">お問い合わせ</a></li>
 			</ul>
 			<ul class="util2">
 									<!-- <li><a href="javascript:;" onClick="loginChk();"><span class="alarm">알림</span></a></li> -->
@@ -116,7 +116,7 @@ $(document).ready(function(){
 					</div> -->
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=teacher" class="tit"><!-- <span>선생님소개</span> --></a>
+					<a class="tit"><!-- <span>선생님소개</span> --></a>
 				<!-- 	<div class="wrap_snb wr2">
 						<dl>
 							<dd><strong>왕초보</strong></dd>
@@ -208,7 +208,7 @@ $(document).ready(function(){
 					</div>
 				</li>
 				<li class="gnb_item">
-					<a href="/?s=community&b=event" class="tit grey"><!-- <span>이벤트</span> --> <!-- <i class="evt_cnt evt_num">0</i> --></a>
+					<a class="tit grey"><!-- <span>이벤트</span> --> <!-- <i class="evt_cnt evt_num">0</i> --></a>
 				</li>		
 			</ul><!--// #wrap_gnb -->
 						<a href="myCourseView" onClick="loginChk();" class="bt_myclass"><img src="resources/images/mycourse.png" alt="내 강의실"></a>
@@ -1702,6 +1702,18 @@ function stop_float_video(){
 			</tbody>
 		</table>
 	</div></div>
+	<br>
+	<br>
+	
+	<div id="siwon_footer">
+	<div class="bg_footer_link">
+		<div class="footer_link">
+			<ul>
+				
+			</ul>
+		</div>
+	</div>
+	</div>
 	<!-- <div class="sec_btm">
 		<p>시원스쿨 일본어의 <span>다양한 소식</span>을 빠르게 만날 수 있어요!</p>
 		<div class="sns_links">

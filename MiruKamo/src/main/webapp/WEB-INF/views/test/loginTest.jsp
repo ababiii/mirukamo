@@ -80,7 +80,7 @@ var LLscriptPlugIn = new function () { this.load = function(eSRC,fnc) { var scri
 <div id="siwon_wrap">
 		<div id="siwon_header">
 		<div class="inner_header">
-			<h1 class="logo"><a href="/"><img src="resources/images/mirukamo3.jpg" alt="대한민국 왕초보탈출 시원스쿨" width="200px"/></a></h1>
+			<h1 class="logo"><a href="./"><img src="resources/images/mirukamo3.jpg"  width="200px"/></a></h1>
 			<ul class="login_info">
 								<!-- 로그인 전 -->
 				<li class="ico1 fst"><a href="login">ログイン</a></li>

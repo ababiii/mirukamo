@@ -443,8 +443,11 @@ public class CourseController {
 =======*/
 package com.mirukamo.ai.controller;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -504,9 +507,8 @@ public class CourseController {
 	private static final Logger logger = LoggerFactory.getLogger(CourseController.class);
 	final String filepath = "D://video/";
 
-
 	@RequestMapping(value = "/lectureInfoPage", method = RequestMethod.GET)
-	public String lectureInfoPage(Model model, @RequestParam("teacher") String teacher) {
+	public String lectureInfoPage(Model model, @RequestParam("teacher") String teacher, String lecture) {
 		
 		try {
 			teacher = URLDecoder.decode(teacher, "utf-8");
@@ -518,7 +520,10 @@ public class CourseController {
 		//courseView에서 보내준 값을 model에 넣어준다
 		//넣어 준 값을 jsp에서 그 선생님이 맞는지 확인해 주는대 사용해준다. 
 		System.out.println(teacher);
-		ArrayList<Mirukamo_course> list=courseDAO.getTeacherInfo(teacher);
+		Mirukamo_course search=new Mirukamo_course();
+		search.setTeacher(teacher);
+		search.setPackagename(lecture);
+		ArrayList<Mirukamo_course> list=courseDAO.getTeacherInfo(search);
 		ArrayList<ArrayList<Mirukamo_course>> result=new ArrayList<ArrayList<Mirukamo_course>>();
 		
 		for (Mirukamo_course a : list) {
@@ -600,16 +605,40 @@ public class CourseController {
 		return "face7";
 	}
 	@RequestMapping(value = "/lecture_page", method = RequestMethod.GET)
-	public String lecture_page(@RequestParam(value="num", required = true) int num,Model m) {
+	public String lecture_page(@RequestParam(value="num", required = true) int num,Model m,HttpSession session, HttpServletResponse response) {
 		System.out.println(num+"이름 들어감");
 		logger.debug(num+"");
-		
+		response.setCharacterEncoding("euc-kr");
 		Mirukamo_course c= courseDAO.selectNumCourse(num);
 	ArrayList<Mirukamo_course> p= courseDAO.selectPackCourse(c.getPackagename());
 		m.addAttribute("name",c.getFile_name());
 		m.addAttribute("thumb",p);
 		//엄정환 강의를 보았는지 확인하기
-	
+		String log=(String)session.getAttribute("userId");
+		if(log == null){
+				PrintWriter pw= null;
+				try {
+					pw = response.getWriter();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(pw != null){
+				pw.print("<script src='../resources/jQuery/jquery-3.2.1.min.js'></script><script type='text/javascript'>"
+					+"$(document).ready(function(){	"
+	+"	 setTimeout(function(){"
+					+"opener.document.location.href='../login';"
+		+"close();"
++" }, 3000);"
++"});"
++				 "</script><img src='../resources/images/loverdug.jpg' style='width:190px;height:auto;'>");
+				pw.flush();
+				pw.close();
+				}
+			//response.sendRedirect(request.getContextPath()+"/course/lectureInfoPage?teacher="+request.getAttribute("teacher"));
+			
+			
+		}
 		
 		return "lecture_page";
 	}
@@ -797,7 +826,7 @@ public class CourseController {
 			courseDAO.insertCourse(course);
 		
 
-			
+
 			String encodeResult="";
 			try {
 				encodeResult = URLEncoder.encode(course.getTeacher(), "utf-8");
@@ -805,8 +834,14 @@ public class CourseController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			return "redirect:lectureInfoPage?teacher="+encodeResult;
+			String encodeResult2="";
+			try {
+				encodeResult2 = URLEncoder.encode(course.getPackagename(), "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "redirect:lectureInfoPage?teacher="+encodeResult+"&lecture="+encodeResult2;
 		
 	}
 

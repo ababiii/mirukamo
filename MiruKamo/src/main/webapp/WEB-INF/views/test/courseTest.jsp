@@ -84,7 +84,7 @@ function insertCourse(){
 									</dd>
 									<dd class="info">
 										<ul class="txt2">
-											<li>9講</li>
+											<!--<li>9講</li>-->
 											<!-- <li>60일</li>
 											<li>교재별도구매</li> -->
 										</ul>
@@ -128,11 +128,7 @@ function insertCourse(){
 						</p>
 						<div class="bt_area_comm">
 							<a href="javascript:void(0);" id="insertCourseBt1" class="bt_pay" package="New日本語の初級を脱出する">受講申請</a>
-<<<<<<< HEAD
-							<a href="course/lectureInfoPage?teacher=黒島・佳子&lecture=New日本語の初級を脱出する" class="bt_more">詳細ページ</a>
-=======
 							<a href="course/lectureInfoPage?teacher=黒島・佳子" class="bt_more">詳細ページ</a>
->>>>>>> branch 'master' of https://github.com/ababiii/mirukamo.git
 						</div>
 					</div>
 				</div>
@@ -165,7 +161,7 @@ function insertCourse(){
 									</dd>
 									<dd class="info">
 										<ul class="txt2">
-											<li>10講</li>
+											<!-- <li>10講</li> -->
 											<!-- <li>60일</li>
 											<li>교재별도구매</li> -->
 										</ul>

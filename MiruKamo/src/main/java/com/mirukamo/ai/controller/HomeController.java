@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ibm.icu.text.Transliterator;
 
@@ -29,7 +30,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,boolean joinComplete) {
+	public String home(Locale locale, Model model,boolean joinComplete,@RequestParam(value="result",defaultValue="0")String result) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 	/*	//ㅈ석
 		Date date = new Date();
@@ -76,6 +77,7 @@ public class HomeController {
 		if(joinComplete==true){
 			model.addAttribute("joinComplete", true);
 		}
+		model.addAttribute("result", result);
 		
 		return "test";
 	}

@@ -110,6 +110,7 @@
 				<div class="mypage_layer">
 					<ul>
 						<li><a href="<c:url value = "/myCourseView"/>">マイページ</a></li>
+						<li><a href="<c:url value = 'myUpdate'/>">マイページ</a></li>
 						<li><a href="<c:url value = "/myCourseView"/>">受講内訳</a></li>
 						<!-- <li><a href="javascript:;" onClick="loginChk();">주문/배송 조회</a></li> -->
 						<!-- <li><a href="javascript:;" onClick="loginChk();">내 글 관리</a></li> -->
@@ -246,7 +247,7 @@
 					</a></li>
 				</ul>
 				<!--// #wrap_gnb -->
-				<a href="<c:url value = "/myCourseView"/>" class="bt_myclass"><img
+				<a href="<c:url value = "myCourseView"/>" class="bt_myclass"><img
 					src="<c:url value = "/resources/images/mycourse.png"/>" alt="내 강의실"></a>
 			</div>
 			<!--// wrap_gnb -->
@@ -753,6 +754,7 @@
 							<td>
 								<ul class="list_type">
 									<li><a href="<c:url value = "/myadvicelist"/>">答え</a></li>
+									<li><a href="advicelist">答え</a></li>
 								</ul>
 							</td>
 						</tr>

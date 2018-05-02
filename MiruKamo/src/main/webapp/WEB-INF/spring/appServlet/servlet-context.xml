@@ -51,7 +51,8 @@
 			<!-- 특정 네임스페이스 하위의 모든 경로에 대하여 다음과 같이 와일드카드 지정 가능 -->
 			<mvc:mapping path="/myPage" />
 			<!-- <mvc:mapping path="/course/lecture_page" /> -->
-		
+			<!-- <mvc:mapping path="/join/joinForm" /> -->
+			<mvc:mapping path="/myCourseView" />
 			<!-- <mvc:mapping path="/cust/joinComplete" /> -->
 			<!-- 위의 경로들은 다음의 인터셉터를 경유한다. -->
 			<beans:ref bean="loginInterceptor" />
@@ -92,16 +93,16 @@
 	<!-- 어드민 인터셉터를 경유해서 처리할 경로들 지정 -->
 	<!-- 현 XML파일 상단의 beans 태그 내에 xmlns:mvc="http://www.springframework.org/schema/mvc" 추가하고 사용 -->
 
-	<mvc:interceptors>
+	<!-- <mvc:interceptors>
 		<mvc:interceptor>
-			<!-- 특정 네임스페이스 하위의 모든 경로에 대하여 다음과 같이 와일드카드 지정 가능 -->
+			특정 네임스페이스 하위의 모든 경로에 대하여 다음과 같이 와일드카드 지정 가능
 			<mvc:mapping path="/replyadvice" />
 			<mvc:mapping path="/advicelist" />
 			<mvc:mapping path="/upload" />
 			<mvc:mapping path="/uploadcomplete" />
-			<!-- 위의 경로들은 다음의 인터셉터를 경유한다. -->
+			위의 경로들은 다음의 인터셉터를 경유한다.
 			<beans:ref bean="adminInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 	
 </beans:beans>

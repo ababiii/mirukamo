@@ -8,8 +8,9 @@
 <html lang="ko">
 <head>
 <meta property="og:type" content="website">
-
-
+<meta property="og:url" content="https://member.siwonschool.com">
+<meta property="og:site_name" content="시원스쿨">
+<meta property="og:title" content="대한민국 왕초보탈출 시원스쿨">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +36,7 @@
 	src="resources/jQuery/join.js?date=1524905017"></script>
 <script type="text/javascript" src="https://wcs.naver.net/wcslog.js">
 </script>
-
+<script type="text/javascript" src="resources/jQuery/find.js?date=1525252625"></script>
 <script type="text/javascript">
 
 
@@ -166,47 +167,92 @@
 				<div class="sub_con">
 					<div class="find_area">
 						<div class="find_notice">
-							<h4 class="em">パスワード再設定<span class="br"></span></h4>
-							
+							<h4 class="em">ミルカモを訪ねてくださってありがとうございます。<span class="br">IDやPASSWORDを覚えていませんか。</span></h4>
+							お客様の情報を見つけられるように助けて差し上げます。
 						</div>
 						<div class="find_con1">
-							
+							<%-- <ul class="tab_join">
+								<li class="phone"><a href="javascript:void(0)" class="btn on">휴대폰번호 인증</a></li>
+								<li class="email"><a href="javascript:void(0)" class="btn">이메일 인증</a></li>
+							</ul>
+							<!-- 휴대폰번호 인증 -->
+							<form method="POST" name="phone_cert_form" id="phone_cert_form" action="/?s=find&t=id">
+							<input type="hidden" id="phone_cert_no" name="phone_cert_no" value="" />
+							<input type="hidden" id="member_id" name="member_id" value="" />
+							<div class="phone_join_wrap">
+								<div class="join_cert">
+									<table class="join_table">
+										<caption>휴대폰번호로 찾기</caption>
+										<tr>
+											<th>이름</th>
+											<td><span class="input_ps"><input type="text" name="uname" id="uname" class="input input w1 holder" /><label for="uname" class="holder_label">이름을 입력해주세요.</label></span></td>
+										</tr>
+										<tr>
+											<th class="vt"><span class="mt">휴대전화</span></th>
+											<td class="select_td">
+												<select name="phone1" id="phone1" class="select w2">
+													<option>010</option>
+													<option>011</option>
+													<option>016</option>
+													<option>017</option>
+													<option>018</option>
+													<option>019</option>
+												</select> - 
+												<input type="tel" name="phone2" id="phone2" class="input w2" /> - <input type="tel" name="phone3" id="phone3" class="input w2" />
+												<span class="mg2"><a href="#none" id="phone_cert_num" class="bt_st4 layer_popup"><span>인증번호</span></a></span>
+												<p class="cert">
+												<span class="input_ps"><input type="text" id="cert_num" name="" class="input w1 holder" /><label for="cert_num" class="holder_label">인증번호를 입력해주세요</label></span>
+												<span class="noti mg2" id="wrong_num" style="display:none;">잘못된 인증번호 입니다.</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</div><!--// join_cert -->
+								<div class="bt_group">
+									<a href="#" class="bt_st2" id="phone_cert_do"><span>확인</span></a>
+								</div>
+							</div>
+							</form>
+							<!--// 휴대폰번호 인증 --> --%>
 
 							<!-- 이메일 인증 -->
-							<form method="POST" name="email_cert_form" id="repassword_form" action="login/reset_pw">
-							<input type="hidden" id="based" name="id" value="${based.id}" />
+							<form method="POST" name="email_cert_form" id="email_cert_form" action="re_pw">
+							<input type="hidden" id="email_cert_no" name="email_cert_no" value="" />
 							<input type="hidden" id="member_id" name="member_id" value="" />
 							<div class="email_join_wrap" style="display:block;">
 								<div class="join_cert">
-									<table class="join_table2">
-											<caption>비밀번호 재설정</caption>
-											
-												<tr>
-													<th>パスワード</th>
-													<td><span class="input_ps"><input
-															type="password" id="usrpw" name="userPassword"
-															class="input w1 holder" maxlength="20"> <label
-															for="usrpw" class="holder_label">8~20字の英文、数字</label> </span> 
-															</td>
-															<td>
-															<span
-														class="noti mg2" id="pw_text" style="display: none;">8~20字の英文、数字</span>
-													</td>
-												</tr>
-												<tr>
-													<th class="bd_line">パスワード再入力</th>
-													<td class="bd_line"><span class="input_ps"> <input
-															type="password" id="usrpw_re" name="usrpw_re"
-															class="input w1 holder" maxlength="20"> <label
-															for="usrpw_re" class="holder_label">上のパスワードをもう一度入力。</label>
-													</span> </td><td width="300px"><span class="noti mg2" id="pwre_text"
-														style="display: none;">パスワードが一致しません。</span></td>
-												</tr>
+									<table class="join_table">
+									<caption>이메일주소로 찾기</caption>
+										<tr>
+											<th>아이디</th>
+											<td><span class="input_ps"><input type="text" id="user_id2" name="id" class="input input w1 holder" /><label for="user_id2" class="holder_label">아이디를 입력해주세요.</label></span></td>
+										</tr>
+										<tr>
+											<th class="vt"><span class="mt">이메일</span></th>
+											<td class="select_td">
+												<input type="text" name="email" id="email_id" class="input w3" /> @ <input type="text" name="email_back" id="email_back" class="input w3" /> 
+												<select name="email2" id="emailcorp" class="select w3">
+													<option value="">직접입력</option>
+													<option value="naver.com">네이버</option>
+													<option value="gmail.com">구글</option>
+													<option value="nate.com">네이트</option>
+													<option value="daum.net">다음</option>
+												</select>
 												
-										</table>
+												<p class="cert">
+									
+												<span class="noti mg2" id="wrong_email" style="display:none;">정보를 다시 확인해 주세요. 이메일 형식이 잘못되었습니다.</span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<th>이름</th>
+											<td><span class="input_ps"><input type="text" id="name" name="name" class="input input w1 holder" /></td>
+										</tr>
+									</table>
 								</div><!--// join_cert -->
 								<div class="bt_group">
-									<a href="javascript:;" class="bt_st2" id="repassword_bt"><span>확인</span></a>
+									<a href="javascript:;" class="bt_st2" id="email_pwcert_do"><span>확인</span></a>
 								</div>
 							</div>
 

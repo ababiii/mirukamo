@@ -46,7 +46,7 @@
 		from
 			mirukamo_member
 		where
-			id=#{id} and email = #{email} and name = #{name}
+			id=#{id} and email = #{email} and email2=#{email2} and name = #{name}
 	</select>
 	<select id="selectAllUsers" resultType="Users">
 		select
@@ -59,10 +59,9 @@ update
 	mirukamo_member
 	set
 	password = #{password}
-	
 
 where
-    id = #{id} and email = #{email} and name = #{name}
+    id = #{id}
 </update>
 	
 	<!-- 이메일 중복환인 -->

@@ -1340,6 +1340,7 @@ ga('send', 'pageview');
 					<p class="con">
 											<span class="name"><strong>${userId}</strong>さん</span><br />日本語の実力が向上することを応援します。
 						<a href="./myPage" class="bt_st1_s mt12" style="width:86px">マイページ</a>
+						<a href="myUpdate" class="bt_st1_s mt12" style="width:86px">マイページ</a>
 					</p>
 				</li>
 			

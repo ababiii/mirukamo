@@ -13,6 +13,9 @@ public interface CourseMapper {
 	//강의 업로드 저장
 	public int insertCourse(Mirukamo_course vo);
 	
+	//강의 패키지 정보 저장
+	public int insertPackage(Mirukamo_course course);
+	
 	//강의 가져오기 송수근
 	public ArrayList<Mirukamo_course> getcourse();
 

@@ -21,7 +21,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="format-detection" content="telephone=no">
-<title>ミルカモ会員加入</title>
+<title>ミルカモID探し</title>
 <link type="text/css"
 	href="//fonts.googleapis.com/earlyaccess/nanumgothic.css?t=0&date=1524905017"
 	rel="stylesheet">
@@ -47,16 +47,9 @@
 
 $(document).ready(function(){
 	
-	$('#my_update_bt').on('click',gotoUpdate);
-	
-	if(${result==true}){
-		alert('저장이 완료되었습니다.');
-	}
 });
 
-function gotoUpdate(){
-	$('#updateform').submit();
-}
+
 
 	//AccoutId 적용
 	if (!wcs_add)
@@ -170,106 +163,110 @@ function gotoUpdate(){
 			</script>
 
 			<div class="inner_container">
-				<div class="top_area">
-					<h2 class="tit_comm">マイページ</h2>
-					<a href="javascript:history.back()" class="bt_prev ir2"><span>이전</span></a>
-				</div>
-				<!--// top_area -->
-				<div class="contents sub">
-					
-					<div class="sub_con">
-						<form action="myUpdate" method="POST" name="updateform"
-							id="updateform">
-							
-							<fieldset>
-								<legend>회원정보 입력</legend>
-								<div class="step3_area">
-									<div class="info_wrap ess">
-										<h4>必修入力</h4>
-										<table class="join_table2">
-											<caption>회원정보 폼- 필수입력</caption>
-											<tbody>
-												<tr>
-													<th>ID</th>
-													<td><span class="input_ps"> <input type="text"
-															class="input w1 holder"
-															maxlength="12" value="${userId}" readonly="readonly"> 
-
-													</span>
-														<span class="mg2"><!--  <a href="javascript:void(0);"
-															class="bt_st4" id="repetition"> <span>중복확인</span></a> -->
-													</span> <span class="noti mg2" id="id_text" style="display: none;">ID</span>
-													</td>
-												</tr>
-												<tr>
-													<th>パスワード</th>
-													<td><span class="input_ps"><input
-															type="password" id="usrpw" name="password"
-															class="input w1 holder" maxlength="20" value="${ info.password}">  </span> <span
-														class="noti mg2" id="pw_text" style="display: none;">8~20字の英文、数字</span>
-													</td>
-												</tr>
-												<tr>
-													<th class="bd_line">パスワード再入力</th>
-													<td class="bd_line"><span class="input_ps"> <input
-															type="password" id="usrpw_re"
-															class="input w1 holder" maxlength="20"  value="${ info.password}"> 
-													</span> <span class="noti mg2" id="pwre_text"
-														style="display: none;">パスワードが一致しません。</span></td>
-												</tr>
-												<tr>
-													<th class="pd">名前</th>
-													<td class="pd"><span class="input_ps"> <input
-															type="text" id="uname" name="uname"
-															class="input w3" value="${info.name}" readonly="readonly">
-													</span></td>
-												</tr>
-												<tr>
-													<th class="vt"><span class="mt">携帯電話</span></th>
-													<td class="select_td"><select name="phone1"
-														id="phone1" class="select w2">
-															<option value="010" <c:if test="${phone[0]==010 }">selected="selected"</c:if> >010</option>
-															<option value="080" <c:if test="${phone[0]==080 }">selected="selected"</c:if> >080</option>
-															<option value="090" <c:if test="${phone[0]==090 }">selected="selected"</c:if> >090</option>
-													</select>- <input type="tel" name="phone2" id="phone2" value="${phone[1]}"
-														class="input w2">- <input
-														type="tel" name="phone3" id="phone3" value="${phone[2]}"
-														class="input w2"></td>
-												</tr>
-												<tr>
-													<th class="vt"><span class="mt">E-MAIL</span></th>
-													<td class="select_td"><input type="text"
-														name="email_id" id="email_id" class="input w4" value="${info.email }" readonly="readonly">@ <input
-														type="text" name="email_back" id="email_back"
-														class="input w4" value="${info.email2 }"  readonly="readonly"> 
-													
-													</td>
-												</tr>
-												<tr>
-													<th>
-													</th>
-													<td>
-														<span class="noti mg2" id="checkEmailMessage"
-														style="display: none;"></span>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div class="bt_group">
-										<a href="javascript:void(0)" id="my_update_bt" class="bt_st2 btn">
-											<span>確認</span>
-										</a>
-									</div>
+			<div class="top_area">
+				<h2 class="tit_comm">ID/PASSWORD探し</h2>
+				<a href="javascript:history.back()" class="bt_prev ir2"><span>이전</span></a>
+			</div><!--// top_area -->
+			<div class="contents sub">
+				<ul class="tab_subject w2">
+					<li class="on"><h3><a href="mirukamo_find">ID探し</a></h3></li>
+					<li><h3><a href="mirukamo_pw_find">PASSWORD探し</a></h3></li>
+				</ul>
+				<div class="sub_con">
+					<div class="find_area">
+						<div class="find_notice">
+							<h4 class="em">ミルカモを訪ねてくださってありがとうございます。<span class="br">IDやPASSWORDを覚えていませんか。</span></h4>
+							お客様の情報を見つけられるように助けて差し上げます。
+						</div>
+						<div class="find_con1">
+							<%-- <ul class="tab_join">
+								<li class="phone"><a href="javascript:void(0)" class="btn on">휴대폰번호 인증</a></li>
+								<li class="email"><a href="javascript:void(0)" class="btn">이메일 인증</a></li>
+							</ul>
+							<!-- 휴대폰번호 인증 -->
+							<form method="POST" name="phone_cert_form" id="phone_cert_form" action="/?s=find&t=id">
+							<input type="hidden" id="phone_cert_no" name="phone_cert_no" value="" />
+							<input type="hidden" id="member_id" name="member_id" value="" />
+							<div class="phone_join_wrap">
+								<div class="join_cert">
+									<table class="join_table">
+										<caption>휴대폰번호로 찾기</caption>
+										<tr>
+											<th>이름</th>
+											<td><span class="input_ps"><input type="text" name="uname" id="uname" class="input input w1 holder" /><label for="uname" class="holder_label">이름을 입력해주세요.</label></span></td>
+										</tr>
+										<tr>
+											<th class="vt"><span class="mt">휴대전화</span></th>
+											<td class="select_td">
+												<select name="phone1" id="phone1" class="select w2">
+													<option>010</option>
+													<option>011</option>
+													<option>016</option>
+													<option>017</option>
+													<option>018</option>
+													<option>019</option>
+												</select> - 
+												<input type="tel" name="phone2" id="phone2" class="input w2" /> - <input type="tel" name="phone3" id="phone3" class="input w2" />
+												<span class="mg2"><a href="#none" id="phone_cert_num" class="bt_st4 layer_popup"><span>인증번호</span></a></span>
+												<p class="cert">
+												<span class="input_ps"><input type="text" id="cert_num" name="" class="input w1 holder" /><label for="cert_num" class="holder_label">인증번호를 입력해주세요</label></span>
+												<span class="noti mg2" id="wrong_num" style="display:none;">잘못된 인증번호 입니다.</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</div><!--// join_cert -->
+								<div class="bt_group">
+									<a href="#" class="bt_st2" id="phone_cert_do"><span>확인</span></a>
 								</div>
-							</fieldset>
-						</form>
-					</div>
-					<!--// sub_con-->
-				</div>
-				<!--// contents -->
-			</div>
-			<!--// inner_container -->
+							</div>
+							</form>
+							<!--// 휴대폰번호 인증 --> --%>
+
+							<!-- 이메일 인증 -->
+							<form method="POST" name="email_cert_form" id="email_cert_form" action="">
+							<input type="hidden" id="email_cert_no" name="email_cert_no" value="" />
+							<input type="hidden" id="member_id" name="member_id" value="" />
+							<div class="email_join_wrap" style="display: block;">
+								<div class="join_cert">
+									<table class="join_table">
+									<caption>이메일주소로 찾기</caption>
+										<tr>
+											<th>名前</th>
+											<td><span class="input_ps"><input type="text" id="uname2" name="name" class="input input w1 holder" /><label for="uname2" class="holder_label">이름을 입력해주세요.</label></span></td>
+										</tr>
+										<tr>
+											<th class="vt"><span class="mt">EMAIL</span></th>
+											<td class="select_td">
+												<input type="text" name="email" id="email_id" class="input w3" /> @ <input type="text" name="email_back" id="email_back" class="input w3" /> 
+												<select name="email2" id="emailcorp" class="select w3">
+													<option value="">직접입력</option>
+													<option value="naver.com">네이버</option>
+													<option value="gmail.com">구글</option>
+													<option value="nate.com">네이트</option>
+													<option value="daum.net">다음</option>
+												</select>
+												<p class="cert">
+												<span class="noti mt" id="wrong_email" style="display:none;">정보를 다시 확인해 주세요.</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</div><!--// join_cert -->
+								<div class="bt_group">
+									<a href="javascript:;" class="bt_st2 layer_popup" id="email_cert_do"><span>확인</span></a>
+								</div>
+							</div>
+							</form>
+							<!--// 이메일 인증 -->
+
+						</div>
+					</div><!--// find_area -->
+				</div><!--// sub_con -->
+				
+			</div><!--// contents -->
+		</div><!--// inner_container -->
+
 		</div>
 		<!--// siwon_container -->
 </body>
